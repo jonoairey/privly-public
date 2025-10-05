@@ -1,13 +1,14 @@
-'use client'
-
+import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import Footer from '@/components/footer'
-import { 
-  Shield, 
+import { Breadcrumbs } from '@/components/breadcrumbs'
+import { generateArticleSchema } from '@/lib/seo-advanced'
+import {
+  Shield,
   Calendar,
   Clock,
   User,
@@ -24,8 +25,11 @@ const articles = {
     title: 'How Data Brokers Sell Your Personal Information (And How to Stop Them)',
     author: 'Privacy Team',
     date: '2024-01-15',
+    dateModified: '2024-01-15',
     readTime: '8 min read',
     category: 'Data Privacy',
+    image: '/blog/data-brokers.jpg',
+    keywords: ['data brokers', 'privacy protection', 'remove personal data', 'data privacy'],
     excerpt: 'Data brokers collect and sell billions of personal records annually. Learn how this $200 billion industry works and discover proven methods to remove your information from their databases.',
     content: [
       {
@@ -111,8 +115,11 @@ const articles = {
     title: '10 Warning Signs You\'re Being Scammed Online (2024 Guide)',
     author: 'Security Team',
     date: '2024-01-12',
+    dateModified: '2024-01-12',
     readTime: '6 min read',
     category: 'Scam Protection',
+    image: '/blog/scam-warning-signs.jpg',
+    keywords: ['online scams', 'scam detection', 'fraud prevention', 'cybersecurity'],
     excerpt: 'Scammers steal billions each year using sophisticated tactics. Learn the red flags that expose online scams and protect yourself with our expert-backed detection methods.',
     content: [
       {
@@ -188,6 +195,49 @@ type ArticleContent = {
   title?: string
 }
 
+// Generate metadata for SEO
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}): Promise<Metadata> {
+  const article = articles[params.slug as keyof typeof articles]
+
+  if (!article) {
+    return {
+      title: 'Post Not Found | Privly Blog',
+    }
+  }
+
+  return {
+    title: `${article.title} | Privly Blog`,
+    description: article.excerpt,
+    keywords: article.keywords.join(', '),
+    openGraph: {
+      title: article.title,
+      description: article.excerpt,
+      type: 'article',
+      publishedTime: article.date,
+      modifiedTime: article.dateModified,
+      authors: [article.author],
+      images: [
+        {
+          url: article.image,
+          width: 1200,
+          height: 630,
+          alt: article.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description: article.excerpt,
+      images: [article.image],
+    },
+  }
+}
+
 function renderContent(content: ArticleContent[]) {
   return content.map((item, index) => {
     switch (item.type) {
@@ -260,13 +310,31 @@ function renderContent(content: ArticleContent[]) {
 
 export default function BlogArticlePage({ params }: { params: { slug: string } }) {
   const article = articles[params.slug as keyof typeof articles]
-  
+
   if (!article) {
     notFound()
   }
 
+  // Generate article schema
+  const articleSchema = generateArticleSchema({
+    headline: article.title,
+    description: article.excerpt,
+    image: article.image,
+    datePublished: article.date,
+    dateModified: article.dateModified,
+    author: article.author,
+  })
+
   return (
     <div className="min-h-screen bg-white">
+      {/* Article Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleSchema),
+        }}
+      />
+
       {/* Header */}
       <header className="sticky top-0 z-50 bg-gray-900/95 backdrop-blur-sm border-b border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -303,8 +371,17 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Blog
           </Link>
-          
-          <Badge className="mb-4">{article.category}</Badge>
+
+          {/* Breadcrumbs */}
+          <Breadcrumbs
+            items={[
+              { name: 'Blog', href: '/blog' },
+              { name: article.category, href: `/blog/category/${article.category.toLowerCase().replace(' ', '-')}` },
+              { name: article.title, href: `/blog/${params.slug}` },
+            ]}
+          />
+
+          <Badge className="mb-4 mt-6">{article.category}</Badge>
           
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             {article.title}
