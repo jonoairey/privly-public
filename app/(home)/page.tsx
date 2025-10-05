@@ -994,7 +994,7 @@ export default function HomePage() {
                   <p className="text-xs text-gray-500 mt-4">Perfect for: Anyone worried about falling for scams</p>
                 </div>
 
-                <Link href="/auth/signup?plan=scam_watch">
+                <Link href={`${process.env.NEXT_PUBLIC_APP_URL || 'https://app.useprivly.com'}/payment?plan=scam_watch&interval=monthly`}>
                   <Button className="w-full bg-orange-600 hover:bg-orange-700">
                     Start Scam Watch
                   </Button>
@@ -1042,7 +1042,7 @@ export default function HomePage() {
                   <p className="text-xs text-gray-500 mt-4">Perfect for: Privacy-conscious individuals</p>
                 </div>
 
-                <Link href="/auth/signup?plan=personal">
+                <Link href={`${process.env.NEXT_PUBLIC_APP_URL || 'https://app.useprivly.com'}/payment?plan=personal&interval=monthly`}>
                   <Button className="w-full bg-purple-600 hover:bg-purple-700">
                     Start Personal Plan
                   </Button>
@@ -1090,7 +1090,7 @@ export default function HomePage() {
                   <p className="text-xs text-gray-500 mt-4">Perfect for: Creators, professionals, brands</p>
                 </div>
 
-                <Link href="/auth/signup?plan=professional">
+                <Link href={`${process.env.NEXT_PUBLIC_APP_URL || 'https://app.useprivly.com'}/payment?plan=professional&interval=monthly`}>
                   <Button className="w-full bg-blue-600 hover:bg-blue-700">
                     Start Professional Plan
                   </Button>
