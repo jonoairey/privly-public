@@ -51,6 +51,80 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Platform Protection */}
+          <div>
+            <h4 className="font-semibold mb-4 text-lg">Creator Protection</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/guides/platform-protection/onlyfans-leak-protection" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  OnlyFans Leak Protection
+                </Link>
+              </li>
+              <li>
+                <Link href="/guides/platform-protection/fansly-content-protection" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Fansly Content Protection
+                </Link>
+              </li>
+              <li>
+                <Link href="/guides/platform-protection/patreon-creator-privacy" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Patreon Creator Privacy
+                </Link>
+              </li>
+              <li>
+                <Link href="/guides/platform-protection/manyvids-leak-detection" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  ManyVids Leak Detection
+                </Link>
+              </li>
+              <li>
+                <Link href="/guides/platform-protection/instagram-content-theft" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Instagram Content Theft
+                </Link>
+              </li>
+              <li>
+                <Link href="/guides/platform-protection/tiktok-creator-privacy" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  TikTok Creator Privacy
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Privacy How-To Guides */}
+          <div>
+            <h4 className="font-semibold mb-4 text-lg">Privacy Guides</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/guides/privacy-how-to/remove-leaked-content" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Remove Leaked Content
+                </Link>
+              </li>
+              <li>
+                <Link href="/guides/privacy-how-to/dmca-takedown-service" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  DMCA Takedown Service
+                </Link>
+              </li>
+              <li>
+                <Link href="/guides/privacy-how-to/stop-content-pirates" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Stop Content Pirates
+                </Link>
+              </li>
+              <li>
+                <Link href="/guides/privacy-how-to/dark-web-monitoring" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Dark Web Monitoring
+                </Link>
+              </li>
+              <li>
+                <Link href="/guides/privacy-how-to/delete-yourself-from-internet" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Delete Yourself Online
+                </Link>
+              </li>
+              <li>
+                <Link href="/guides/privacy-how-to/data-broker-removal" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Data Broker Removal
+                </Link>
+              </li>
+            </ul>
+          </div>
+
           {/* Company */}
           <div>
             <h4 className="font-semibold mb-4 text-lg">Company</h4>
@@ -66,6 +140,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/pricing" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Pricing
+                </Link>
+              </li>
+              <li>
                 <Link href="/privacy" className="text-gray-300 hover:text-white transition-colors text-sm">
                   Privacy Policy
                 </Link>
@@ -75,31 +154,7 @@ export default function Footer() {
                   Terms of Service
                 </Link>
               </li>
-              <li>
-                <Link href="/contact" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Contact
-                </Link>
-              </li>
             </ul>
-          </div>
-
-          {/* Trust Indicators */}
-          <div>
-            <h4 className="font-semibold mb-4 text-lg">Trust & Security</h4>
-            <div className="space-y-4">
-              <div>
-                <h5 className="font-medium text-white text-sm">Bank-Level Security</h5>
-                <p className="text-gray-400 text-xs">256-bit SSL encryption</p>
-              </div>
-              <div>
-                <h5 className="font-medium text-white text-sm">Trusted by Privacy Professionals</h5>
-                <p className="text-gray-400 text-xs">Thousands of active users</p>
-              </div>
-              <div>
-                <h5 className="font-medium text-white text-sm">30-Day Guarantee</h5>
-                <p className="text-gray-400 text-xs">Money-back guarantee</p>
-              </div>
-            </div>
           </div>
         </div>
 
