@@ -1,9 +1,10 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Check, Star } from 'lucide-react'
+import { Check, Star, Shield } from 'lucide-react'
 import Link from 'next/link'
 import { SUBSCRIPTION_PLANS } from '@/lib/constants'
+import Footer from '@/components/footer'
 
 export default function PricingPage() {
   const plans = [
@@ -30,23 +31,41 @@ export default function PricingPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-white shadow-sm">
+      <nav className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-gray-900">Privly Me</h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/dashboard`} className="text-gray-600 hover:text-gray-900">
-                Dashboard
+          <div className="flex justify-between items-center h-16">
+            <Link href="/" className="flex items-center space-x-3">
+              <div className="p-2 bg-gradient-to-br from-purple-500 to-blue-600 rounded-lg shadow-lg">
+                <Shield className="w-6 h-6 text-white" />
+              </div>
+              <span className="text-xl font-bold text-gray-900">Privly Me</span>
+            </Link>
+            <div className="flex items-center space-x-8">
+              <Link href="/personal" className="text-gray-600 hover:text-gray-900 transition-colors">
+                Personal
               </Link>
-              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signin`} className="text-gray-600 hover:text-gray-900">
+              <Link href="/professional" className="text-gray-600 hover:text-gray-900 transition-colors">
+                Professional
+              </Link>
+              <Link href="/for-business" className="text-gray-600 hover:text-gray-900 transition-colors">
+                For Business
+              </Link>
+              <Link href="/pricing" className="text-gray-900 font-semibold">
+                Pricing
+              </Link>
+              <Link href="/about" className="text-gray-600 hover:text-gray-900 transition-colors">
+                About
+              </Link>
+              <Link
+                href={`${process.env.NEXT_PUBLIC_APP_URL || 'https://app.useprivly.com'}/auth/signin`}
+                className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors"
+              >
                 Sign In
               </Link>
             </div>
           </div>
         </div>
-      </div>
+      </nav>
 
       {/* Pricing Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -75,7 +94,7 @@ export default function PricingPage() {
                 <CardTitle className="text-2xl font-bold text-gray-900">{plan.name}</CardTitle>
                 <CardDescription className="text-gray-600 mt-2">{plan.description}</CardDescription>
                 <div className="mt-6">
-                  <span className="text-4xl font-bold text-gray-900">${plan.price}</span>
+                  <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
                   <span className="text-gray-600 ml-2">/month</span>
                 </div>
                 <p className="text-sm text-gray-500 mt-2">Cancel anytime</p>
@@ -188,6 +207,9 @@ export default function PricingPage() {
           </div>
         </div>
       </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }
