@@ -48,10 +48,10 @@ export default function PrivacyPolicyPage() {
               <Link href="/blog" className="text-gray-300 hover:text-purple-400 transition-colors">Blog</Link>
             </nav>
             <div className="flex items-center space-x-4">
-              <Link href="/auth/signin">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signin`}>
                 <Button variant="ghost" className="text-gray-300 hover:text-white hover:bg-gray-800">Sign In</Button>
               </Link>
-              <Link href="/auth/signup">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
                 <Button className="bg-purple-600 hover:bg-purple-700">Get Started</Button>
               </Link>
             </div>

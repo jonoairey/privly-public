@@ -37,10 +37,10 @@ export default function PricingPage() {
               <h1 className="text-2xl font-bold text-gray-900">Privly Me</h1>
             </div>
             <div className="flex items-center space-x-4">
-              <Link href="/dashboard" className="text-gray-600 hover:text-gray-900">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/dashboard`} className="text-gray-600 hover:text-gray-900">
                 Dashboard
               </Link>
-              <Link href="/auth/signin" className="text-gray-600 hover:text-gray-900">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signin`} className="text-gray-600 hover:text-gray-900">
                 Sign In
               </Link>
             </div>

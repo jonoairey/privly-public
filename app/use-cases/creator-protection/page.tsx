@@ -183,7 +183,7 @@ export default function CreatorProtectionPage() {
                 AI-powered monitoring and automated takedowns to protect your creative work and income.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Link href="/auth/signup">
+                <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
                   <Button size="lg" className="bg-green-600 hover:bg-green-700">
                     Start Creator Protection - $39.99/month
                     <ArrowRight className="w-5 h-5 ml-2" />
@@ -521,7 +521,7 @@ export default function CreatorProtectionPage() {
           </div>
 
           <div className="flex justify-center mb-6">
-            <Link href="/auth/signup">
+            <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
               <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100 text-lg px-12 py-6">
                 <Camera className="w-6 h-6 mr-3" />
                 Start Creator Protection Now

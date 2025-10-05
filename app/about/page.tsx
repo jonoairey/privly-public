@@ -45,10 +45,10 @@ export default function AboutPage() {
               <Link href="/blog" className="text-gray-300 hover:text-purple-400 transition-colors">Blog</Link>
             </nav>
             <div className="flex items-center space-x-4">
-              <Link href="/auth/signin">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signin`}>
                 <Button variant="ghost" className="text-gray-300 hover:text-white hover:bg-gray-800">Sign In</Button>
               </Link>
-              <Link href="/auth/signup">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
                 <Button className="bg-purple-600 hover:bg-purple-700">Get Started</Button>
               </Link>
             </div>
@@ -696,7 +696,7 @@ export default function AboutPage() {
             and join thousands who&apos;ve already reclaimed their digital sovereignty.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/auth/signup">
+            <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
               <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100 text-lg px-8 py-4">
                 <UserCheck className="w-5 h-5 mr-2" />
                 Start Protecting Your Privacy

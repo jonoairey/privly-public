@@ -124,7 +124,7 @@ export default function DatingSafetyPage() {
                 photos, and conversations to detect catfish, scammers, and dangerous individuals.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Link href="/auth/signup">
+                <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
                   <Button size="lg" className="bg-pink-600 hover:bg-pink-700">
                     Start Dating Safely - $9.99/month
                     <ArrowRight className="w-5 h-5 ml-2" />
@@ -331,7 +331,7 @@ export default function DatingSafetyPage() {
           </div>
 
           <div className="flex justify-center mb-6">
-            <Link href="/auth/signup">
+            <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
               <Button size="lg" className="bg-white text-pink-600 hover:bg-gray-100 text-lg px-12 py-6">
                 <Heart className="w-6 h-6 mr-3" />
                 Start Dating Safely Now

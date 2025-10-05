@@ -49,10 +49,10 @@ export default function FamilyPage() {
               <Link href="/blog" className="text-gray-300 hover:text-purple-400 transition-colors">Blog</Link>
             </nav>
             <div className="flex items-center space-x-4">
-              <Link href="/auth/signin">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signin`}>
                 <Button variant="ghost" className="text-gray-300 hover:text-white hover:bg-gray-800">Sign In</Button>
               </Link>
-              <Link href="/auth/signup">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
                 <Button className="bg-purple-600 hover:bg-purple-700">Get Started</Button>
               </Link>
             </div>
@@ -82,7 +82,7 @@ export default function FamilyPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
-              <Link href="/auth/signup">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
                 <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-4">
                   <Search className="w-5 h-5 mr-2" />
                   Start Family Protection
@@ -547,7 +547,7 @@ export default function FamilyPage() {
               </div>
 
               <div className="text-center">
-                <Link href="/auth/signup">
+                <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
                   <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-12 py-4">
                     Start Family Plan
                     <ArrowRight className="w-5 h-5 ml-2" />

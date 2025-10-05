@@ -188,7 +188,7 @@ export default function DigitalEstatePage() {
                 to family photos, ensure your digital life is preserved and accessible to your loved ones.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Link href="/auth/signup">
+                <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
                   <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700">
                     Start Digital Estate Planning - $39.99/month
                     <ArrowRight className="w-5 h-5 ml-2" />
@@ -554,7 +554,7 @@ export default function DigitalEstatePage() {
           </div>
 
           <div className="flex justify-center mb-6">
-            <Link href="/auth/signup">
+            <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
               <Button size="lg" className="bg-white text-indigo-600 hover:bg-gray-100 text-lg px-12 py-6">
                 <Archive className="w-6 h-6 mr-3" />
                 Start Digital Estate Planning

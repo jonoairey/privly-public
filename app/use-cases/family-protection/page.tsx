@@ -167,7 +167,7 @@ export default function FamilyProtectionPage() {
                 Monitor social media, detect predators, prevent scams, and keep everyone safe online.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Link href="/auth/signup">
+                <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
                   <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
                     Start Family Protection - $19.99/month
                     <ArrowRight className="w-5 h-5 ml-2" />
@@ -449,7 +449,7 @@ export default function FamilyProtectionPage() {
           </div>
 
           <div className="flex justify-center mb-6">
-            <Link href="/auth/signup">
+            <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
               <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-12 py-6">
                 <Users className="w-6 h-6 mr-3" />
                 Start Family Protection Now

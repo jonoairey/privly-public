@@ -123,10 +123,10 @@ export default function BlogPage() {
               <Link href="/blog" className="text-purple-400 font-medium">Blog</Link>
             </nav>
             <div className="flex items-center space-x-4">
-              <Link href="/auth/signin">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signin`}>
                 <Button variant="ghost" className="text-gray-300 hover:text-white hover:bg-gray-800">Sign In</Button>
               </Link>
-              <Link href="/auth/signup">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
                 <Button className="bg-purple-600 hover:bg-purple-700 text-white">Get Started</Button>
               </Link>
             </div>

@@ -78,10 +78,10 @@ export default function PersonalPage() {
               <Link href="/blog" className="text-gray-300 hover:text-purple-400 transition-colors">Blog</Link>
             </nav>
             <div className="flex items-center space-x-4">
-              <Link href="/auth/signin">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signin`}>
                 <Button variant="ghost" className="text-gray-300 hover:text-white hover:bg-gray-800">Sign In</Button>
               </Link>
-              <Link href="/auth/signup">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
                 <Button className="bg-purple-600 hover:bg-purple-700">Get Started</Button>
               </Link>
             </div>
@@ -132,7 +132,7 @@ export default function PersonalPage() {
             </div>
 
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-              <Link href="/auth/signup">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
                 <Button size="lg" className="bg-gradient-to-r from-cyan-400 to-blue-400 hover:from-cyan-500 hover:to-blue-500 text-gray-900 text-lg px-10 py-6 font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all">
                   <Shield className="w-6 h-6 mr-2" />
                   Protect My Family Now →
@@ -813,7 +813,7 @@ export default function PersonalPage() {
               </div>
 
               <div className="text-center">
-                <Link href="/auth/signup">
+                <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
                   <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-lg px-12 py-4">
                     Start Personal Plan
                     <ArrowRight className="w-5 h-5 ml-2" />

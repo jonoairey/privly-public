@@ -257,10 +257,10 @@ export default function HomePage() {
               <Link href="/blog" className="text-gray-300 hover:text-purple-400 transition-colors">Blog</Link>
             </nav>
             <div className="flex items-center space-x-4">
-              <Link href="/auth/signin">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signin`}>
                 <Button variant="ghost" className="text-gray-300 hover:text-white hover:bg-gray-800">Sign In</Button>
               </Link>
-              <Link href="/auth/signup">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
                 <Button className="bg-purple-600 hover:bg-purple-700">Get Started</Button>
               </Link>
             </div>
@@ -414,7 +414,7 @@ export default function HomePage() {
               </div>
               
               <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-                <Link href="/payment?plan=scam_watch&interval=monthly">
+                <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/payment?plan=scam_watch&interval=monthly`}>
                   <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-4">
                     Start Scam Watch - $5.99
                     <ArrowRight className="w-5 h-5 ml-2" />
@@ -614,7 +614,7 @@ export default function HomePage() {
               </div>
               
               <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-                <Link href="/payment?plan=personal&interval=monthly">
+                <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/payment?plan=personal&interval=monthly`}>
                   <Button size="lg" className="bg-green-600 hover:bg-green-700 text-lg px-8 py-4">
                     Start Personal Plan - $9.99
                     <ArrowRight className="w-5 h-5 ml-2" />
@@ -685,7 +685,7 @@ export default function HomePage() {
               </div>
               
               <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-                <Link href="/payment?plan=professional&interval=monthly">
+                <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/payment?plan=professional&interval=monthly`}>
                   <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-lg px-8 py-4">
                     Start Professional - $39.99
                     <ArrowRight className="w-5 h-5 ml-2" />
@@ -897,7 +897,7 @@ export default function HomePage() {
               with the most comprehensive digital security platform available.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link href="/auth/signup">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
                 <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-lg px-8 py-4">
                   Start Your Protection
                   <ArrowRight className="w-5 h-5 ml-2" />
@@ -1395,7 +1395,7 @@ export default function HomePage() {
             Start with our comprehensive privacy scan.
           </p>
           <div className="flex justify-center">
-            <Link href="/auth/signup">
+            <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
               <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100 text-lg px-12 py-6">
                 <Search className="w-6 h-6 mr-3" />
                 Start Your Privacy Scan

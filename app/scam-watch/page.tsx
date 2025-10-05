@@ -47,10 +47,10 @@ export default function ScamWatchPage() {
               <Link href="/blog" className="text-gray-300 hover:text-purple-400 transition-colors">Blog</Link>
             </nav>
             <div className="flex items-center space-x-4">
-              <Link href="/auth/signin">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signin`}>
                 <Button variant="ghost" className="text-gray-300 hover:text-white hover:bg-gray-800">Sign In</Button>
               </Link>
-              <Link href="/auth/signup">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
                 <Button className="bg-purple-600 hover:bg-purple-700 text-white">Get Started</Button>
               </Link>
             </div>
@@ -108,7 +108,7 @@ export default function ScamWatchPage() {
             </div>
             
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-              <Link href="/payment?plan=scam_watch&interval=monthly">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/payment?plan=scam_watch&interval=monthly`}>
                 <Button size="lg" className="bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-500 hover:to-orange-500 text-gray-900 text-lg px-10 py-6 font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all">
                   <MessageSquare className="w-6 h-6 mr-2" />
                   Start Protection Now →
@@ -877,7 +877,7 @@ export default function ScamWatchPage() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <Link href="/payment?plan=scam_watch&interval=monthly">
+            <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/payment?plan=scam_watch&interval=monthly`}>
               <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-4">
                 Get Scam Watch Protection
                 <ArrowRight className="w-5 h-5 ml-2" />

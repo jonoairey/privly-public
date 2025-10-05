@@ -85,10 +85,10 @@ export default function ProfessionalPage() {
               <Link href="/blog" className="text-gray-300 hover:text-purple-400 transition-colors">Blog</Link>
             </nav>
             <div className="flex items-center space-x-4">
-              <Link href="/auth/signin">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signin`}>
                 <Button variant="ghost" className="text-gray-300 hover:text-white hover:bg-gray-800">Sign In</Button>
               </Link>
-              <Link href="/auth/signup">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
                 <Button className="bg-purple-600 hover:bg-purple-700">Get Started</Button>
               </Link>
             </div>
@@ -146,7 +146,7 @@ export default function ProfessionalPage() {
             </div>
 
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-              <Link href="/auth/signup">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
                 <Button size="lg" className="bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-500 hover:to-orange-500 text-gray-900 text-lg px-10 py-6 font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all">
                   <Camera className="w-6 h-6 mr-2" />
                   Launch Professional Shield →
@@ -807,7 +807,7 @@ export default function ProfessionalPage() {
               </div>
 
               <div className="text-center">
-                <Link href="/auth/signup">
+                <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
                   <Button size="lg" className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white text-lg px-12 py-4 font-bold shadow-lg">
                     Protect My Content Now
                     <ArrowRight className="w-5 h-5 ml-2" />
@@ -937,7 +937,7 @@ export default function ProfessionalPage() {
             Your content empire deserves military-grade protection.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/auth/signup">
+            <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
               <Button size="lg" className="bg-white text-orange-600 hover:bg-gray-100 text-lg px-12 py-6 font-bold shadow-xl">
                 <Shield className="w-6 h-6 mr-2" />
                 Start Professional Protection

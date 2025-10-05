@@ -285,10 +285,10 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
               <Link href="/blog" className="text-purple-400 font-medium">Blog</Link>
             </nav>
             <div className="flex items-center space-x-4">
-              <Link href="/auth/signin">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signin`}>
                 <Button variant="ghost" className="text-gray-300 hover:text-white hover:bg-gray-800">Sign In</Button>
               </Link>
-              <Link href="/auth/signup">
+              <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
                 <Button className="bg-purple-600 hover:bg-purple-700 text-white">Get Started</Button>
               </Link>
             </div>
@@ -352,7 +352,7 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
               </div>
               <div>
                 <p className="text-sm text-gray-500 mb-2">Protect your privacy today</p>
-                <Link href="/auth/signup">
+                <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
                   <Button className="bg-purple-600 hover:bg-purple-700">
                     Get Started Free
                   </Button>
@@ -374,7 +374,7 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
             continuously monitors for new exposures.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/auth/signup">
+            <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`}>
               <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100">
                 Start Protecting Your Privacy
                 <ChevronRight className="w-5 h-5 ml-2" />
