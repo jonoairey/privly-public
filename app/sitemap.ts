@@ -6,14 +6,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Static pages
   const routes = [
     '',
+    '/pricing',
+    '/how-it-works',
+    '/features',
+    '/about',
+    '/contact',
+    '/privacy',
+    '/terms',
+    '/blog',
     '/scam-watch',
     '/personal',
     '/professional',
-    '/pricing',
-    '/about',
-    '/blog',
-    '/privacy',
-    '/terms',
     '/for-business',
     '/family',
     '/use-cases/ai-scam-protection',
@@ -39,8 +42,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
-    changeFrequency: route === '' || route === '/pricing' ? 'daily' as const : route.startsWith('/guides') ? 'monthly' as const : 'weekly' as const,
-    priority: route === '' ? 1.0 : route.startsWith('/guides') ? 0.7 : route.startsWith('/use-cases') ? 0.6 : 0.8,
+    changeFrequency: (
+      route === '' || route === '/pricing' || route === '/features' 
+        ? 'daily' 
+        : route.startsWith('/guides') 
+        ? 'monthly' 
+        : 'weekly'
+    ) as const,
+    priority: (
+      route === '' 
+        ? 1.0 
+        : route === '/pricing' || route === '/how-it-works' || route === '/features'
+        ? 0.9
+        : route.startsWith('/guides') 
+        ? 0.7 
+        : route.startsWith('/use-cases') 
+        ? 0.6 
+        : 0.8
+    ),
   }))
 
   return routes

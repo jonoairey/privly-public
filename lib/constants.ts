@@ -1,47 +1,59 @@
 /**
- * Public website constants
+ * Privly - Creator Content Protection Platform
  */
 
-export const SUBSCRIPTION_PLANS = {
-  SCAM_WATCH: {
-    name: 'Scam Watch',
-    price: '$5.99',
-    interval: 'month',
-    features: [
-      'Unlimited WhatsApp scam verification',
-      'SMS and email scam analysis',
-      'Voice call verification',
-      'Real-time scam alerts',
-      'Monthly scam trend reports',
-      'Scam education library'
-    ]
-  },
-  PERSONAL: {
-    name: 'Personal',
-    price: '$9.99',
-    interval: 'month',
-    features: [
-      'Everything in Scam Watch',
-      '500+ data broker monitoring',
-      'Automated removal requests (94.7% success)',
-      'Dark web monitoring (4 sources)',
-      'Breach alert system',
-      'Monthly privacy advisor calls (15 min)',
-      'Weekly privacy reports'
-    ]
-  },
-  PROFESSIONAL: {
-    name: 'Professional',
-    price: '$39.99',
-    interval: 'month',
-    features: [
-      'Everything in Personal',
-      '72,000+ website content monitoring',
-      'DMCA takedown tools',
-      'Automated takedown notice generation',
-      'Copyright registration assistance',
-      'AI deepfake detection',
-      'Dedicated account manager'
-    ]
-  }
+export const PLAN = {
+  name: 'Creator Protection',
+  price: '$49',
+  priceAmount: 49,
+  interval: 'month',
+  features: [
+    'Invisible forensic watermarking',
+    'Leak source tracing — find WHO leaked',
+    'Leak scanning across 500+ platforms',
+    'Automated DMCA takedown generation & submission',
+    'AI deepfake & impersonation detection',
+    'Content Vault — timestamped proof of ownership',
+    'Dedicated human support — real people, not bots',
+    'Real-time email alerts',
+    'Revenue impact tracking',
+    'Monthly protection reports',
+  ],
+  guarantee: '30-day money-back guarantee',
 }
+
+export const PLATFORMS = [
+  'OnlyFans',
+  'Fansly',
+  'Patreon',
+  'ManyVids',
+  'Chaturbate',
+  'Instagram',
+  'TikTok',
+  'Twitter/X',
+  'Reddit',
+  'Telegram',
+  'Discord',
+  'Pornhub',
+  'XVideos',
+  'Mega',
+  'Google Drive',
+] as const
+
+export const STATS = {
+  platformsMonitored: '500+',
+  takedownSuccessRate: '96%',
+  avgDetectionTime: '< 2 hours',
+  annualCreatorLoss: '$1.7B',
+  creatorsAffected: '47%',
+  leakReduction: '70%',
+}
+
+export const NAV_LINKS = [
+  { label: 'How It Works', href: '/how-it-works' },
+  { label: 'Features', href: '/features' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'Blog', href: '/blog' },
+] as const
+
+export const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://app.useprivly.com'

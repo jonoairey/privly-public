@@ -1,183 +1,165 @@
-'use client'
+'use client';
 
-import Link from 'next/link'
-import { Shield } from 'lucide-react'
+import Link from 'next/link';
+import { Shield } from 'lucide-react';
+
+const footerLinks = {
+  product: [
+    { label: 'How It Works', href: '/how-it-works' },
+    { label: 'Features', href: '/features' },
+    { label: 'Pricing', href: '/pricing' },
+    { label: 'Blog', href: '/blog' },
+  ],
+  platforms: [
+    { label: 'OnlyFans', href: '#' },
+    { label: 'Fansly', href: '#' },
+    { label: 'Patreon', href: '#' },
+    { label: 'ManyVids', href: '#' },
+    { label: 'Chaturbate', href: '#' },
+    { label: '+ 500 more', href: '#' },
+  ],
+  company: [
+    { label: 'About', href: '/about' },
+    { label: 'Contact', href: '/contact' },
+    { label: 'Privacy Policy', href: '/privacy' },
+    { label: 'Terms of Service', href: '/terms' },
+  ],
+};
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8">
-          {/* Brand Section */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="p-3 bg-gradient-to-br from-purple-500 to-blue-600 rounded-xl shadow-lg">
-                <Shield className="w-7 h-7 text-white" />
+    <footer className="relative bg-slate-950 overflow-hidden">
+      {/* Grid Pattern Overlay */}
+      <div className="absolute inset-0 opacity-10">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              'linear-gradient(0deg, transparent 24%, rgba(139, 92, 246, 0.15) 25%, rgba(139, 92, 246, 0.15) 26%, transparent 27%, transparent 74%, rgba(139, 92, 246, 0.15) 75%, rgba(139, 92, 246, 0.15) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(139, 92, 246, 0.15) 25%, rgba(139, 92, 246, 0.15) 26%, transparent 27%, transparent 74%, rgba(139, 92, 246, 0.15) 75%, rgba(139, 92, 246, 0.15) 76%, transparent 77%, transparent)',
+            backgroundSize: '50px 50px',
+          }}
+        />
+      </div>
+
+      {/* Gradient Glow at Top */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-purple-600/20 via-pink-600/10 to-transparent pointer-events-none" />
+
+      {/* Shimmer Line */}
+      <div className="shimmer-line absolute top-0 left-0 right-0" />
+
+      {/* Content */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          {/* Brand Column */}
+          <div className="md:col-span-1">
+            <Link href="/" className="flex items-center gap-2 group mb-4">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-300" />
+                <div className="relative bg-gradient-to-r from-purple-600 to-pink-600 p-2 rounded-full">
+                  <Shield className="w-5 h-5 text-white" />
+                </div>
               </div>
-              <h3 className="text-2xl font-bold">Privly Me</h3>
-            </div>
-            <p className="text-gray-300 text-sm leading-relaxed">
-              Take back control of your digital identity with AI-powered privacy protection. 
-              We monitor, detect, and remove your personal information from data brokers, 
-              while our privacy concierge team provides personalized support.
+              <span className="text-lg font-bold text-white">Privly</span>
+            </Link>
+            <p className="text-gray-400 text-sm mb-6">
+              Secure your content, protect your privacy, empower your voice.
             </p>
+            <div className="flex gap-4">
+              <Link
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors duration-300"
+              >
+                Twitter
+              </Link>
+              <Link
+                href="mailto:support@useprivly.com"
+                className="text-gray-400 hover:text-white transition-colors duration-300"
+              >
+                Email
+              </Link>
+            </div>
           </div>
 
-          {/* Solutions */}
+          {/* Product Column */}
           <div>
-            <h4 className="font-semibold mb-4 text-lg">Solutions</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/scam-watch" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Scam Watch
-                </Link>
-              </li>
-              <li>
-                <Link href="/personal" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Personal
-                </Link>
-              </li>
-              <li>
-                <Link href="/professional" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Professional
-                </Link>
-              </li>
-              <li>
-                <Link href="/for-business" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  For Business
-                </Link>
-              </li>
+            <h3 className="text-white font-semibold mb-6">Product</h3>
+            <ul className="space-y-3">
+              {footerLinks.product.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Platform Protection */}
+          {/* Platforms Column */}
           <div>
-            <h4 className="font-semibold mb-4 text-lg">Creator Protection</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/guides/platform-protection/onlyfans-leak-protection" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  OnlyFans Leak Protection
-                </Link>
-              </li>
-              <li>
-                <Link href="/guides/platform-protection/fansly-content-protection" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Fansly Content Protection
-                </Link>
-              </li>
-              <li>
-                <Link href="/guides/platform-protection/patreon-creator-privacy" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Patreon Creator Privacy
-                </Link>
-              </li>
-              <li>
-                <Link href="/guides/platform-protection/manyvids-leak-detection" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  ManyVids Leak Detection
-                </Link>
-              </li>
-              <li>
-                <Link href="/guides/platform-protection/instagram-content-theft" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Instagram Content Theft
-                </Link>
-              </li>
-              <li>
-                <Link href="/guides/platform-protection/tiktok-creator-privacy" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  TikTok Creator Privacy
-                </Link>
-              </li>
+            <h3 className="text-white font-semibold mb-6">Platforms</h3>
+            <ul className="space-y-3">
+              {footerLinks.platforms.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Privacy How-To Guides */}
+          {/* Company Column */}
           <div>
-            <h4 className="font-semibold mb-4 text-lg">Privacy Guides</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/guides/privacy-how-to/remove-leaked-content" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Remove Leaked Content
-                </Link>
-              </li>
-              <li>
-                <Link href="/guides/privacy-how-to/dmca-takedown-service" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  DMCA Takedown Service
-                </Link>
-              </li>
-              <li>
-                <Link href="/guides/privacy-how-to/stop-content-pirates" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Stop Content Pirates
-                </Link>
-              </li>
-              <li>
-                <Link href="/guides/privacy-how-to/dark-web-monitoring" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Dark Web Monitoring
-                </Link>
-              </li>
-              <li>
-                <Link href="/guides/privacy-how-to/delete-yourself-from-internet" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Delete Yourself Online
-                </Link>
-              </li>
-              <li>
-                <Link href="/guides/privacy-how-to/data-broker-removal" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Data Broker Removal
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h4 className="font-semibold mb-4 text-lg">Company</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/about" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="/pricing" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacy" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Terms of Service
-                </Link>
-              </li>
+            <h3 className="text-white font-semibold mb-6">Company</h3>
+            <ul className="space-y-3">
+              {footerLinks.company.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-700 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              © 2024 Privly Me. All rights reserved.
-            </p>
-            <div className="flex space-x-6">
-              <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors text-sm">
-                Privacy
-              </Link>
-              <Link href="/terms" className="text-gray-400 hover:text-white transition-colors text-sm">
-                Terms
-              </Link>
-              <Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-sm">
-                Support
-              </Link>
-            </div>
+        <div className="border-t border-purple-500/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <p className="text-gray-500 text-sm">
+            &copy; 2025 Privly. All rights reserved.
+          </p>
+          <div className="flex gap-6 text-sm">
+            <Link
+              href="/privacy"
+              className="text-gray-400 hover:text-white transition-colors duration-300"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms"
+              className="text-gray-400 hover:text-white transition-colors duration-300"
+            >
+              Terms of Service
+            </Link>
+            <Link
+              href="mailto:support@useprivly.com"
+              className="text-gray-400 hover:text-white transition-colors duration-300"
+            >
+              support@useprivly.com
+            </Link>
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }

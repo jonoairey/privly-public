@@ -1,215 +1,261 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { Check, Star, Shield } from 'lucide-react'
-import Link from 'next/link'
-import { SUBSCRIPTION_PLANS } from '@/lib/constants'
-import Footer from '@/components/footer'
+import Header from '@/components/header';
+import Footer from '@/components/footer';
+import { generateMetadata as genMeta } from '@/lib/seo';
+import { PLAN, APP_URL } from '@/lib/constants';
+import RoiCalculator from '@/components/roi-calculator';
+import { CheckCircle, ArrowRight, HelpCircle } from 'lucide-react';
+
+export const metadata = genMeta({
+  title: 'Pricing',
+  description: 'Privly pricing: $49/month for forensic watermarking, leak source tracing, content protection, and dedicated human support. Compare with competitors charging $109-$324/month.',
+  path: '/pricing',
+});
 
 export default function PricingPage() {
-  const plans = [
+  const faqItems = [
     {
-      id: 'scam_watch',
-      ...SUBSCRIPTION_PLANS.SCAM_WATCH,
-      popular: false,
-      description: 'Essential scam protection for everyone'
+      q: 'Why one plan?',
+      a: 'Full protection shouldn&apos;t depend on your income bracket. Whether you&apos;re just starting or earning six figures, you deserve the same tools to protect your content.',
     },
     {
-      id: 'personal',
-      ...SUBSCRIPTION_PLANS.PERSONAL,
-      popular: false,
-      description: 'Privacy & Security Shield for individuals'
+      q: 'How is &quot;$49/mo&quot; possible when competitors charge &quot;$109+&quot;?',
+      a: 'We built smart automation. No per-username surcharges. No hidden tiers. One price covers everything — all platforms, all your content, all the protection you need. Plus you get dedicated human support whenever you need it.',
     },
     {
-      id: 'professional',
-      ...SUBSCRIPTION_PLANS.PROFESSIONAL,
-      popular: true,
-      description: 'Maximum protection for professionals'
-    }
-  ]
+      q: 'Can I cancel anytime?',
+      a: 'Yes. No contracts, no fine print. You can cancel anytime, and we offer a 30-day money-back guarantee — if you&apos;re not satisfied, you get a full refund. No questions asked.',
+    },
+  ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <nav className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link href="/" className="flex items-center space-x-3">
-              <div className="p-2 bg-gradient-to-br from-purple-500 to-blue-600 rounded-lg shadow-lg">
-                <Shield className="w-6 h-6 text-white" />
+    <div className="min-h-screen bg-black text-white overflow-hidden">
+      <Header />
+
+      <main className="pt-20 pb-20">
+        {/* Hero Section */}
+        <section className="hero-gradient relative min-h-96 flex items-center justify-center overflow-hidden py-20">
+          <div className="absolute -top-20 -right-20 w-96 h-96 orb orb-purple opacity-40" />
+          <div className="absolute bottom-0 -left-32 w-72 h-72 orb orb-pink opacity-30" />
+
+          <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+            <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
+              One plan. Full protection.
+            </h1>
+            <div className="text-5xl md:text-6xl font-black text-gradient mb-6">
+              {PLAN.price}/month
+            </div>
+            <p className="text-xl md:text-2xl text-gray-300 mb-12 font-light max-w-2xl mx-auto">
+              Other services charge $109-$324/month just to scan and remove. Privly gives you that plus forensic watermarking, leak source tracing, and dedicated human support.
+            </p>
+          </div>
+        </section>
+
+        {/* Main Pricing Card */}
+        <section className="relative py-24 px-6 bg-black">
+          <div className="max-w-2xl mx-auto">
+            <div className="border-gradient-animated glow-card relative rounded-3xl p-12 bg-gradient-to-br from-purple-900/20 to-pink-900/20 border border-white/10">
+              <div className="absolute top-6 right-6">
+                <div className="pulse-badge px-4 py-2 rounded-full bg-purple-500/20 border border-purple-400/40">
+                  <span className="text-sm font-bold text-purple-300">BEST VALUE</span>
+                </div>
               </div>
-              <span className="text-xl font-bold text-gray-900">Privly Me</span>
-            </Link>
-            <div className="flex items-center space-x-8">
-              <Link href="/personal" className="text-gray-600 hover:text-gray-900 transition-colors">
-                Personal
-              </Link>
-              <Link href="/professional" className="text-gray-600 hover:text-gray-900 transition-colors">
-                Professional
-              </Link>
-              <Link href="/for-business" className="text-gray-600 hover:text-gray-900 transition-colors">
-                For Business
-              </Link>
-              <Link href="/pricing" className="text-gray-900 font-semibold">
-                Pricing
-              </Link>
-              <Link href="/about" className="text-gray-600 hover:text-gray-900 transition-colors">
-                About
-              </Link>
-              <Link
-                href={`${process.env.NEXT_PUBLIC_APP_URL || 'https://app.useprivly.com'}/auth/signin`}
-                className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors"
+
+              <div className="mb-8">
+                <h2 className="text-4xl md:text-5xl font-black mb-6">{PLAN.name}</h2>
+                <div className="flex items-baseline gap-2 mb-6">
+                  <span className="text-6xl md:text-7xl font-black text-gradient">
+                    {PLAN.price}
+                  </span>
+                  <span className="text-xl text-gray-400">/month</span>
+                </div>
+                <p className="text-lg text-gray-300">30-day money-back guarantee. Cancel anytime.</p>
+              </div>
+
+              {/* Features List */}
+              <div className="space-y-4 mb-12">
+                {PLAN.features.map((feature: string, index: number) => (
+                  <div key={index} className="flex items-start gap-4">
+                    <div className="flex-shrink-0 mt-1">
+                      <CheckCircle className={`w-6 h-6 ${index < 2 ? 'text-purple-400' : 'text-green-400'}`} />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3">
+                        <p className="text-gray-200 text-base">{feature}</p>
+                        {index < 2 && (
+                          <span className="inline-block px-2 py-1 bg-purple-600/40 border border-purple-400/60 text-xs font-bold rounded text-purple-300">
+                            EXCLUSIVE
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Guarantee */}
+              <div className="mb-10 p-6 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-500/30">
+                <p className="text-base text-white font-semibold mb-1">30-Day Money-Back Guarantee</p>
+                <p className="text-sm text-gray-300 leading-relaxed">Not satisfied? Get a full refund within 30 days — no questions asked. Cancel anytime with zero hassle.</p>
+              </div>
+
+              {/* CTA Button */}
+              <a
+                href={`${APP_URL}/signup`}
+                className="btn-glow w-full inline-block text-center py-4 px-8 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-full transition-all text-lg"
               >
-                Sign In
-              </Link>
+                Get Started Now
+              </a>
             </div>
           </div>
-        </div>
-      </nav>
+        </section>
 
-      {/* Pricing Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Take Back Control of Your Digital Identity
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Choose the perfect plan for your privacy protection needs.
-          </p>
-        </div>
+        {/* Competitor Comparison */}
+        <section className="relative py-24 px-6 bg-black">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-black text-center mb-16">
+              Why <span className="text-gradient">Privly</span> is Different
+            </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {plans.map((plan) => (
-            <Card key={plan.id} className={`relative ${plan.popular ? 'border-blue-500 shadow-lg' : 'border-gray-200'}`}>
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <Badge className="bg-blue-500 text-white px-4 py-1 rounded-full">
-                    <Star className="w-4 h-4 mr-1" />
-                    Most Popular
-                  </Badge>
-                </div>
-              )}
-              
-              <CardHeader className="text-center pb-8">
-                <CardTitle className="text-2xl font-bold text-gray-900">{plan.name}</CardTitle>
-                <CardDescription className="text-gray-600 mt-2">{plan.description}</CardDescription>
-                <div className="mt-6">
-                  <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
-                  <span className="text-gray-600 ml-2">/month</span>
-                </div>
-                <p className="text-sm text-gray-500 mt-2">Cancel anytime</p>
-              </CardHeader>
-              
-              <CardContent className="space-y-6">
-                <ul className="space-y-3">
-                  {plan.features.map((feature: any) => (
-                    <li key={feature} className="flex items-start">
-                      <Check className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
+            <div className="grid lg:grid-cols-3 gap-8">
+              {/* Typical Service */}
+              <div className="glass rounded-2xl p-10 border border-white/10 bg-gray-900/50">
+                <h3 className="text-2xl font-black mb-8 text-gray-300">Typical Service</h3>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <span className="text-gray-600 text-2xl leading-none mt-1">•</span>
+                    <span className="text-gray-400 text-lg">$109-$324/mo</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-gray-600 text-2xl leading-none mt-1">•</span>
+                    <span className="text-gray-400 text-lg">Scan + Remove only</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-gray-600 text-2xl leading-none mt-1">•</span>
+                    <span className="text-gray-400 text-lg">Leaks keep coming back</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-gray-600 text-2xl leading-none mt-1">•</span>
+                    <span className="text-gray-400 text-lg">Per-username pricing</span>
+                  </li>
                 </ul>
-                
-                <Button 
-                  className={`w-full ${plan.popular ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-900 hover:bg-gray-800'}`}
-                  asChild
-                >
-                  <Link href={`/dashboard/billing?plan=${plan.id}`}>
-                    Get Started
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* Features Comparison */}
-        <div className="mt-16">
-          <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">
-            Feature Comparison
-          </h3>
-          
-          <div className="bg-white rounded-lg shadow overflow-hidden">
-            <div className="grid grid-cols-4 gap-4 p-6 border-b border-gray-200">
-              <div className="font-semibold text-gray-900">Feature</div>
-              <div className="text-center font-semibold text-gray-900">Basic</div>
-              <div className="text-center font-semibold text-gray-900">Standard</div>
-              <div className="text-center font-semibold text-gray-900">Premium</div>
-            </div>
-            
-            {[
-              { feature: 'Identities Monitored', basic: '1', standard: 'Up to 5', premium: 'Unlimited' },
-              { feature: 'Privacy Scans', basic: 'Monthly', standard: 'Weekly', premium: 'Daily' },
-              { feature: 'Photo Protection', basic: 'Basic', standard: 'Advanced', premium: 'AI-Powered' },
-              { feature: 'Dark Web Monitoring', basic: '—', standard: '✓', premium: '✓' },
-              { feature: 'Real-time Alerts', basic: 'Email only', standard: 'Email & SMS', premium: 'All channels' },
-              { feature: 'Identity Restoration', basic: '—', standard: '—', premium: '✓' },
-              { feature: 'Legal Support', basic: '—', standard: '—', premium: '✓' },
-              { feature: 'Business Protection', basic: '—', standard: '—', premium: 'Up to 6 users' },
-              { feature: 'Support', basic: 'Standard', standard: 'Priority', premium: '24/7 Priority' },
-              { feature: 'Data Removal Requests', basic: 'Manual', standard: 'Semi-automated', premium: 'Fully automated' },
-              { feature: 'Privacy Reports', basic: 'Basic', standard: 'Detailed', premium: 'Comprehensive' }
-            ].map((row, index) => (
-              <div key={index} className="grid grid-cols-4 gap-4 p-6 border-b border-gray-100 last:border-b-0">
-                <div className="font-medium text-gray-900">{row.feature}</div>
-                <div className="text-center text-gray-700">{row.basic}</div>
-                <div className="text-center text-gray-700">{row.standard}</div>
-                <div className="text-center text-gray-700">{row.premium}</div>
               </div>
-            ))}
+
+              {/* Privly - Center and Elevated */}
+              <div className="glow-card relative rounded-2xl border-gradient-animated lg:scale-105 lg:z-10">
+                <div className="glass rounded-2xl p-10 border border-purple-500/40 bg-gradient-to-br from-purple-950/40 to-pink-950/40">
+                  <div className="mb-8">
+                    <div className="inline-block px-4 py-2 rounded-full bg-purple-500/30 border border-purple-400/50 mb-6">
+                      <span className="text-xs font-bold text-purple-300 uppercase tracking-widest">Privly</span>
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-black mb-8 text-gradient">Full Protection</h3>
+                  <ul className="space-y-4">
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
+                      <span className="text-white font-bold text-lg">$49/mo</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
+                      <span className="text-white font-bold text-lg">Scan + Remove + Source Tracing</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
+                      <span className="text-white font-bold text-lg">Leaks Decrease Permanently</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
+                      <span className="text-white font-bold text-lg">All Platforms Included</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
+                      <span className="text-white font-bold text-lg">Dedicated Human Support</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* DIY Approach */}
+              <div className="glass rounded-2xl p-10 border border-white/10 bg-gray-900/50">
+                <h3 className="text-2xl font-black mb-8 text-gray-300">DIY Approach</h3>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <span className="text-gray-600 text-2xl leading-none mt-1">•</span>
+                    <span className="text-gray-400 text-lg">Free</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-gray-600 text-2xl leading-none mt-1">•</span>
+                    <span className="text-gray-400 text-lg">Manual Google Searches</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-gray-600 text-2xl leading-none mt-1">•</span>
+                    <span className="text-gray-400 text-lg">Hours of Your Time</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-gray-600 text-2xl leading-none mt-1">•</span>
+                    <span className="text-gray-400 text-lg">No Human Support</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
+
+        {/* ROI Calculator Section */}
+        <section className="hero-gradient relative py-24 px-6 overflow-hidden">
+          <div className="absolute -top-20 -left-20 w-96 h-96 orb orb-purple opacity-30" />
+          <div className="absolute -bottom-40 -right-40 w-96 h-96 orb orb-pink opacity-20" />
+
+          <div className="max-w-3xl mx-auto relative z-10">
+            <h2 className="text-4xl md:text-5xl font-black text-center mb-16">
+              Calculate Your <span className="text-gradient">ROI</span>
+            </h2>
+            <RoiCalculator />
+          </div>
+        </section>
 
         {/* FAQ Section */}
-        <div className="mt-16">
-          <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">
-            Frequently Asked Questions
-          </h3>
-          
+        <section className="relative py-24 px-6 bg-black">
           <div className="max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-black text-center mb-16">
+              Frequently Asked <span className="text-gradient">Questions</span>
+            </h2>
+
             <div className="space-y-6">
-              {[
-                {
-                  q: 'What is included in the free trial?',
-                  a: 'The 14-day free trial includes full access to all features of your chosen plan, with no setup fees or hidden costs.'
-                },
-                {
-                  q: 'Can I change my plan anytime?',
-                  a: 'Yes, you can upgrade or downgrade your plan at any time. Changes are prorated and take effect immediately.'
-                },
-                {
-                  q: 'What payment methods do you accept?',
-                  a: 'We accept all major credit cards (Visa, Mastercard, American Express) and bank transfers for Enterprise plans.'
-                },
-                {
-                  q: 'Is there a setup fee?',
-                  a: 'No, there are no setup fees or hidden costs. You only pay the monthly subscription fee.'
-                },
-                {
-                  q: 'Can I cancel anytime?',
-                  a: 'Yes, you can cancel your subscription at any time. Your access will continue until the end of your billing period.'
-                },
-                {
-                  q: 'Do you offer discounts for annual payments?',
-                  a: 'Yes, we offer 20% discount for annual payments. Contact our sales team for more information.'
-                }
-              ].map((faq, index) => (
-                <Card key={index}>
-                  <CardHeader>
-                    <CardTitle className="text-lg">{faq.q}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-700">{faq.a}</p>
-                  </CardContent>
-                </Card>
+              {faqItems.map((item, i) => (
+                <div key={i} className="glass rounded-2xl border border-white/10 p-8 bg-gradient-to-br from-white/5 to-white/0">
+                  <h3 className="text-xl font-black mb-4 text-gradient">{item.q}</h3>
+                  <p className="text-gray-300 leading-relaxed">{item.a}</p>
+                </div>
               ))}
             </div>
           </div>
-        </div>
-      </div>
+        </section>
 
-      {/* Footer */}
+        {/* Final CTA */}
+        <section className="hero-gradient relative min-h-80 flex items-center justify-center overflow-hidden py-20">
+          <div className="absolute -top-40 -right-40 w-96 h-96 orb orb-purple opacity-40" />
+          <div className="absolute bottom-0 -left-20 w-72 h-72 orb orb-pink opacity-30" />
+
+          <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
+            <h2 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
+              Start protecting your content today.
+            </h2>
+            <p className="text-xl text-gray-300 mb-10 font-light">
+              Join thousands of creators who trust Privly to stop leaks.
+            </p>
+            <a
+              href={`${APP_URL}/signup`}
+              className="btn-glow px-10 py-4 rounded-full bg-purple-600 hover:bg-purple-500 font-bold transition-all inline-flex items-center justify-center gap-3 text-lg"
+            >
+              Get Started Now
+              <ArrowRight className="w-6 h-6" />
+            </a>
+            <p className="text-gray-400 text-sm mt-4">30-day money-back guarantee. Cancel anytime.</p>
+          </div>
+        </section>
+      </main>
+
       <Footer />
     </div>
-  )
+  );
 }
