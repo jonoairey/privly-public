@@ -16,7 +16,7 @@ export default function PricingPage() {
   const faqItems = [
     {
       q: 'Why one plan?',
-      a: 'Full protection shouldn't depend on your income bracket. Whether you're just starting or earning six figures, you deserve the same tools to protect your content.',
+      a: "Full protection shouldn't depend on your income bracket. Whether you're just starting or earning six figures, you deserve the same tools to protect your content.",
     },
     {
       q: 'How is "$49/mo" possible when competitors charge "$109+"?',
@@ -24,7 +24,7 @@ export default function PricingPage() {
     },
     {
       q: 'Can I cancel anytime?',
-      a: 'Yes. No contracts, no fine print. You can cancel anytime, and we offer a 30-day money-back guarantee — if you're not satisfied, you get a full refund. No questions asked.',
+      a: "Yes. No contracts, no fine print. You can cancel anytime, and we offer a 30-day money-back guarantee — if you're not satisfied, you get a full refund. No questions asked.",
     },
   ];
 

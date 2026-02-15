@@ -18,7 +18,7 @@ import {
 
 export const metadata = genMeta({
   title: 'Features - Privly',
-  description: 'Discover Privly's advanced content protection features: forensic watermarking, leak source tracing, 24/7 leak scanning, and more.',
+  description: "Discover Privly's advanced content protection features: forensic watermarking, leak source tracing, 24/7 leak scanning, and more.",
   path: '/features',
 });
 

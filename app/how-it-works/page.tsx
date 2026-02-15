@@ -34,7 +34,7 @@ export default function HowItWorks() {
       number: '2',
       title: 'Invisible Watermarking',
       icon: Fingerprint,
-      description: 'Each subscriber receives a unique, imperceptible watermark embedded in your content. It's invisible to the human eye but traceable.',
+      description: "Each subscriber receives a unique, imperceptible watermark embedded in your content. It's invisible to the human eye but traceable.",
       bullets: [
         'Unique mark per subscriber',
         'Imperceptible to users',
@@ -67,7 +67,7 @@ export default function HowItWorks() {
 
   const stats = [
     { number: '96%', label: 'Takedown Success Rate', desc: 'Industry-leading removal success' },
-    { number: '&lt;2h', label: 'Detection Speed', desc: 'Average leak identified in under 2 hours' },
+    { number: '<2h', label: 'Detection Speed', desc: 'Average leak identified in under 2 hours' },
     { number: '70%', label: 'Leak Reduction', desc: 'On average across all creators' },
   ];
 

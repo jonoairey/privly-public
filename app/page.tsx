@@ -46,7 +46,7 @@ export default function Home() {
 
   const faqItems = [
     {
-      question: 'How does Privly's forensic watermarking work?',
+      question: "How does Privly's forensic watermarking work?",
       answer:
         'Our proprietary technology embeds invisible, traceable identifiers into your content. When leaks occur, these watermarks reveal exactly where and when the content was shared, pinpointing the source with forensic precision.',
     },
@@ -66,7 +66,7 @@ export default function Home() {
         'Yes. Our Content Vault uses enterprise-grade AES-256 encryption and zero-knowledge architecture. We never store unencrypted versions of your content, and only you hold the decryption keys.',
     },
     {
-      question: 'What happens if DMCA doesn't work?',
+      question: "What happens if DMCA doesn't work?",
       answer:
         'We have a multi-layered enforcement strategy. Beyond DMCA, we pursue legal action, work with law enforcement, and use technical takedown methods. Our average resolution time is 48 hours.',
     },
@@ -190,7 +190,7 @@ export default function Home() {
                 <div className="space-y-4">
                   {[
                     'Watermark embedded before sharing',
-                    {'Automatic leak detection < 2 hours'},
+                    'Automatic leak detection < 2 hours',
                     'Instant automated takedowns',
                     'Know exactly who leaked your content',
                     'Block repeat offenders permanently',
@@ -410,7 +410,7 @@ export default function Home() {
               {
                 stars: 5,
                 quote:
-                  'We recovered $120k in lost revenue through Privly's enforcement actions in just 3 months. Recommend to every creator.',
+                  "We recovered $120k in lost revenue through Privly's enforcement actions in just 3 months. Recommend to every creator.",
                 author: 'Maya & Alex',
                 role: 'Podcast Producers',
               },
