@@ -46,7 +46,7 @@ export default function Home() {
 
   const faqItems = [
     {
-      question: 'How does Privly&apos;s forensic watermarking work?',
+      question: 'How does Privly's forensic watermarking work?',
       answer:
         'Our proprietary technology embeds invisible, traceable identifiers into your content. When leaks occur, these watermarks reveal exactly where and when the content was shared, pinpointing the source with forensic precision.',
     },
@@ -66,18 +66,33 @@ export default function Home() {
         'Yes. Our Content Vault uses enterprise-grade AES-256 encryption and zero-knowledge architecture. We never store unencrypted versions of your content, and only you hold the decryption keys.',
     },
     {
-      question: 'What happens if DMCA doesn&apos;t work?',
+      question: 'What happens if DMCA doesn't work?',
       answer:
         'We have a multi-layered enforcement strategy. Beyond DMCA, we pursue legal action, work with law enforcement, and use technical takedown methods. Our average resolution time is 48 hours.',
     },
     {
       question: 'Do you offer a money-back guarantee?',
-      answer: `Yes. We&apos;re so confident in our platform that we offer a ${PLAN.guarantee} guarantee. If you&apos;re not satisfied, we refund your full subscription—no questions asked.`,
+      answer: `Yes. We're so confident in our platform that we offer a ${PLAN.guarantee} guarantee. If you're not satisfied, we refund your full subscription—no questions asked.`,
     },
   ];
 
+  // FAQ structured data for Google rich results
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+    })),
+  };
+
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Header />
 
       {/* HERO SECTION */}
@@ -92,8 +107,8 @@ export default function Home() {
           {/* Hero Headline */}
           <div className="text-center mb-12 reveal">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-              <span className="text-white block">We don&apos;t just remove your leaks.</span>
-              <span className="text-gradient-animated block">We find who&apos;s leaking.</span>
+              <span className="text-white block">We don't just remove your leaks.</span>
+              <span className="text-gradient-animated block">We find who's leaking.</span>
             </h1>
 
             <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
@@ -175,7 +190,7 @@ export default function Home() {
                 <div className="space-y-4">
                   {[
                     'Watermark embedded before sharing',
-                    'Automatic leak detection &lt; 2 hours',
+                    {'Automatic leak detection < 2 hours'},
                     'Instant automated takedowns',
                     'Know exactly who leaked your content',
                     'Block repeat offenders permanently',
@@ -395,7 +410,7 @@ export default function Home() {
               {
                 stars: 5,
                 quote:
-                  'We recovered $120k in lost revenue through Privly&apos;s enforcement actions in just 3 months. Recommend to every creator.',
+                  'We recovered $120k in lost revenue through Privly's enforcement actions in just 3 months. Recommend to every creator.',
                 author: 'Maya & Alex',
                 role: 'Podcast Producers',
               },
@@ -406,7 +421,7 @@ export default function Home() {
                     <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
-                <p className="text-gray-300 mb-6 italic">&quot;{testimonial.quote}&quot;</p>
+                <p className="text-gray-300 mb-6 italic">"{testimonial.quote}"</p>
                 <div>
                   <p className="font-semibold">{testimonial.author}</p>
                   <p className="text-sm text-gray-400">{testimonial.role}</p>
@@ -481,7 +496,7 @@ export default function Home() {
   );
 }
 
-// Placeholder Share2 icon since it&apos;s not in lucide-react
+// Placeholder Share2 icon since it's not in lucide-react
 const Share2 = ({ className }: { className?: string }) => (
   <svg
     className={className}

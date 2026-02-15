@@ -1,13 +1,9 @@
 'use client';
 
-import { Metadata } from 'next';
 import { useState, FormEvent } from 'react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { Mail, MessageSquare } from 'lucide-react';
-
-// Note: Metadata cannot be used in 'use client' components
-// This would need to be moved to layout.tsx or a separate page wrapper
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -64,59 +60,21 @@ export default function ContactPage() {
     <div className="flex flex-col min-h-screen bg-gray-950 text-white">
       <Header />
 
-      <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="py-20 px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Get In Touch
-            </h1>
-            <p className="text-xl text-gray-300">
-              Have questions about Privly? Want to learn more about protecting your content? Our dedicated human support team is here to help — no bots, no scripts, just real people.
-            </p>
-          </div>
-        </section>
+      <main className="flex-grow pt-24 pb-12 px-4">
+        {/* Contact Section — form-first layout */}
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
 
-        {/* Contact Section */}
-        <section className="py-20 px-4">
-          <div className="max-w-3xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-              {/* Email */}
-              <div className="bg-gray-900 rounded-lg p-8 border border-purple-500/20 text-center">
-                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 mb-4">
-                  <Mail className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-lg font-bold mb-2">Email</h3>
-                <a href="mailto:hello@useprivly.com" className="text-purple-300 hover:text-purple-200 transition-colors">
-                  hello@useprivly.com
-                </a>
-              </div>
+            {/* Left: Form (takes up 3 cols) */}
+            <div className="lg:col-span-3">
+              <h1 className="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Get In Touch
+              </h1>
+              <p className="text-gray-300 mb-8">
+                Our dedicated human support team is here to help — no bots, just real people.
+              </p>
 
-              {/* Response Time */}
-              <div className="bg-gray-900 rounded-lg p-8 border border-purple-500/20 text-center">
-                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 mb-4">
-                  <MessageSquare className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-lg font-bold mb-2">Response Time</h3>
-                <p className="text-gray-400">
-                  Usually within 24 hours
-                </p>
-              </div>
-
-              {/* Status */}
-              <div className="bg-gray-900 rounded-lg p-8 border border-purple-500/20 text-center">
-                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-green-600 mb-4">
-                  <div className="h-3 w-3 rounded-full bg-green-300 animate-pulse" />
-                </div>
-                <h3 className="text-lg font-bold mb-2">Status</h3>
-                <p className="text-green-300">
-                  We're online
-                </p>
-              </div>
-            </div>
-
-            {/* Contact Form */}
-            <div className="bg-gray-900 rounded-2xl border border-purple-500/20 p-8 md:p-12">
+              <div className="bg-gray-900 rounded-2xl border border-purple-500/20 p-6 md:p-8">
               {isSubmitted && (
                 <div className="mb-8 p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
                   <p className="text-green-300">
@@ -214,46 +172,67 @@ export default function ContactPage() {
                 We respect your privacy. Read our privacy policy to learn how we handle your data.
               </p>
             </div>
-          </div>
-        </section>
+            </div>
 
-        {/* FAQ Section */}
-        <section className="py-20 px-4 bg-gray-900/50">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-12 text-center">Common Questions</h2>
-
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-xl font-bold text-purple-300 mb-3">
-                  How do I get support?
-                </h3>
-                <p className="text-gray-300">
-                  Email us at hello@useprivly.com or use the contact form above. Every message is handled by a real person on our team — we respond within 24 hours.
-                </p>
+            {/* Right: Info cards sidebar (takes up 2 cols) */}
+            <div className="lg:col-span-2 space-y-4 lg:pt-[88px]">
+              {/* Email */}
+              <div className="bg-gray-900 rounded-xl p-6 border border-purple-500/20">
+                <div className="flex items-center gap-4">
+                  <div className="flex-shrink-0 h-10 w-10 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center">
+                    <Mail className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-gray-400">Email us directly</h3>
+                    <a href="mailto:hello@useprivly.com" className="text-purple-300 hover:text-purple-200 transition-colors font-medium">
+                      hello@useprivly.com
+                    </a>
+                  </div>
+                </div>
               </div>
 
-              <div>
-                <h3 className="text-xl font-bold text-purple-300 mb-3">
-                  Do you offer phone support?
-                </h3>
-                <p className="text-gray-300">
-                  Currently, we support inquiries via email. This allows us to maintain the highest quality of service
-                  and ensure detailed, thoughtful responses to your questions.
-                </p>
+              {/* Response Time */}
+              <div className="bg-gray-900 rounded-xl p-6 border border-purple-500/20">
+                <div className="flex items-center gap-4">
+                  <div className="flex-shrink-0 h-10 w-10 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center">
+                    <MessageSquare className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-gray-400">Response time</h3>
+                    <p className="text-white font-medium">Within 24 hours</p>
+                  </div>
+                </div>
               </div>
 
-              <div>
-                <h3 className="text-xl font-bold text-purple-300 mb-3">
-                  What's your response time?
-                </h3>
-                <p className="text-gray-300">
-                  We aim to respond to all inquiries within 24 business hours. During holidays or very high volume periods,
-                  it may take up to 48 hours.
-                </p>
+              {/* Status */}
+              <div className="bg-gray-900 rounded-xl p-6 border border-green-500/20">
+                <div className="flex items-center gap-4">
+                  <div className="flex-shrink-0 h-10 w-10 rounded-lg bg-green-600 flex items-center justify-center">
+                    <div className="h-3 w-3 rounded-full bg-green-300 animate-pulse" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-gray-400">Status</h3>
+                    <p className="text-green-300 font-medium">We're online</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* FAQ inline */}
+              <div className="bg-gray-900 rounded-xl p-6 border border-purple-500/20 space-y-4 mt-4">
+                <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">FAQ</h3>
+                <div>
+                  <p className="text-white font-medium text-sm mb-1">Do you offer phone support?</p>
+                  <p className="text-gray-400 text-sm">Currently we support inquiries via email, ensuring detailed and thoughtful responses.</p>
+                </div>
+                <div>
+                  <p className="text-white font-medium text-sm mb-1">What's your response time?</p>
+                  <p className="text-gray-400 text-sm">We respond within 24 business hours. During high volume periods, up to 48 hours.</p>
+                </div>
               </div>
             </div>
+
           </div>
-        </section>
+        </div>
       </main>
 
       <Footer />

@@ -1,18 +1,21 @@
-import { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { blogPosts } from "@/lib/blog-data";
+import { generateMetadata as genMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Blog | Privly",
+export const metadata = genMeta({
+  title: "Blog",
   description: "Content protection guides, legal advice, and security tips for creators and businesses.",
-  openGraph: {
-    title: "Blog | Privly",
-    description: "Content protection guides, legal advice, and security tips for creators and businesses.",
-    type: "website",
-  },
-};
+  path: "/blog",
+  keywords: [
+    "content protection blog",
+    "DMCA guide",
+    "creator security tips",
+    "leak prevention",
+    "OnlyFans protection guide",
+  ],
+});
 
 export default function BlogPage() {
   const sortedPosts = [...blogPosts].sort(

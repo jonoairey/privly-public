@@ -18,7 +18,7 @@ import {
 
 export const metadata = genMeta({
   title: 'Features - Privly',
-  description: 'Discover Privly&apos;s advanced content protection features: forensic watermarking, leak source tracing, 24/7 leak scanning, and more.',
+  description: 'Discover Privly's advanced content protection features: forensic watermarking, leak source tracing, 24/7 leak scanning, and more.',
   path: '/features',
 });
 
@@ -108,7 +108,7 @@ export default function FeaturesPage() {
                 </div>
 
                 <p className="text-gray-300 mb-8 text-lg leading-relaxed">
-                  When your content appears where it shouldn&apos;t, instantly identify which subscriber leaked it. Get actionable intelligence to stop bad actors.
+                  When your content appears where it shouldn't, instantly identify which subscriber leaked it. Get actionable intelligence to stop bad actors.
                 </p>
 
                 <div className="grid grid-cols-1 gap-4">
@@ -377,7 +377,7 @@ export default function FeaturesPage() {
             <span className="text-gradient">Your Content</span>
           </h2>
           <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-            Join creators, studios, and enterprises protecting their work with Privly&apos;s
+            Join creators, studios, and enterprises protecting their work with Privly's
             industry-leading forensic watermarking and leak detection technology.
           </p>
 

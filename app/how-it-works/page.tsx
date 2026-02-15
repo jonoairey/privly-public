@@ -34,7 +34,7 @@ export default function HowItWorks() {
       number: '2',
       title: 'Invisible Watermarking',
       icon: Fingerprint,
-      description: 'Each subscriber receives a unique, imperceptible watermark embedded in your content. It&apos;s invisible to the human eye but traceable.',
+      description: 'Each subscriber receives a unique, imperceptible watermark embedded in your content. It's invisible to the human eye but traceable.',
       bullets: [
         'Unique mark per subscriber',
         'Imperceptible to users',
@@ -215,7 +215,7 @@ export default function HowItWorks() {
                 Invisible Watermarking
               </h2>
               <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-                Each subscriber receives a unique, imperceptible watermark embedded in your content. It&apos;s completely invisible to the human eye but digitally traceable and legally binding.
+                Each subscriber receives a unique, imperceptible watermark embedded in your content. It's completely invisible to the human eye but digitally traceable and legally binding.
               </p>
               <ul className="space-y-4">
                 {steps[1].bullets.map((bullet, i) => (

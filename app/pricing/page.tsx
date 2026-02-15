@@ -2,6 +2,7 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { generateMetadata as genMeta } from '@/lib/seo';
 import { PLAN, APP_URL } from '@/lib/constants';
+import { generateProductSchema, generateFAQSchema } from '@/lib/seo';
 import RoiCalculator from '@/components/roi-calculator';
 import { CheckCircle, ArrowRight, HelpCircle } from 'lucide-react';
 
@@ -15,20 +16,39 @@ export default function PricingPage() {
   const faqItems = [
     {
       q: 'Why one plan?',
-      a: 'Full protection shouldn&apos;t depend on your income bracket. Whether you&apos;re just starting or earning six figures, you deserve the same tools to protect your content.',
+      a: 'Full protection shouldn't depend on your income bracket. Whether you're just starting or earning six figures, you deserve the same tools to protect your content.',
     },
     {
-      q: 'How is &quot;$49/mo&quot; possible when competitors charge &quot;$109+&quot;?',
+      q: 'How is "$49/mo" possible when competitors charge "$109+"?',
       a: 'We built smart automation. No per-username surcharges. No hidden tiers. One price covers everything — all platforms, all your content, all the protection you need. Plus you get dedicated human support whenever you need it.',
     },
     {
       q: 'Can I cancel anytime?',
-      a: 'Yes. No contracts, no fine print. You can cancel anytime, and we offer a 30-day money-back guarantee — if you&apos;re not satisfied, you get a full refund. No questions asked.',
+      a: 'Yes. No contracts, no fine print. You can cancel anytime, and we offer a 30-day money-back guarantee — if you're not satisfied, you get a full refund. No questions asked.',
     },
   ];
 
+  const productSchema = generateProductSchema({
+    name: 'Privly Creator Protection',
+    description: 'Content protection for creators: forensic watermarking, leak scanning, DMCA automation, and dedicated human support.',
+    price: '49',
+    url: 'https://www.useprivly.com/pricing',
+  });
+
+  const pricingFaqSchema = generateFAQSchema(
+    faqItems.map(f => ({ question: f.q, answer: f.a }))
+  );
+
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingFaqSchema) }}
+      />
       <Header />
 
       <main className="pt-20 pb-20">

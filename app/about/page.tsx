@@ -8,6 +8,7 @@ import { APP_URL } from '@/lib/constants';
 export const metadata: Metadata = genMeta({
   title: 'About',
   description: 'Learn about Privly, our mission to protect creators, and our values.',
+  path: '/about',
   keywords: [
     'about privly',
     'creator protection mission',

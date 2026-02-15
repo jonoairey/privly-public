@@ -40,6 +40,7 @@ export interface SEOProps {
   ogType?: 'website' | 'article' | 'product'
   noindex?: boolean
   canonical?: string
+  path?: string
 }
 
 export function generateMetadata({
@@ -50,10 +51,14 @@ export function generateMetadata({
   ogType = 'website',
   noindex = false,
   canonical,
+  path,
 }: SEOProps = {}) {
   const fullTitle = title
     ? `${title} | Privly`
     : SITE_CONFIG.title
+
+  // Build canonical URL from path if canonical not explicitly provided
+  const canonicalUrl = canonical || (path ? `${SITE_CONFIG.url}${path}` : SITE_CONFIG.url)
 
   const metadata: any = {
     title: fullTitle,
@@ -66,7 +71,7 @@ export function generateMetadata({
     openGraph: {
       type: ogType,
       locale: 'en_US',
-      url: SITE_CONFIG.url,
+      url: canonicalUrl,
       siteName: SITE_CONFIG.name,
       title: fullTitle,
       description,
@@ -83,7 +88,7 @@ export function generateMetadata({
     },
 
     metadataBase: new URL(SITE_CONFIG.url),
-    alternates: { canonical: canonical || SITE_CONFIG.url },
+    alternates: { canonical: canonicalUrl },
 
     appleWebApp: {
       capable: true,
