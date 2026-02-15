@@ -73,7 +73,7 @@ export default function Footer() {
                 Twitter
               </Link>
               <Link
-                href="mailto:support@useprivly.com"
+                href="/contact"
                 className="text-gray-400 hover:text-white transition-colors duration-300"
               >
                 Email
@@ -152,10 +152,10 @@ export default function Footer() {
               Terms of Service
             </Link>
             <Link
-              href="mailto:support@useprivly.com"
+              href="/contact"
               className="text-gray-400 hover:text-white transition-colors duration-300"
             >
-              support@useprivly.com
+              Contact Us
             </Link>
           </div>
         </div>
