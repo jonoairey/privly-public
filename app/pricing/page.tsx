@@ -20,11 +20,11 @@ export default function PricingPage() {
     },
     {
       q: 'How is "$49/mo" possible when competitors charge "$109+"?',
-      a: 'We built smart automation. No per-username surcharges. No hidden tiers. One price covers everything — all platforms, all your content, all the protection you need. Plus you get dedicated human support whenever you need it.',
+      a: 'We built smart automation. No per-username surcharges. No hidden tiers. One price covers everything: all platforms, all your content, all the protection you need. Plus you get dedicated human support whenever you need it.',
     },
     {
       q: 'Can I cancel anytime?',
-      a: "Yes. No contracts, no fine print. You can cancel anytime, and we offer a 30-day money-back guarantee — if you're not satisfied, you get a full refund. No questions asked.",
+      a: "Yes. No contracts, no fine print. You can cancel anytime, and we offer a 30-day money-back guarantee. If you're not satisfied, you get a full refund. No questions asked.",
     },
   ];
 
@@ -115,7 +115,7 @@ export default function PricingPage() {
               {/* Guarantee */}
               <div className="mb-10 p-6 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-500/30">
                 <p className="text-base text-white font-semibold mb-1">30-Day Money-Back Guarantee</p>
-                <p className="text-sm text-gray-300 leading-relaxed">Not satisfied? Get a full refund within 30 days — no questions asked. Cancel anytime with zero hassle.</p>
+                <p className="text-sm text-gray-300 leading-relaxed">Not satisfied? Get a full refund within 30 days, no questions asked. Cancel anytime with zero hassle.</p>
               </div>
 
               {/* CTA Button */}

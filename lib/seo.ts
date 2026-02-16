@@ -4,7 +4,7 @@
 
 export const SITE_CONFIG = {
   name: 'Privly',
-  title: 'Privly — Protect Your Content. Stop Leaks. Recover Revenue.',
+  title: 'Privly - Protect Your Content. Stop Leaks. Recover Revenue.',
   description: 'Content protection for OnlyFans, Fansly & adult creators. Automated leak scanning, DMCA takedowns, and deepfake detection. Find stolen content and get it removed fast.',
   url: 'https://www.useprivly.com',
   ogImage: 'https://www.useprivly.com/og-image.png',

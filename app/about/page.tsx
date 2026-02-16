@@ -41,7 +41,7 @@ export default function AboutPage() {
             <h2 className="text-4xl font-bold mb-8">Our Mission</h2>
             <p className="text-gray-300 text-lg leading-relaxed mb-6">
               Creators on OnlyFans, Fansly, Patreon, and other platforms lose billions every year to content leaks and piracy.
-              The current systems for fighting back are broken—they're slow, expensive, and inaccessible to most creators.
+              The current systems for fighting back are broken. They're slow, expensive, and inaccessible to most creators.
             </p>
             <p className="text-gray-300 text-lg leading-relaxed mb-6">
               We built Privly to fix this. We wanted to create a tool that:
@@ -77,7 +77,7 @@ export default function AboutPage() {
                 <h3 className="text-2xl font-bold mb-4">Privacy First</h3>
                 <p className="text-gray-300">
                   Your data is your own. We never sell information, we don't track you across the web, and we use enterprise-grade encryption
-                  to keep everything safe. Privacy isn't just a feature—it's our foundation.
+                  to keep everything safe. Privacy isn't just a feature. It's our foundation.
                 </p>
               </div>
 
@@ -146,7 +146,7 @@ export default function AboutPage() {
               <div className="border-l-4 border-purple-500 pl-6">
                 <h3 className="text-xl font-bold mb-2">Actually Works</h3>
                 <p className="text-gray-300">
-                  We don't just detect leaks—we remove them. Our DMCA automation has a 96% success rate across major platforms.
+                  We don't just detect leaks, we remove them. Our DMCA automation has a 96% success rate across major platforms.
                 </p>
               </div>
 
@@ -160,7 +160,7 @@ export default function AboutPage() {
               <div className="border-l-4 border-purple-500 pl-6">
                 <h3 className="text-xl font-bold mb-2">Affordable</h3>
                 <p className="text-gray-300">
-                  $49/month. That's it. Professional DMCA services cost thousands. We democratized protection for creators — with dedicated human support included.
+                  $49/month. That's it. Professional DMCA services cost thousands. We made real protection affordable for creators, with dedicated human support included.
                 </p>
               </div>
 
@@ -174,7 +174,7 @@ export default function AboutPage() {
               <div className="border-l-4 border-purple-500 pl-6">
                 <h3 className="text-xl font-bold mb-2">Real Human Support</h3>
                 <p className="text-gray-300">
-                  When you need help, you get a real person — not a chatbot. Our dedicated human support team handles everything from takedown questions to account setup. Priority email support, monthly check-ins, and a team that actually cares about your success.
+                  When you need help, you get a real person, not a chatbot. Our support team handles everything from takedown questions to account setup. Priority email support, monthly check-ins, and a team that actually cares about your success.
                 </p>
               </div>
             </div>

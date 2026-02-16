@@ -72,7 +72,7 @@ export default function Home() {
     },
     {
       question: 'Do you offer a money-back guarantee?',
-      answer: `Yes. We're so confident in our platform that we offer a ${PLAN.guarantee} guarantee. If you're not satisfied, we refund your full subscription—no questions asked.`,
+      answer: `Yes. We're so confident in our platform that we offer a ${PLAN.guarantee} guarantee. If you're not satisfied, we refund your full subscription. No questions asked.`,
     },
   ];
 

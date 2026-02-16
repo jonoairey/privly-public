@@ -63,7 +63,7 @@ export default function Footer() {
               <span className="text-lg font-bold text-white">Privly</span>
             </Link>
             <p className="text-gray-400 text-sm mb-6">
-              Secure your content, protect your privacy, empower your voice.
+              Secure your content. Protect your privacy. Own your voice.
             </p>
             <div className="flex gap-4">
               <Link

@@ -74,7 +74,7 @@ export default function FeaturesPage() {
                 </div>
 
                 <p className="text-gray-300 mb-8 text-lg leading-relaxed">
-                  Embed unique identifiers in every piece of content you share. Our watermarks survive compression, format conversion, and editing—completely invisible to the human eye.
+                  Embed unique identifiers in every piece of content you share. Our watermarks survive compression, format conversion, and editing. Completely invisible to the human eye.
                 </p>
 
                 <div className="grid grid-cols-1 gap-4">
@@ -188,7 +188,7 @@ export default function FeaturesPage() {
               </div>
               <h3 className="text-2xl font-bold mb-4">DMCA Automation</h3>
               <p className="text-gray-400 mb-6">
-                Automated takedown notices with 96% success rate. Let Privly handle the legal hassle—we file DMCA claims on your behalf instantly.
+                Automated takedown notices with a 96% success rate. We handle the legal side for you, filing DMCA claims on your behalf instantly.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
@@ -230,7 +230,7 @@ export default function FeaturesPage() {
               </div>
               <h3 className="text-2xl font-bold mb-4">Dedicated Human Support</h3>
               <p className="text-gray-400 mb-6">
-                Real people, not chatbots. Our support team handles everything — from account setup to complex takedown situations. Every creator gets access to dedicated human support, no matter what.
+                Real people, not chatbots. Our support team handles everything from account setup to complex takedown situations. Every creator gets access to dedicated human support, no matter what.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">

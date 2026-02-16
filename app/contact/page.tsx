@@ -71,7 +71,7 @@ export default function ContactPage() {
                 Get In Touch
               </h1>
               <p className="text-gray-300 mb-8">
-                Our dedicated human support team is here to help — no bots, just real people.
+                Our dedicated human support team is here to help. No bots, just real people.
               </p>
 
               <div className="bg-gray-900 rounded-2xl border border-purple-500/20 p-6 md:p-8">
