@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { generateMetadata as genMeta, generateOrganizationSchema } from "@/lib/seo";
 
@@ -26,6 +27,18 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased bg-gray-950 text-white" style={{ fontFamily: "'Inter', system-ui, -apple-system, sans-serif" }}>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-PWH95MXCHG"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-PWH95MXCHG');
+          `}
+        </Script>
         {children}
       </body>
     </html>
