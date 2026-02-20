@@ -167,7 +167,7 @@ export default function FeaturesPage() {
               </div>
               <h3 className="text-2xl font-bold mb-4">24/7 Leak Scanning</h3>
               <p className="text-gray-400 mb-6">
-                Continuous monitoring across 500+ platforms using AI-powered matching. Spot unauthorized copies instantly, even with heavy modifications.
+                Continuous monitoring across 100+ platforms using AI-powered matching. Spot unauthorized copies instantly, even with heavy modifications.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
@@ -207,18 +207,18 @@ export default function FeaturesPage() {
               <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <AlertCircle size={28} className="text-white" />
               </div>
-              <h3 className="text-2xl font-bold mb-4">Deepfake Detection</h3>
+              <h3 className="text-2xl font-bold mb-4">Impersonation & AI Detection</h3>
               <p className="text-gray-400 mb-6">
-                AI-powered detection of synthetic and manipulated media. Protect against deepfakes and detect when your face/voice is misused.
+                Detect fake accounts, AI-generated content, and unauthorized use of your likeness across the web. Stay ahead of impersonators.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <CheckCircle size={20} className="text-green-500 mt-1 flex-shrink-0" />
-                  <span className="text-gray-300">Synthetic media detection</span>
+                  <span className="text-gray-300">AI-generated content detection</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle size={20} className="text-green-500 mt-1 flex-shrink-0" />
-                  <span className="text-gray-300">Facial recognition monitoring</span>
+                  <span className="text-gray-300">Impersonation monitoring</span>
                 </li>
               </ul>
             </div>
@@ -313,7 +313,7 @@ export default function FeaturesPage() {
                     </td>
                   </tr>
                   <tr className="hover:bg-white/5 transition-colors">
-                    <td className="px-6 py-4 font-medium">Deepfake Detection</td>
+                    <td className="px-6 py-4 font-medium">Impersonation & AI Detection</td>
                     <td className="px-6 py-4 text-center">
                       <Check size={24} className="mx-auto text-green-500 font-bold" />
                     </td>

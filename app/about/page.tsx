@@ -49,7 +49,7 @@ export default function AboutPage() {
             <ul className="space-y-3 text-gray-300 text-lg">
               <li className="flex gap-3">
                 <span className="text-purple-400">→</span>
-                <span>Automatically detects leaks across 500+ platforms</span>
+                <span>Automatically detects leaks across 100+ platforms</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-purple-400">→</span>

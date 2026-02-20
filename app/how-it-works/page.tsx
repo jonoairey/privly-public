@@ -45,9 +45,9 @@ export default function HowItWorks() {
       number: '3',
       title: '24/7 Leak Scanning',
       icon: Radar,
-      description: 'Our AI continuously monitors 500+ platforms worldwide for any copies of your content. Real-time detection means faster intervention.',
+      description: 'Our AI continuously monitors 100+ platforms worldwide for any copies of your content. Real-time detection means faster intervention.',
       bullets: [
-        '500+ platforms monitored',
+        '100+ platforms monitored',
         'AI-powered detection',
         'Real-time alerts',
       ],
@@ -249,7 +249,7 @@ export default function HowItWorks() {
                 24/7 Leak Scanning
               </h2>
               <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-                Our AI continuously monitors 500+ platforms worldwide for any copies of your content. Real-time detection means faster intervention and damage control.
+                Our AI continuously monitors 100+ platforms worldwide for any copies of your content. Real-time detection means faster intervention and damage control.
               </p>
               <ul className="space-y-4">
                 {steps[2].bullets.map((bullet, i) => (
@@ -280,7 +280,7 @@ export default function HowItWorks() {
                   {/* Platform indicators */}
                   <div className="absolute top-4 right-4 text-xs text-blue-300 font-medium">
                     <p>Platforms</p>
-                    <p className="text-lg font-bold text-blue-400">500+</p>
+                    <p className="text-lg font-bold text-blue-400">100+</p>
                   </div>
                 </div>
               </div>

@@ -53,7 +53,7 @@ export default function Home() {
     {
       question: 'Can Privly remove content from all platforms?',
       answer:
-        'We monitor 500+ platforms globally and have a 96% takedown success rate. Our partnerships with major platforms and automated DMCA filing system ensures rapid removal from virtually anywhere your content appears.',
+        'We scan across 100+ platforms and the broader web using AI-powered detection, and have a 96% takedown success rate. Our automated DMCA filing system ensures rapid removal from virtually anywhere your content appears.',
     },
     {
       question: 'How fast can you detect leaks?',
@@ -63,7 +63,7 @@ export default function Home() {
     {
       question: 'Is my content stored securely?',
       answer:
-        'Yes. Our Content Vault uses enterprise-grade AES-256 encryption and zero-knowledge architecture. We never store unencrypted versions of your content, and only you hold the decryption keys.',
+        'Yes. Our Content Vault uses enterprise-grade AES-256 encryption. All content is encrypted at rest and in transit, with strict access controls ensuring only you can access your files.',
     },
     {
       question: "What happens if DMCA doesn't work?",
@@ -236,7 +236,7 @@ export default function Home() {
                 number: '03',
                 icon: Search,
                 title: 'We Monitor & Find',
-                description: 'Our AI scans 500+ platforms 24/7 for unauthorized copies.',
+                description: 'Our AI scans 100+ platforms around the clock for unauthorized copies.',
               },
               {
                 number: '04',
@@ -288,12 +288,12 @@ export default function Home() {
               {
                 icon: Lock,
                 title: 'Content Vault',
-                description: 'AES-256 encrypted storage. Zero-knowledge architecture. Your keys only.',
+                description: 'AES-256 encrypted storage with strict access controls. Your content, protected.',
               },
               {
                 icon: Eye,
                 title: 'Leak Scanning',
-                description: 'Monitor 500+ platforms continuously for unauthorized copies.',
+                description: 'Monitor 100+ platforms continuously for unauthorized copies.',
               },
               {
                 icon: FileText,
@@ -302,8 +302,8 @@ export default function Home() {
               },
               {
                 icon: Cpu,
-                title: 'Deepfake Detection',
-                description: 'AI-powered detection of deepfakes and synthesized versions of your content.',
+                title: 'Impersonation & AI Detection',
+                description: 'Detect fake accounts, AI-generated content, and unauthorized use of your likeness.',
               },
               {
                 icon: HeadphonesIcon,

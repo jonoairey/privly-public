@@ -10,9 +10,9 @@ export const PLAN = {
   features: [
     'Invisible forensic watermarking',
     'Leak source tracing: find WHO leaked',
-    'Leak scanning across 500+ platforms',
+    'Leak scanning across 100+ platforms',
     'Automated DMCA takedown generation & submission',
-    'AI deepfake & impersonation detection',
+    'AI content & impersonation detection',
     'Content Vault with timestamped proof of ownership',
     'Dedicated human support (real people, not bots)',
     'Real-time email alerts',
@@ -41,7 +41,7 @@ export const PLATFORMS = [
 ] as const
 
 export const STATS = {
-  platformsMonitored: '500+',
+  platformsMonitored: '100+',
   takedownSuccessRate: '96%',
   avgDetectionTime: '< 2 hours',
   annualCreatorLoss: '$1.7B',
