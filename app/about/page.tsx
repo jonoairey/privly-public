@@ -196,7 +196,7 @@ export default function AboutPage() {
                 Get In Touch
               </Link>
               <Link
-                href={`${APP_URL}/signup`}
+                href={`${APP_URL}/auth/signup`}
                 className="inline-block bg-gray-800 hover:bg-gray-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 border border-gray-700"
               >
                 Get Started

@@ -90,7 +90,7 @@ export default function HowItWorks() {
           </p>
           <div className="flex justify-center">
             <a
-              href={`${APP_URL}/signup`}
+              href={`${APP_URL}/auth/signup`}
               className="btn-glow px-8 py-4 rounded-full bg-purple-600 hover:bg-purple-500 font-semibold transition-all inline-flex items-center gap-3"
             >
               Start Protecting Now
@@ -390,7 +390,7 @@ export default function HowItWorks() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
-              href={`${APP_URL}/signup`}
+              href={`${APP_URL}/auth/signup`}
               className="btn-glow px-8 py-4 rounded-full bg-purple-600 hover:bg-purple-500 font-semibold transition-all inline-flex items-center justify-center gap-3"
             >
               Get Started Now

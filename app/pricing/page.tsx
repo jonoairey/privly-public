@@ -120,7 +120,7 @@ export default function PricingPage() {
 
               {/* CTA Button */}
               <a
-                href={`${APP_URL}/signup`}
+                href={`${APP_URL}/auth/signup`}
                 className="btn-glow w-full inline-block text-center py-4 px-8 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-full transition-all text-lg"
               >
                 Get Started Now
@@ -264,7 +264,7 @@ export default function PricingPage() {
               Join thousands of creators who trust Privly to stop leaks.
             </p>
             <a
-              href={`${APP_URL}/signup`}
+              href={`${APP_URL}/auth/signup`}
               className="btn-glow px-10 py-4 rounded-full bg-purple-600 hover:bg-purple-500 font-bold transition-all inline-flex items-center justify-center gap-3 text-lg"
             >
               Get Started Now
