@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Shield } from 'lucide-react';
+import Image from 'next/image';
+import { Menu, X } from 'lucide-react';
 import { NAV_LINKS, APP_URL } from '@/lib/constants';
 
 export default function Header() {
@@ -31,14 +32,15 @@ export default function Header() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-300" />
-              <div className="relative bg-gradient-to-r from-purple-600 to-pink-600 p-2 rounded-full">
-                <Shield className="w-5 h-5 text-white" />
-              </div>
-            </div>
-            <span className="text-xl font-bold text-white hidden sm:inline">Privly</span>
+          <Link href="/" className="flex items-center group">
+            <Image
+              src="/logo-light.png"
+              alt="Privly"
+              width={120}
+              height={60}
+              className="h-8 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

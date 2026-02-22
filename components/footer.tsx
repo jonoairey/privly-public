@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Shield } from 'lucide-react';
+import Image from 'next/image';
 
 const footerLinks = {
   product: [
@@ -16,7 +16,7 @@ const footerLinks = {
     { label: 'Patreon', href: '#' },
     { label: 'ManyVids', href: '#' },
     { label: 'Chaturbate', href: '#' },
-    { label: '+ 500 more', href: '#' },
+    { label: '+ 100 more', href: '#' },
   ],
   company: [
     { label: 'About', href: '/about' },
@@ -53,14 +53,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           {/* Brand Column */}
           <div className="md:col-span-1">
-            <Link href="/" className="flex items-center gap-2 group mb-4">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-300" />
-                <div className="relative bg-gradient-to-r from-purple-600 to-pink-600 p-2 rounded-full">
-                  <Shield className="w-5 h-5 text-white" />
-                </div>
-              </div>
-              <span className="text-lg font-bold text-white">Privly</span>
+            <Link href="/" className="flex items-center group mb-4">
+              <Image
+                src="/logo-light.png"
+                alt="Privly"
+                width={120}
+                height={60}
+                className="h-8 w-auto"
+              />
             </Link>
             <p className="text-gray-400 text-sm mb-6">
               Secure your content. Protect your privacy. Own your voice.
