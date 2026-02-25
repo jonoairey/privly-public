@@ -1,15 +1,15 @@
 import Link from "next/link";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { blogPosts } from "@/lib/blog-data";
+import { articles } from "@/lib/article-data";
 import { generateMetadata as genMeta } from "@/lib/seo";
 
 export const metadata = genMeta({
-  title: "Blog",
+  title: "Articles",
   description: "Content protection guides, legal advice, and security tips for creators and businesses.",
-  path: "/blog",
+  path: "/articles",
   keywords: [
-    "content protection blog",
+    "content protection articles",
     "DMCA guide",
     "creator security tips",
     "leak prevention",
@@ -17,8 +17,8 @@ export const metadata = genMeta({
   ],
 });
 
-export default function BlogPage() {
-  const sortedPosts = [...blogPosts].sort(
+export default function ArticlesPage() {
+  const sortedPosts = [...articles].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 
@@ -41,17 +41,17 @@ export default function BlogPage() {
           {/* Header Section */}
           <div className="mb-16">
             <h1 className="text-5xl sm:text-6xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Blog
+              Articles
             </h1>
             <p className="text-xl text-gray-400 max-w-2xl">
               Expert insights on content protection, legal strategies, and security for creators and businesses.
             </p>
           </div>
 
-          {/* Blog Posts Grid */}
+          {/* Articles Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {sortedPosts.map((post) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`}>
+              <Link key={post.slug} href={`/articles/${post.slug}`}>
                 <article className="h-full bg-gray-900 border border-gray-800 rounded-lg p-6 hover:border-purple-600 transition-colors duration-300 cursor-pointer group">
                   {/* Category Badge */}
                   <div className="mb-4">

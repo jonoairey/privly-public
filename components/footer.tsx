@@ -8,7 +8,7 @@ const footerLinks = {
     { label: 'How It Works', href: '/how-it-works' },
     { label: 'Features', href: '/features' },
     { label: 'Pricing', href: '/pricing' },
-    { label: 'Blog', href: '/blog' },
+    { label: 'Articles', href: '/articles' },
   ],
   platforms: [
     { label: 'OnlyFans', href: '#' },

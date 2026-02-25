@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { blogPosts } from "@/lib/blog-data";
+import { articles } from "@/lib/article-data";
 
 interface Props {
   params: Promise<{
@@ -11,18 +11,18 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  return blogPosts.map((post) => ({
+  return articles.map((post) => ({
     slug: post.slug,
   }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params;
-  const post = blogPosts.find((p) => p.slug === resolvedParams.slug);
+  const post = articles.find((p) => p.slug === resolvedParams.slug);
 
   if (!post) {
     return {
-      title: "Post Not Found | Privly",
+      title: "Article Not Found | Privly",
     };
   }
 
@@ -39,9 +39,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function BlogPostPage({ params }: Props) {
+export default async function ArticlePage({ params }: Props) {
   const resolvedParams = await params;
-  const post = blogPosts.find((p) => p.slug === resolvedParams.slug);
+  const post = articles.find((p) => p.slug === resolvedParams.slug);
 
   if (!post) {
     return (
@@ -49,15 +49,15 @@ export default async function BlogPostPage({ params }: Props) {
         <Header />
         <main className="flex-1 w-full py-16 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-4xl font-bold mb-4">Post Not Found</h1>
+            <h1 className="text-4xl font-bold mb-4">Article Not Found</h1>
             <p className="text-gray-400 mb-8">
-              The blog post you're looking for doesn't exist.
+              The article you're looking for doesn't exist.
             </p>
             <Link
-              href="/blog"
+              href="/articles"
               className="inline-block px-6 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg font-medium transition-colors duration-300"
             >
-              Back to Blog
+              Back to Articles
             </Link>
           </div>
         </main>
@@ -66,13 +66,13 @@ export default async function BlogPostPage({ params }: Props) {
     );
   }
 
-  const currentIndex = blogPosts.findIndex((p) => p.slug === post.slug);
-  const relatedPosts = blogPosts
+  const currentIndex = articles.findIndex((p) => p.slug === post.slug);
+  const relatedPosts = articles
     .filter((p) => p.slug !== post.slug)
     .sort(
       (a, b) =>
-        Math.abs(blogPosts.indexOf(a) - currentIndex) -
-        Math.abs(blogPosts.indexOf(b) - currentIndex)
+        Math.abs(articles.indexOf(a) - currentIndex) -
+        Math.abs(articles.indexOf(b) - currentIndex)
     )
     .slice(0, 2);
 
@@ -94,13 +94,13 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="max-w-4xl mx-auto">
           {/* Back Link */}
           <Link
-            href="/blog"
+            href="/articles"
             className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 mb-8 transition-colors duration-300"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Back to Blog
+            Back to Articles
           </Link>
 
           {/* Article Header */}
@@ -166,14 +166,14 @@ export default async function BlogPostPage({ params }: Props) {
           {/* Divider */}
           <div className="border-t border-gray-800 my-12" />
 
-          {/* Related Posts */}
+          {/* Related Articles */}
           <section className="mt-16">
             <h2 className="text-3xl font-bold mb-8">Related Articles</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {relatedPosts.map((relatedPost) => (
                 <Link
                   key={relatedPost.slug}
-                  href={`/blog/${relatedPost.slug}`}
+                  href={`/articles/${relatedPost.slug}`}
                   className="group"
                 >
                   <article className="bg-gray-900 border border-gray-800 rounded-lg p-6 hover:border-purple-600 transition-colors duration-300 h-full">
