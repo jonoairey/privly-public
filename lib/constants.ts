@@ -9,17 +9,26 @@ export const PLAN = {
   interval: 'month',
   features: [
     'Invisible forensic watermarking',
-    'Leak source tracing: find WHO leaked',
-    'Leak scanning across 100+ platforms',
+    'Leak source tracing — find WHO leaked',
+    'Monitor 1 username per platform across 15 platforms',
+    'Leak scanning across 500+ platforms',
+    'Proactive monitoring of Telegram, Discord & Reddit leak channels',
     'Automated DMCA takedown generation & submission',
-    'AI content & impersonation detection',
-    'Content Vault with timestamped proof of ownership',
-    'Dedicated human support (real people, not bots)',
+    'AI deepfake & impersonation detection',
+    'Content Vault — timestamped proof of ownership',
+    'Dedicated human support — real people, not bots',
     'Real-time email alerts',
     'Revenue impact tracking',
     'Monthly protection reports',
   ],
   guarantee: '30-day money-back guarantee',
+}
+
+export const COPYRIGHT_ADDON = {
+  price: '$199',
+  priceAmount: 199,
+  description: 'US Copyright Office Registration',
+  processingNote: 'Application documents prepared within 24 hours',
 }
 
 export const PLATFORMS = [
@@ -41,12 +50,13 @@ export const PLATFORMS = [
 ] as const
 
 export const STATS = {
-  platformsMonitored: '100+',
+  platformsMonitored: '500+',
   takedownSuccessRate: '96%',
   avgDetectionTime: '< 2 hours',
   annualCreatorLoss: '$1.7B',
   creatorsAffected: '47%',
   leakReduction: '70%',
+  proactiveChannels: '15',
 }
 
 export const NAV_LINKS = [

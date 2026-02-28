@@ -3,7 +3,8 @@
 import { useState, useEffect, useRef } from 'react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
-import { PLAN, STATS, APP_URL } from '@/lib/constants';
+import Image from 'next/image';
+import { PLAN, STATS, COPYRIGHT_ADDON, APP_URL } from '@/lib/constants';
 import {
   Shield,
   Zap,
@@ -20,6 +21,8 @@ import {
   Cpu,
   AlertTriangle,
   HeadphonesIcon,
+  Radio,
+  Copyright,
 } from 'lucide-react';
 
 export default function Home() {
@@ -53,7 +56,7 @@ export default function Home() {
     {
       question: 'Can Privly remove content from all platforms?',
       answer:
-        'We scan across 100+ platforms and the broader web using AI-powered detection, and have a 96% takedown success rate. Our automated DMCA filing system ensures rapid removal from virtually anywhere your content appears.',
+        'We scan across 500+ platforms and the broader web using AI-powered detection, and have a 96% takedown success rate. We also proactively monitor Telegram channels, Discord servers, and Reddit communities where leaks commonly appear. Our automated DMCA filing system ensures rapid removal from virtually anywhere your content appears.',
     },
     {
       question: 'How fast can you detect leaks?',
@@ -64,6 +67,11 @@ export default function Home() {
       question: 'Is my content stored securely?',
       answer:
         'Yes. Our Content Vault uses enterprise-grade AES-256 encryption. All content is encrypted at rest and in transit, with strict access controls ensuring only you can access your files.',
+    },
+    {
+      question: 'What is the Copyright Registration add-on?',
+      answer:
+        'For a one-time fee of $199, we prepare all the documents you need to register your work with the US Copyright Office. This gives you stronger legal standing for enforcement and the ability to seek statutory damages. We handle the paperwork — you just review and submit.',
     },
     {
       question: "What happens if DMCA doesn't work?",
@@ -191,6 +199,7 @@ export default function Home() {
                   {[
                     'Watermark embedded before sharing',
                     'Automatic leak detection < 2 hours',
+                    'Proactive monitoring of Telegram, Discord & Reddit',
                     'Instant automated takedowns',
                     'Know exactly who leaked your content',
                     'Block repeat offenders permanently',
@@ -236,7 +245,7 @@ export default function Home() {
                 number: '03',
                 icon: Search,
                 title: 'We Monitor & Find',
-                description: 'Our AI scans 100+ platforms around the clock for unauthorized copies.',
+                description: 'Our AI scans 500+ platforms around the clock, plus proactively monitors Telegram, Discord & Reddit leak channels.',
               },
               {
                 number: '04',
@@ -279,52 +288,113 @@ export default function Home() {
                 icon: Droplet,
                 title: 'Forensic Watermarking',
                 description: 'Invisible, traceable identifiers embedded in every piece of content.',
+                image: '/feature-watermarking.png',
               },
               {
                 icon: Microscope,
                 title: 'Leak Source Tracing',
                 description: 'Pinpoint exactly who leaked your content, when, and where.',
+                image: '/feature-leak-scanning.png',
+              },
+              {
+                icon: Radio,
+                title: 'Proactive Monitoring',
+                description: 'We actively monitor Telegram channels, Discord servers, and Reddit leak communities every 30 minutes.',
+                image: '/feature-monitoring.png',
               },
               {
                 icon: Lock,
                 title: 'Content Vault',
-                description: 'AES-256 encrypted storage with strict access controls. Your content, protected.',
+                description: 'AES-256 encrypted storage with timestamped proof of ownership.',
+                image: '/feature-vault.png',
               },
               {
                 icon: Eye,
                 title: 'Leak Scanning',
-                description: 'Monitor 100+ platforms continuously for unauthorized copies.',
+                description: 'Scan 500+ platforms continuously for unauthorized copies of your content.',
+                image: null,
               },
               {
                 icon: FileText,
                 title: 'DMCA Automation',
                 description: 'Automated takedown notices filed instantly across all platforms.',
+                image: '/feature-dmca.png',
               },
               {
                 icon: Cpu,
-                title: 'Impersonation & AI Detection',
+                title: 'AI Deepfake Detection',
                 description: 'Detect fake accounts, AI-generated content, and unauthorized use of your likeness.',
+                image: '/feature-ai-detection.png',
+              },
+              {
+                icon: Copyright,
+                title: 'Copyright Registration',
+                description: `US Copyright Office registration document prep — just ${COPYRIGHT_ADDON.price}. We handle the paperwork.`,
+                image: null,
               },
               {
                 icon: HeadphonesIcon,
                 title: 'Dedicated Human Support',
                 description: 'Real people backing you up. Our team helps with takedowns, questions, and anything you need.',
+                image: null,
               },
             ].map((feature, idx) => {
               const Icon = feature.icon;
               return (
                 <div
                   key={idx}
-                  className="glow-card glass rounded-xl p-8 border border-purple-500/20 group reveal"
+                  className="glow-card glass rounded-xl overflow-hidden border border-purple-500/20 group reveal"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center mb-4 group-hover:shadow-lg group-hover:shadow-purple-500/50 transition-all">
-                    <Icon className="w-6 h-6 text-white" />
+                  {feature.image && (
+                    <div className="relative w-full h-40 overflow-hidden">
+                      <Image
+                        src={feature.image}
+                        alt={feature.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                    </div>
+                  )}
+                  <div className="p-8">
+                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center mb-4 group-hover:shadow-lg group-hover:shadow-purple-500/50 transition-all">
+                      <Icon className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
+                    <p className="text-gray-400">{feature.description}</p>
                   </div>
-                  <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                  <p className="text-gray-400">{feature.description}</p>
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* COPYRIGHT ADD-ON */}
+      <section className="relative w-full py-16 px-4 sm:px-6 lg:px-8 reveal">
+        <div className="max-w-5xl mx-auto">
+          <div className="glow-card glass rounded-2xl p-8 sm:p-12 border border-purple-500/20 bg-gradient-to-br from-purple-950/30 to-pink-950/20 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 orb orb-purple opacity-10" />
+            <div className="relative flex flex-col md:flex-row items-center gap-8">
+              <div className="flex-shrink-0">
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center">
+                  <Copyright className="w-10 h-10 text-white" />
+                </div>
+              </div>
+              <div className="flex-1 text-center md:text-left">
+                <div className="inline-block px-3 py-1 bg-purple-500/20 border border-purple-400/30 rounded-full text-xs font-semibold text-purple-300 mb-3">
+                  ADD-ON
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-bold mb-2">US Copyright Registration</h3>
+                <p className="text-gray-400 mb-4">
+                  Strengthen your legal protection with a formal copyright registration. We prepare all the paperwork for the US Copyright Office — application forms, cover letters, and filing instructions. You just review and submit.
+                </p>
+                <div className="flex flex-wrap items-center gap-4">
+                  <span className="text-3xl font-bold text-gradient">{COPYRIGHT_ADDON.price}</span>
+                  <span className="text-gray-400">one-time payment</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

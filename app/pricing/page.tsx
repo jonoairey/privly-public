@@ -1,14 +1,14 @@
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { generateMetadata as genMeta } from '@/lib/seo';
-import { PLAN, APP_URL } from '@/lib/constants';
+import { PLAN, COPYRIGHT_ADDON, APP_URL } from '@/lib/constants';
 import { generateProductSchema, generateFAQSchema } from '@/lib/seo';
 import RoiCalculator from '@/components/roi-calculator';
-import { CheckCircle, ArrowRight, HelpCircle } from 'lucide-react';
+import { CheckCircle, ArrowRight, HelpCircle, Copyright } from 'lucide-react';
 
 export const metadata = genMeta({
   title: 'Pricing',
-  description: 'Privly pricing: $49/month for forensic watermarking, leak source tracing, content protection, and dedicated human support. Compare with competitors charging $109-$324/month.',
+  description: 'Privly pricing: $49/month for forensic watermarking, leak source tracing, proactive monitoring, content protection, and dedicated human support. Plus $199 copyright registration add-on. Compare with competitors charging $109-$324/month.',
   path: '/pricing',
 });
 
@@ -21,6 +21,10 @@ export default function PricingPage() {
     {
       q: 'How is "$49/mo" possible when competitors charge "$109+"?',
       a: 'We built smart automation. No per-username surcharges. No hidden tiers. One price covers everything: all platforms, all your content, all the protection you need. Plus you get dedicated human support whenever you need it.',
+    },
+    {
+      q: 'What about the $199 copyright registration?',
+      a: "That's an optional one-time add-on. Your $49/month subscription gives you full protection. The copyright registration add-on prepares all documents for the US Copyright Office, which strengthens your legal standing for enforcement and statutory damages.",
     },
     {
       q: 'Can I cancel anytime?',
@@ -129,6 +133,52 @@ export default function PricingPage() {
           </div>
         </section>
 
+        {/* Copyright Add-On */}
+        <section className="relative py-16 px-6 bg-black">
+          <div className="max-w-2xl mx-auto">
+            <div className="glow-card glass rounded-2xl p-8 sm:p-10 border border-purple-500/20 bg-gradient-to-br from-purple-950/20 to-pink-950/10">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center flex-shrink-0">
+                  <Copyright className="w-7 h-7 text-white" />
+                </div>
+                <div>
+                  <div className="inline-block px-2 py-0.5 bg-purple-500/20 border border-purple-400/30 rounded text-xs font-semibold text-purple-300 mb-1">
+                    ADD-ON
+                  </div>
+                  <h3 className="text-2xl font-bold">US Copyright Registration</h3>
+                </div>
+              </div>
+
+              <p className="text-gray-400 mb-6 leading-relaxed">
+                Strengthen your legal protection with a formal copyright registration. We prepare all the documents you need for the US Copyright Office — application forms, cover letters, and filing instructions. Documents ready within 24 hours.
+              </p>
+
+              <div className="flex items-baseline gap-3 mb-6">
+                <span className="text-4xl font-bold text-gradient">{COPYRIGHT_ADDON.price}</span>
+                <span className="text-gray-400">one-time payment</span>
+              </div>
+
+              <div className="space-y-3 mb-6">
+                {[
+                  'Complete eCO application form data',
+                  'Professional cover letter',
+                  'Step-by-step filing instructions',
+                  'Links directly to your Content Vault items',
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-300">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-sm text-gray-500">
+                Available in your dashboard after subscribing. Copyright registration strengthens DMCA enforcement and enables statutory damages.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Competitor Comparison */}
         <section className="relative py-24 px-6 bg-black">
           <div className="max-w-6xl mx-auto">
@@ -180,11 +230,19 @@ export default function PricingPage() {
                     </li>
                     <li className="flex items-start gap-3">
                       <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
+                      <span className="text-white font-bold text-lg">Proactive Telegram, Discord & Reddit Monitoring</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
                       <span className="text-white font-bold text-lg">Leaks Decrease Permanently</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
-                      <span className="text-white font-bold text-lg">All Platforms Included</span>
+                      <span className="text-white font-bold text-lg">All 15 Platforms Included</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
+                      <span className="text-white font-bold text-lg">Copyright Registration Add-On</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />

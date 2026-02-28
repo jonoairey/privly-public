@@ -2,6 +2,8 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { generateMetadata as genMeta } from '@/lib/seo';
 import { APP_URL } from '@/lib/constants';
+import Image from 'next/image';
+import { COPYRIGHT_ADDON } from '@/lib/constants';
 import {
   Fingerprint,
   Target,
@@ -14,6 +16,8 @@ import {
   X,
   ArrowRight,
   HeadphonesIcon,
+  Radio,
+  Copyright,
 } from 'lucide-react';
 
 export const metadata = genMeta({
@@ -44,7 +48,7 @@ export default function FeaturesPage() {
             <span className="text-gradient">Finds Your Leakers</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Invisible forensic watermarking + 24/7 leak scanning + automated DMCA takedowns.
+            Invisible forensic watermarking + proactive monitoring of leak channels + automated DMCA takedowns.
             Protect your work. Identify leakers. Reclaim control.
           </p>
           <a href={APP_URL} className="btn-glow px-8 py-4 bg-purple-600 hover:bg-purple-700 rounded-lg font-semibold text-lg inline-flex items-center gap-2 transition-all">
@@ -167,7 +171,7 @@ export default function FeaturesPage() {
               </div>
               <h3 className="text-2xl font-bold mb-4">24/7 Leak Scanning</h3>
               <p className="text-gray-400 mb-6">
-                Continuous monitoring across 100+ platforms using AI-powered matching. Spot unauthorized copies instantly, even with heavy modifications.
+                Continuous monitoring across 500+ platforms using AI-powered matching. Spot unauthorized copies instantly, even with heavy modifications.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
@@ -219,6 +223,59 @@ export default function FeaturesPage() {
                 <li className="flex items-start gap-3">
                   <CheckCircle size={20} className="text-green-500 mt-1 flex-shrink-0" />
                   <span className="text-gray-300">Impersonation monitoring</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Proactive Monitoring */}
+            <div className="glow-card glass rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 group">
+              <div className="relative w-full h-48 overflow-hidden">
+                <Image
+                  src="/feature-monitoring.png"
+                  alt="Proactive platform monitoring"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+              </div>
+              <div className="p-8">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-cyan-700 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Radio size={28} className="text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4">Proactive Monitoring</h3>
+                <p className="text-gray-400 mb-6">
+                  We don't just wait for leaks to find us. Every 30 minutes, we actively scan known Telegram leak channels, Discord servers, and Reddit communities where pirated content is shared.
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle size={20} className="text-green-500 mt-1 flex-shrink-0" />
+                    <span className="text-gray-300">Telegram, Discord & Reddit monitoring</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle size={20} className="text-green-500 mt-1 flex-shrink-0" />
+                    <span className="text-gray-300">Scans every 30 minutes for your usernames</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Copyright Registration */}
+            <div className="glow-card glass rounded-2xl p-8 border border-white/10 hover:border-pink-500/50 group">
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-pink-500 to-pink-700 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Copyright size={28} className="text-white" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4">Copyright Registration</h3>
+              <p className="text-gray-400 mb-6">
+                Strengthen your legal standing with a formal US Copyright Office registration. We prepare all the documents — application forms, cover letters, and step-by-step filing instructions.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <CheckCircle size={20} className="text-green-500 mt-1 flex-shrink-0" />
+                  <span className="text-gray-300">Complete document preparation for {COPYRIGHT_ADDON.price}</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle size={20} className="text-green-500 mt-1 flex-shrink-0" />
+                  <span className="text-gray-300">Ready within 24 hours of payment</span>
                 </li>
               </ul>
             </div>
@@ -310,6 +367,24 @@ export default function FeaturesPage() {
                     </td>
                     <td className="px-6 py-4 text-center">
                       <Check size={24} className="mx-auto text-gray-600" />
+                    </td>
+                  </tr>
+                  <tr className="hover:bg-white/5 transition-colors">
+                    <td className="px-6 py-4 font-medium">Proactive Channel Monitoring</td>
+                    <td className="px-6 py-4 text-center">
+                      <Check size={24} className="mx-auto text-green-500 font-bold" />
+                    </td>
+                    <td className="px-6 py-4 text-center">
+                      <X size={24} className="mx-auto text-gray-500" />
+                    </td>
+                  </tr>
+                  <tr className="hover:bg-white/5 transition-colors">
+                    <td className="px-6 py-4 font-medium">Copyright Registration</td>
+                    <td className="px-6 py-4 text-center">
+                      <Check size={24} className="mx-auto text-green-500 font-bold" />
+                    </td>
+                    <td className="px-6 py-4 text-center">
+                      <X size={24} className="mx-auto text-gray-500" />
                     </td>
                   </tr>
                   <tr className="hover:bg-white/5 transition-colors">
