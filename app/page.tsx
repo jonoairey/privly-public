@@ -312,7 +312,7 @@ export default function Home() {
                 icon: Eye,
                 title: 'Leak Scanning',
                 description: 'Scan 500+ platforms continuously for unauthorized copies of your content.',
-                image: null,
+                image: '/feature-leak-scan.png',
               },
               {
                 icon: FileText,
@@ -330,13 +330,13 @@ export default function Home() {
                 icon: Copyright,
                 title: 'Copyright Registration',
                 description: `US Copyright Office registration document prep — just ${COPYRIGHT_ADDON.price}. We handle the paperwork.`,
-                image: null,
+                image: '/feature-copyright.png',
               },
               {
                 icon: HeadphonesIcon,
                 title: 'Dedicated Human Support',
                 description: 'Real people backing you up. Our team helps with takedowns, questions, and anything you need.',
-                image: null,
+                image: '/feature-support.png',
               },
             ].map((feature, idx) => {
               const Icon = feature.icon;
