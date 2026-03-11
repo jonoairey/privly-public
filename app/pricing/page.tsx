@@ -4,11 +4,11 @@ import { generateMetadata as genMeta } from '@/lib/seo';
 import { PLAN, COPYRIGHT_ADDON, APP_URL } from '@/lib/constants';
 import { generateProductSchema, generateFAQSchema } from '@/lib/seo';
 import RoiCalculator from '@/components/roi-calculator';
-import { CheckCircle, ArrowRight, HelpCircle, Copyright } from 'lucide-react';
+import { CheckCircle, ArrowRight, Copyright } from 'lucide-react';
 
 export const metadata = genMeta({
   title: 'Pricing',
-  description: 'Privly pricing: $49/month for forensic watermarking, leak source tracing, proactive monitoring, content protection, and dedicated human support. Plus $199 copyright registration add-on. Compare with competitors charging $109-$324/month.',
+  description: 'Privly pricing: $49/month for forensic watermarking, leak source tracing, proactive monitoring, content protection, and dedicated human support. Plus $199 copyright registration add-on.',
   path: '/pricing',
 });
 
@@ -19,16 +19,16 @@ export default function PricingPage() {
       a: "Full protection shouldn't depend on your income bracket. Whether you're just starting or earning six figures, you deserve the same tools to protect your content.",
     },
     {
-      q: 'How is "$49/mo" possible when competitors charge "$109+"?',
-      a: 'We built smart automation. No per-username surcharges. No hidden tiers. One price covers everything: all platforms, all your content, all the protection you need. Plus you get dedicated human support whenever you need it.',
+      q: 'How is $49/mo possible when competitors charge $109+?',
+      a: 'We built smart automation. No per-username surcharges. No hidden tiers. One price covers everything: all platforms, all your content, all the protection you need. Plus dedicated human support.',
     },
     {
       q: 'What about the $199 copyright registration?',
-      a: "That's an optional one-time add-on. Your $49/month subscription gives you full protection. The copyright registration add-on prepares all documents for the US Copyright Office, which strengthens your legal standing for enforcement and statutory damages.",
+      a: "That's an optional one-time add-on. Your $49/month subscription gives you full protection. The copyright registration add-on prepares all documents for the US Copyright Office, strengthening your legal standing.",
     },
     {
       q: 'Can I cancel anytime?',
-      a: "Yes. No contracts, no fine print. You can cancel anytime, and we offer a 30-day money-back guarantee. If you're not satisfied, you get a full refund. No questions asked.",
+      a: "Yes. No contracts, no fine print. Cancel anytime. We offer a 30-day money-back guarantee — if you're not satisfied, full refund, no questions asked.",
     },
   ];
 
@@ -55,254 +55,178 @@ export default function PricingPage() {
       />
       <Header />
 
-      <main className="pt-20 pb-20">
-        {/* Hero Section */}
-        <section className="hero-gradient relative min-h-96 flex items-center justify-center overflow-hidden py-20">
-          <div className="absolute -top-20 -right-20 w-96 h-96 orb orb-purple opacity-40" />
-          <div className="absolute bottom-0 -left-32 w-72 h-72 orb orb-pink opacity-30" />
+      <main className="pt-28 pb-0">
+        {/* Hero — compact with price front and center */}
+        <section className="relative w-full pb-12 px-4 sm:px-6 lg:px-8">
+          <div className="absolute inset-0 bg-gradient-to-b from-purple-950/20 via-black to-black" />
 
-          <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-            <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
+          <div className="relative max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
               One plan. Full protection.
             </h1>
-            <div className="text-5xl md:text-6xl font-black text-gradient mb-6">
+            <div className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-4">
               {PLAN.price}/month
             </div>
-            <p className="text-xl md:text-2xl text-gray-300 mb-12 font-light max-w-2xl mx-auto">
+            <p className="text-lg text-gray-300 mb-2 max-w-2xl mx-auto">
               Other services charge $109-$324/month just to scan and remove. Privly gives you that plus forensic watermarking, leak source tracing, and dedicated human support.
             </p>
           </div>
         </section>
 
-        {/* Main Pricing Card */}
-        <section className="relative py-24 px-6 bg-black">
-          <div className="max-w-2xl mx-auto">
-            <div className="border-gradient-animated glow-card relative rounded-3xl p-12 bg-gradient-to-br from-purple-900/20 to-pink-900/20 border border-white/10">
-              <div className="absolute top-6 right-6">
-                <div className="pulse-badge px-4 py-2 rounded-full bg-purple-500/20 border border-purple-400/40">
-                  <span className="text-sm font-bold text-purple-300">BEST VALUE</span>
+        {/* Pricing Card + Copyright Add-On side by side on desktop */}
+        <section className="relative w-full py-12 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto grid lg:grid-cols-3 gap-6">
+            {/* Main Pricing Card — takes 2 cols */}
+            <div className="lg:col-span-2 relative bg-gray-900/50 rounded-xl p-8 sm:p-10 border border-purple-500/20">
+              <div className="absolute -top-3 left-6">
+                <div className="bg-gradient-to-r from-purple-600 to-pink-600 px-4 py-1 rounded-full text-xs font-semibold text-white">
+                  7-DAY FREE TRIAL
                 </div>
               </div>
 
-              <div className="mb-8">
-                <h2 className="text-4xl md:text-5xl font-black mb-6">{PLAN.name}</h2>
-                <div className="flex items-baseline gap-2 mb-6">
-                  <span className="text-6xl md:text-7xl font-black text-gradient">
-                    {PLAN.price}
-                  </span>
-                  <span className="text-xl text-gray-400">/month</span>
+              <div className="mb-6">
+                <h2 className="text-2xl font-bold mb-3">{PLAN.name}</h2>
+                <div className="flex items-baseline gap-2 mb-2">
+                  <span className="text-5xl font-bold text-white">{PLAN.price}</span>
+                  <span className="text-gray-400">/month</span>
                 </div>
-                <p className="text-lg text-gray-300">7-day free trial — no credit card required. Then $49/month. Cancel anytime.</p>
+                <p className="text-sm text-gray-400">After 7-day free trial. Cancel anytime.</p>
               </div>
 
-              {/* Features List */}
-              <div className="space-y-4 mb-12">
-                {PLAN.features.map((feature: string, index: number) => (
-                  <div key={index} className="flex items-start gap-4">
-                    <div className="flex-shrink-0 mt-1">
-                      <CheckCircle className={`w-6 h-6 ${index < 2 ? 'text-purple-400' : 'text-green-400'}`} />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3">
-                        <p className="text-gray-200 text-base">{feature}</p>
-                        {index < 2 && (
-                          <span className="inline-block px-2 py-1 bg-purple-600/40 border border-purple-400/60 text-xs font-bold rounded text-purple-300">
-                            EXCLUSIVE
-                          </span>
-                        )}
-                      </div>
+              <div className="grid sm:grid-cols-2 gap-x-6 gap-y-2 mb-8">
+                {PLAN.features.map((feature: string, idx: number) => (
+                  <div key={idx} className="flex items-start gap-2 py-1.5">
+                    <CheckCircle className={`w-4 h-4 flex-shrink-0 mt-0.5 ${idx < 2 ? 'text-purple-400' : 'text-green-400'}`} />
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm text-gray-300">{feature}</span>
+                      {idx < 2 && (
+                        <span className="text-[10px] font-bold text-purple-300 bg-purple-600/30 border border-purple-400/40 px-1.5 py-0.5 rounded">
+                          EXCLUSIVE
+                        </span>
+                      )}
                     </div>
                   </div>
                 ))}
               </div>
 
               {/* Guarantee */}
-              <div className="mb-10 p-6 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-xl border border-purple-500/30">
-                <p className="text-base text-white font-semibold mb-1">30-Day Money-Back Guarantee</p>
-                <p className="text-sm text-gray-300 leading-relaxed">Not satisfied? Get a full refund within 30 days, no questions asked. Cancel anytime with zero hassle.</p>
+              <div className="mb-6 p-4 bg-purple-600/10 border border-purple-500/20 rounded-lg">
+                <p className="text-sm text-white font-semibold">30-Day Money-Back Guarantee</p>
+                <p className="text-xs text-gray-400">Not satisfied? Full refund within 30 days. No questions asked.</p>
               </div>
 
-              {/* CTA Button */}
               <a
                 href={`${APP_URL}/auth/signup`}
-                className="btn-glow w-full inline-block text-center py-4 px-8 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-full transition-all text-lg"
+                className="w-full block text-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:opacity-90 transition-opacity"
               >
-                Start Free Trial
+                Start Free Trial <ArrowRight className="inline-block w-4 h-4 ml-2" />
               </a>
             </div>
-          </div>
-        </section>
 
-        {/* Copyright Add-On */}
-        <section className="relative py-16 px-6 bg-black">
-          <div className="max-w-2xl mx-auto">
-            <div className="glow-card glass rounded-2xl p-8 sm:p-10 border border-purple-500/20 bg-gradient-to-br from-purple-950/20 to-pink-950/10">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center flex-shrink-0">
-                  <Copyright className="w-7 h-7 text-white" />
+            {/* Copyright Add-On — takes 1 col */}
+            <div className="rounded-xl p-7 border border-gray-800 bg-gray-900/50 flex flex-col">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center flex-shrink-0">
+                  <Copyright className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <div className="inline-block px-2 py-0.5 bg-purple-500/20 border border-purple-400/30 rounded text-xs font-semibold text-purple-300 mb-1">
-                    ADD-ON
-                  </div>
-                  <h3 className="text-2xl font-bold">US Copyright Registration</h3>
+                  <span className="text-[10px] font-semibold text-purple-300 bg-purple-500/10 border border-purple-500/30 px-2 py-0.5 rounded">ADD-ON</span>
+                  <h3 className="text-lg font-bold mt-1">Copyright Registration</h3>
                 </div>
               </div>
 
-              <p className="text-gray-400 mb-6 leading-relaxed">
-                Strengthen your legal protection with a formal copyright registration. We prepare all the documents you need for the US Copyright Office — application forms, cover letters, and filing instructions. Documents ready within 24 hours.
-              </p>
-
-              <div className="flex items-baseline gap-3 mb-6">
-                <span className="text-4xl font-bold text-gradient">{COPYRIGHT_ADDON.price}</span>
-                <span className="text-gray-400">one-time payment</span>
+              <div className="flex items-baseline gap-2 mb-4">
+                <span className="text-3xl font-bold text-white">{COPYRIGHT_ADDON.price}</span>
+                <span className="text-sm text-gray-500">one-time</span>
               </div>
 
-              <div className="space-y-3 mb-6">
-                {[
-                  'Complete eCO application form data',
-                  'Professional cover letter',
-                  'Step-by-step filing instructions',
-                  'Links directly to your Content Vault items',
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-300">{item}</span>
+              <p className="text-sm text-gray-400 mb-5 flex-1">
+                We prepare all documents for the US Copyright Office — application forms, cover letters, and filing instructions. Strengthens DMCA enforcement and enables statutory damages.
+              </p>
+
+              <div className="space-y-2">
+                {['Complete eCO application data', 'Professional cover letter', 'Step-by-step filing guide', 'Ready within 24 hours'].map((item, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <CheckCircle className="w-3.5 h-3.5 text-green-400 flex-shrink-0 mt-0.5" />
+                    <span className="text-xs text-gray-300">{item}</span>
                   </div>
                 ))}
               </div>
-
-              <p className="text-sm text-gray-500">
-                Available in your dashboard after subscribing. Copyright registration strengthens DMCA enforcement and enables statutory damages.
-              </p>
             </div>
           </div>
         </section>
 
-        {/* Competitor Comparison */}
-        <section className="relative py-24 px-6 bg-black">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-black text-center mb-16">
-              Why <span className="text-gradient">Privly</span> is Different
+        {/* Competitor Comparison — streamlined */}
+        <section className="relative w-full py-16 px-4 sm:px-6 lg:px-8 bg-gray-950/50">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10">
+              Why <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Privly</span> is Different
             </h2>
 
-            <div className="grid lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-5">
               {/* Typical Service */}
-              <div className="glass rounded-2xl p-10 border border-white/10 bg-gray-900/50">
-                <h3 className="text-2xl font-black mb-8 text-gray-300">Typical Service</h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <span className="text-gray-600 text-2xl leading-none mt-1">•</span>
-                    <span className="text-gray-400 text-lg">$109-$324/mo</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-gray-600 text-2xl leading-none mt-1">•</span>
-                    <span className="text-gray-400 text-lg">Scan + Remove only</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-gray-600 text-2xl leading-none mt-1">•</span>
-                    <span className="text-gray-400 text-lg">Leaks keep coming back</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-gray-600 text-2xl leading-none mt-1">•</span>
-                    <span className="text-gray-400 text-lg">Per-username pricing</span>
-                  </li>
+              <div className="rounded-xl p-6 border border-gray-800 bg-gray-900/50">
+                <h3 className="text-lg font-bold mb-5 text-gray-400">Typical Service</h3>
+                <ul className="space-y-3 text-sm text-gray-500">
+                  <li>$109-$324/mo</li>
+                  <li>Scan + Remove only</li>
+                  <li>Leaks keep coming back</li>
+                  <li>Per-username pricing</li>
+                  <li>No source tracing</li>
                 </ul>
               </div>
 
-              {/* Privly - Center and Elevated */}
-              <div className="glow-card relative rounded-2xl border-gradient-animated lg:scale-105 lg:z-10">
-                <div className="glass rounded-2xl p-10 border border-purple-500/40 bg-gradient-to-br from-purple-950/40 to-pink-950/40">
-                  <div className="mb-8">
-                    <div className="inline-block px-4 py-2 rounded-full bg-purple-500/30 border border-purple-400/50 mb-6">
-                      <span className="text-xs font-bold text-purple-300 uppercase tracking-widest">Privly</span>
-                    </div>
-                  </div>
-                  <h3 className="text-2xl font-black mb-8 text-gradient">Full Protection</h3>
-                  <ul className="space-y-4">
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
-                      <span className="text-white font-bold text-lg">$49/mo</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
-                      <span className="text-white font-bold text-lg">Scan + Remove + Source Tracing</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
-                      <span className="text-white font-bold text-lg">Proactive Telegram, Discord & Reddit Monitoring</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
-                      <span className="text-white font-bold text-lg">Leaks Decrease Permanently</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
-                      <span className="text-white font-bold text-lg">All 15 Platforms Included</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
-                      <span className="text-white font-bold text-lg">Copyright Registration Add-On</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
-                      <span className="text-white font-bold text-lg">Dedicated Human Support</span>
-                    </li>
-                  </ul>
+              {/* Privly */}
+              <div className="rounded-xl p-6 border border-purple-500/30 bg-purple-950/10 relative">
+                <div className="absolute -top-2.5 left-5">
+                  <span className="text-[10px] font-bold text-purple-300 bg-purple-600/30 border border-purple-500/40 px-3 py-1 rounded-full uppercase tracking-wider">Privly</span>
                 </div>
+                <h3 className="text-lg font-bold mb-5 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mt-2">Full Protection</h3>
+                <ul className="space-y-3 text-sm">
+                  {['$49/mo — everything included', 'Scan + Remove + Source Tracing', 'Telegram, Discord & Reddit monitoring', 'Leaks decrease permanently', 'Copyright Registration add-on', 'Dedicated human support'].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-200 font-medium">{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              {/* DIY Approach */}
-              <div className="glass rounded-2xl p-10 border border-white/10 bg-gray-900/50">
-                <h3 className="text-2xl font-black mb-8 text-gray-300">DIY Approach</h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <span className="text-gray-600 text-2xl leading-none mt-1">•</span>
-                    <span className="text-gray-400 text-lg">Free</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-gray-600 text-2xl leading-none mt-1">•</span>
-                    <span className="text-gray-400 text-lg">Manual Google Searches</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-gray-600 text-2xl leading-none mt-1">•</span>
-                    <span className="text-gray-400 text-lg">Hours of Your Time</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-gray-600 text-2xl leading-none mt-1">•</span>
-                    <span className="text-gray-400 text-lg">No Human Support</span>
-                  </li>
+              {/* DIY */}
+              <div className="rounded-xl p-6 border border-gray-800 bg-gray-900/50">
+                <h3 className="text-lg font-bold mb-5 text-gray-400">DIY Approach</h3>
+                <ul className="space-y-3 text-sm text-gray-500">
+                  <li>Free (your time isn't)</li>
+                  <li>Manual Google searches</li>
+                  <li>Hours of your time weekly</li>
+                  <li>No enforcement tools</li>
+                  <li>No support</li>
                 </ul>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ROI Calculator Section */}
-        <section className="hero-gradient relative py-24 px-6 overflow-hidden">
-          <div className="absolute -top-20 -left-20 w-96 h-96 orb orb-purple opacity-30" />
-          <div className="absolute -bottom-40 -right-40 w-96 h-96 orb orb-pink opacity-20" />
-
-          <div className="max-w-3xl mx-auto relative z-10">
-            <h2 className="text-4xl md:text-5xl font-black text-center mb-16">
-              Calculate Your <span className="text-gradient">ROI</span>
+        {/* ROI Calculator */}
+        <section className="relative w-full py-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10">
+              Calculate Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">ROI</span>
             </h2>
             <RoiCalculator />
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <section className="relative py-24 px-6 bg-black">
+        {/* FAQ */}
+        <section className="relative w-full py-16 px-4 sm:px-6 lg:px-8 bg-gray-950/50">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-black text-center mb-16">
-              Frequently Asked <span className="text-gradient">Questions</span>
-            </h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10">Common Questions</h2>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               {faqItems.map((item, i) => (
-                <div key={i} className="glass rounded-2xl border border-white/10 p-8 bg-gradient-to-br from-white/5 to-white/0">
-                  <h3 className="text-xl font-black mb-4 text-gradient">{item.q}</h3>
-                  <p className="text-gray-300 leading-relaxed">{item.a}</p>
+                <div key={i} className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
+                  <h3 className="text-lg font-semibold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">{item.q}</h3>
+                  <p className="text-sm text-gray-300 leading-relaxed">{item.a}</p>
                 </div>
               ))}
             </div>
@@ -310,25 +234,23 @@ export default function PricingPage() {
         </section>
 
         {/* Final CTA */}
-        <section className="hero-gradient relative min-h-80 flex items-center justify-center overflow-hidden py-20">
-          <div className="absolute -top-40 -right-40 w-96 h-96 orb orb-purple opacity-40" />
-          <div className="absolute bottom-0 -left-20 w-72 h-72 orb orb-pink opacity-30" />
+        <section className="relative w-full py-20 px-4 sm:px-6 lg:px-8">
+          <div className="absolute inset-0 bg-gradient-to-t from-purple-950/20 via-black to-black" />
 
-          <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
-            <h2 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
+          <div className="relative max-w-3xl mx-auto text-center">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-5">
               Start protecting your content today.
             </h2>
-            <p className="text-xl text-gray-300 mb-10 font-light">
+            <p className="text-lg text-gray-300 mb-8">
               Full protection for your content. Try it free for 7 days.
             </p>
             <a
               href={`${APP_URL}/auth/signup`}
-              className="btn-glow px-10 py-4 rounded-full bg-purple-600 hover:bg-purple-500 font-bold transition-all inline-flex items-center justify-center gap-3 text-lg"
+              className="inline-flex items-center px-10 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:opacity-90 transition-opacity"
             >
-              Start Free Trial
-              <ArrowRight className="w-6 h-6" />
+              Start Free Trial <ArrowRight className="w-5 h-5 ml-2" />
             </a>
-            <p className="text-gray-400 text-sm mt-4">7-day free trial. No credit card required. Cancel anytime.</p>
+            <p className="text-gray-500 text-sm mt-4">7-day free trial. No credit card required. Cancel anytime.</p>
           </div>
         </section>
       </main>

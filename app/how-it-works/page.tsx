@@ -17,387 +17,330 @@ export const metadata = genMeta({
   path: '/how-it-works',
 });
 
+const steps = [
+  {
+    number: '1',
+    title: 'Content Vault',
+    icon: Lock,
+    color: 'purple',
+    description: 'Upload your sensitive content and receive timestamped cryptographic proof of ownership. Every file is securely stored with immutable records that stand up in court.',
+    bullets: [
+      'Instant file upload & verification',
+      'Timestamped ownership proof',
+      'Military-grade encryption',
+    ],
+  },
+  {
+    number: '2',
+    title: 'Invisible Watermarking',
+    icon: Fingerprint,
+    color: 'pink',
+    description: "Each subscriber receives a unique, imperceptible watermark embedded in your content. It's completely invisible to the human eye but digitally traceable.",
+    bullets: [
+      'Unique mark per subscriber',
+      'Imperceptible to users',
+      'Survives format conversions',
+    ],
+  },
+  {
+    number: '3',
+    title: '24/7 Leak Scanning',
+    icon: Radar,
+    color: 'blue',
+    description: 'Our AI continuously monitors 500+ platforms worldwide for any copies of your content. Real-time detection means faster intervention and damage control.',
+    bullets: [
+      '500+ platforms monitored',
+      'AI-powered detection',
+      'Real-time alerts',
+    ],
+  },
+  {
+    number: '4',
+    title: 'Trace, Identify & Remove',
+    icon: Shield,
+    color: 'green',
+    description: 'Automatically decode the watermark to identify the leaker, generate legally binding evidence, and file DMCA takedowns within hours.',
+    bullets: [
+      'Instant leaker identification',
+      'Automated DMCA filing',
+      'High takedown success rate',
+    ],
+  },
+];
+
+const stats = [
+  { number: '500+', label: 'Platforms Scanned', desc: 'Comprehensive coverage across the web' },
+  { number: '<2h', label: 'Detection Speed', desc: 'Average leak identified in under 2 hours' },
+  { number: '24/7', label: 'Monitoring', desc: 'Round-the-clock automated protection' },
+];
+
 export default function HowItWorks() {
-  const steps = [
-    {
-      number: '1',
-      title: 'Content Vault',
-      icon: Lock,
-      description: 'Upload your sensitive content and receive timestamped cryptographic proof of ownership. Every file is securely stored with immutable records.',
-      bullets: [
-        'Instant file upload & verification',
-        'Timestamped ownership proof',
-        'Military-grade encryption',
-      ],
-    },
-    {
-      number: '2',
-      title: 'Invisible Watermarking',
-      icon: Fingerprint,
-      description: "Each subscriber receives a unique, imperceptible watermark embedded in your content. It's invisible to the human eye but traceable.",
-      bullets: [
-        'Unique mark per subscriber',
-        'Imperceptible to users',
-        'Survives format conversions',
-      ],
-    },
-    {
-      number: '3',
-      title: '24/7 Leak Scanning',
-      icon: Radar,
-      description: 'Our AI continuously monitors 100+ platforms worldwide for any copies of your content. Real-time detection means faster intervention.',
-      bullets: [
-        '100+ platforms monitored',
-        'AI-powered detection',
-        'Real-time alerts',
-      ],
-    },
-    {
-      number: '4',
-      title: 'Trace, Identify & Remove',
-      icon: Shield,
-      description: 'Automatically decode the watermark to identify the leaker, generate evidence, and file DMCA takedowns within hours.',
-      bullets: [
-        'Instant leaker identification',
-        'Automated DMCA filing',
-        'High takedown success rate',
-      ],
-    },
-  ];
-
-  const stats = [
-    { number: '500+', label: 'Platforms Scanned', desc: 'Comprehensive coverage across the web' },
-    { number: '<2h', label: 'Detection Speed', desc: 'Average leak identified in under 2 hours' },
-    { number: '24/7', label: 'Monitoring', desc: 'Round-the-clock automated protection' },
-  ];
-
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden">
       <Header />
 
-      {/* Hero Section */}
-      <section className="hero-gradient relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        <div className="absolute inset-0 grid-pattern opacity-30" />
-        <div className="absolute -top-20 -right-20 w-72 h-72 orb orb-purple opacity-40" />
-        <div className="absolute bottom-0 -left-32 w-96 h-96 orb orb-pink opacity-30" />
+      {/* Hero — compact with inline 4-step overview */}
+      <section className="relative w-full pt-28 pb-12 px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-950/20 via-black to-black" />
 
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-6xl md:text-7xl font-black mb-6 leading-tight">
-            How Privly <span className="text-gradient">Works</span>
+        <div className="relative max-w-5xl mx-auto text-center">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
+            How Privly <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Works</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 font-light max-w-2xl mx-auto">
-            From invisible watermark to identified leaker in 4 steps
+          <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+            From invisible watermark to identified leaker in 4 steps. Full protection, fully automated.
           </p>
-          <div className="flex justify-center">
-            <a
-              href={`${APP_URL}/auth/signup`}
-              className="btn-glow px-8 py-4 rounded-full bg-purple-600 hover:bg-purple-500 font-semibold transition-all inline-flex items-center gap-3"
-            >
-              Start Free Trial
-              <ArrowRight className="w-5 h-5" />
-            </a>
+
+          {/* 4-step flow — visible above the fold */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8">
+            {steps.map((step, idx) => {
+              const Icon = step.icon;
+              return (
+                <a key={idx} href={`#step-${step.number}`} className="group">
+                  <div className="rounded-xl p-4 sm:p-5 border border-gray-800 bg-gray-900/50 hover:border-purple-500/30 transition-colors text-center">
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center mx-auto mb-3">
+                      <Icon className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="text-xs text-gray-500 mb-1">Step {step.number}</div>
+                    <div className="text-sm font-semibold text-white group-hover:text-purple-300 transition-colors">{step.title}</div>
+                  </div>
+                </a>
+              );
+            })}
           </div>
-        </div>
-      </section>
 
-      {/* Steps Section */}
-      <section className="relative py-32 px-6 bg-black">
-        {/* Step 1: Content Vault - Text Left, Visual Right */}
-        <div className="max-w-6xl mx-auto mb-24">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Text Side */}
-            <div className="relative z-10">
-              <div className="flex items-baseline gap-4 mb-6">
-                <span className="text-7xl font-black text-gradient">1</span>
-                <div className="px-4 py-2 rounded-full bg-purple-500/20 border border-purple-500/40 inline-block">
-                  <span className="text-sm font-semibold text-purple-300">Step One</span>
-                </div>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
-                Content Vault
-              </h2>
-              <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-                Upload your sensitive content and receive timestamped cryptographic proof of ownership. Every file is securely stored with immutable records that stand up in court.
-              </p>
-              <ul className="space-y-4">
-                {steps[0].bullets.map((bullet, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
-                    <span className="text-gray-300">{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Visual Side */}
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl blur-2xl opacity-50" />
-              <div className="glow-card glass rounded-2xl p-8 relative z-10 border border-white/10">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between p-4 bg-white/5 rounded-lg border border-white/10">
-                    <div className="flex items-center gap-3">
-                      <Lock className="w-5 h-5 text-purple-400" />
-                      <span className="text-sm font-medium">document.pdf</span>
-                    </div>
-                    <span className="text-xs text-gray-500">1.2 MB</span>
-                  </div>
-                  <div className="flex items-center justify-between p-4 bg-white/5 rounded-lg border border-white/10">
-                    <div className="flex items-center gap-3">
-                      <Lock className="w-5 h-5 text-purple-400" />
-                      <span className="text-sm font-medium">design.figma</span>
-                    </div>
-                    <span className="text-xs text-gray-500">3.4 MB</span>
-                  </div>
-                  <div className="flex items-center justify-between p-4 bg-white/5 rounded-lg border border-white/10">
-                    <div className="flex items-center gap-3">
-                      <Lock className="w-5 h-5 text-purple-400" />
-                      <span className="text-sm font-medium">presentation.pptx</span>
-                    </div>
-                    <span className="text-xs text-gray-500">5.1 MB</span>
-                  </div>
-                  <div className="pt-4 border-t border-white/10 mt-4">
-                    <p className="text-xs text-gray-400">
-                      Verified: <span className="text-green-400 font-medium">2024-02-14 09:32:45 UTC</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Shimmer Divider */}
-        <div className="max-w-6xl mx-auto mb-24">
-          <div className="shimmer-line h-px w-full" />
-        </div>
-
-        {/* Step 2: Invisible Watermarking - Visual Left, Text Right */}
-        <div className="max-w-6xl mx-auto mb-24">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Visual Side */}
-            <div className="relative order-2 md:order-1">
-              <div className="absolute -inset-4 bg-gradient-to-r from-pink-600/20 to-purple-600/20 rounded-2xl blur-2xl opacity-50" />
-              <div className="glow-card glass rounded-2xl p-8 relative z-10 border border-white/10">
-                <div className="space-y-6">
-                  <div className="text-center py-4">
-                    <p className="text-xs text-gray-400 mb-4">BEFORE WATERMARK</p>
-                    <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-8 h-32 flex items-center justify-center">
-                      <p className="text-2xl font-bold text-gray-600">Your Content</p>
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <div className="inline-block px-3 py-1 bg-purple-500/20 rounded-full border border-purple-400/40 mb-4">
-                      <span className="text-xs text-purple-300 font-medium">✓ Watermark: Invisible</span>
-                    </div>
-                  </div>
-                  <div className="text-center py-4">
-                    <p className="text-xs text-gray-400 mb-4">AFTER WATERMARK</p>
-                    <div className="bg-gradient-to-br from-purple-900/30 to-gray-900 rounded-lg p-8 h-32 flex items-center justify-center relative overflow-hidden">
-                      <p className="text-2xl font-bold text-gray-400">Your Content</p>
-                      <div className="absolute inset-0 opacity-5 mix-blend-overlay pointer-events-none">
-                        <div className="absolute inset-0" style={{backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(168, 85, 247, 0.1) 35px, rgba(168, 85, 247, 0.1) 70px)'}} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Text Side */}
-            <div className="relative z-10 order-1 md:order-2">
-              <div className="flex items-baseline gap-4 mb-6">
-                <span className="text-7xl font-black text-gradient">2</span>
-                <div className="px-4 py-2 rounded-full bg-pink-500/20 border border-pink-500/40 inline-block">
-                  <span className="text-sm font-semibold text-pink-300">Step Two</span>
-                </div>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
-                Invisible Watermarking
-              </h2>
-              <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-                Each subscriber receives a unique, imperceptible watermark embedded in your content. It's completely invisible to the human eye but digitally traceable and legally binding.
-              </p>
-              <ul className="space-y-4">
-                {steps[1].bullets.map((bullet, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
-                    <span className="text-gray-300">{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* Shimmer Divider */}
-        <div className="max-w-6xl mx-auto mb-24">
-          <div className="shimmer-line h-px w-full" />
-        </div>
-
-        {/* Step 3: 24/7 Leak Scanning - Text Left, Visual Right */}
-        <div className="max-w-6xl mx-auto mb-24">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Text Side */}
-            <div className="relative z-10">
-              <div className="flex items-baseline gap-4 mb-6">
-                <span className="text-7xl font-black text-gradient">3</span>
-                <div className="px-4 py-2 rounded-full bg-blue-500/20 border border-blue-500/40 inline-block">
-                  <span className="text-sm font-semibold text-blue-300">Step Three</span>
-                </div>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
-                24/7 Leak Scanning
-              </h2>
-              <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-                Our AI continuously monitors 100+ platforms worldwide for any copies of your content. Real-time detection means faster intervention and damage control.
-              </p>
-              <ul className="space-y-4">
-                {steps[2].bullets.map((bullet, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
-                    <span className="text-gray-300">{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Visual Side */}
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 rounded-2xl blur-2xl opacity-50" />
-              <div className="glow-card glass rounded-2xl p-8 relative z-10 border border-white/10">
-                <div className="flex items-center justify-center h-64 relative">
-                  {/* Radar circles */}
-                  <div className="absolute w-20 h-20 border border-blue-400/30 rounded-full animate-pulse" />
-                  <div className="absolute w-36 h-36 border border-blue-400/20 rounded-full animate-pulse" style={{animationDelay: '0.3s'}} />
-                  <div className="absolute w-52 h-52 border border-blue-400/10 rounded-full animate-pulse" style={{animationDelay: '0.6s'}} />
-
-                  {/* Center point */}
-                  <div className="absolute w-3 h-3 bg-blue-400 rounded-full" />
-
-                  {/* Scan line */}
-                  <div className="absolute w-32 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent animate-spin" style={{animationDuration: '2s'}} />
-
-                  {/* Platform indicators */}
-                  <div className="absolute top-4 right-4 text-xs text-blue-300 font-medium">
-                    <p>Platforms</p>
-                    <p className="text-lg font-bold text-blue-400">100+</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Shimmer Divider */}
-        <div className="max-w-6xl mx-auto mb-24">
-          <div className="shimmer-line h-px w-full" />
-        </div>
-
-        {/* Step 4: Trace, Identify & Remove - Visual Left, Text Right */}
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Visual Side */}
-            <div className="relative order-2 md:order-1">
-              <div className="absolute -inset-4 bg-gradient-to-r from-green-600/20 to-blue-600/20 rounded-2xl blur-2xl opacity-50" />
-              <div className="glow-card glass rounded-2xl p-8 relative z-10 border border-white/10">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
-                    <span className="text-sm font-medium">Watermark Detected</span>
-                    <span className="inline-block px-2 py-1 text-xs bg-green-500/20 text-green-300 rounded">Found</span>
-                  </div>
-                  <div className="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-lg">
-                    <span className="text-sm font-medium">Leaker Identified</span>
-                    <span className="text-xs text-gray-400">User ID: 4827</span>
-                  </div>
-                  <div className="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-lg">
-                    <span className="text-sm font-medium">Platform</span>
-                    <span className="text-xs text-gray-400">pastebin.com</span>
-                  </div>
-                  <div className="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-lg">
-                    <span className="text-sm font-medium">Detection Time</span>
-                    <span className="text-xs text-gray-400">47 minutes</span>
-                  </div>
-                  <div className="p-4 bg-purple-500/10 border border-purple-500/30 rounded-lg mt-4">
-                    <p className="text-xs text-purple-300 mb-2">✓ DMCA Filed</p>
-                    <p className="text-xs text-gray-400">Takedown request submitted automatically</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Text Side */}
-            <div className="relative z-10 order-1 md:order-2">
-              <div className="flex items-baseline gap-4 mb-6">
-                <span className="text-7xl font-black text-gradient">4</span>
-                <div className="px-4 py-2 rounded-full bg-green-500/20 border border-green-500/40 inline-block">
-                  <span className="text-sm font-semibold text-green-300">Step Four</span>
-                </div>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
-                Trace, Identify & Remove
-              </h2>
-              <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-                Automatically decode the watermark to identify the leaker, generate legally binding evidence, and file DMCA takedowns within hours. Get results, not excuses.
-              </p>
-              <ul className="space-y-4">
-                {steps[3].bullets.map((bullet, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
-                    <span className="text-gray-300">{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="relative py-24 px-6 bg-black">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black text-center mb-16">
-            Proven <span className="text-gradient">Results</span>
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
+          {/* Stats row */}
+          <div className="flex flex-wrap justify-center gap-8 pt-6 border-t border-gray-800">
             {stats.map((stat, i) => (
-              <div
-                key={i}
-                className="glow-card glass rounded-2xl p-8 border border-white/10 text-center"
-              >
-                <div className="text-5xl md:text-6xl font-black text-gradient mb-4">
-                  {stat.number}
-                </div>
-                <p className="text-lg font-semibold mb-2">{stat.label}</p>
-                <p className="text-gray-400 text-sm">{stat.desc}</p>
+              <div key={i} className="text-center">
+                <div className="text-2xl font-bold text-white">{stat.number}</div>
+                <div className="text-xs text-gray-500">{stat.label}</div>
               </div>
             ))}
           </div>
+
+          <div className="mt-8">
+            <a
+              href={`${APP_URL}/auth/signup`}
+              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+            >
+              Start Free Trial <ArrowRight className="w-4 h-4 ml-2" />
+            </a>
+            <p className="text-sm text-gray-500 mt-3">7-day free trial. No credit card required.</p>
+          </div>
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="hero-gradient relative min-h-96 flex items-center justify-center overflow-hidden py-20">
-        <div className="absolute -top-40 -right-40 w-96 h-96 orb orb-purple opacity-40" />
-        <div className="absolute bottom-0 -left-20 w-72 h-72 orb orb-pink opacity-30" />
+      {/* Detailed Steps */}
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto space-y-24">
 
-        <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
+          {/* Step 1: Content Vault */}
+          <div id="step-1" className="scroll-mt-24 grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <div className="flex items-baseline gap-3 mb-4">
+                <span className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">1</span>
+                <span className="text-xs font-semibold text-purple-300 bg-purple-500/10 border border-purple-500/30 px-3 py-1 rounded-full">Step One</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">Content Vault</h2>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                {steps[0].description}
+              </p>
+              <ul className="space-y-3">
+                {steps[0].bullets.map((bullet, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-300 text-sm">{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
+              <div className="space-y-3">
+                {[
+                  { name: 'document.pdf', size: '1.2 MB' },
+                  { name: 'design.figma', size: '3.4 MB' },
+                  { name: 'presentation.pptx', size: '5.1 MB' },
+                ].map((file, i) => (
+                  <div key={i} className="flex items-center justify-between p-3 bg-gray-800/50 rounded-lg border border-gray-700/50">
+                    <div className="flex items-center gap-3">
+                      <Lock className="w-4 h-4 text-purple-400" />
+                      <span className="text-sm">{file.name}</span>
+                    </div>
+                    <span className="text-xs text-gray-500">{file.size}</span>
+                  </div>
+                ))}
+                <div className="pt-3 border-t border-gray-800 mt-3">
+                  <p className="text-xs text-gray-500">
+                    Verified: <span className="text-green-400 font-medium">2025-03-10 09:32:45 UTC</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="h-px bg-gray-800" />
+
+          {/* Step 2: Invisible Watermarking */}
+          <div id="step-2" className="scroll-mt-24 grid md:grid-cols-2 gap-10 items-center">
+            <div className="order-2 md:order-1 rounded-xl border border-gray-800 bg-gray-900/50 p-6">
+              <div className="space-y-5">
+                <div className="text-center">
+                  <p className="text-xs text-gray-500 mb-3">BEFORE WATERMARK</p>
+                  <div className="bg-gray-800 rounded-lg p-6 h-24 flex items-center justify-center">
+                    <p className="text-lg font-bold text-gray-500">Your Content</p>
+                  </div>
+                </div>
+                <div className="text-center">
+                  <span className="inline-block text-xs text-purple-300 font-medium bg-purple-500/10 border border-purple-500/30 px-3 py-1 rounded-full">
+                    Watermark: Invisible
+                  </span>
+                </div>
+                <div className="text-center">
+                  <p className="text-xs text-gray-500 mb-3">AFTER WATERMARK</p>
+                  <div className="bg-gradient-to-br from-purple-900/20 to-gray-800 rounded-lg p-6 h-24 flex items-center justify-center relative overflow-hidden">
+                    <p className="text-lg font-bold text-gray-400">Your Content</p>
+                    <div className="absolute inset-0 opacity-5 pointer-events-none" style={{backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(168, 85, 247, 0.15) 35px, rgba(168, 85, 247, 0.15) 70px)'}} />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="order-1 md:order-2">
+              <div className="flex items-baseline gap-3 mb-4">
+                <span className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">2</span>
+                <span className="text-xs font-semibold text-pink-300 bg-pink-500/10 border border-pink-500/30 px-3 py-1 rounded-full">Step Two</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">Invisible Watermarking</h2>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                {steps[1].description}
+              </p>
+              <ul className="space-y-3">
+                {steps[1].bullets.map((bullet, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-300 text-sm">{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="h-px bg-gray-800" />
+
+          {/* Step 3: 24/7 Leak Scanning */}
+          <div id="step-3" className="scroll-mt-24 grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <div className="flex items-baseline gap-3 mb-4">
+                <span className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">3</span>
+                <span className="text-xs font-semibold text-blue-300 bg-blue-500/10 border border-blue-500/30 px-3 py-1 rounded-full">Step Three</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">24/7 Leak Scanning</h2>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                {steps[2].description}
+              </p>
+              <ul className="space-y-3">
+                {steps[2].bullets.map((bullet, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-300 text-sm">{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
+              <div className="flex items-center justify-center h-56 relative">
+                {/* Radar animation */}
+                <div className="absolute w-16 h-16 border border-blue-400/30 rounded-full animate-pulse" />
+                <div className="absolute w-28 h-28 border border-blue-400/20 rounded-full animate-pulse" style={{animationDelay: '0.3s'}} />
+                <div className="absolute w-44 h-44 border border-blue-400/10 rounded-full animate-pulse" style={{animationDelay: '0.6s'}} />
+                <div className="absolute w-3 h-3 bg-blue-400 rounded-full" />
+                <div className="absolute w-24 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent animate-spin" style={{animationDuration: '2s'}} />
+                <div className="absolute top-3 right-3 text-right">
+                  <p className="text-xs text-blue-300">Platforms</p>
+                  <p className="text-lg font-bold text-blue-400">500+</p>
+                </div>
+                <div className="absolute bottom-3 left-3">
+                  <p className="text-xs text-gray-500">Scanning every 30 min</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="h-px bg-gray-800" />
+
+          {/* Step 4: Trace, Identify & Remove */}
+          <div id="step-4" className="scroll-mt-24 grid md:grid-cols-2 gap-10 items-center">
+            <div className="order-2 md:order-1 rounded-xl border border-gray-800 bg-gray-900/50 p-6">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between p-3 bg-green-500/10 border border-green-500/20 rounded-lg">
+                  <span className="text-sm font-medium">Watermark Detected</span>
+                  <span className="text-xs bg-green-500/20 text-green-300 px-2 py-0.5 rounded">Found</span>
+                </div>
+                <div className="flex items-center justify-between p-3 bg-gray-800/50 border border-gray-700/50 rounded-lg">
+                  <span className="text-sm">Leaker Identified</span>
+                  <span className="text-xs text-gray-400">User ID: 4827</span>
+                </div>
+                <div className="flex items-center justify-between p-3 bg-gray-800/50 border border-gray-700/50 rounded-lg">
+                  <span className="text-sm">Platform</span>
+                  <span className="text-xs text-gray-400">pastebin.com</span>
+                </div>
+                <div className="flex items-center justify-between p-3 bg-gray-800/50 border border-gray-700/50 rounded-lg">
+                  <span className="text-sm">Detection Time</span>
+                  <span className="text-xs text-gray-400">47 minutes</span>
+                </div>
+                <div className="p-3 bg-purple-500/10 border border-purple-500/20 rounded-lg mt-1">
+                  <p className="text-xs text-purple-300 font-medium mb-1">DMCA Filed</p>
+                  <p className="text-xs text-gray-400">Takedown request submitted automatically</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="order-1 md:order-2">
+              <div className="flex items-baseline gap-3 mb-4">
+                <span className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">4</span>
+                <span className="text-xs font-semibold text-green-300 bg-green-500/10 border border-green-500/30 px-3 py-1 rounded-full">Step Four</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">Trace, Identify & Remove</h2>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                {steps[3].description}
+              </p>
+              <ul className="space-y-3">
+                {steps[3].bullets.map((bullet, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-300 text-sm">{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="relative w-full py-20 px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 bg-gradient-to-t from-purple-950/20 via-black to-black" />
+
+        <div className="relative max-w-3xl mx-auto text-center">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-5">
             Ready to protect your content?
           </h2>
-          <p className="text-xl text-gray-300 mb-8 font-light">
+          <p className="text-lg text-gray-300 mb-8">
             Full protection for your content. Try it free for 7 days — no credit card required.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a
-              href={`${APP_URL}/auth/signup`}
-              className="btn-glow px-8 py-4 rounded-full bg-purple-600 hover:bg-purple-500 font-semibold transition-all inline-flex items-center justify-center gap-3"
-            >
-              Start Free Trial
-              <ArrowRight className="w-5 h-5" />
-            </a>
-          </div>
-          <p className="text-gray-400 text-sm mt-4">7-day free trial. No credit card required. Cancel anytime.</p>
+          <a
+            href={`${APP_URL}/auth/signup`}
+            className="inline-flex items-center px-10 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+          >
+            Start Free Trial <ArrowRight className="w-5 h-5 ml-2" />
+          </a>
+          <p className="text-gray-500 text-sm mt-4">7-day free trial. No credit card required. Cancel anytime.</p>
         </div>
       </section>
 
