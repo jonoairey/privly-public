@@ -143,7 +143,7 @@ export default function Home() {
               <p className="text-sm text-gray-400">Platforms Scanned</p>
             </div>
             <div className="glass rounded-xl p-6 text-center backdrop-blur-xl border border-purple-500/20">
-              <div className="text-4xl font-bold text-gradient mb-2">< 2hrs</div>
+              <div className="text-4xl font-bold text-gradient mb-2">{'< 2hrs'}</div>
               <p className="text-sm text-gray-400">Detection Speed</p>
             </div>
             <div className="glass rounded-xl p-6 text-center backdrop-blur-xl border border-purple-500/20">
