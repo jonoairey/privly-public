@@ -125,33 +125,34 @@ export default function Home() {
 
             <div className="shimmer-line w-16 h-1 mx-auto mb-8" />
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
               <a
                 href={APP_URL}
                 className="btn-glow px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:shadow-2xl transition-all"
               >
-                Get Started Now
+                Start Free Trial
               </a>
             </div>
+            <p className="text-sm text-gray-500 mb-8">7-day free trial. No credit card required.</p>
           </div>
 
           {/* Hero Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto reveal">
             <div className="glass rounded-xl p-6 text-center backdrop-blur-xl border border-purple-500/20">
-              <div className="text-4xl font-bold text-gradient mb-2">{STATS.platformsMonitored}</div>
-              <p className="text-sm text-gray-400">Platforms Monitored</p>
+              <div className="text-4xl font-bold text-gradient mb-2">500+</div>
+              <p className="text-sm text-gray-400">Platforms Scanned</p>
             </div>
             <div className="glass rounded-xl p-6 text-center backdrop-blur-xl border border-purple-500/20">
-              <div className="text-4xl font-bold text-gradient mb-2">{STATS.takedownSuccessRate}</div>
-              <p className="text-sm text-gray-400">Success Rate</p>
+              <div className="text-4xl font-bold text-gradient mb-2">< 2hrs</div>
+              <p className="text-sm text-gray-400">Detection Speed</p>
             </div>
             <div className="glass rounded-xl p-6 text-center backdrop-blur-xl border border-purple-500/20">
-              <div className="text-4xl font-bold text-gradient mb-2">{STATS.avgDetectionTime}</div>
-              <p className="text-sm text-gray-400">Avg Detection Time</p>
+              <div className="text-4xl font-bold text-gradient mb-2">24/7</div>
+              <p className="text-sm text-gray-400">Monitoring</p>
             </div>
             <div className="glass rounded-xl p-6 text-center backdrop-blur-xl border border-purple-500/20">
-              <div className="text-4xl font-bold text-gradient mb-2">{STATS.leakReduction}</div>
-              <p className="text-sm text-gray-400">Leak Reduction</p>
+              <div className="text-4xl font-bold text-gradient mb-2">Auto</div>
+              <p className="text-sm text-gray-400">DMCA Takedowns</p>
             </div>
           </div>
         </div>
@@ -220,7 +221,7 @@ export default function Home() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="relative w-full py-20 px-4 sm:px-6 lg:px-8 reveal">
+      <section id="how-it-works" className="relative w-full py-20 px-4 sm:px-6 lg:px-8 reveal">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl sm:text-5xl font-bold text-center mb-4">How It Works</h2>
           <p className="text-center text-gray-400 max-w-2xl mx-auto mb-12">
@@ -275,7 +276,7 @@ export default function Home() {
       </section>
 
       {/* FEATURES GRID */}
-      <section className="relative w-full py-20 px-4 sm:px-6 lg:px-8 bg-gray-950/50 reveal">
+      <section id="features" className="relative w-full py-20 px-4 sm:px-6 lg:px-8 bg-gray-950/50 reveal">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl sm:text-5xl font-bold text-center mb-4">Powerful Features</h2>
           <p className="text-center text-gray-400 max-w-2xl mx-auto mb-12">
@@ -400,7 +401,7 @@ export default function Home() {
       </section>
 
       {/* PRICING */}
-      <section className="relative w-full py-20 px-4 sm:px-6 lg:px-8 reveal">
+      <section id="pricing" className="relative w-full py-20 px-4 sm:px-6 lg:px-8 reveal">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-4xl sm:text-5xl font-bold text-center mb-4">Simple Pricing</h2>
           <p className="text-center text-gray-400 mb-12">
@@ -425,7 +426,7 @@ export default function Home() {
                   <span className="text-6xl font-bold text-gradient-animated">{PLAN.price}</span>
                   <span className="text-gray-400 ml-2">/month</span>
                 </div>
-                <p className="text-gray-400">Billed monthly. Cancel anytime.</p>
+                <p className="text-gray-400">After 7-day free trial. Cancel anytime.</p>
               </div>
 
               <div className="space-y-4 mb-8">
@@ -441,61 +442,48 @@ export default function Home() {
                 href={APP_URL}
                 className="btn-glow w-full block text-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:shadow-2xl transition-all"
               >
-                Get Started Now <ArrowRight className="inline-block w-4 h-4 ml-2" />
+                Start Free Trial <ArrowRight className="inline-block w-4 h-4 ml-2" />
               </a>
 
               <div className="mt-6 flex flex-col items-center gap-2">
-                <p className="text-center text-sm text-purple-300 font-semibold">{PLAN.guarantee}</p>
-                <p className="text-center text-sm text-gray-400">Cancel anytime. No contracts, no hidden fees.</p>
+                <p className="text-center text-sm text-purple-300 font-semibold">7-day free trial — no credit card required</p>
+                <p className="text-center text-sm text-gray-400">Then $49/month. Cancel anytime. {PLAN.guarantee}.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
+      {/* WHY CREATORS NEED THIS */}
       <section className="relative w-full py-20 px-4 sm:px-6 lg:px-8 bg-gray-950/50 reveal">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl sm:text-5xl font-bold text-center mb-4">What Creators Say</h2>
+          <h2 className="text-4xl sm:text-5xl font-bold text-center mb-4">The Problem Is <span className="text-gradient">Massive</span></h2>
           <p className="text-center text-gray-400 max-w-2xl mx-auto mb-12">
-            Join thousands of creators protecting their livelihood.
+            Content theft costs creators billions every year. Here's what you're up against.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6 stagger">
             {[
               {
-                stars: 5,
-                quote:
-                  'Privly caught a leak of my exclusive content within 90 minutes. It was removed from 47 sites in 48 hours. Game-changer.',
-                author: 'Sarah M.',
-                role: 'OnlyFans Creator',
+                stat: '$1.7B+',
+                title: 'Lost Annually',
+                description: 'The estimated annual revenue lost by content creators to piracy and unauthorized redistribution.',
               },
               {
-                stars: 5,
-                quote:
-                  'The watermarking is completely invisible, but it proved who leaked my course to 10,000 pirate sites. Worth every penny.',
-                author: 'James P.',
-                role: 'Online Educator',
+                stat: '47%',
+                title: 'Creators Affected',
+                description: 'Nearly half of all digital creators have had their content stolen or leaked without consent.',
               },
               {
-                stars: 5,
-                quote:
-                  "We recovered $120k in lost revenue through Privly's enforcement actions in just 3 months. Recommend to every creator.",
-                author: 'Maya & Alex',
-                role: 'Podcast Producers',
+                stat: '72hrs',
+                title: 'Average Spread Time',
+                description: 'Once leaked, content typically spreads to dozens of piracy sites within 72 hours if no action is taken.',
               },
-            ].map((testimonial, idx) => (
-              <div key={idx} className="glass glow-card rounded-xl p-8 border border-purple-500/20 reveal">
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: testimonial.stars }).map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                <p className="text-gray-300 mb-6 italic">"{testimonial.quote}"</p>
-                <div>
-                  <p className="font-semibold">{testimonial.author}</p>
-                  <p className="text-sm text-gray-400">{testimonial.role}</p>
-                </div>
+            ].map((item, idx) => (
+              <div key={idx} className="glass glow-card rounded-xl p-8 border border-purple-500/20 text-center reveal">
+                <div className="text-4xl font-bold text-gradient-animated mb-3">{item.stat}</div>
+                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                <p className="text-gray-400">{item.description}</p>
               </div>
             ))}
           </div>
@@ -555,9 +543,9 @@ export default function Home() {
             href={APP_URL}
             className="btn-glow inline-block px-10 py-5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold text-lg hover:shadow-2xl transition-all reveal"
           >
-            Get Started Now <ArrowRight className="inline-block w-5 h-5 ml-2" />
+            Start Free Trial <ArrowRight className="inline-block w-5 h-5 ml-2" />
           </a>
-          <p className="text-gray-400 text-sm mt-4 reveal">30-day money-back guarantee. Cancel anytime.</p>
+          <p className="text-gray-400 text-sm mt-4 reveal">7-day free trial. No credit card required. Cancel anytime.</p>
         </div>
       </section>
 

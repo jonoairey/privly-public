@@ -92,7 +92,7 @@ export default function PricingPage() {
                   </span>
                   <span className="text-xl text-gray-400">/month</span>
                 </div>
-                <p className="text-lg text-gray-300">30-day money-back guarantee. Cancel anytime.</p>
+                <p className="text-lg text-gray-300">7-day free trial — no credit card required. Then $49/month. Cancel anytime.</p>
               </div>
 
               {/* Features List */}
@@ -127,7 +127,7 @@ export default function PricingPage() {
                 href={`${APP_URL}/auth/signup`}
                 className="btn-glow w-full inline-block text-center py-4 px-8 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-full transition-all text-lg"
               >
-                Get Started Now
+                Start Free Trial
               </a>
             </div>
           </div>
@@ -319,16 +319,16 @@ export default function PricingPage() {
               Start protecting your content today.
             </h2>
             <p className="text-xl text-gray-300 mb-10 font-light">
-              Join thousands of creators who trust Privly to stop leaks.
+              Full protection for your content. Try it free for 7 days.
             </p>
             <a
               href={`${APP_URL}/auth/signup`}
               className="btn-glow px-10 py-4 rounded-full bg-purple-600 hover:bg-purple-500 font-bold transition-all inline-flex items-center justify-center gap-3 text-lg"
             >
-              Get Started Now
+              Start Free Trial
               <ArrowRight className="w-6 h-6" />
             </a>
-            <p className="text-gray-400 text-sm mt-4">30-day money-back guarantee. Cancel anytime.</p>
+            <p className="text-gray-400 text-sm mt-4">7-day free trial. No credit card required. Cancel anytime.</p>
           </div>
         </section>
       </main>

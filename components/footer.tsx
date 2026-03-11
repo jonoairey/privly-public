@@ -5,9 +5,9 @@ import Image from 'next/image';
 
 const footerLinks = {
   product: [
-    { label: 'How It Works', href: '/how-it-works' },
-    { label: 'Features', href: '/features' },
-    { label: 'Pricing', href: '/pricing' },
+    { label: 'How It Works', href: '/#how-it-works' },
+    { label: 'Features', href: '/#features' },
+    { label: 'Pricing', href: '/#pricing' },
     { label: 'Articles', href: '/articles' },
   ],
   platforms: [
@@ -136,7 +136,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-purple-500/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-gray-500 text-sm">
-            &copy; 2025 Privly. All rights reserved.
+            &copy; {new Date().getFullYear()} Privly. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
             <Link
