@@ -60,15 +60,15 @@ export default function HowItWorks() {
       bullets: [
         'Instant leaker identification',
         'Automated DMCA filing',
-        '96% takedown success rate',
+        'High takedown success rate',
       ],
     },
   ];
 
   const stats = [
-    { number: '96%', label: 'Takedown Success Rate', desc: 'Industry-leading removal success' },
+    { number: '500+', label: 'Platforms Scanned', desc: 'Comprehensive coverage across the web' },
     { number: '<2h', label: 'Detection Speed', desc: 'Average leak identified in under 2 hours' },
-    { number: '70%', label: 'Leak Reduction', desc: 'On average across all creators' },
+    { number: '24/7', label: 'Monitoring', desc: 'Round-the-clock automated protection' },
   ];
 
   return (
@@ -93,7 +93,7 @@ export default function HowItWorks() {
               href={`${APP_URL}/auth/signup`}
               className="btn-glow px-8 py-4 rounded-full bg-purple-600 hover:bg-purple-500 font-semibold transition-all inline-flex items-center gap-3"
             >
-              Start Protecting Now
+              Start Free Trial
               <ArrowRight className="w-5 h-5" />
             </a>
           </div>
@@ -386,18 +386,18 @@ export default function HowItWorks() {
             Ready to protect your content?
           </h2>
           <p className="text-xl text-gray-300 mb-8 font-light">
-            Join creators already using Privly to stop leaks. Our dedicated human support team is with you every step of the way.
+            Full protection for your content. Try it free for 7 days — no credit card required.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
               href={`${APP_URL}/auth/signup`}
               className="btn-glow px-8 py-4 rounded-full bg-purple-600 hover:bg-purple-500 font-semibold transition-all inline-flex items-center justify-center gap-3"
             >
-              Get Started Now
+              Start Free Trial
               <ArrowRight className="w-5 h-5" />
             </a>
           </div>
-          <p className="text-gray-400 text-sm mt-4">30-day money-back guarantee. Cancel anytime.</p>
+          <p className="text-gray-400 text-sm mt-4">7-day free trial. No credit card required. Cancel anytime.</p>
         </div>
       </section>
 

@@ -52,7 +52,7 @@ export default function FeaturesPage() {
             Protect your work. Identify leakers. Reclaim control.
           </p>
           <a href={APP_URL} className="btn-glow px-8 py-4 bg-purple-600 hover:bg-purple-700 rounded-lg font-semibold text-lg inline-flex items-center gap-2 transition-all">
-            Start Protecting Now
+            Start Free Trial
             <ArrowRight size={20} />
           </a>
         </div>
@@ -192,7 +192,7 @@ export default function FeaturesPage() {
               </div>
               <h3 className="text-2xl font-bold mb-4">DMCA Automation</h3>
               <p className="text-gray-400 mb-6">
-                Automated takedown notices with a 96% success rate. We handle the legal side for you, filing DMCA claims on your behalf instantly.
+                Automated takedown notices filed on your behalf. We handle the legal side, generating and submitting DMCA claims instantly.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
@@ -201,7 +201,7 @@ export default function FeaturesPage() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle size={20} className="text-green-500 mt-1 flex-shrink-0" />
-                  <span className="text-gray-300">96% removal success rate</span>
+                  <span className="text-gray-300">High removal success rate</span>
                 </li>
               </ul>
             </div>
@@ -452,19 +452,18 @@ export default function FeaturesPage() {
             <span className="text-gradient">Your Content</span>
           </h2>
           <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-            Join creators, studios, and enterprises protecting their work with Privly's
-            industry-leading forensic watermarking and leak detection technology.
+            Full protection for your content. Try it free for 7 days — no credit card required.
           </p>
 
           <div className="flex justify-center">
             <a href={APP_URL} className="btn-glow px-8 py-4 bg-purple-600 hover:bg-purple-700 rounded-lg font-semibold text-lg inline-flex items-center justify-center gap-2 transition-all">
-              Get Started Now
+              Start Free Trial
               <ArrowRight size={20} />
             </a>
           </div>
 
           <p className="text-gray-400 text-sm mt-8">
-            30-day money-back guarantee. Cancel anytime.
+            7-day free trial. No credit card required. Cancel anytime.
           </p>
         </div>
       </section>
