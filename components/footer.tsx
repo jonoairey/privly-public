@@ -11,8 +11,8 @@ const footerLinks = {
     { label: 'Articles', href: '/articles' },
   ],
   platforms: [
-    { label: 'OnlyFans', href: '#' },
-    { label: 'Fansly', href: '#' },
+    { label: 'OnlyFans', href: '/onlyfans' },
+    { label: 'Fansly', href: '/fansly' },
     { label: 'Patreon', href: '#' },
     { label: 'ManyVids', href: '#' },
     { label: 'Chaturbate', href: '#' },

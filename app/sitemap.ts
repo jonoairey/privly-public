@@ -14,18 +14,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/privacy',
     '/terms',
     '/articles',
+    '/fansly',
+    '/onlyfans',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: (
       route === '' || route === '/pricing' || route === '/features'
-        ? 'daily'
-        : 'weekly'
-    ) as const,
+        ? 'daily' as const
+        : 'weekly' as const
+    ),
     priority: (
       route === ''
         ? 1.0
-        : route === '/pricing' || route === '/how-it-works' || route === '/features'
+        : route === '/pricing' || route === '/how-it-works' || route === '/features' || route === '/fansly'
+        || route === '/onlyfans'
         ? 0.9
         : 0.8
     ),
@@ -48,6 +51,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'how-much-money-content-leaks-cost-creators',
     'how-to-watermark-onlyfans-content',
     'hidden-cost-ignoring-content-piracy',
+    'fansly-leak-sites-how-to-find-remove-leaked-content',
+    'fansly-dmca-how-to-file-takedowns-remove-leaked-content',
+    'is-fansly-safe-complete-security-guide-creators',
+    'dmca-takedowns-manyvids-what-works',
+    'how-to-watermark-fansly-content-catch-leakers',
+    'best-anti-content-theft-services-adult-creators',
+    'onlyfans-leak-prevention-complete-security-checklist',
+    'onlyfans-dmca-takedown-guide-step-by-step',
+    'onlyfans-content-theft-what-to-do-when-leaked',
+    'onlyfans-leak-sites-2026-how-they-work-how-to-fight-back',
   ].map((slug) => ({
     url: `${baseUrl}/articles/${slug}`,
     lastModified: new Date(),
