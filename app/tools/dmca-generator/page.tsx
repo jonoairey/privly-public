@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { Metadata } from 'next';
 import Link from 'next/link';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
@@ -14,35 +13,6 @@ import {
   AlertTriangle,
   HelpCircle,
 } from 'lucide-react';
-
-// Note: Metadata cannot be used with 'use client', but we include it for documentation
-// In a real Next.js setup, extract this to a separate server component or use generateMetadata
-export const metadata = {
-  title: 'Free DMCA Takedown Notice Generator | Privly',
-  description:
-    'Generate a professionally formatted DMCA takedown notice in minutes. Free DMCA template with all required legal elements. Identify copyrighted works, infringing URLs, and file automatic takedowns.',
-  keywords: [
-    'dmca generator',
-    'dmca template',
-    'dmca takedown letter generator',
-    'free dmca notice',
-    'dmca takedown notice template',
-    'how to write a dmca notice',
-    'dmca copyright notice',
-    'dmca infringement',
-    'dmca form',
-  ],
-  openGraph: {
-    title: 'Free DMCA Takedown Notice Generator | Privly',
-    description:
-      'Generate a legally compliant DMCA takedown notice in minutes. Free tool with all required elements.',
-    type: 'website',
-    url: 'https://www.useprivly.com/tools/dmca-generator',
-  },
-  alternates: {
-    canonical: 'https://www.useprivly.com/tools/dmca-generator',
-  },
-};
 
 interface FormData {
   fullName: string;
