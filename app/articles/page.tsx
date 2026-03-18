@@ -1,7 +1,11 @@
 import Link from "next/link";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { articles } from "@/lib/article-data";
+import { articles as coreArticles } from "@/lib/article-data";
+import { leakSiteArticles } from "@/lib/article-data-leak-sites";
+import { safetyArticles } from "@/lib/article-data-safety";
+
+const articles = [...coreArticles, ...leakSiteArticles, ...safetyArticles];
 import { generateMetadata as genMeta } from "@/lib/seo";
 
 export const metadata = genMeta({
@@ -28,6 +32,8 @@ export default function ArticlesPage() {
       Legal: "bg-blue-900/30 text-blue-300",
       "AI & Security": "bg-pink-900/30 text-pink-300",
       Business: "bg-emerald-900/30 text-emerald-300",
+      "Removal Guides": "bg-red-900/30 text-red-300",
+      "Creator Safety": "bg-amber-900/30 text-amber-300",
     };
     return colors[category] || "bg-gray-800 text-gray-300";
   };

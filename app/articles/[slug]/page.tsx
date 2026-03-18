@@ -2,7 +2,11 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { articles } from "@/lib/article-data";
+import { articles as coreArticles } from "@/lib/article-data";
+import { leakSiteArticles } from "@/lib/article-data-leak-sites";
+import { safetyArticles } from "@/lib/article-data-safety";
+
+const articles = [...coreArticles, ...leakSiteArticles, ...safetyArticles];
 
 interface Props {
   params: Promise<{
