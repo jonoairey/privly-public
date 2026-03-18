@@ -9,14 +9,28 @@ const footerLinks = {
     { label: 'Features', href: '/features' },
     { label: 'Pricing', href: '/pricing' },
     { label: 'Articles', href: '/articles' },
+    { label: 'Glossary', href: '/glossary' },
   ],
   platforms: [
     { label: 'OnlyFans', href: '/onlyfans' },
     { label: 'Fansly', href: '/fansly' },
-    { label: 'Patreon', href: '#' },
-    { label: 'ManyVids', href: '#' },
-    { label: 'Chaturbate', href: '#' },
-    { label: '+ 100 more', href: '#' },
+    { label: 'Patreon', href: '/patreon' },
+    { label: 'ManyVids', href: '/manyvids' },
+    { label: 'Chaturbate', href: '/chaturbate' },
+    { label: 'Instagram', href: '/instagram' },
+    { label: 'TikTok', href: '/tiktok' },
+    { label: 'Reddit', href: '/reddit' },
+  ],
+  removal: [
+    { label: 'Remove from Erome', href: '/remove-from-erome' },
+    { label: 'Remove from Bunkr', href: '/remove-from-bunkr' },
+    { label: 'Remove from Simpcity', href: '/remove-from-simpcity' },
+    { label: 'Remove from Coomer', href: '/remove-from-coomer' },
+  ],
+  tools: [
+    { label: 'All Tools', href: '/tools' },
+    { label: 'DMCA Generator', href: '/tools/dmca-generator' },
+    { label: 'Leak Report 2026', href: '/report/content-leaks-2026' },
   ],
   company: [
     { label: 'About', href: '/about' },
@@ -50,9 +64,9 @@ export default function Footer() {
       {/* Content */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-6 mb-16">
           {/* Brand Column */}
-          <div className="md:col-span-1">
+          <div className="col-span-2 md:col-span-3 lg:col-span-1">
             <Link href="/" className="flex items-center group mb-4">
               <Image
                 src="/logo-light.png"
@@ -83,8 +97,8 @@ export default function Footer() {
 
           {/* Product Column */}
           <div>
-            <h3 className="text-white font-semibold mb-6">Product</h3>
-            <ul className="space-y-3">
+            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Product</h3>
+            <ul className="space-y-2.5">
               {footerLinks.product.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -100,8 +114,8 @@ export default function Footer() {
 
           {/* Platforms Column */}
           <div>
-            <h3 className="text-white font-semibold mb-6">Platforms</h3>
-            <ul className="space-y-3">
+            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Platforms</h3>
+            <ul className="space-y-2.5">
               {footerLinks.platforms.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -115,10 +129,41 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Company Column */}
+          {/* Removal Guides Column */}
           <div>
-            <h3 className="text-white font-semibold mb-6">Company</h3>
-            <ul className="space-y-3">
+            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Removal Guides</h3>
+            <ul className="space-y-2.5">
+              {footerLinks.removal.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Tools & Resources Column */}
+          <div>
+            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Resources</h3>
+            <ul className="space-y-2.5">
+              {footerLinks.tools.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            <h3 className="text-white font-semibold mb-4 mt-6 text-sm uppercase tracking-wider">Company</h3>
+            <ul className="space-y-2.5">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
                   <Link

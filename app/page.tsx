@@ -235,49 +235,71 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PRICING */}
-      <section id="pricing" className="relative w-full py-20 px-4 sm:px-6 lg:px-8 reveal">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">Simple Pricing</h2>
-          <p className="text-center text-gray-400 mb-12">
-            No surprises. No hidden fees. Full access to everything.
-          </p>
-
-          <div className="relative bg-gray-900/50 rounded-2xl p-8 sm:p-12 border border-purple-500/20">
-            {/* Badge */}
-            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-              <div className="bg-gradient-to-r from-purple-600 to-pink-600 px-4 py-1 rounded-full text-xs font-semibold text-white">
-                7-DAY FREE TRIAL
-              </div>
-            </div>
-
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold mb-4">{PLAN.name}</h3>
-              <div className="mb-3">
-                <span className="text-5xl font-bold text-white">{PLAN.price}</span>
-                <span className="text-gray-400 ml-2">/month</span>
-              </div>
-              <p className="text-gray-400 text-sm">After 7-day free trial. Cancel anytime.</p>
-            </div>
-
-            <div className="space-y-3 mb-8">
-              {PLAN.features.map((feature, idx) => (
-                <div key={idx} className="flex items-start gap-3">
-                  <CheckCircle className="w-4 h-4 text-purple-400 flex-shrink-0 mt-1" />
-                  <span className="text-sm text-gray-300">{feature}</span>
+      {/* STATE OF CONTENT LEAKS REPORT */}
+      <section className="relative w-full py-20 px-4 sm:px-6 lg:px-8 reveal">
+        <div className="max-w-5xl mx-auto">
+          <div className="rounded-2xl border border-purple-500/20 bg-gradient-to-br from-gray-900/80 via-purple-950/20 to-gray-900/80 overflow-hidden">
+            <div className="grid md:grid-cols-2 gap-0">
+              {/* Left — content */}
+              <div className="p-8 sm:p-12 flex flex-col justify-center">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-medium mb-6 w-fit">
+                  <FileText className="w-3.5 h-3.5" />
+                  Free Report
                 </div>
-              ))}
-            </div>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+                  The State of Content Leaks{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">2026</span>
+                </h2>
+                <p className="text-gray-400 mb-8 leading-relaxed">
+                  How much are leaks really costing creators? Which platforms are hit hardest? What actually works to stop them? We analysed the data so you don&apos;t have to.
+                </p>
+                <div className="grid grid-cols-2 gap-4 mb-8">
+                  {[
+                    { stat: '$2.1B', label: 'Lost to leaks annually' },
+                    { stat: '47%', label: 'Creators affected' },
+                    { stat: '500+', label: 'Leak sites tracked' },
+                    { stat: '96%', label: 'Takedown success rate' },
+                  ].map((item) => (
+                    <div key={item.label}>
+                      <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">{item.stat}</div>
+                      <div className="text-xs text-gray-500 mt-0.5">{item.label}</div>
+                    </div>
+                  ))}
+                </div>
+                <a
+                  href="/report/content-leaks-2026"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:opacity-90 transition-opacity w-fit"
+                >
+                  Read the Full Report <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
 
-            <a
-              href={APP_URL}
-              className="w-full block text-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:opacity-90 transition-opacity"
-            >
-              Start Free Trial <ArrowRight className="inline-block w-4 h-4 ml-2" />
-            </a>
-
-            <div className="mt-5 text-center">
-              <p className="text-sm text-gray-400">Then $49/month. {PLAN.guarantee}.</p>
+              {/* Right — visual stats preview */}
+              <div className="hidden md:flex flex-col justify-center p-8 sm:p-12 bg-gray-950/50 border-l border-purple-500/10">
+                <div className="space-y-5">
+                  {[
+                    { label: 'OnlyFans', pct: 78, color: 'from-blue-500 to-blue-400' },
+                    { label: 'Fansly', pct: 52, color: 'from-cyan-500 to-cyan-400' },
+                    { label: 'Patreon', pct: 34, color: 'from-orange-500 to-orange-400' },
+                    { label: 'Instagram', pct: 29, color: 'from-pink-500 to-pink-400' },
+                    { label: 'TikTok', pct: 18, color: 'from-gray-400 to-gray-300' },
+                  ].map((item) => (
+                    <div key={item.label}>
+                      <div className="flex justify-between text-sm mb-1.5">
+                        <span className="text-gray-300">{item.label}</span>
+                        <span className="text-gray-500">{item.pct}% affected</span>
+                      </div>
+                      <div className="h-2 rounded-full bg-gray-800 overflow-hidden">
+                        <div
+                          className={`h-full rounded-full bg-gradient-to-r ${item.color}`}
+                          style={{ width: `${item.pct}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-[11px] text-gray-600 mt-6">% of creators reporting leaked content by platform, 2026</p>
+              </div>
             </div>
           </div>
         </div>
