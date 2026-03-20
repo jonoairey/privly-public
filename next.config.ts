@@ -15,6 +15,21 @@ const nextConfig: NextConfig = {
     ],
   },
   output: 'standalone',
+
+  // Enforce no trailing slash — /pricing not /pricing/ — prevents duplicate URLs
+  trailingSlash: false,
+
+  // Redirect non-www to www for consistent canonical URLs
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'useprivly.com' }],
+        destination: 'https://www.useprivly.com/:path*',
+        permanent: true,
+      },
+    ]
+  },
 };
 
 export default nextConfig;
