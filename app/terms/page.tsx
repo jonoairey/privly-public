@@ -7,7 +7,7 @@ export const metadata: Metadata = genMeta({
   title: 'Terms of Service',
   description: 'Read the Terms of Service for Privly.',
   keywords: ['terms of service', 'terms', 'conditions'],
-  noindex: true,
+  path: '/terms',
 });
 
 export default function TermsPage() {

@@ -7,7 +7,7 @@ export const metadata: Metadata = genMeta({
   title: 'Privacy Policy',
   description: 'Learn how Privly handles your data and protects your privacy.',
   keywords: ['privacy policy', 'data protection', 'privacy', 'GDPR'],
-  noindex: true,
+  path: '/privacy',
 });
 
 export default function PrivacyPage() {

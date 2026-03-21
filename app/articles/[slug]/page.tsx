@@ -5,6 +5,7 @@ import Footer from "@/components/footer";
 import { articles as coreArticles } from "@/lib/article-data";
 import { leakSiteArticles } from "@/lib/article-data-leak-sites";
 import { safetyArticles } from "@/lib/article-data-safety";
+import { generateBreadcrumbSchema } from "@/lib/seo";
 
 const articles = [...coreArticles, ...leakSiteArticles, ...safetyArticles];
 
@@ -210,6 +211,46 @@ export default async function ArticlePage({ params }: Props) {
       </main>
 
       <Footer />
+
+      {/* Breadcrumb structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateBreadcrumbSchema([
+            { name: 'Home', url: 'https://www.useprivly.com' },
+            { name: 'Articles', url: 'https://www.useprivly.com/articles' },
+            { name: post.title, url: `https://www.useprivly.com/articles/${post.slug}` },
+          ])),
+        }}
+      />
+
+      {/* BlogPosting structured data for rich snippets */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: post.title,
+            description: post.excerpt,
+            author: { "@type": "Person", name: post.author },
+            datePublished: post.date,
+            dateModified: post.date,
+            publisher: {
+              "@type": "Organization",
+              name: "Privly",
+              url: "https://www.useprivly.com",
+            },
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": `https://www.useprivly.com/articles/${post.slug}`,
+            },
+            wordCount: post.content.split(/\s+/).length,
+            timeRequired: `PT${post.readTime}M`,
+            articleSection: post.category,
+          }),
+        }}
+      />
     </div>
   );
 }

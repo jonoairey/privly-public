@@ -3,7 +3,23 @@ import Script from "next/script";
 import "./globals.css";
 import { generateMetadata as genMeta, generateOrganizationSchema } from "@/lib/seo";
 
-export const metadata: Metadata = genMeta();
+export const metadata: Metadata = genMeta({
+  title: 'Privly - Content Protection for OnlyFans, Fansly & Adult Creators',
+  description: 'Stop content leaks and protect your income. Automated scanning across 500+ leak sites, instant DMCA takedowns, invisible watermarking, and deepfake detection. Built for creators.',
+  path: '/',
+  keywords: [
+    'OnlyFans leak protection',
+    'content leak detection',
+    'DMCA takedown service',
+    'creator content protection',
+    'Fansly leak protection',
+    'stop content piracy',
+    'remove leaked content',
+    'invisible watermarking',
+    'deepfake detection creators',
+    'adult content protection',
+  ],
+});
 
 export default function RootLayout({
   children,

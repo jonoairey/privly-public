@@ -348,6 +348,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* QUICK LINKS */}
+      <section className="relative w-full py-16 px-4 sm:px-6 lg:px-8 reveal">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl font-bold text-center mb-8 reveal">Explore Privly</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 stagger">
+            {[
+              { label: 'How It Works', href: '/how-it-works' },
+              { label: 'Features', href: '/features' },
+              { label: 'Pricing', href: '/pricing' },
+              { label: 'Articles & Guides', href: '/articles' },
+              { label: 'OnlyFans Protection', href: '/onlyfans' },
+              { label: 'Fansly Protection', href: '/fansly' },
+              { label: 'Free DMCA Generator', href: '/tools/dmca-generator' },
+              { label: 'Leak Report 2026', href: '/report/content-leaks-2026' },
+            ].map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="p-4 rounded-xl border border-gray-800 bg-gray-900/50 hover:border-purple-500/40 hover:bg-gray-900 transition-all text-center text-sm text-gray-300 hover:text-white font-medium"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FINAL CTA */}
       <section className="relative w-full py-20 px-4 sm:px-6 lg:px-8">
         <div className="absolute inset-0 bg-gradient-to-t from-purple-950/20 via-black to-black" />

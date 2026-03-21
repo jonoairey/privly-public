@@ -210,6 +210,25 @@ export default async function GlossaryTermPage({ params }: Props) {
       </main>
 
       <Footer />
+
+      {/* DefinedTerm structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "DefinedTerm",
+            name: entry.term,
+            description: entry.definition,
+            inDefinedTermSet: {
+              "@type": "DefinedTermSet",
+              name: "Privly Content Protection Glossary",
+              url: "https://www.useprivly.com/glossary",
+            },
+            url: `https://www.useprivly.com/glossary/${entry.slug}`,
+          }),
+        }}
+      />
     </div>
   );
 }
