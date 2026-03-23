@@ -81,7 +81,7 @@ export default function ArticlesPage() {
                   </p>
 
                   {/* Meta Information */}
-                  <div className="flex items-center justify-between text-sm text-gray-500 border-t border-gray-800 pt-4">
+                  <div className="flex items-center justify-between text-sm text-gray-400 border-t border-gray-800 pt-4">
                     <div className="flex gap-4">
                       <span>{new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}</span>
                       <span>{post.readTime} min read</span>
@@ -89,7 +89,7 @@ export default function ArticlesPage() {
                   </div>
 
                   {/* Author */}
-                  <div className="mt-4 text-sm text-gray-500">
+                  <div className="mt-4 text-sm text-gray-400">
                     By {post.author}
                   </div>
                 </article>

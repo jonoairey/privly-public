@@ -58,8 +58,8 @@ export default function Footer() {
       {/* Gradient Glow at Top */}
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-purple-600/20 via-pink-600/10 to-transparent pointer-events-none" />
 
-      {/* Shimmer Line */}
-      <div className="shimmer-line absolute top-0 left-0 right-0" />
+      {/* Static border line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-purple-500/20" />
 
       {/* Content */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -180,7 +180,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-purple-500/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-400 text-sm">
             &copy; {new Date().getFullYear()} Privly. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">

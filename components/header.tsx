@@ -118,8 +118,8 @@ export default function Header() {
         )}
       </div>
 
-      {/* Shimmer Line */}
-      <div className="shimmer-line absolute bottom-0 left-0 right-0" />
+      {/* Static border line */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-purple-500/20" />
     </header>
   );
 }

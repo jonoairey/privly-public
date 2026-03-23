@@ -47,7 +47,7 @@ export default function FeaturesPage() {
           >
             Start Free Trial <ArrowRight className="w-4 h-4 ml-2" />
           </a>
-          <p className="text-sm text-gray-500 mt-3">7-day free trial. No credit card required.</p>
+          <p className="text-sm text-gray-400 mt-3">7-day free trial. No credit card required.</p>
         </div>
       </section>
 
@@ -202,11 +202,11 @@ export default function FeaturesPage() {
                     <th className="px-5 py-4 text-left text-sm font-semibold text-gray-400">Feature</th>
                     <th className="px-5 py-4 text-center">
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 font-bold">Privly</span>
-                      <span className="block text-xs text-gray-500 font-normal mt-0.5">$49/mo</span>
+                      <span className="block text-xs text-gray-400 font-normal mt-0.5">$49/mo</span>
                     </th>
-                    <th className="px-5 py-4 text-center text-sm font-semibold text-gray-500">
+                    <th className="px-5 py-4 text-center text-sm font-semibold text-gray-400">
                       <span>Others</span>
-                      <span className="block text-xs text-gray-600 font-normal mt-0.5">$109-$324/mo</span>
+                      <span className="block text-xs text-gray-400 font-normal mt-0.5">$109-$324/mo</span>
                     </th>
                   </tr>
                 </thead>
@@ -229,7 +229,7 @@ export default function FeaturesPage() {
                       </td>
                       <td className="px-5 py-3 text-center">
                         {row.others ? (
-                          <Check className="w-5 h-5 mx-auto text-gray-600" />
+                          <Check className="w-5 h-5 mx-auto text-gray-400" />
                         ) : (
                           <X className="w-5 h-5 mx-auto text-gray-700" />
                         )}
@@ -242,7 +242,7 @@ export default function FeaturesPage() {
                       <span className="text-green-400 font-bold">$49/mo</span>
                     </td>
                     <td className="px-5 py-3 text-center">
-                      <span className="text-gray-500 font-bold">$109-$324/mo</span>
+                      <span className="text-gray-400 font-bold">$109-$324/mo</span>
                     </td>
                   </tr>
                 </tbody>
@@ -250,7 +250,7 @@ export default function FeaturesPage() {
             </div>
           </div>
 
-          <p className="text-center text-xs text-gray-600 mt-4">
+          <p className="text-center text-xs text-gray-400 mt-4">
             * Pricing as of February 2026. Features and pricing subject to change.
           </p>
         </div>
@@ -274,7 +274,7 @@ export default function FeaturesPage() {
           >
             Start Free Trial <ArrowRight className="w-5 h-5 ml-2" />
           </a>
-          <p className="text-gray-500 text-sm mt-4">7-day free trial. No credit card required. Cancel anytime.</p>
+          <p className="text-gray-400 text-sm mt-4">7-day free trial. No credit card required. Cancel anytime.</p>
         </div>
       </section>
 

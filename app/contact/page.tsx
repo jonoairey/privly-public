@@ -168,7 +168,7 @@ export default function ContactPage() {
                 </button>
               </form>
 
-              <p className="text-xs text-gray-500 text-center mt-6">
+              <p className="text-xs text-gray-400 text-center mt-6">
                 We respect your privacy. Read our privacy policy to learn how we handle your data.
               </p>
             </div>

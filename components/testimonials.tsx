@@ -75,11 +75,11 @@ export function Testimonials({ testimonials, showSchema = true }: TestimonialsPr
                   <div>
                     <p className="font-semibold text-gray-900">{testimonial.author}</p>
                     {testimonial.location && (
-                      <p className="text-sm text-gray-500">{testimonial.location}</p>
+                      <p className="text-sm text-gray-400">{testimonial.location}</p>
                     )}
                   </div>
                   {testimonial.plan && (
-                    <div className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
+                    <div className="text-xs text-gray-400 bg-gray-100 px-2 py-1 rounded">
                       {testimonial.plan}
                     </div>
                   )}

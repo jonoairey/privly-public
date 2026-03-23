@@ -133,7 +133,7 @@ export default function GlossaryPage() {
                 <div className="flex items-center gap-3 mb-8">
                   <div className={`w-3 h-3 rounded-full ${getCategoryColor(category).split(' ')[0]}`} />
                   <h2 className="text-2xl font-bold">{category}</h2>
-                  <span className="text-gray-500 text-sm ml-auto">
+                  <span className="text-gray-400 text-sm ml-auto">
                     {groupedByCategory[category].length} terms
                   </span>
                 </div>
@@ -164,7 +164,7 @@ export default function GlossaryPage() {
                             >
                               {entry.category}
                             </span>
-                            <ArrowRight className="w-4 h-4 text-gray-600 group-hover:text-blue-400 transition-colors duration-300" />
+                            <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-blue-400 transition-colors duration-300" />
                           </div>
                         </div>
                       </Link>

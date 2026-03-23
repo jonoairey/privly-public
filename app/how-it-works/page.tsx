@@ -101,7 +101,7 @@ export default function HowItWorks() {
                     <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center mx-auto mb-3">
                       <Icon className="w-5 h-5 text-white" />
                     </div>
-                    <div className="text-xs text-gray-500 mb-1">Step {step.number}</div>
+                    <div className="text-xs text-gray-400 mb-1">Step {step.number}</div>
                     <div className="text-sm font-semibold text-white group-hover:text-purple-300 transition-colors">{step.title}</div>
                   </div>
                 </a>
@@ -114,7 +114,7 @@ export default function HowItWorks() {
             {stats.map((stat, i) => (
               <div key={i} className="text-center">
                 <div className="text-2xl font-bold text-white">{stat.number}</div>
-                <div className="text-xs text-gray-500">{stat.label}</div>
+                <div className="text-xs text-gray-400">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -126,7 +126,7 @@ export default function HowItWorks() {
             >
               Start Free Trial <ArrowRight className="w-4 h-4 ml-2" />
             </a>
-            <p className="text-sm text-gray-500 mt-3">7-day free trial. No credit card required.</p>
+            <p className="text-sm text-gray-400 mt-3">7-day free trial. No credit card required.</p>
           </div>
         </div>
       </section>
@@ -168,11 +168,11 @@ export default function HowItWorks() {
                       <Lock className="w-4 h-4 text-purple-400" />
                       <span className="text-sm">{file.name}</span>
                     </div>
-                    <span className="text-xs text-gray-500">{file.size}</span>
+                    <span className="text-xs text-gray-400">{file.size}</span>
                   </div>
                 ))}
                 <div className="pt-3 border-t border-gray-800 mt-3">
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-gray-400">
                     Verified: <span className="text-green-400 font-medium">2025-03-10 09:32:45 UTC</span>
                   </p>
                 </div>
@@ -188,9 +188,9 @@ export default function HowItWorks() {
             <div className="order-2 md:order-1 rounded-xl border border-gray-800 bg-gray-900/50 p-6">
               <div className="space-y-5">
                 <div className="text-center">
-                  <p className="text-xs text-gray-500 mb-3">BEFORE WATERMARK</p>
+                  <p className="text-xs text-gray-400 mb-3">BEFORE WATERMARK</p>
                   <div className="bg-gray-800 rounded-lg p-6 h-24 flex items-center justify-center">
-                    <p className="text-lg font-bold text-gray-500">Your Content</p>
+                    <p className="text-lg font-bold text-gray-400">Your Content</p>
                   </div>
                 </div>
                 <div className="text-center">
@@ -199,7 +199,7 @@ export default function HowItWorks() {
                   </span>
                 </div>
                 <div className="text-center">
-                  <p className="text-xs text-gray-500 mb-3">AFTER WATERMARK</p>
+                  <p className="text-xs text-gray-400 mb-3">AFTER WATERMARK</p>
                   <div className="bg-gradient-to-br from-purple-900/20 to-gray-800 rounded-lg p-6 h-24 flex items-center justify-center relative overflow-hidden">
                     <p className="text-lg font-bold text-gray-400">Your Content</p>
                     <div className="absolute inset-0 opacity-5 pointer-events-none" style={{backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(168, 85, 247, 0.15) 35px, rgba(168, 85, 247, 0.15) 70px)'}} />
@@ -265,7 +265,7 @@ export default function HowItWorks() {
                   <p className="text-lg font-bold text-blue-400">500+</p>
                 </div>
                 <div className="absolute bottom-3 left-3">
-                  <p className="text-xs text-gray-500">Scanning every 30 min</p>
+                  <p className="text-xs text-gray-400">Scanning every 30 min</p>
                 </div>
               </div>
             </div>
@@ -340,7 +340,7 @@ export default function HowItWorks() {
           >
             Start Free Trial <ArrowRight className="w-5 h-5 ml-2" />
           </a>
-          <p className="text-gray-500 text-sm mt-4">7-day free trial. No credit card required. Cancel anytime.</p>
+          <p className="text-gray-400 text-sm mt-4">7-day free trial. No credit card required. Cancel anytime.</p>
         </div>
       </section>
 

@@ -190,7 +190,7 @@ export default function ContentLeaksReport2026() {
               of protection strategies.
             </p>
 
-            <p className="text-sm text-gray-500 max-w-2xl mx-auto">
+            <p className="text-sm text-gray-400 max-w-2xl mx-auto">
               Data compiled from industry reports, creator surveys, and Privly platform
               data from 2024-2026.
             </p>
@@ -289,7 +289,7 @@ export default function ContentLeaksReport2026() {
                     <div className="flex items-center justify-between mb-2">
                       <div>
                         <p className="font-semibold">{item.platform}</p>
-                        <p className="text-sm text-gray-500">{item.description}</p>
+                        <p className="text-sm text-gray-400">{item.description}</p>
                       </div>
                       <p className="text-2xl font-bold text-red-400">{item.percentage}</p>
                     </div>
@@ -315,7 +315,7 @@ export default function ContentLeaksReport2026() {
                   spreading content to mirror sites within minutes.
                 </p>
                 <div className="text-3xl font-bold text-red-400">24 hours</div>
-                <p className="text-xs text-gray-500">to reach dozens of mirror sites</p>
+                <p className="text-xs text-gray-400">to reach dozens of mirror sites</p>
               </div>
 
               <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
@@ -326,7 +326,7 @@ export default function ContentLeaksReport2026() {
                   thousands of times and spread to dozens of sites.
                 </p>
                 <div className="text-3xl font-bold text-orange-400">45 days</div>
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-gray-400">
                   average discovery time without automation
                 </p>
               </div>
@@ -558,7 +558,7 @@ export default function ContentLeaksReport2026() {
                   View all features
                 </Link>
               </div>
-              <p className="text-sm text-gray-500 mt-6">
+              <p className="text-sm text-gray-400 mt-6">
                 7-day free trial. No credit card required. Cancel anytime.
               </p>
             </div>

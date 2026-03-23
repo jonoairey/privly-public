@@ -197,7 +197,7 @@ export default function BunkrRemovalPage() {
               </Link>
             </div>
 
-            <p className="text-sm text-gray-500 mt-4">
+            <p className="text-sm text-gray-400 mt-4">
               7-day free trial. No credit card required. Cancel anytime.
             </p>
           </div>
@@ -424,7 +424,7 @@ export default function BunkrRemovalPage() {
                   <h3 className="font-semibold text-lg group-hover:text-amber-400 transition-colors duration-300 mb-2">
                     {site.name}
                   </h3>
-                  <p className="text-sm text-gray-500 group-hover:text-gray-400 transition-colors">
+                  <p className="text-sm text-gray-400 group-hover:text-gray-400 transition-colors">
                     DMCA removal guide
                   </p>
                 </Link>

@@ -30,7 +30,7 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
 
       {/* Visual breadcrumb navigation */}
       <nav aria-label="Breadcrumb" className="mb-8">
-        <ol className="flex items-center space-x-2 text-sm text-gray-600">
+        <ol className="flex items-center space-x-2 text-sm text-gray-400">
           {/* Always include Home */}
           <li>
             <Link

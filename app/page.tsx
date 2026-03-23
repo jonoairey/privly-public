@@ -71,25 +71,25 @@ export default function Home() {
                   Start Free Trial <ArrowRight className="w-4 h-4 ml-2" />
                 </a>
               </div>
-              <p className="text-sm text-gray-500">7-day free trial. No credit card required.</p>
+              <p className="text-sm text-gray-400">7-day free trial. No credit card required.</p>
 
               {/* Compact stats row */}
               <div className="flex flex-wrap gap-6 mt-8 pt-8 border-t border-gray-800">
                 <div>
                   <div className="text-2xl font-bold text-white">500+</div>
-                  <div className="text-xs text-gray-500">Platforms Scanned</div>
+                  <div className="text-xs text-gray-400">Platforms Scanned</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-white">{'< 2hrs'}</div>
-                  <div className="text-xs text-gray-500">Detection Speed</div>
+                  <div className="text-xs text-gray-400">Detection Speed</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-white">24/7</div>
-                  <div className="text-xs text-gray-500">Monitoring</div>
+                  <div className="text-xs text-gray-400">Monitoring</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-white">Auto</div>
-                  <div className="text-xs text-gray-500">DMCA Takedowns</div>
+                  <div className="text-xs text-gray-400">DMCA Takedowns</div>
                 </div>
               </div>
             </div>
@@ -262,7 +262,7 @@ export default function Home() {
                   ].map((item) => (
                     <div key={item.label}>
                       <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">{item.stat}</div>
-                      <div className="text-xs text-gray-500 mt-0.5">{item.label}</div>
+                      <div className="text-xs text-gray-400 mt-0.5">{item.label}</div>
                     </div>
                   ))}
                 </div>
@@ -287,7 +287,7 @@ export default function Home() {
                     <div key={item.label}>
                       <div className="flex justify-between text-sm mb-1.5">
                         <span className="text-gray-300">{item.label}</span>
-                        <span className="text-gray-500">{item.pct}% affected</span>
+                        <span className="text-gray-400">{item.pct}% affected</span>
                       </div>
                       <div className="h-2 rounded-full bg-gray-800 overflow-hidden">
                         <div
@@ -298,7 +298,7 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-                <p className="text-[11px] text-gray-600 mt-6">% of creators reporting leaked content by platform, 2026</p>
+                <p className="text-[11px] text-gray-400 mt-6">% of creators reporting leaked content by platform, 2026</p>
               </div>
             </div>
           </div>
@@ -392,7 +392,7 @@ export default function Home() {
           >
             Start Free Trial <ArrowRight className="w-5 h-5 ml-2" />
           </a>
-          <p className="text-gray-500 text-sm mt-4 reveal">7-day free trial. No credit card required. Cancel anytime.</p>
+          <p className="text-gray-400 text-sm mt-4 reveal">7-day free trial. No credit card required. Cancel anytime.</p>
         </div>
       </section>
 
@@ -415,7 +415,7 @@ function DashboardMockup() {
           <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
         </div>
         <div className="flex-1 flex justify-center">
-          <div className="text-[10px] text-gray-500 bg-gray-800 rounded px-3 py-0.5">app.useprivly.com</div>
+          <div className="text-[10px] text-gray-400 bg-gray-800 rounded px-3 py-0.5">app.useprivly.com</div>
         </div>
       </div>
 
@@ -424,15 +424,15 @@ function DashboardMockup() {
         {/* Stats row */}
         <div className="grid grid-cols-3 gap-2">
           <div className="bg-gray-900 rounded-lg p-3 border border-gray-800">
-            <div className="text-[10px] text-gray-500 mb-1">Active Scans</div>
+            <div className="text-[10px] text-gray-400 mb-1">Active Scans</div>
             <div className="text-lg font-bold text-white">12</div>
           </div>
           <div className="bg-gray-900 rounded-lg p-3 border border-gray-800">
-            <div className="text-[10px] text-gray-500 mb-1">Leaks Found</div>
+            <div className="text-[10px] text-gray-400 mb-1">Leaks Found</div>
             <div className="text-lg font-bold text-red-400">3</div>
           </div>
           <div className="bg-gray-900 rounded-lg p-3 border border-gray-800">
-            <div className="text-[10px] text-gray-500 mb-1">Takedowns</div>
+            <div className="text-[10px] text-gray-400 mb-1">Takedowns</div>
             <div className="text-lg font-bold text-green-400">3</div>
           </div>
         </div>
@@ -455,7 +455,7 @@ function DashboardMockup() {
                 </div>
                 <div className="flex items-center gap-3">
                   <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${item.statusColor}`}>{item.status}</span>
-                  <span className="text-[10px] text-gray-600">{item.time}</span>
+                  <span className="text-[10px] text-gray-400">{item.time}</span>
                 </div>
               </div>
             ))}

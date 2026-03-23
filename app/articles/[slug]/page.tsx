@@ -198,7 +198,7 @@ export default async function ArticlePage({ params }: Props) {
                       {relatedPost.excerpt}
                     </p>
 
-                    <div className="flex items-center gap-4 text-sm text-gray-500">
+                    <div className="flex items-center gap-4 text-sm text-gray-400">
                       <span>{new Date(relatedPost.date).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}</span>
                       <span>{relatedPost.readTime} min read</span>
                     </div>

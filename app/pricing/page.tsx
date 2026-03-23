@@ -137,7 +137,7 @@ export default function PricingPage() {
 
               <div className="flex items-baseline gap-2 mb-4">
                 <span className="text-3xl font-bold text-white">{COPYRIGHT_ADDON.price}</span>
-                <span className="text-sm text-gray-500">one-time</span>
+                <span className="text-sm text-gray-400">one-time</span>
               </div>
 
               <p className="text-sm text-gray-400 mb-5 flex-1">
@@ -167,7 +167,7 @@ export default function PricingPage() {
               {/* Typical Service */}
               <div className="rounded-xl p-6 border border-gray-800 bg-gray-900/50">
                 <h3 className="text-lg font-bold mb-5 text-gray-400">Typical Service</h3>
-                <ul className="space-y-3 text-sm text-gray-500">
+                <ul className="space-y-3 text-sm text-gray-400">
                   <li>$109-$324/mo</li>
                   <li>Scan + Remove only</li>
                   <li>Leaks keep coming back</li>
@@ -195,7 +195,7 @@ export default function PricingPage() {
               {/* DIY */}
               <div className="rounded-xl p-6 border border-gray-800 bg-gray-900/50">
                 <h3 className="text-lg font-bold mb-5 text-gray-400">DIY Approach</h3>
-                <ul className="space-y-3 text-sm text-gray-500">
+                <ul className="space-y-3 text-sm text-gray-400">
                   <li>Free (your time isn't)</li>
                   <li>Manual Google searches</li>
                   <li>Hours of your time weekly</li>
@@ -250,7 +250,7 @@ export default function PricingPage() {
             >
               Start Free Trial <ArrowRight className="w-5 h-5 ml-2" />
             </a>
-            <p className="text-gray-500 text-sm mt-4">7-day free trial. No credit card required. Cancel anytime.</p>
+            <p className="text-gray-400 text-sm mt-4">7-day free trial. No credit card required. Cancel anytime.</p>
           </div>
         </section>
       </main>
