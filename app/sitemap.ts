@@ -32,6 +32,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/remove-from-bunkr',
     '/remove-from-simpcity',
     '/remove-from-coomer',
+    '/remove-from-cyberdrop',
+    // Comparison pages
+    '/privly-vs-rulta',
     // Tools
     '/tools',
     '/tools/dmca-generator',
