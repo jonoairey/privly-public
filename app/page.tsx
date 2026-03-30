@@ -21,6 +21,7 @@ import {
   Copyright,
   AlertTriangle,
 } from 'lucide-react';
+import { Testimonials, creatorTestimonials } from '@/components/testimonials';
 
 export default function Home() {
   useEffect(() => {
@@ -345,6 +346,19 @@ export default function Home() {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* CREATOR TESTIMONIALS */}
+      <section className="relative w-full py-20 px-4 sm:px-6 lg:px-8 reveal">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
+            Trusted by <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Creators</span>
+          </h2>
+          <p className="text-center text-gray-400 max-w-2xl mx-auto mb-12">
+            Hear from creators who stopped losing revenue to content theft.
+          </p>
+          <Testimonials testimonials={creatorTestimonials} />
         </div>
       </section>
 

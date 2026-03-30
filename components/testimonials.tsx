@@ -1,153 +1,99 @@
 /**
- * Testimonials Component with Review Schema
- * Displays customer reviews with schema.org markup for SEO
+ * Testimonials Component
+ * Displays customer reviews styled for the dark Privly website theme
  */
 
-import { Star } from 'lucide-react'
-import { generateReviewSchema } from '@/lib/seo-advanced'
-import { Card, CardContent } from '@/components/ui/card'
+import { Star, Quote } from 'lucide-react'
 
 export interface Testimonial {
   author: string
   rating: number
   reviewBody: string
-  datePublished: string
-  location?: string
-  plan?: string
+  platform?: string
 }
 
 interface TestimonialsProps {
   testimonials: Testimonial[]
-  showSchema?: boolean
 }
 
-export function Testimonials({ testimonials, showSchema = true }: TestimonialsProps) {
-  // Generate review schemas for all testimonials
-  const reviewSchemas = testimonials.map(testimonial =>
-    generateReviewSchema({
-      author: testimonial.author,
-      rating: testimonial.rating,
-      reviewBody: testimonial.reviewBody,
-      datePublished: testimonial.datePublished,
-    })
-  )
-
+export function Testimonials({ testimonials }: TestimonialsProps) {
   return (
-    <>
-      {/* Schema.org structured data for reviews */}
-      {showSchema && reviewSchemas.map((schema, index) => (
-        <script
-          key={`review-schema-${index}`}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(schema)
-          }}
-        />
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {testimonials.map((testimonial, index) => (
+        <div
+          key={index}
+          className="rounded-xl p-6 border border-gray-800 bg-gray-900/50 hover:border-purple-500/30 transition-all"
+        >
+          {/* Quote icon */}
+          <Quote className="w-8 h-8 text-purple-500/30 mb-4" />
+
+          {/* Review Body */}
+          <blockquote className="text-gray-300 mb-6 leading-relaxed text-sm">
+            &ldquo;{testimonial.reviewBody}&rdquo;
+          </blockquote>
+
+          {/* Author Info */}
+          <div className="border-t border-gray-800 pt-4 flex items-center justify-between">
+            <div>
+              <p className="font-semibold text-white text-sm">{testimonial.author}</p>
+              {testimonial.platform && (
+                <p className="text-xs text-gray-500">{testimonial.platform}</p>
+              )}
+            </div>
+            <div className="flex items-center gap-0.5">
+              {[...Array(5)].map((_, i) => (
+                <Star
+                  key={i}
+                  className={`w-3.5 h-3.5 ${
+                    i < testimonial.rating
+                      ? 'text-yellow-400 fill-yellow-400'
+                      : 'text-gray-700'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       ))}
-
-      {/* Visual testimonials display */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {testimonials.map((testimonial, index) => (
-          <Card key={index} className="border-gray-200 hover:shadow-lg transition-shadow">
-            <CardContent className="p-6">
-              {/* Star Rating */}
-              <div className="flex items-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className={`w-5 h-5 ${
-                      i < testimonial.rating
-                        ? 'text-yellow-400 fill-yellow-400'
-                        : 'text-gray-300'
-                    }`}
-                  />
-                ))}
-              </div>
-
-              {/* Review Body */}
-              <blockquote className="text-gray-700 mb-4 leading-relaxed">
-                "{testimonial.reviewBody}"
-              </blockquote>
-
-              {/* Author Info */}
-              <div className="border-t border-gray-100 pt-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="font-semibold text-gray-900">{testimonial.author}</p>
-                    {testimonial.location && (
-                      <p className="text-sm text-gray-400">{testimonial.location}</p>
-                    )}
-                  </div>
-                  {testimonial.plan && (
-                    <div className="text-xs text-gray-400 bg-gray-100 px-2 py-1 rounded">
-                      {testimonial.plan}
-                    </div>
-                  )}
-                </div>
-                <p className="text-xs text-gray-400 mt-2">
-                  {new Date(testimonial.datePublished).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </>
+    </div>
   )
 }
 
-// Example testimonials data - use this in your pages
-export const exampleTestimonials: Testimonial[] = [
+export const creatorTestimonials: Testimonial[] = [
   {
-    author: 'Sarah Mitchell',
+    author: 'Mia R.',
     rating: 5,
-    reviewBody: 'Privly removed my information from over 200 data broker sites in just two weeks. I finally feel like I have control over my digital privacy again.',
-    datePublished: '2024-01-10',
-    location: 'Sydney, Australia',
-    plan: 'Personal Plan'
+    reviewBody: 'I found my content on 6 different tube sites within the first scan. Privly had DMCA notices out the same day. Three of them were down within 48 hours. I had no idea it was that widespread.',
+    platform: 'OnlyFans creator',
   },
   {
-    author: 'James Chen',
+    author: 'Jade T.',
     rating: 5,
-    reviewBody: 'The Scam Watch feature saved me from a sophisticated WhatsApp scam. The AI detected it in seconds and explained exactly why it was fraudulent.',
-    datePublished: '2024-01-08',
-    location: 'Melbourne, Australia',
-    plan: 'Scam Watch'
+    reviewBody: 'The invisible watermarking is what sold me. I had a subscriber leaking to Telegram for months and could never prove who it was. Privly traced it back to them within a week.',
+    platform: 'Fansly creator',
   },
   {
-    author: 'Emily Rodriguez',
+    author: 'Kayla B.',
     rating: 5,
-    reviewBody: 'As a content creator, the DMCA takedown automation has been a game-changer. My stolen content gets removed within days instead of months.',
-    datePublished: '2024-01-05',
-    location: 'Brisbane, Australia',
-    plan: 'Professional Plan'
+    reviewBody: 'I was paying a "protection service" $300/month that basically did nothing. Switched to Privly at $49 and got more takedowns in the first week than I got in three months with them.',
+    platform: 'OnlyFans & Fansly creator',
   },
   {
-    author: 'Michael Thompson',
+    author: 'Sophie L.',
     rating: 5,
-    reviewBody: 'I was skeptical at first, but the dark web monitoring actually found my data in a breach I didn\'t even know about. Worth every penny.',
-    datePublished: '2024-01-03',
-    location: 'Perth, Australia',
-    plan: 'Personal Plan'
+    reviewBody: 'What I appreciate most is the monitoring. I get notified when new leaks appear instead of finding out weeks later from a fan DM. It just runs in the background and handles everything.',
+    platform: 'OnlyFans creator',
   },
   {
-    author: 'Lisa Wang',
-    rating: 5,
-    reviewBody: 'My elderly parents kept getting scam calls. After signing them up for Scam Watch, they forward me every suspicious message and feel so much safer.',
-    datePublished: '2023-12-28',
-    location: 'Adelaide, Australia',
-    plan: 'Family Plan'
+    author: 'Ava M.',
+    rating: 4,
+    reviewBody: 'Took about 5 days to get content removed from one of the bigger sites, but everything else came down fast. The dashboard makes it easy to see exactly what is happening with each takedown.',
+    platform: 'Fansly creator',
   },
   {
-    author: 'David Kumar',
+    author: 'Lauren K.',
     rating: 5,
-    reviewBody: 'The monthly reports show exactly where my data was found and removed. Complete transparency and peace of mind.',
-    datePublished: '2023-12-25',
-    location: 'Canberra, Australia',
-    plan: 'Personal Plan'
-  }
+    reviewBody: 'I was mass-leaked on a forum and panicking. Signed up for the trial, uploaded my content to the vault, and Privly found over 40 links across Reddit, Telegram, and Erome. Most were removed within a week.',
+    platform: 'OnlyFans creator',
+  },
 ]
