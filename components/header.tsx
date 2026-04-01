@@ -66,7 +66,7 @@ export default function Header() {
               Log in
             </Link>
             <Link
-              href={`${APP_URL}/auth/signup`}
+              href="/get-started"
               className="btn-glow px-6 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300"
             >
               Get Started
@@ -106,7 +106,7 @@ export default function Header() {
                   Log in
                 </Link>
                 <Link
-                  href={`${APP_URL}/auth/signup`}
+                  href="/get-started"
                   className="btn-glow block px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold text-center hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300"
                   onClick={() => setIsMenuOpen(false)}
                 >

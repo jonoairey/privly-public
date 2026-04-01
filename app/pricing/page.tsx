@@ -145,7 +145,7 @@ export default function PricingPage() {
               </div>
 
               <a
-                href={`${APP_URL}/auth/signup`}
+                href={`${APP_URL}/auth/signup?plan=trial`}
                 className="w-full block text-center px-8 py-4 border border-gray-600 rounded-lg font-semibold text-white hover:bg-gray-800 transition-colors"
               >
                 Start Free Trial <ArrowRight className="inline-block w-4 h-4 ml-2" />
@@ -184,12 +184,12 @@ export default function PricingPage() {
               </div>
 
               <a
-                href={`${APP_URL}/auth/signup`}
+                href={`${APP_URL}/auth/signup?plan=pro`}
                 className="w-full block text-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:opacity-90 transition-opacity"
               >
                 Get Full Protection <ArrowRight className="inline-block w-4 h-4 ml-2" />
               </a>
-              <p className="text-center text-xs text-gray-500 mt-3">Subscribe from inside the app after signing up</p>
+              <p className="text-center text-xs text-gray-500 mt-3">You&apos;ll create your account, then complete payment</p>
             </div>
           </div>
         </section>
@@ -308,13 +308,13 @@ export default function PricingPage() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href={`${APP_URL}/auth/signup`}
+                href={`${APP_URL}/auth/signup?plan=trial`}
                 className="inline-flex items-center px-8 py-4 border border-gray-600 rounded-lg font-semibold text-white hover:bg-gray-800 transition-colors"
               >
                 Start Free Trial
               </a>
               <a
-                href={`${APP_URL}/auth/signup`}
+                href={`${APP_URL}/auth/signup?plan=pro`}
                 className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:opacity-90 transition-opacity"
               >
                 Get Full Protection — {PLAN.price}/mo <ArrowRight className="w-5 h-5 ml-2" />

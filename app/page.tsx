@@ -66,7 +66,7 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row gap-3 mb-3">
                 <a
-                  href={`${APP_URL}/auth/signup`}
+                  href="/get-started"
                   className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:opacity-90 transition-opacity"
                 >
                   Get Started <ArrowRight className="w-4 h-4 ml-2" />
@@ -408,13 +408,13 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 reveal">
             <a
-              href={`${APP_URL}/auth/signup`}
+              href="/get-started"
               className="inline-flex items-center px-8 py-4 border border-gray-600 rounded-lg font-semibold text-white hover:bg-gray-800 transition-colors"
             >
               Start Free Trial
             </a>
             <a
-              href={`${APP_URL}/auth/signup`}
+              href="/get-started"
               className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:opacity-90 transition-opacity"
             >
               Get Full Protection — $49/mo <ArrowRight className="w-5 h-5 ml-2" />
