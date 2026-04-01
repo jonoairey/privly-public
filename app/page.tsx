@@ -64,15 +64,21 @@ export default function Home() {
                 Forensic watermarking meets automated enforcement. Catch leakers. Protect your content. Get paid for what you create.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-3">
+              <div className="flex flex-col sm:flex-row gap-3 mb-3">
                 <a
-                  href={APP_URL}
+                  href={`${APP_URL}/auth/signup`}
                   className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:opacity-90 transition-opacity"
                 >
-                  Start Free Trial <ArrowRight className="w-4 h-4 ml-2" />
+                  Get Started <ArrowRight className="w-4 h-4 ml-2" />
+                </a>
+                <a
+                  href="/pricing"
+                  className="inline-flex items-center justify-center px-8 py-4 border border-gray-600 rounded-lg font-semibold text-white hover:bg-gray-800 transition-colors"
+                >
+                  View Pricing
                 </a>
               </div>
-              <p className="text-sm text-gray-400">7-day free trial. No credit card required.</p>
+              <p className="text-sm text-gray-400">Free 7-day trial or $49/mo for full protection. No credit card required to start.</p>
 
               {/* Compact stats row */}
               <div className="flex flex-wrap gap-6 mt-8 pt-8 border-t border-gray-800">
@@ -400,13 +406,21 @@ export default function Home() {
           <p className="text-lg text-gray-300 mb-8 reveal">
             Join creators who are taking back control of their content and their revenue.
           </p>
-          <a
-            href={APP_URL}
-            className="inline-flex items-center px-10 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:opacity-90 transition-opacity reveal"
-          >
-            Start Free Trial <ArrowRight className="w-5 h-5 ml-2" />
-          </a>
-          <p className="text-gray-400 text-sm mt-4 reveal">7-day free trial. No credit card required. Cancel anytime.</p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 reveal">
+            <a
+              href={`${APP_URL}/auth/signup`}
+              className="inline-flex items-center px-8 py-4 border border-gray-600 rounded-lg font-semibold text-white hover:bg-gray-800 transition-colors"
+            >
+              Start Free Trial
+            </a>
+            <a
+              href={`${APP_URL}/auth/signup`}
+              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+            >
+              Get Full Protection — $49/mo <ArrowRight className="w-5 h-5 ml-2" />
+            </a>
+          </div>
+          <p className="text-gray-400 text-sm mt-4 reveal">No credit card required for trial. 30-day money-back guarantee on subscriptions.</p>
         </div>
       </section>
 
