@@ -162,25 +162,43 @@ export default function FeaturesPage() {
               );
             })}
 
-            {/* Human Support — full width */}
-            <div className="md:col-span-2 rounded-xl p-6 border border-gray-800 bg-gray-900/50 hover:border-purple-500/30 transition-colors">
-              <div className="flex flex-col sm:flex-row items-start gap-5">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-green-600 to-emerald-700 flex items-center justify-center flex-shrink-0">
-                  <HeadphonesIcon className="w-5 h-5 text-white" />
-                </div>
+            {/* Human Protection Team — full width, premium feel */}
+            <div className="md:col-span-2 rounded-xl p-8 border border-purple-500/20 bg-gradient-to-r from-purple-950/20 to-pink-950/20 hover:border-purple-500/30 transition-colors">
+              <div className="grid sm:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Dedicated Human Support</h3>
-                  <p className="text-sm text-gray-400 mb-3">
-                    Real people, not chatbots. Our support team handles everything from account setup to complex takedown situations. Priority response within 24 hours.
-                  </p>
-                  <div className="flex flex-wrap gap-4">
-                    <span className="flex items-center gap-2 text-sm text-gray-300">
-                      <CheckCircle className="w-4 h-4 text-green-400" /> Real human support
-                    </span>
-                    <span className="flex items-center gap-2 text-sm text-gray-300">
-                      <CheckCircle className="w-4 h-4 text-green-400" /> Priority email response
-                    </span>
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-green-600 to-emerald-700 flex items-center justify-center mb-4">
+                    <HeadphonesIcon className="w-5 h-5 text-white" />
                   </div>
+                  <h3 className="text-xl font-semibold mb-3">Dedicated Human Protection Team</h3>
+                  <p className="text-sm text-gray-300 mb-4 leading-relaxed">
+                    Automation is powerful, but it can&apos;t do everything. That&apos;s why every Privly subscriber
+                    gets a dedicated team of human agents who actively work to protect your content — not just
+                    respond when you ask for help.
+                  </p>
+                  <p className="text-sm text-gray-400 leading-relaxed">
+                    Your team manually searches leak sites, private Telegram groups, Discord servers, and forums
+                    that automated crawlers can&apos;t access. They file takedowns, follow up with platforms,
+                    escalate to legal contacts, and monitor for re-uploads. This isn&apos;t a help desk — it&apos;s
+                    a protection team working for you every day.
+                  </p>
+                </div>
+                <div className="space-y-3">
+                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">What your team does</p>
+                  {[
+                    'Manually hunt for leaks on private channels & forums',
+                    'File and follow up on every DMCA takedown',
+                    'Escalate ignored takedowns to platform legal teams',
+                    'Submit Google de-indexing removal requests',
+                    'Monitor for re-uploads after content is removed',
+                    'Investigate new leak sources specific to you',
+                    'Provide regular protection status updates',
+                    'Handle complex or multi-platform takedown situations',
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-gray-300">{item}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -220,7 +238,7 @@ export default function FeaturesPage() {
                     { feature: 'Copyright Registration', privly: true, others: false },
                     { feature: 'Impersonation & AI Detection', privly: true, others: false },
                     { feature: 'Content Vault', privly: true, others: false },
-                    { feature: 'Dedicated Human Support', privly: true, others: false },
+                    { feature: 'Dedicated Human Protection Team', privly: true, others: false },
                   ].map((row, idx) => (
                     <tr key={idx} className="hover:bg-gray-900/30 transition-colors">
                       <td className="px-5 py-3 text-sm font-medium">{row.feature}</td>

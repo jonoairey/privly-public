@@ -9,6 +9,7 @@ import {
   Shield,
   CheckCircle,
   ArrowRight,
+  HeadphonesIcon,
 } from 'lucide-react';
 
 export const metadata = genMeta({
@@ -318,6 +319,74 @@ export default function HowItWorks() {
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="h-px bg-gray-800" />
+
+          {/* Step 5: Your Dedicated Protection Team */}
+          <div id="step-5" className="scroll-mt-24">
+            <div className="text-center mb-10">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <span className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">+</span>
+                <span className="text-xs font-semibold text-emerald-300 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full">Always On</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">Your Dedicated Protection Team</h2>
+              <p className="text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                Automation handles the speed. But your dedicated human agents handle
+                everything else — the places bots can&apos;t reach, the follow-ups platforms
+                ignore, and the complex situations that need a real person.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-purple-500/20 bg-gradient-to-br from-purple-950/20 to-gray-900/80 p-8 sm:p-10">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                  {
+                    title: 'Manual Leak Hunting',
+                    desc: 'Human agents search private Telegram groups, Discord servers, and forums that automated crawlers miss.',
+                  },
+                  {
+                    title: 'DMCA Filing & Follow-up',
+                    desc: 'Every takedown is filed and tracked. If a platform is slow to respond, your team escalates directly.',
+                  },
+                  {
+                    title: 'Google De-indexing',
+                    desc: 'We submit removal requests to Google so leaked content disappears from search results entirely.',
+                  },
+                  {
+                    title: 'Re-upload Monitoring',
+                    desc: 'After content is removed, your team watches for re-uploads to the same sites and new ones.',
+                  },
+                  {
+                    title: 'Platform Escalation',
+                    desc: 'When standard takedowns are ignored, your team contacts platform legal departments directly.',
+                  },
+                  {
+                    title: 'Protection Reports',
+                    desc: 'Regular updates on what was found, what was removed, and what your team is currently working on.',
+                  },
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <CheckCircle className="w-3.5 h-3.5 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-white mb-1">{item.title}</p>
+                      <p className="text-xs text-gray-400">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-gray-800 text-center">
+                <p className="text-gray-300 text-sm">
+                  <span className="font-semibold text-white">This isn&apos;t a helpdesk.</span> Your
+                  protection team is actively working for you every day — finding leaks, filing takedowns,
+                  and making sure your content stays protected.
+                </p>
+              </div>
             </div>
           </div>
         </div>

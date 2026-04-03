@@ -220,8 +220,8 @@ export default function Home() {
               },
               {
                 icon: HeadphonesIcon,
-                title: 'Dedicated Human Support',
-                description: 'Real people backing you up with takedowns, questions, and anything you need.',
+                title: 'Dedicated Protection Team',
+                description: 'Real agents manually hunting leaks, filing takedowns, and following up with platforms every day.',
               },
             ].map((feature, idx) => {
               const Icon = feature.icon;
@@ -351,6 +351,82 @@ export default function Home() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* HUMAN + AI PROTECTION — key differentiator */}
+      <section className="relative w-full py-20 px-4 sm:px-6 lg:px-8 reveal">
+        <div className="max-w-6xl mx-auto">
+          <div className="rounded-2xl border border-purple-500/20 bg-gradient-to-br from-gray-900/80 via-purple-950/10 to-gray-900/80 overflow-hidden">
+            <div className="grid md:grid-cols-2 gap-0">
+              {/* Left — messaging */}
+              <div className="p-8 sm:p-12 flex flex-col justify-center">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-medium mb-6 w-fit">
+                  <HeadphonesIcon className="w-3.5 h-3.5" />
+                  What Makes Us Different
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+                  Real Humans.{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Working For You.</span>
+                </h2>
+                <p className="text-gray-300 mb-6 leading-relaxed">
+                  Other services rely purely on automated scans and leave you to handle the rest.
+                  We don&apos;t. When you sign up for Privly, you get a dedicated protection team
+                  that actively works on your behalf — every single day.
+                </p>
+                <p className="text-gray-300 mb-8 leading-relaxed">
+                  Our agents manually search leak sites, Telegram channels, Discord servers, and forums
+                  that automated tools can&apos;t reach. They file takedowns, follow up with platforms,
+                  and escalate when needed. You focus on creating — we handle the rest.
+                </p>
+                <a
+                  href="/get-started"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:opacity-90 transition-opacity w-fit"
+                >
+                  Get Your Dedicated Team <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+
+              {/* Right — what your team does */}
+              <div className="flex flex-col justify-center p-8 sm:p-12 bg-gray-950/50 border-t md:border-t-0 md:border-l border-purple-500/10">
+                <h3 className="text-lg font-semibold mb-6 text-gray-200">What your protection team does daily</h3>
+                <div className="space-y-4">
+                  {[
+                    {
+                      title: 'Manual leak hunting',
+                      desc: 'Human agents search platforms, forums, and private channels that automated crawlers miss.',
+                    },
+                    {
+                      title: 'DMCA filing & follow-up',
+                      desc: 'We file every takedown and chase platforms until content is actually removed.',
+                    },
+                    {
+                      title: 'Platform escalation',
+                      desc: 'When a platform ignores a takedown, your team escalates directly to legal contacts.',
+                    },
+                    {
+                      title: 'Google de-indexing',
+                      desc: 'We submit removal requests to Google so leaked content disappears from search results.',
+                    },
+                    {
+                      title: 'Ongoing monitoring',
+                      desc: 'Your team continuously monitors for re-uploads and new leaks — not just during scans.',
+                    },
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <CheckCircle className="w-3.5 h-3.5 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-white">{item.title}</p>
+                        <p className="text-xs text-gray-400 mt-0.5">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
