@@ -56,11 +56,11 @@ export default function RootLayout({
           `}
         </Script>
         {children}
-        {/* Tawk.to Live Chat */}
-        <Script id="tawk-chat" strategy="afterInteractive">
+        {/* Crisp Live Chat */}
+        <Script id="crisp-chat" strategy="afterInteractive">
           {`
-            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-            (function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src='https://embed.tawk.to/69cf8778f132dd1c3cce9ba1/1jl9aiboq';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();
+            window.$crisp=[];window.CRISP_WEBSITE_ID="9bb670c9-c2e8-4af5-a5fd-f9c4ed64edcc";
+            (function(){var d=document;var s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
           `}
         </Script>
       </body>
