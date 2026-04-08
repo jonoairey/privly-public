@@ -5,9 +5,11 @@ import Footer from "@/components/footer";
 import { articles as coreArticles } from "@/lib/article-data";
 import { leakSiteArticles } from "@/lib/article-data-leak-sites";
 import { safetyArticles } from "@/lib/article-data-safety";
+import { onlyfansArticles } from "@/lib/article-data-onlyfans";
+import { patreonArticles } from "@/lib/article-data-patreon";
 import { generateBreadcrumbSchema } from "@/lib/seo";
 
-const articles = [...coreArticles, ...leakSiteArticles, ...safetyArticles];
+const articles = [...coreArticles, ...leakSiteArticles, ...safetyArticles, ...onlyfansArticles, ...patreonArticles];
 
 interface Props {
   params: Promise<{

@@ -16,37 +16,32 @@ import {
   Lock,
   Zap,
   Ban,
-  Camera,
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Patreon Content Protection | Stop Leaks & DMCA Takedowns | Privly",
+  title: "Patreon Content Protection | Stop Leaks & Protect Your Membership | Privly",
   description:
-    "Protect your Patreon content from leak sites and piracy. Automated leak scanning across 500+ sites, instant DMCA takedowns, forensic watermarking, and deepfake detection. Built for Patreon creators.",
+    "Protect your Patreon membership content from leaks. Automated scanning, DMCA takedowns, and Google de-indexing for Patreon creators. 7-day free trial.",
   keywords: [
     "patreon leak protection",
     "patreon content protection",
-    "patreon dmca",
-    "patreon leaks",
-    "patreon leak site",
-    "patreon leak takedown",
-    "protect patreon content",
-    "patreon piracy",
-    "patreon watermark",
-    "patreon content theft",
-    "remove leaked patreon content",
-    "patreon leak takedown software",
-    "stop patreon leaks",
     "patreon dmca takedown",
-    "patreon copyright protection",
+    "stop patreon leaks",
+    "patreon piracy",
     "patreon content stolen",
-    "patreon leaked photos removed",
+    "protect patreon posts",
+    "patreon membership leak",
+    "patreon copyright protection",
     "patreon anti piracy",
+    "patreon kemono",
+    "patreon piracy kemono",
+    "patreon leak site",
+    "patreon content security",
   ],
   openGraph: {
-    title: "Patreon Content Protection — Stop Leaks & Get Content Removed | Privly",
+    title: "Patreon Content Protection — Stop Membership Leaks | Privly",
     description:
-      "Automated leak scanning and DMCA takedowns built for Patreon creators. Find and remove your stolen content from 500+ leak sites.",
+      "Protect your Patreon membership content from leaks. Automated scanning, DMCA takedowns, and Google de-indexing for Patreon creators. 7-day free trial.",
     type: "website",
     url: "https://www.useprivly.com/patreon",
   },
@@ -58,93 +53,73 @@ export const metadata: Metadata = {
 const features = [
   {
     icon: Search,
-    title: "Patreon Leak Scanning",
+    title: "Patreon Leak Detection",
     description:
-      "Continuous automated scans across 500+ leak sites, tube sites, forums, Telegram, Discord, and file-sharing platforms for your Patreon content.",
+      "Monitor Kemono, piracy forums, file-sharing sites, Telegram, and Discord for your Patreon posts, images, videos, and downloadable files.",
   },
   {
     icon: FileText,
-    title: "Automated DMCA Takedowns",
+    title: "Automated DMCA Enforcement",
     description:
-      "Legally compliant DMCA notices filed simultaneously with hosting providers, CDNs, domain registrars, and Google — not just the leak site operator.",
+      "Legally compliant takedown notices sent to hosting providers, CDNs, registrars, and search engines. Escalation ladder from site operator to upstream infrastructure.",
+  },
+  {
+    icon: Globe,
+    title: "Google & Bing De-indexing",
+    description:
+      "Remove leaked Patreon content from search results so people searching for free access to your tiers can't find it.",
   },
   {
     icon: Fingerprint,
     title: "Forensic Watermarking",
     description:
-      "Invisible watermarks embedded in your content that trace leaks back to the exact patron who captured and shared it.",
-  },
-  {
-    icon: Eye,
-    title: "Deepfake Detection",
-    description:
-      "AI-powered monitoring that detects deepfakes and impersonation content using your Patreon photos and videos.",
-  },
-  {
-    icon: Globe,
-    title: "Google De-indexing",
-    description:
-      "Get leaked content removed from Google search results so people can't find your Patreon content for free through search.",
+      "Invisible watermarks trace leaks to the exact patron who shared your content. Identify and remove bad actors from your community.",
   },
   {
     icon: Lock,
-    title: "Content Vault",
+    title: "Content Fingerprinting",
     description:
-      "Securely store and fingerprint your original Patreon content to prove ownership and strengthen DMCA disputes.",
+      "Create digital fingerprints of your Patreon posts and media. Prove ownership instantly when filing disputes or DMCA claims.",
   },
   {
     icon: Ban,
-    title: "Leak Site Suppression",
+    title: "Persistent Enforcement",
     description:
-      "Ongoing enforcement against repeat offender sites that rehost your content. We track removals and re-file when content reappears.",
-  },
-  {
-    icon: Camera,
-    title: "Reverse Image Search",
-    description:
-      "Find your Patreon photos and thumbnails across the web using TinEye and Google Lens integration — even when your name isn't attached.",
+      "When content reappears on the same or new sites, Privly re-files automatically. Escalation to domain registrars for repeat offenders.",
   },
 ];
 
 const stats = [
-  { value: "500+", label: "Platforms monitored" },
-  { value: "96%", label: "Takedown success rate" },
-  { value: "<2hrs", label: "Average detection time" },
-  { value: "70%", label: "Leak reduction" },
+  { value: "500+", label: "Sites scanned for leaks" },
+  { value: "96%", label: "DMCA success rate" },
+  { value: "48hrs", label: "Average removal time" },
+  { value: "24/7", label: "Automated monitoring" },
 ];
 
 const faqItems = [
   {
-    q: "How do I protect my Patreon content from being leaked?",
-    a: "Use a layered approach: enable Patreon's content security settings, add forensic watermarks that identify leakers, and run automated scanning to catch leaks early. Privly handles scanning 500+ leak sites and filing DMCA takedowns automatically when your content is found.",
+    q: "How is my Patreon content ending up on Kemono and piracy sites?",
+    a: "Automated scrapers dump entire Patreon feeds to sites like Kemono.party. Some patrons use account sharing or take screenshots of tier-exclusive content. Kemono imports entire archives at once. Privly monitors these sites and files takedowns automatically when your content is detected.",
   },
   {
-    q: "How do I get my leaked Patreon content removed from the internet?",
-    a: "File DMCA takedown notices with the hosting provider, CDN, domain registrar, and Google simultaneously. Target the infrastructure, not just the leak site. Privly automates this entire process — from detection through confirmed removal — achieving a 96% takedown success rate within 48-72 hours.",
+    q: "Can I get my content removed from Kemono.party?",
+    a: "Yes. DMCA takedowns work because the hosting infrastructure must comply. Privly targets the hosting provider and CDN, not just the site itself. We also submit Google de-indexing requests to remove your content from search results. This multi-target approach achieves 96% removal rates.",
   },
   {
-    q: "How do I file a DMCA takedown for Patreon content?",
-    a: "A valid DMCA notice requires: identification of your copyrighted work, the exact URL of the infringing content, your contact information, a good-faith statement, and a signature under penalty of perjury. Send it to the hosting company's designated copyright agent.",
+    q: "How do I stop patrons from sharing my exclusive content?",
+    a: "Forensic watermarking identifies the specific patron who captured and shared your content. Combined with Patreon's own moderation tools, you can ban leakers and deter future sharing. The knowledge that their patron ID is embedded in your content creates accountability.",
   },
   {
-    q: "Is there software that automatically removes leaked Patreon content?",
-    a: "Yes. Privly is a content protection platform built specifically for Patreon creators. It continuously scans for your content across 500+ platforms and automatically files DMCA takedowns when leaks are detected. It also handles Google de-indexing to remove leaked content from search results.",
+    q: "How effective are DMCA takedowns for Patreon content?",
+    a: "96% success rate when targeting hosting + CDN + registrar simultaneously. Single-target notices filed only to the site have much lower success rates (40-50%). Privly automates the multi-target approach, escalating from the site operator to upstream infrastructure providers.",
   },
   {
-    q: "How much revenue do Patreon creators lose to leaks?",
-    a: "Studies estimate that content leaks cost the average Patreon creator $3,500 per month in lost revenue. Creators typically see a 25-35% drop in new patrons when their content is freely available on leak sites. Over a year, this compounds to $40,000+ in losses.",
+    q: "What types of Patreon content can Privly protect?",
+    a: "Images, videos, audio, PDFs, downloadable files, and text posts. Works for all creator categories: art, education, podcasts, fitness, writing, and adult content. Any content you post behind a Patreon paywall can be protected.",
   },
   {
-    q: "Can I find out who leaked my Patreon content?",
-    a: "With forensic watermarking, yes. Invisible watermarks embedded in your content identify which patron captured and shared it. When leaked content is found, the watermark is extracted to reveal the leaker's patron ID. You can then ban them and potentially pursue legal action.",
-  },
-  {
-    q: "How do I watermark Patreon content without ruining quality?",
-    a: "Forensic (invisible) watermarks don't affect visual quality at all — they're embedded in the pixel data and invisible to the human eye. Unlike visible watermarks that can be cropped or edited out, forensic watermarks survive screenshots, screen recordings, compression, and re-encoding.",
-  },
-  {
-    q: "What's the best content protection service for Patreon creators?",
-    a: "Look for a service that covers all three pillars: monitoring (scanning 500+ sites), enforcement (automated DMCA filing with hosting providers and Google), and prevention (forensic watermarking). Privly offers all three for $49/month with a 7-day free trial.",
+    q: "How much does Patreon content protection cost?",
+    a: "$49/month with a 7-day free trial. No credit card required. Compared to the average $3,500/month in losses from leaks, Privly pays for itself immediately while protecting your community's trust.",
   },
 ];
 
@@ -170,15 +145,13 @@ export default function PatreonPage() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Protect Your{" "}
               <span className="bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
-                Patreon Content
+                Patreon Membership
               </span>{" "}
-              From Leaks and Piracy
+              From Content Pirates
             </h1>
 
             <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
-              Automated leak scanning across 500+ sites, instant DMCA takedowns,
-              forensic watermarking, and Google de-indexing. Find your stolen
-              Patreon content and get it removed fast.
+              Tier-exclusive content appearing on Kemono and piracy forums. Patrons sharing member-only posts. Years of archives scraped and dumped. Privly automatically finds and removes your stolen content across 500+ sites.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -222,47 +195,39 @@ export default function PatreonPage() {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                Patreon Content Leaks Are an Epidemic
+                Patreon Piracy Is Costing Creators Thousands
               </h2>
               <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-                28% of Patreon creators have experienced unauthorized
-                distribution. The average creator loses $3,500/month to leaks.
-                Manual takedowns can&apos;t keep up.
+                The average affected creator loses $3,500/month to leaks. Communities built on trust are destroyed when exclusive content becomes free.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
-                <div className="w-12 h-12 rounded-lg bg-red-500/10 flex items-center justify-center mb-4">
-                  <AlertTriangle className="w-6 h-6 text-red-400" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">$42,000/yr Lost</h3>
-                <p className="text-gray-400 text-sm">
-                  The average Patreon creator loses $3,500 per month to leaked
-                  content — over $42,000 per year in patron revenue that goes
-                  to free sites instead.
-                </p>
-              </div>
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
                 <div className="w-12 h-12 rounded-lg bg-orange-500/10 flex items-center justify-center mb-4">
-                  <Clock className="w-6 h-6 text-orange-400" />
+                  <AlertTriangle className="w-6 h-6 text-orange-400" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">24hr Spread Time</h3>
+                <h3 className="text-xl font-semibold mb-2">Kemono & Scraping Bots</h3>
                 <p className="text-gray-400 text-sm">
-                  A single leaked post spreads to dozens of mirror sites within
-                  24 hours. Every hour without a takedown means more copies and
-                  more lost revenue.
+                  Automated scrapers dump entire Patreon archives to sites like Kemono.party. Your months of exclusive content becomes free overnight, destroying membership tier value.
                 </p>
               </div>
               <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
                 <div className="w-12 h-12 rounded-lg bg-red-500/10 flex items-center justify-center mb-4">
                   <Zap className="w-6 h-6 text-red-400" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">35% Patron Drop</h3>
+                <h3 className="text-xl font-semibold mb-2">$42,000/yr in Lost Pledges</h3>
                 <p className="text-gray-400 text-sm">
-                  Creators with widely leaked content see 25-35% drops in new
-                  patrons. Why pay when it&apos;s free? Leaks destroy the
-                  exclusivity your business depends on.
+                  When tier-exclusive content is freely available, patrons downgrade or cancel. The average affected creator loses $3,500/month in recurring revenue.
+                </p>
+              </div>
+              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+                <div className="w-12 h-12 rounded-lg bg-red-500/10 flex items-center justify-center mb-4">
+                  <Clock className="w-6 h-6 text-red-400" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Patron Trust Eroded</h3>
+                <p className="text-gray-400 text-sm">
+                  Paying members feel cheated when they see your exclusive content shared freely. Leaks don't just cost revenue — they damage your community's foundation.
                 </p>
               </div>
             </div>
@@ -285,27 +250,27 @@ export default function PatreonPage() {
               {[
                 {
                   step: "1",
-                  title: "Upload & Fingerprint",
+                  title: "Add Your Content",
                   description:
-                    "Add your Patreon content to Privly's secure vault. We create unique digital fingerprints of every photo and video — these are used to match your content when it appears on leak sites, even if it's been cropped, compressed, or re-encoded.",
+                    "Upload your Patreon posts, images, and media to Privly. We create unique digital fingerprints that match your content even when it's been reposted, compressed, or cropped.",
                 },
                 {
                   step: "2",
-                  title: "Continuous Scanning",
+                  title: "Continuous Monitoring",
                   description:
-                    "Privly scans 500+ platforms 24/7 — leak sites, tube sites, file-sharing (Mega, Google Drive), forums, Reddit, Telegram channels, Discord servers, and social media. We use Google Custom Search, reverse image search, and direct platform monitoring.",
+                    "We scan Kemono, piracy forums, file hosts, Telegram, Discord, Reddit, and 500+ other platforms around the clock for your Patreon content.",
                 },
                 {
                   step: "3",
-                  title: "Instant DMCA Filing",
+                  title: "Automated Takedowns",
                   description:
-                    "When leaked content is found, Privly generates legally compliant DMCA notices and files them with the hosting provider, CDN (Cloudflare), domain registrar, and Google Search simultaneously. Multi-target filing achieves 96% removal rates.",
+                    "When a leak is found, DMCA notices go to the site operator, hosting provider, CDN, and search engines simultaneously. No manual work required.",
                 },
                 {
                   step: "4",
-                  title: "Track & Enforce",
+                  title: "Dashboard & Reporting",
                   description:
-                    "Monitor every takedown in your dashboard — from filing to confirmed removal. If content reappears, Privly automatically re-files. Persistent enforcement keeps your content suppressed long-term.",
+                    "Track every leak detected, every takedown filed, and every removal confirmed. Export reports to share with your Patreon community or legal team.",
                 },
               ].map((item) => (
                 <div key={item.step} className="flex gap-6 items-start">
@@ -332,12 +297,11 @@ export default function PatreonPage() {
                 Complete Patreon Content Protection
               </h2>
               <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-                Everything you need to find, remove, and prevent leaks of your
-                Patreon content — in one platform.
+                Everything you need to find, remove, and prevent leaks of your Patreon membership content — in one platform.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {features.map((feature) => {
                 const Icon = feature.icon;
                 return (
@@ -377,12 +341,12 @@ export default function PatreonPage() {
                 </h3>
                 <ul className="space-y-4">
                   {[
-                    "Leaks spread for weeks before you find them",
-                    "Manual DMCA filing takes 10-20 hours/week",
-                    "40-50% takedown success rate with DIY notices",
-                    "Leaked content stays in Google search results",
-                    "No way to identify which patron leaked",
-                    "25-35% patron drop after major leaks",
+                    "Scrapers dump your archive before you notice",
+                    "Filing DMCA notices manually takes hours per week",
+                    "Single-target notices get ignored",
+                    "Leaked posts stay in search results indefinitely",
+                    "No way to identify which patron shared",
+                    "Patrons cancel when exclusivity is gone",
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3 text-gray-400 text-sm">
                       <span className="text-red-400 mt-0.5 flex-shrink-0">✗</span>
@@ -400,12 +364,12 @@ export default function PatreonPage() {
                 </h3>
                 <ul className="space-y-4">
                   {[
-                    "Leaks detected within hours automatically",
-                    "DMCA takedowns filed instantly — zero manual work",
-                    "96% takedown success rate with multi-target filing",
-                    "Google de-indexing cuts off search traffic to leaks",
-                    "Forensic watermarks trace leaks to the patron",
-                    "70% reduction in active leaked content",
+                    "Leaks detected within hours across 500+ sites",
+                    "DMCA takedowns filed and tracked automatically",
+                    "96% success with multi-target enforcement",
+                    "Google and Bing de-indexing removes search results",
+                    "Forensic watermarks trace the source",
+                    "70% reduction in freely available content",
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3 text-gray-400 text-sm">
                       <span className="text-green-400 mt-0.5 flex-shrink-0">✓</span>
@@ -426,7 +390,7 @@ export default function PatreonPage() {
                 Patreon Content Protection FAQ
               </h2>
               <p className="text-gray-400">
-                Common questions about protecting your Patreon content
+                Common questions about protecting your Patreon membership content
               </p>
             </div>
 
@@ -461,24 +425,24 @@ export default function PatreonPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 {
-                  title: "How to Remove Leaked Patreon Content from the Internet",
-                  slug: "how-to-remove-leaked-patreon-content",
-                  readTime: "7 min",
+                  title: "How to Remove Leaked Patreon Content from Kemono",
+                  slug: "how-to-remove-leaked-patreon-content-kemono",
+                  readTime: "8 min",
                 },
                 {
-                  title: "How Patreon Creators Are Losing Thousands to Content Leaks",
-                  slug: "how-patreon-creators-losing-thousands-content-leaks",
-                  readTime: "5 min",
-                },
-                {
-                  title: "How to Watermark Patreon Content",
-                  slug: "how-to-watermark-patreon-content",
-                  readTime: "7 min",
-                },
-                {
-                  title: "Patreon Leak Prevention: The Complete Security Checklist",
-                  slug: "patreon-leak-prevention-complete-security-checklist",
+                  title: "Patreon Content Protection: The Complete Guide",
+                  slug: "patreon-content-protection-complete-guide-creators",
                   readTime: "9 min",
+                },
+                {
+                  title: "How Patreon Scrapers Work and How to Protect Your Posts",
+                  slug: "how-patreon-scrapers-work-protect-your-posts",
+                  readTime: "7 min",
+                },
+                {
+                  title: "DMCA Takedowns for Patreon Creators: Step-by-Step",
+                  slug: "patreon-dmca-takedown-step-by-step-guide",
+                  readTime: "8 min",
                 },
               ].map((article) => (
                 <Link
@@ -516,12 +480,10 @@ export default function PatreonPage() {
           <div className="max-w-4xl mx-auto">
             <div className="bg-gradient-to-br from-orange-600/10 via-red-600/10 to-orange-600/10 border border-orange-500/20 rounded-2xl p-10 text-center">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                Stop Losing Revenue to Patreon Leaks
+                Your Patreon Content Deserves Real Protection
               </h2>
               <p className="text-lg text-gray-400 mb-3 max-w-2xl mx-auto">
-                Join creators who have taken back control of their content.
-                Privly pays for itself by preventing losses that far exceed the
-                monthly cost.
+                Protect the community you've built. Stop leaks before they erode patron trust and destroy your recurring revenue.
               </p>
               <p className="text-2xl font-bold text-white mb-8">
                 $49<span className="text-gray-400 text-base font-normal">/month</span>
@@ -548,7 +510,7 @@ export default function PatreonPage() {
           </div>
         </section>
 
-        {/* Schema.org FAQ structured data */}
+        {/* Schema.org structured data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -563,6 +525,50 @@ export default function PatreonPage() {
                   text: item.a,
                 },
               })),
+            }),
+          }}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://www.useprivly.com",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Patreon Content Protection",
+                  item: "https://www.useprivly.com/patreon",
+                },
+              ],
+            }),
+          }}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Product",
+              name: "Privly Patreon Content Protection",
+              description:
+                "Automated leak detection, DMCA enforcement, and content protection for Patreon creators. Monitor 500+ sites for stolen content.",
+              offers: {
+                "@type": "Offer",
+                price: "49",
+                priceCurrency: "USD",
+                priceValidUntil: "2026-12-31",
+                availability: "https://schema.org/InStock",
+              },
             }),
           }}
         />

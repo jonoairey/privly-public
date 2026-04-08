@@ -2,6 +2,8 @@ import { MetadataRoute } from 'next'
 import { articles as coreArticles } from '@/lib/article-data'
 import { leakSiteArticles } from '@/lib/article-data-leak-sites'
 import { safetyArticles } from '@/lib/article-data-safety'
+import { onlyfansArticles } from '@/lib/article-data-onlyfans'
+import { patreonArticles } from '@/lib/article-data-patreon'
 import { glossaryEntries } from '@/lib/glossary-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -62,7 +64,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   // All articles
-  const allArticles = [...coreArticles, ...leakSiteArticles, ...safetyArticles]
+  const allArticles = [...coreArticles, ...leakSiteArticles, ...safetyArticles, ...onlyfansArticles, ...patreonArticles]
   const articleUrls = allArticles.map((article) => ({
     url: `${baseUrl}/articles/${article.slug}`,
     lastModified: new Date(),

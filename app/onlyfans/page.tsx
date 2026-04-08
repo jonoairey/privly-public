@@ -15,38 +15,32 @@ import {
   Globe,
   Lock,
   Zap,
-  Ban,
-  Camera,
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "OnlyFans Content Protection | Stop Leaks & DMCA Takedowns | Privly",
+  title: "Stop OnlyFans Leaks & Remove Stolen Content | Privly",
   description:
-    "Protect your OnlyFans content from leak sites and piracy. Automated leak scanning across 500+ sites, instant DMCA takedowns, forensic watermarking, and deepfake detection. Built for OnlyFans creators.",
+    "Find and remove leaked OnlyFans content from 500+ sites. Automated DMCA takedowns, Google de-indexing, and 24/7 leak monitoring. Start free trial.",
   keywords: [
     "onlyfans leak protection",
     "onlyfans content protection",
-    "onlyfans dmca",
-    "onlyfans leaks",
-    "onlyfans leak site",
-    "onlyfans leak takedown",
-    "protect onlyfans content",
-    "onlyfans piracy",
-    "onlyfans watermark",
-    "onlyfans content theft",
-    "remove leaked onlyfans content",
-    "onlyfans leak takedown software",
-    "stop onlyfans leaks",
     "onlyfans dmca takedown",
-    "onlyfans copyright protection",
+    "stop onlyfans leaks",
+    "remove leaked onlyfans",
+    "onlyfans piracy",
     "onlyfans content stolen",
-    "onlyfans leaked photos removed",
+    "onlyfans leak site removal",
+    "onlyfans copyright protection",
+    "protect onlyfans content",
+    "onlyfans watermark",
     "onlyfans anti piracy",
+    "onlyfans leak scanner",
+    "onlyfans dmca service",
   ],
   openGraph: {
-    title: "OnlyFans Content Protection — Stop Leaks & Get Content Removed | Privly",
+    title: "Stop OnlyFans Leaks — Find & Remove Stolen Content | Privly",
     description:
-      "Automated leak scanning and DMCA takedowns built for OnlyFans creators. Find and remove your stolen content from 500+ leak sites.",
+      "Find and remove leaked OnlyFans content from 500+ sites. Automated DMCA takedowns, Google de-indexing, and 24/7 leak monitoring. Start free trial.",
     type: "website",
     url: "https://www.useprivly.com/onlyfans",
   },
@@ -60,91 +54,71 @@ const features = [
     icon: Search,
     title: "OnlyFans Leak Scanning",
     description:
-      "Continuous automated scans across 500+ leak sites, tube sites, forums, Telegram, Discord, and file-sharing platforms for your OnlyFans content.",
+      "Monitor 500+ sites 24/7 — tube sites (Pornhub, xHamster), OnlyFans-specific leak sites (Erome, Bunkr, Simpcity, Coomer), forums, Telegram channels, Discord servers, Reddit, and file-sharing platforms. Catch leaks within hours.",
   },
   {
     icon: FileText,
     title: "Automated DMCA Takedowns",
     description:
-      "Legally compliant DMCA notices filed simultaneously with hosting providers, CDNs, domain registrars, and Google — not just the leak site operator.",
+      "Multi-target DMCA filing hits hosting providers, CDNs, domain registrars, and Google simultaneously. Single-site notices fail — we target the entire infrastructure. Escalation ladder for repeat offenders.",
   },
   {
     icon: Fingerprint,
     title: "Forensic Watermarking",
     description:
-      "Invisible watermarks embedded in your content that trace leaks back to the exact subscriber who captured and shared it.",
+      "Invisible watermarks embed in every piece of content, surviving screenshots and compression. Identify exactly which subscriber leaked your content, ban them, and build a case for legal action.",
   },
   {
     icon: Eye,
     title: "Deepfake Detection",
     description:
-      "AI-powered monitoring that detects deepfakes and impersonation content using your OnlyFans photos and videos.",
+      "AI monitors for face-swaps, impersonation, and synthetic media using your OnlyFans photos and likeness. Flag deepfakes early before they spread.",
   },
   {
     icon: Globe,
     title: "Google De-indexing",
     description:
-      "Get leaked content removed from Google search results so people can't find your OnlyFans content for free through search.",
+      "Remove leaked content from Google and Bing search results. When fans can't find your content for free through search, they're more likely to subscribe.",
   },
   {
     icon: Lock,
     title: "Content Vault",
     description:
-      "Securely store and fingerprint your original OnlyFans content to prove ownership and strengthen DMCA disputes.",
-  },
-  {
-    icon: Ban,
-    title: "Leak Site Suppression",
-    description:
-      "Ongoing enforcement against repeat offender sites that rehost your content. We track removals and re-file when content reappears.",
-  },
-  {
-    icon: Camera,
-    title: "Reverse Image Search",
-    description:
-      "Find your OnlyFans photos and thumbnails across the web using TinEye and Google Lens integration — even when your name isn't attached.",
+      "Securely fingerprint your originals to prove ownership. Strengthens DMCA disputes and provides cryptographic proof in legal proceedings.",
   },
 ];
 
 const stats = [
-  { value: "500+", label: "Platforms monitored" },
+  { value: "500+", label: "Leak sites monitored" },
   { value: "96%", label: "Takedown success rate" },
   { value: "<2hrs", label: "Average detection time" },
-  { value: "70%", label: "Leak reduction" },
+  { value: "$4,500", label: "Avg. monthly loss to leaks" },
 ];
 
 const faqItems = [
   {
-    q: "How do I protect my OnlyFans content from being leaked?",
-    a: "Use a layered approach: enable OnlyFans' built-in DRM and watermarking, add forensic watermarks that identify leakers, and run automated scanning to catch leaks early. Privly handles scanning 500+ leak sites and filing DMCA takedowns automatically when your content is found.",
+    q: "How do I find where my OnlyFans content has been leaked?",
+    a: "Manual searching is nearly impossible — leaked content spreads to dozens of sites within hours. Privly scans 500+ platforms automatically, including Erome, Bunkr, Simpcity, Coomer, Pornhub, xHamster, forums, Telegram, and file-sharing sites. You'll get an instant alert when your content is found.",
   },
   {
-    q: "How do I get my leaked OnlyFans content removed from the internet?",
-    a: "File DMCA takedown notices with the hosting provider, CDN, domain registrar, and Google simultaneously. Target the infrastructure, not just the leak site. Privly automates this entire process — from detection through confirmed removal — achieving a 96% takedown success rate within 48-72 hours.",
+    q: "How long does it take to get leaked OnlyFans content removed?",
+    a: "Most takedowns confirm within 48-72 hours when multi-target filing is used. Privly files DMCA notices with the hosting provider, CDN, domain registrar, and Google simultaneously. This approach is significantly faster and more successful than filing only with the leak site operator.",
   },
   {
-    q: "How do I file a DMCA takedown for OnlyFans content?",
-    a: "A valid DMCA notice requires: identification of your copyrighted work, the exact URL of the infringing content, your contact information, a good-faith statement, and a signature under penalty of perjury. Send it to the hosting company's designated copyright agent. Major tube sites like Pornhub and XVideos have dedicated copyright reporting forms.",
+    q: "Can I find out which subscriber leaked my OnlyFans content?",
+    a: "Yes, through forensic watermarking. When your content is leaked, the invisible watermark is extracted to reveal which subscriber's copy it came from. You can ban them, revoke access, and if needed, pursue legal action for breach of your terms.",
   },
   {
-    q: "Is there software that automatically removes leaked OnlyFans content?",
-    a: "Yes. Privly is a content protection platform built specifically for OnlyFans creators. It continuously scans for your content across 500+ platforms and automatically files DMCA takedowns when leaks are detected. It also handles Google de-indexing to remove leaked content from search results.",
+    q: "Do DMCA takedowns actually work for OnlyFans content?",
+    a: "Yes — Privly achieves a 96% success rate. The key is multi-target filing. Single-site DMCA notices often fail because mirrors exist on CDNs and other hosting providers. By filing with the hosting company, CDN (like Cloudflare), domain registrar, and Google simultaneously, you remove the content everywhere.",
   },
   {
-    q: "How much revenue do OnlyFans creators lose to leaks?",
-    a: "Studies estimate that content leaks cost the average OnlyFans creator $4,500 per month in lost revenue. Creators typically see a 20-40% drop in new subscriptions when their content is freely available on leak sites. Over a year, this compounds to $50,000+ in losses.",
+    q: "How much does OnlyFans content protection cost?",
+    a: "Privly is $49/month with a 7-day free trial (no credit card required). Given that the average creator loses $4,500/month to leaks, the service pays for itself many times over within a single month.",
   },
   {
-    q: "Can I find out who leaked my OnlyFans content?",
-    a: "With forensic watermarking, yes. Invisible watermarks embedded in your content identify which subscriber captured and shared it. When leaked content is found, the watermark is extracted to reveal the leaker's subscriber ID. You can then ban them and potentially pursue legal action.",
-  },
-  {
-    q: "How do I watermark OnlyFans content without ruining quality?",
-    a: "Forensic (invisible) watermarks don't affect visual quality at all — they're embedded in the pixel data and invisible to the human eye. Unlike visible watermarks that can be cropped or edited out, forensic watermarks survive screenshots, screen recordings, compression, and re-encoding.",
-  },
-  {
-    q: "What's the best content protection service for OnlyFans creators?",
-    a: "Look for a service that covers all three pillars: monitoring (scanning 500+ sites), enforcement (automated DMCA filing with hosting providers and Google), and prevention (forensic watermarking). Privly offers all three for $49/month with a 7-day free trial.",
+    q: "What happens if my content keeps getting re-uploaded?",
+    a: "Privly's persistent enforcement automatically re-files DMCA notices when content reappears. We track removals in your dashboard and escalate repeat offenders to domain registrars and upstream legal review. Over time, persistent enforcement makes your content less attractive to rehost.",
   },
 ];
 
@@ -168,17 +142,14 @@ export default function OnlyFansPage() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Protect Your{" "}
+              Stop OnlyFans Leaks Before They{" "}
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                OnlyFans Content
-              </span>{" "}
-              From Leaks and Piracy
+                Destroy Your Revenue
+              </span>
             </h1>
 
             <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
-              Automated leak scanning across 500+ sites, instant DMCA takedowns,
-              forensic watermarking, and Google de-indexing. Find your stolen
-              OnlyFans content and get it removed fast.
+              Your PPV sales, tips, and subscriptions are bleeding to free tube sites and leak forums. Privly finds stolen content within hours and removes it automatically. 500+ sites monitored. 96% takedown success.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -222,12 +193,10 @@ export default function OnlyFansPage() {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                OnlyFans Content Leaks Are an Epidemic
+                OnlyFans Leaks Are Destroying Your Business
               </h2>
               <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-                23% of adult content creators have experienced unauthorized
-                distribution. The average creator loses $4,500/month to leaks.
-                Manual takedowns can&apos;t keep up.
+                23% of creators have experienced unauthorized distribution. A single leaked PPV reaches dozens of free sites within hours. Your exclusivity is gone.
               </p>
             </div>
 
@@ -238,31 +207,25 @@ export default function OnlyFansPage() {
                 </div>
                 <h3 className="text-xl font-semibold mb-2">$54,000/yr Lost</h3>
                 <p className="text-gray-400 text-sm">
-                  The average OnlyFans creator loses $4,500 per month to leaked
-                  content — over $54,000 per year in subscriber revenue that goes
-                  to free sites instead.
+                  PPV sales, tips, and subscription revenue diverted to free tube sites and leak forums. The average creator loses $4,500/month when their content is leaked.
                 </p>
               </div>
               <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
                 <div className="w-12 h-12 rounded-lg bg-orange-500/10 flex items-center justify-center mb-4">
                   <Clock className="w-6 h-6 text-orange-400" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">24hr Spread Time</h3>
+                <h3 className="text-xl font-semibold mb-2">Leaks Spread in Hours</h3>
                 <p className="text-gray-400 text-sm">
-                  A single leaked video spreads to dozens of mirror sites within
-                  24 hours. Every hour without a takedown means more copies and
-                  more lost revenue.
+                  A single leaked PPV video reaches Erome, Bunkr, and tube sites within hours. Every minute without action means more mirrors and more lost subscribers.
                 </p>
               </div>
               <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
                 <div className="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center mb-4">
                   <Zap className="w-6 h-6 text-purple-400" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">40% Sub Drop</h3>
+                <h3 className="text-xl font-semibold mb-2">Subscribers Cancel</h3>
                 <p className="text-gray-400 text-sm">
-                  Creators with widely leaked content see 20-40% drops in new
-                  subscriptions. Why pay when it&apos;s free? Leaks destroy the
-                  exclusivity your business depends on.
+                  When fans find your content free on leak sites, new subscriptions drop 20-40%. Your content's exclusivity is your entire business model.
                 </p>
               </div>
             </div>
@@ -285,27 +248,27 @@ export default function OnlyFansPage() {
               {[
                 {
                   step: "1",
-                  title: "Upload & Fingerprint",
+                  title: "Connect Your Content",
                   description:
-                    "Add your OnlyFans content to Privly's secure vault. We create unique digital fingerprints of every photo and video — these are used to match your content when it appears on leak sites, even if it's been cropped, compressed, or re-encoded.",
+                    "Upload or link your OnlyFans content. We fingerprint every photo and video so we can match it even when cropped, compressed, or watermark-stripped.",
                 },
                 {
                   step: "2",
-                  title: "Continuous Scanning",
+                  title: "We Scan 500+ Sites 24/7",
                   description:
-                    "Privly scans 500+ platforms 24/7 — leak sites, tube sites (Pornhub, XVideos, xHamster), file-sharing (Mega, Google Drive), forums, Reddit, Telegram channels, Discord servers, and social media. We use Google Custom Search, reverse image search, and direct platform monitoring.",
+                    "Leak forums, tube sites, Telegram channels, Discord servers, Reddit, file hosts — we check everywhere OnlyFans content gets reposted. Detection alerts within hours.",
                 },
                 {
                   step: "3",
-                  title: "Instant DMCA Filing",
+                  title: "Takedowns Filed Automatically",
                   description:
-                    "When leaked content is found, Privly generates legally compliant DMCA notices and files them with the hosting provider, CDN (Cloudflare), domain registrar, and Google Search simultaneously. Multi-target filing achieves 96% removal rates.",
+                    "DMCA notices go to the hosting provider, CDN, domain registrar, and Google simultaneously. If they ignore it, we escalate to upstream providers and repeat offender lists.",
                 },
                 {
                   step: "4",
-                  title: "Track & Enforce",
+                  title: "Track Results in Your Dashboard",
                   description:
-                    "Monitor every takedown in your dashboard — from filing to confirmed removal. If content reappears, Privly automatically re-files. Persistent enforcement keeps your content suppressed long-term.",
+                    "See every detected leak, every DMCA filed, every confirmed removal. If content reappears, we re-file automatically. Persistent enforcement wins.",
                 },
               ].map((item) => (
                 <div key={item.step} className="flex gap-6 items-start">
@@ -332,12 +295,11 @@ export default function OnlyFansPage() {
                 Complete OnlyFans Content Protection
               </h2>
               <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-                Everything you need to find, remove, and prevent leaks of your
-                OnlyFans content — in one platform.
+                Everything you need to find, remove, and prevent leaks of your OnlyFans content — in one platform.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {features.map((feature) => {
                 const Icon = feature.icon;
                 return (
@@ -377,12 +339,12 @@ export default function OnlyFansPage() {
                 </h3>
                 <ul className="space-y-4">
                   {[
-                    "Leaks spread for weeks before you find them",
-                    "Manual DMCA filing takes 10-20 hours/week",
-                    "40-50% takedown success rate with DIY notices",
-                    "Leaked content stays in Google search results",
-                    "No way to identify which subscriber leaked",
-                    "20-40% subscriber drop after major leaks",
+                    "Leaks spread for days before you notice",
+                    "Hours spent filing DMCA notices manually",
+                    "Low success rate with single-target notices",
+                    "Your content stays indexed in Google",
+                    "No idea which subscriber leaked",
+                    "Revenue drops as fans find free content",
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3 text-gray-400 text-sm">
                       <span className="text-red-400 mt-0.5 flex-shrink-0">✗</span>
@@ -400,11 +362,11 @@ export default function OnlyFansPage() {
                 </h3>
                 <ul className="space-y-4">
                   {[
-                    "Leaks detected within hours automatically",
-                    "DMCA takedowns filed instantly — zero manual work",
-                    "96% takedown success rate with multi-target filing",
-                    "Google de-indexing cuts off search traffic to leaks",
-                    "Forensic watermarks trace leaks to the subscriber",
+                    "Leaks caught within hours of posting",
+                    "DMCA takedowns filed automatically",
+                    "96% success with multi-target enforcement",
+                    "Google de-indexing removes search results",
+                    "Forensic watermarks identify the leaker",
                     "70% reduction in active leaked content",
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3 text-gray-400 text-sm">
@@ -461,24 +423,24 @@ export default function OnlyFansPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 {
-                  title: "How to Remove Leaked OnlyFans Content from the Internet",
-                  slug: "how-to-remove-leaked-onlyfans-content",
+                  title: "Your OnlyFans PPV Content Got Leaked: How to Respond Fast",
+                  slug: "onlyfans-ppv-content-leaked-how-to-respond",
                   readTime: "7 min",
                 },
                 {
-                  title: "How OnlyFans Creators Are Losing Thousands to Content Leaks",
-                  slug: "how-onlyfans-creators-losing-thousands-content-leaks",
-                  readTime: "5 min",
-                },
-                {
-                  title: "How to Watermark OnlyFans Content",
-                  slug: "how-to-watermark-onlyfans-content",
-                  readTime: "7 min",
-                },
-                {
-                  title: "OnlyFans Leak Prevention: The Complete Security Checklist",
-                  slug: "onlyfans-leak-prevention-complete-security-checklist",
+                  title: "Erome, Bunkr, and Simpcity: How OnlyFans Content Gets Leaked",
+                  slug: "erome-bunkr-simpcity-how-onlyfans-content-gets-leaked",
                   readTime: "9 min",
+                },
+                {
+                  title: "OnlyFans vs Fansly: Which Platform Is Safer for Creators?",
+                  slug: "onlyfans-vs-fansly-which-platform-safer-creators",
+                  readTime: "8 min",
+                },
+                {
+                  title: "OnlyFans DMCA Takedown Guide: Step-by-Step for Every Platform",
+                  slug: "onlyfans-dmca-takedown-guide-step-by-step",
+                  readTime: "10 min",
                 },
               ].map((article) => (
                 <Link
@@ -516,12 +478,10 @@ export default function OnlyFansPage() {
           <div className="max-w-4xl mx-auto">
             <div className="bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-blue-600/10 border border-blue-500/20 rounded-2xl p-10 text-center">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                Stop Losing Revenue to OnlyFans Leaks
+                Your Content Is Being Leaked Right Now
               </h2>
               <p className="text-lg text-gray-400 mb-3 max-w-2xl mx-auto">
-                Join creators who have taken back control of their content.
-                Privly pays for itself by preventing losses that far exceed the
-                monthly cost.
+                Creators lose $4,500/month on average to unauthorized distribution. Privly catches and removes leaks automatically while you focus on content.
               </p>
               <p className="text-2xl font-bold text-white mb-8">
                 $49<span className="text-gray-400 text-base font-normal">/month</span>
@@ -548,7 +508,7 @@ export default function OnlyFansPage() {
           </div>
         </section>
 
-        {/* Schema.org FAQ structured data */}
+        {/* Schema.org structured data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -563,6 +523,55 @@ export default function OnlyFansPage() {
                   text: item.a,
                 },
               })),
+            }),
+          }}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://www.useprivly.com",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "OnlyFans Content Protection",
+                  item: "https://www.useprivly.com/onlyfans",
+                },
+              ],
+            }),
+          }}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Product",
+              name: "Privly OnlyFans Content Protection",
+              description:
+                "Automated leak scanning, DMCA takedowns, and forensic watermarking for OnlyFans creators. Stop content leaks before they destroy your revenue.",
+              brand: {
+                "@type": "Brand",
+                name: "Privly",
+              },
+              offers: {
+                "@type": "Offer",
+                url: "https://www.useprivly.com/onlyfans",
+                priceCurrency: "USD",
+                price: "49",
+                pricingPattern: "https://schema.org/RecurringPayment",
+                priceValidUntil: "2026-12-31",
+              },
             }),
           }}
         />

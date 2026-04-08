@@ -112,6 +112,9 @@ export default function Home() {
       {/* TRUST BADGES */}
       <section className="relative w-full py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
+          <p className="text-center text-sm text-gray-400 mb-6 reveal">
+            Recognised by the <span className="text-gray-300">U.S. Copyright Office</span> as a registered DMCA agent and designated as a <span className="text-gray-300">Trusted Flagger</span> under the EU Digital Services Act.
+          </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10">
             {/* DMCA Registered Agent */}
             <div className="flex items-center gap-3 reveal">
