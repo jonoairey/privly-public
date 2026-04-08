@@ -178,6 +178,52 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Trust Badges */}
+        <div className="border-t border-purple-500/20 pt-8 mb-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12">
+            {/* DMCA Registered Agent Badge */}
+            <div className="flex items-center gap-3 group">
+              <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-slate-800/80 border border-purple-500/20 flex items-center justify-center group-hover:border-purple-500/40 transition-colors">
+                <svg viewBox="0 0 24 24" className="w-7 h-7 text-purple-400" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <text x="12" y="16" textAnchor="middle" fontSize="10" fontWeight="bold" fill="currentColor" stroke="none">&copy;</text>
+                </svg>
+              </div>
+              <div className="text-left">
+                <p className="text-white text-sm font-semibold leading-tight">Registered DMCA Agent</p>
+                <p className="text-gray-500 text-xs leading-tight mt-0.5">U.S. Copyright Office &middot; 17 U.S.C. &sect; 512</p>
+              </div>
+            </div>
+
+            {/* Divider */}
+            <div className="hidden sm:block w-px h-10 bg-purple-500/20" />
+
+            {/* EU DSA Trusted Flagger Badge */}
+            <div className="flex items-center gap-3 group">
+              <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-slate-800/80 border border-purple-500/20 flex items-center justify-center group-hover:border-purple-500/40 transition-colors">
+                <svg viewBox="0 0 24 24" className="w-7 h-7 text-purple-400" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <circle cx="12" cy="12" r="10" />
+                  {/* EU stars circle */}
+                  {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((angle) => {
+                    const rad = (angle * Math.PI) / 180;
+                    const cx = 12 + 6.5 * Math.cos(rad - Math.PI / 2);
+                    const cy = 12 + 6.5 * Math.sin(rad - Math.PI / 2);
+                    return (
+                      <circle key={angle} cx={cx} cy={cy} r="0.7" fill="currentColor" stroke="none" />
+                    );
+                  })}
+                  {/* Shield in center */}
+                  <path d="M12 7.5l3.5 1.5v3c0 2.5-1.5 4-3.5 5-2-1-3.5-2.5-3.5-5v-3L12 7.5z" fill="currentColor" stroke="none" opacity="0.6" />
+                </svg>
+              </div>
+              <div className="text-left">
+                <p className="text-white text-sm font-semibold leading-tight">EU Digital Services Act</p>
+                <p className="text-gray-500 text-xs leading-tight mt-0.5">DSA Trusted Flagger &middot; Article 22</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Bottom Bar */}
         <div className="border-t border-purple-500/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-gray-400 text-sm">

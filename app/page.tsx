@@ -109,6 +109,50 @@ export default function Home() {
         </div>
       </section>
 
+      {/* TRUST BADGES */}
+      <section className="relative w-full py-8 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10">
+            {/* DMCA Registered Agent */}
+            <div className="flex items-center gap-3 reveal">
+              <div className="flex-shrink-0 w-11 h-11 rounded-lg bg-gray-900 border border-gray-700 flex items-center justify-center">
+                <svg viewBox="0 0 24 24" className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <circle cx="12" cy="12" r="10" />
+                  <text x="12" y="16" textAnchor="middle" fontSize="10" fontWeight="bold" fill="currentColor" stroke="none">&copy;</text>
+                </svg>
+              </div>
+              <div>
+                <p className="text-white text-sm font-semibold leading-tight">Registered DMCA Agent</p>
+                <p className="text-gray-500 text-xs leading-tight mt-0.5">U.S. Copyright Office &middot; 17 U.S.C. &sect; 512</p>
+              </div>
+            </div>
+
+            {/* Divider */}
+            <div className="hidden sm:block w-px h-10 bg-gray-700" />
+
+            {/* EU DSA Trusted Flagger */}
+            <div className="flex items-center gap-3 reveal">
+              <div className="flex-shrink-0 w-11 h-11 rounded-lg bg-gray-900 border border-gray-700 flex items-center justify-center">
+                <svg viewBox="0 0 24 24" className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <circle cx="12" cy="12" r="10" />
+                  {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((angle) => {
+                    const rad = (angle * Math.PI) / 180;
+                    const cx = 12 + 6.5 * Math.cos(rad - Math.PI / 2);
+                    const cy = 12 + 6.5 * Math.sin(rad - Math.PI / 2);
+                    return <circle key={angle} cx={cx} cy={cy} r="0.7" fill="currentColor" stroke="none" />;
+                  })}
+                  <path d="M12 7.5l3.5 1.5v3c0 2.5-1.5 4-3.5 5-2-1-3.5-2.5-3.5-5v-3L12 7.5z" fill="currentColor" stroke="none" opacity="0.6" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-white text-sm font-semibold leading-tight">EU Digital Services Act</p>
+                <p className="text-gray-500 text-xs leading-tight mt-0.5">DSA Trusted Flagger &middot; Article 22</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* COMPARISON — Whack-a-mole vs Privly */}
       <section className="relative w-full py-20 px-4 sm:px-6 lg:px-8 reveal">
         <div className="max-w-7xl mx-auto">
