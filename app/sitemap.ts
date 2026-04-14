@@ -37,6 +37,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/remove-from-cyberdrop',
     // Comparison pages
     '/privly-vs-rulta',
+    '/privly-vs-bruqi',
+    '/privly-vs-branditscan',
+    '/privly-vs-copyrightshark',
+    '/privly-vs-onlyguard',
+    '/privly-vs-ceartas',
+    '/privly-vs-takedowns-ai',
+    '/privly-vs-removetech',
+    // Remove-from pages (new)
+    '/remove-from-telegram',
+    '/remove-from-google',
+    '/remove-from-thothub',
+    '/remove-from-mrdeepfakes',
     // Tools
     '/tools',
     '/tools/dmca-generator',

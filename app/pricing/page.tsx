@@ -7,8 +7,8 @@ import RoiCalculator from '@/components/roi-calculator';
 import { CheckCircle, XCircle, ArrowRight, Copyright, Zap, Shield } from 'lucide-react';
 
 export const metadata = genMeta({
-  title: 'Pricing',
-  description: 'Privly pricing: Start with a free 7-day trial or subscribe to the full Creator Protection plan at $49/month. Forensic watermarking, leak source tracing, proactive monitoring, and dedicated human support.',
+  title: 'OnlyFans Leak Protection Pricing — $49/mo Creator Plan',
+  description: "Privly pricing: free 7-day trial, then $49/month for unlimited DMCA takedowns, leak scanning, forensic watermarking, Telegram/Discord monitoring and source tracing. No per-takedown fees.",
   path: '/pricing',
 });
 

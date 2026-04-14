@@ -147,8 +147,13 @@ export function generateProductSchema(product: {
   description: string
   price: string
   url: string
+  /**
+   * Optional aggregate rating. Only supply real, verifiable review data.
+   * Do NOT fabricate ratings — Google issues manual actions for fake review markup.
+   */
+  aggregateRating?: { ratingValue: string; reviewCount: string }
 }) {
-  return {
+  const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: product.name,
@@ -162,7 +167,72 @@ export function generateProductSchema(product: {
       url: product.url,
       priceValidUntil: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
     },
-    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.8', reviewCount: '847' },
+  }
+  if (product.aggregateRating) {
+    schema.aggregateRating = {
+      '@type': 'AggregateRating',
+      ratingValue: product.aggregateRating.ratingValue,
+      reviewCount: product.aggregateRating.reviewCount,
+    }
+  }
+  return schema
+}
+
+/**
+ * HowTo schema — use on step-by-step guides (e.g. /remove-from-* pages).
+ * Each step should be short, actionable, and match on-page content.
+ */
+export function generateHowToSchema(howTo: {
+  name: string
+  description: string
+  totalTime?: string // ISO 8601 duration, e.g. "PT10M"
+  steps: Array<{ name: string; text: string; url?: string }>
+}) {
+  const schema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: howTo.name,
+    description: howTo.description,
+    step: howTo.steps.map((s, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+      ...(s.url ? { url: s.url } : {}),
+    })),
+  }
+  if (howTo.totalTime) schema.totalTime = howTo.totalTime
+  return schema
+}
+
+/**
+ * Article / BlogPosting schema — use on cornerstone articles and blog posts.
+ */
+export function generateArticleSchema(article: {
+  headline: string
+  description: string
+  url: string
+  datePublished: string // ISO date
+  dateModified?: string
+  image?: string
+  authorName?: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.headline,
+    description: article.description,
+    url: article.url,
+    datePublished: article.datePublished,
+    dateModified: article.dateModified || article.datePublished,
+    image: article.image || SITE_CONFIG.ogImage,
+    author: { '@type': 'Organization', name: article.authorName || SITE_CONFIG.name, url: SITE_CONFIG.url },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_CONFIG.name,
+      logo: { '@type': 'ImageObject', url: `${SITE_CONFIG.url}/logo.png` },
+    },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': article.url },
   }
 }
 
