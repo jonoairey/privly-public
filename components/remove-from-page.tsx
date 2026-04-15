@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Shield, AlertTriangle, CheckCircle, Clock } from "lucide-react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import RelatedServices from "@/components/related-services";
 import { generateFAQSchema, generateHowToSchema, generateBreadcrumbSchema, SITE_CONFIG } from "@/lib/seo";
 import { APP_URL } from "@/lib/constants";
 
@@ -174,6 +175,12 @@ export default function RemoveFromPage(props: RemoveFromPageProps) {
               </details>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="py-12 px-4 border-t border-gray-900">
+        <div className="max-w-5xl mx-auto">
+          <RelatedServices cluster="leak-sites" />
         </div>
       </section>
 

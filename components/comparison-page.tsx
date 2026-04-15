@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CheckCircle, X, ArrowRight, Shield, Zap, DollarSign } from "lucide-react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import RelatedServices from "@/components/related-services";
 import { generateFAQSchema, generateBreadcrumbSchema, SITE_CONFIG } from "@/lib/seo";
 import { APP_URL } from "@/lib/constants";
 
@@ -190,6 +191,12 @@ export default function ComparisonPage(props: ComparisonPageProps) {
             Start your free 7-day trial <ArrowRight className="w-4 h-4" />
           </Link>
           <p className="mt-4 text-xs text-gray-500">No credit card required · Cancel anytime</p>
+        </div>
+      </section>
+
+      <section className="py-12 px-4 border-t border-gray-900">
+        <div className="max-w-5xl mx-auto">
+          <RelatedServices cluster="default" />
         </div>
       </section>
 

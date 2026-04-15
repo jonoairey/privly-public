@@ -7,13 +7,14 @@ export interface Article {
   category: string;
   readTime: number;
   author: string;
+  faqs?: Array<{ question: string; answer: string }>;
 }
 
 export const patreonArticles: Article[] = [
   {
     slug: "how-to-remove-leaked-patreon-content-kemono",
-    title: "How to Remove Leaked Patreon Content from Kemono and Piracy Sites",
-    excerpt: "Kemono.party is the biggest source of leaked Patreon content. Learn exactly how to file DMCA takedowns with Kemono's hosting infrastructure and get your content removed.",
+    title: "Kemono Leaks: How to Remove Your Patreon Content (2026 Guide)",
+    excerpt: "Your Patreon content on Kemono? The exact DMCA process to get it removed — plus how to stop it reappearing. Step-by-step 2026 guide.",
     content: `Kemono.party has become the primary aggregation hub for leaked Patreon content, operating as a sophisticated automated scraper that imports entire creator libraries using stolen patron credentials. The platform hosts leaked content from thousands of Patreon creators, generating massive traffic through search engines and directly undermining creator income. Understanding how Kemono operates and targeting its infrastructure is essential for creators who want to reclaim control of their content and minimize the damage of leaks.
 
 Kemono works through a system that's deceptively simple but highly damaging. The site uses automated scrapers that integrate with Patreon's API using stolen patron login credentials. When someone purchases a tier on your Patreon, their account becomes a vector for content extraction. A single compromised account can download your entire library—posts, images, videos, all of it—within minutes. Kemono then automatically imports this content into its platform, organizing it by creator and making it freely available. The scraping happens continuously, so new posts appear on Kemono within hours of you uploading them if your content is being actively scraped. The technical sophistication of Kemono's system makes it significantly more damaging than traditional file-sharing sites because it offers a complete, organized archive of your work rather than scattered uploads.

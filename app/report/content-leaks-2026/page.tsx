@@ -15,9 +15,9 @@ import {
 
 export const metadata: Metadata = {
   title:
-    'State of Content Leaks 2026 Report | Creator Piracy Statistics | Privly',
+    'Creator Content Leaks: The 2026 Report (Stats + Removal Playbook)',
   description:
-    'The State of Content Leaks in 2026: $2.1B in lost creator revenue, 47% of creators affected, 500+ active leak sites. Comprehensive data on OnlyFans leaks, piracy statistics, and content protection strategies.',
+    "How bad are creator leaks in 2026? $2.1B lost revenue, 47% of creators hit, 500+ active leak sites — plus the exact playbook creators use to get content removed.",
   keywords: [
     'onlyfans leak statistics 2026',
     'content leak data',

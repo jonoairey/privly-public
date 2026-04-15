@@ -7,7 +7,20 @@ import { leakSiteArticles } from "@/lib/article-data-leak-sites";
 import { safetyArticles } from "@/lib/article-data-safety";
 import { onlyfansArticles } from "@/lib/article-data-onlyfans";
 import { patreonArticles } from "@/lib/article-data-patreon";
-import { generateBreadcrumbSchema } from "@/lib/seo";
+import { generateBreadcrumbSchema, generateFAQSchema } from "@/lib/seo";
+import RelatedServices from "@/components/related-services";
+
+/** Map an article to a content cluster so RelatedServices biases its links. */
+function detectCluster(slug: string, category: string): "onlyfans" | "fansly" | "dmca" | "deepfake" | "leak-sites" | "default" {
+  const s = slug.toLowerCase();
+  if (s.includes("deepfake")) return "deepfake";
+  if (s.includes("leak-sites") || s.includes("leak-site")) return "leak-sites";
+  if (s.includes("fansly")) return "fansly";
+  if (s.includes("onlyfans")) return "onlyfans";
+  if (s.includes("dmca")) return "dmca";
+  if (category === "Legal") return "dmca";
+  return "default";
+}
 
 const articles = [...coreArticles, ...leakSiteArticles, ...safetyArticles, ...onlyfansArticles, ...patreonArticles];
 
@@ -170,8 +183,32 @@ export default async function ArticlePage({ params }: Props) {
             </div>
           </article>
 
+          {/* FAQs */}
+          {post.faqs && post.faqs.length > 0 && (
+            <section className="mt-12 mb-12">
+              <h2 className="text-3xl font-bold mb-6">Frequently asked questions</h2>
+              <div className="space-y-4">
+                {post.faqs.map((faq, i) => (
+                  <details
+                    key={i}
+                    className="rounded-xl border border-gray-800 bg-gray-900/40 p-5 group"
+                  >
+                    <summary className="cursor-pointer font-semibold text-lg flex justify-between items-center gap-4">
+                      <span>{faq.question}</span>
+                      <span className="text-purple-400 group-open:rotate-45 transition-transform text-2xl leading-none">+</span>
+                    </summary>
+                    <p className="mt-4 text-gray-300 leading-relaxed">{faq.answer}</p>
+                  </details>
+                ))}
+              </div>
+            </section>
+          )}
+
           {/* Divider */}
           <div className="border-t border-gray-800 my-12" />
+
+          {/* Related tools / comparisons / removal guides — distributes internal link equity */}
+          <RelatedServices cluster={detectCluster(post.slug, post.category)} />
 
           {/* Related Articles */}
           <section className="mt-16">
@@ -253,6 +290,16 @@ export default async function ArticlePage({ params }: Props) {
           }),
         }}
       />
+
+      {/* FAQ schema (if article has FAQs) */}
+      {post.faqs && post.faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateFAQSchema(post.faqs)),
+          }}
+        />
+      )}
     </div>
   );
 }

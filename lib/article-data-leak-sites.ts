@@ -7,6 +7,7 @@ export interface Article {
   category: string;
   readTime: number;
   author: string;
+  faqs?: Array<{ question: string; answer: string }>;
 }
 
 export const leakSiteArticles: Article[] = [
