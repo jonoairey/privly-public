@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import MarketingHeader from '@/components/marketing/Header';
+import MarketingFooter from '@/components/marketing/Footer';
 import {
   Shield,
   Search,
@@ -124,8 +124,8 @@ const faqItems = [
 
 export default function FanslyPage() {
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100 flex flex-col">
-      <Header />
+    <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col">
+      <MarketingHeader />
 
       <main className="flex-1">
         {/* Hero */}
@@ -137,20 +137,20 @@ export default function FanslyPage() {
           </div>
 
           <div className="max-w-5xl mx-auto text-center relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-sm font-medium mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-[var(--accent)]/20 text-[var(--accent)] text-sm font-medium mb-8">
               <Shield className="w-4 h-4" />
               Built for Fansly Creators
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Stop{" "}
-              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span  style={{ color: 'var(--accent)' }}>
                 Fansly Leaks
               </span>{" "}
               Before They Cost You Thousands
             </h1>
 
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+            <p className="text-xl max-w-3xl mx-auto mb-10 leading-relaxed" style={{ color: 'var(--ink-2)' }}>
               Automated leak scanning, DMCA takedowns, and forensic watermarking
               for Fansly creators. Find your stolen content on 500+ leak sites
               and get it removed fast.
@@ -159,34 +159,34 @@ export default function FanslyPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="https://app.useprivly.com"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold text-lg hover:from-purple-500 hover:to-pink-500 transition-all duration-300 shadow-lg shadow-purple-500/25"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[var(--accent)] text-white font-semibold text-lg hover:from-purple-500 hover:to-pink-500 transition-all duration-300 shadow-lg shadow-purple-500/25"
               >
                 Start Free Trial
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
                 href="/pricing"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/5 border border-white/10 text-white font-medium text-lg hover:bg-white/10 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/5 border border-white/10 font-medium text-lg hover:bg-white/10 transition-all duration-300"
               >
                 View Pricing
               </Link>
             </div>
 
-            <p className="text-sm text-gray-400 mt-4">
+            <p className="text-sm mt-4" style={{ color: 'var(--ink-2)' }}>
               7-day free trial. No credit card required. Cancel anytime.
             </p>
           </div>
         </section>
 
         {/* Stats */}
-        <section className="py-12 px-4 sm:px-6 lg:px-8 border-y border-gray-800/50">
+        <section className="py-12 px-4 sm:px-6 lg:px-8 border-y border-[var(--line)]/50">
           <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <p className="text-3xl font-bold" style={{ color: 'var(--accent)' }}>
                   {stat.value}
                 </p>
-                <p className="text-sm text-gray-400 mt-1">{stat.label}</p>
+                <p className="text-sm mt-1" style={{ color: 'var(--ink-2)' }}>{stat.label}</p>
               </div>
             ))}
           </div>
@@ -199,7 +199,7 @@ export default function FanslyPage() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Fansly Leak Sites Are Costing You Money
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 Your paid Fansly content is being shared for free on leak sites,
                 forums, and Telegram channels. Every day it stays up, you lose
                 subscribers and revenue.
@@ -207,32 +207,32 @@ export default function FanslyPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="w-12 h-12 rounded-lg bg-red-500/10 flex items-center justify-center mb-4">
                   <AlertTriangle className="w-6 h-6 text-red-400" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">20-40% Revenue Loss</h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                   Creators with leaked content see a 20-40% drop in new
                   subscriptions as fans access content for free.
                 </p>
               </div>
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="w-12 h-12 rounded-lg bg-orange-500/10 flex items-center justify-center mb-4">
                   <Clock className="w-6 h-6 text-orange-400" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Spreads in Hours</h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                   A single leak can appear on dozens of mirror sites within 24-48
                   hours. Speed of response is everything.
                 </p>
               </div>
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center mb-4">
-                  <Zap className="w-6 h-6 text-purple-400" />
+                  <Zap className="w-6 h-6 text-[var(--accent)]" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Manual Takedowns Fail</h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                   Filing DMCA notices manually achieves 40-50% success. Automated
                   enforcement achieves 96% with proper targeting.
                 </p>
@@ -242,13 +242,13 @@ export default function FanslyPage() {
         </section>
 
         {/* Features Grid */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Complete Fansly Content Protection
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 Everything you need to find, remove, and prevent leaks of your
                 Fansly content — in one platform.
               </p>
@@ -260,13 +260,13 @@ export default function FanslyPage() {
                 return (
                   <div
                     key={feature.title}
-                    className="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-purple-600/50 transition-colors duration-300"
+                    className="border rounded-xl p-6 hover:border-purple-600/50 transition-colors duration-300" style={{ background: 'white', border: '1px solid var(--line)' }}
                   >
                     <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center mb-4">
-                      <Icon className="w-5 h-5 text-purple-400" />
+                      <Icon className="w-5 h-5 text-[var(--accent)]" />
                     </div>
                     <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
+                    <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                       {feature.description}
                     </p>
                   </div>
@@ -316,12 +316,12 @@ export default function FanslyPage() {
                   key={item.step}
                   className="flex gap-6 items-start"
                 >
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center flex-shrink-0 text-white font-bold">
+                  <div className="w-10 h-10 rounded-full bg-[var(--accent)] flex items-center justify-center flex-shrink-0 text-white font-bold">
                     {item.step}
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                    <p className="text-gray-400 leading-relaxed">
+                    <p className="leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                       {item.description}
                     </p>
                   </div>
@@ -332,7 +332,7 @@ export default function FanslyPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -344,10 +344,10 @@ export default function FanslyPage() {
               {faqItems.map((item, idx) => (
                 <div
                   key={idx}
-                  className="bg-gray-900 border border-gray-800 rounded-xl p-6"
+                  className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}
                 >
                   <h3 className="text-lg font-semibold mb-3">{item.q}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                     {item.a}
                   </p>
                 </div>
@@ -363,7 +363,7 @@ export default function FanslyPage() {
               <h2 className="text-3xl font-bold mb-4">
                 Fansly Creator Guides
               </h2>
-              <p className="text-gray-400">
+              <p  style={{ color: 'var(--ink-2)' }}>
                 In-depth guides to protecting your Fansly content
               </p>
             </div>
@@ -389,15 +389,15 @@ export default function FanslyPage() {
                 <Link
                   key={article.slug}
                   href={`/articles/${article.slug}`}
-                  className="group bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-purple-600/50 transition-colors duration-300"
+                  className="group border rounded-xl p-6 hover:border-purple-600/50 transition-colors duration-300" style={{ background: 'white', border: '1px solid var(--line)' }}
                 >
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-purple-900/30 text-purple-300 mb-3">
+                  <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-purple-900/30 text-[var(--accent)] mb-3">
                     Guide
                   </span>
-                  <h3 className="font-semibold mb-2 group-hover:text-purple-400 transition-colors duration-300 line-clamp-2">
+                  <h3 className="font-semibold mb-2 group-hover:text-[var(--accent)] transition-colors duration-300 line-clamp-2">
                     {article.title}
                   </h3>
-                  <span className="text-sm text-gray-400">
+                  <span className="text-sm" style={{ color: 'var(--ink-2)' }}>
                     {article.readTime} read
                   </span>
                 </Link>
@@ -407,7 +407,7 @@ export default function FanslyPage() {
             <div className="text-center mt-8">
               <Link
                 href="/articles"
-                className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-medium transition-colors duration-300"
+                className="inline-flex items-center gap-2 text-[var(--accent)] hover:text-[var(--accent)] font-medium transition-colors duration-300"
               >
                 View all articles
                 <ArrowRight className="w-4 h-4" />
@@ -422,13 +422,13 @@ export default function FanslyPage() {
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Start Protecting Your Fansly Content Today
             </h2>
-            <p className="text-lg text-gray-400 mb-8">
+            <p className="text-lg mb-8" style={{ color: 'var(--ink-2)' }}>
               Join creators who have taken back control of their content.
               7-day free trial, $49/month after. Cancel anytime.
             </p>
             <Link
               href="https://app.useprivly.com"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold text-lg hover:from-purple-500 hover:to-pink-500 transition-all duration-300 shadow-lg shadow-purple-500/25"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[var(--accent)] text-white font-semibold text-lg hover:from-purple-500 hover:to-pink-500 transition-all duration-300 shadow-lg shadow-purple-500/25"
             >
               Start Your Free Trial
               <ArrowRight className="w-5 h-5" />
@@ -456,7 +456,7 @@ export default function FanslyPage() {
         />
       </main>
 
-      <Footer />
+      <MarketingFooter />
     </div>
   );
 }

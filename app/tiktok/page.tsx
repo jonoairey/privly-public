@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import MarketingHeader from '@/components/marketing/Header';
+import MarketingFooter from '@/components/marketing/Footer';
 import {
   Shield,
   Search,
@@ -149,8 +149,8 @@ const faqItems = [
 
 export default function TikTokPage() {
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100 flex flex-col">
-      <Header />
+    <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col">
+      <MarketingHeader />
 
       <main className="flex-1">
         {/* Hero */}
@@ -161,20 +161,20 @@ export default function TikTokPage() {
           </div>
 
           <div className="max-w-5xl mx-auto text-center relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-sm font-medium mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 text-sm font-medium mb-8">
               <Shield className="w-4 h-4" />
               Built for TikTok Creators
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Protect Your{" "}
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              <span className="from-cyan-400 to-blue-400" style={{ color: 'var(--accent)' }}>
                 TikTok Videos
               </span>{" "}
               From Download Sites and Piracy
             </h1>
 
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+            <p className="text-xl max-w-3xl mx-auto mb-10 leading-relaxed" style={{ color: 'var(--ink-2)' }}>
               Automated leak scanning across 500+ sites, instant DMCA takedowns,
               video fingerprinting, and deepfake detection. Find your stolen
               TikTok videos and get them removed fast.
@@ -190,27 +190,27 @@ export default function TikTokPage() {
               </Link>
               <Link
                 href="/pricing"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/5 border border-white/10 text-white font-medium text-lg hover:bg-white/10 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/5 border border-white/10 font-medium text-lg hover:bg-white/10 transition-all duration-300"
               >
                 View Pricing
               </Link>
             </div>
 
-            <p className="text-sm text-gray-400 mt-4">
+            <p className="text-sm mt-4" style={{ color: 'var(--ink-2)' }}>
               7-day free trial. No credit card required. Cancel anytime.
             </p>
           </div>
         </section>
 
         {/* Stats */}
-        <section className="py-12 px-4 sm:px-6 lg:px-8 border-y border-gray-800/50">
+        <section className="py-12 px-4 sm:px-6 lg:px-8 border-y border-[var(--line)]/50">
           <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                <p className="text-3xl font-bold from-cyan-400 to-blue-400" style={{ color: 'var(--accent)' }}>
                   {stat.value}
                 </p>
-                <p className="text-sm text-gray-400 mt-1">{stat.label}</p>
+                <p className="text-sm mt-1" style={{ color: 'var(--ink-2)' }}>{stat.label}</p>
               </div>
             ))}
           </div>
@@ -223,7 +223,7 @@ export default function TikTokPage() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 TikTok Video Download Sites Are an Epidemic
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 38% of TikTok creators report their videos appearing on download
                 and piracy sites. These sites redistribute content and damage
                 creator brands and partnerships. Manual takedowns can&apos;t keep up.
@@ -231,34 +231,34 @@ export default function TikTokPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="w-12 h-12 rounded-lg bg-red-500/10 flex items-center justify-center mb-4">
                   <AlertTriangle className="w-6 h-6 text-red-400" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">$36,000/yr Lost</h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                   The average TikTok creator loses $2,000-6,000 per month in lost
                   partnership and sponsorship opportunities when their videos are
                   on download sites — over $36,000 per year.
                 </p>
               </div>
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center mb-4">
                   <Clock className="w-6 h-6 text-cyan-400" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">24hrs to Spread</h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                   TikTok videos are downloaded to piracy sites within 24 hours.
                   Every hour without a takedown means more distribution and more
                   damage to your brand.
                 </p>
               </div>
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4">
-                  <Zap className="w-6 h-6 text-blue-400" />
+                  <Zap className="w-6 h-6 text-blue-600" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">30% Partnership Loss</h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                   Brands are less likely to partner with creators whose content is
                   distributed on piracy sites. Your videos losing value means fewer
                   sponsorship opportunities.
@@ -269,13 +269,13 @@ export default function TikTokPage() {
         </section>
 
         {/* How It Works */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 How Privly Protects Your TikTok Videos
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 From detection to removal in hours, not weeks
               </p>
             </div>
@@ -313,7 +313,7 @@ export default function TikTokPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                    <p className="text-gray-400 leading-relaxed">
+                    <p className="leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                       {item.description}
                     </p>
                   </div>
@@ -330,7 +330,7 @@ export default function TikTokPage() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Complete TikTok Video Protection
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 Everything you need to find, remove, and prevent theft of your
                 TikTok videos — in one platform.
               </p>
@@ -342,13 +342,13 @@ export default function TikTokPage() {
                 return (
                   <div
                     key={feature.title}
-                    className="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-cyan-600/50 transition-colors duration-300"
+                    className="border rounded-xl p-6 hover:border-cyan-600/50 transition-colors duration-300" style={{ background: 'white', border: '1px solid var(--line)' }}
                   >
                     <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center mb-4">
                       <Icon className="w-5 h-5 text-cyan-400" />
                     </div>
                     <h3 className="text-base font-semibold mb-2">{feature.title}</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
+                    <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                       {feature.description}
                     </p>
                   </div>
@@ -359,7 +359,7 @@ export default function TikTokPage() {
         </section>
 
         {/* Comparison: With vs Without */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -369,7 +369,7 @@ export default function TikTokPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Without */}
-              <div className="bg-gray-900 border border-red-500/20 rounded-xl p-8">
+              <div className="border border-red-500/20 rounded-xl p-8" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <h3 className="text-xl font-semibold text-red-400 mb-6 flex items-center gap-2">
                   <AlertTriangle className="w-5 h-5" />
                   Without Protection
@@ -383,7 +383,7 @@ export default function TikTokPage() {
                     "Lost brand partnerships and sponsorships",
                     "30% drop in partnership opportunities",
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-gray-400 text-sm">
+                    <li key={idx} className="flex items-start gap-3 text-sm" style={{ color: 'var(--ink-2)' }}>
                       <span className="text-red-400 mt-0.5 flex-shrink-0">✗</span>
                       {item}
                     </li>
@@ -392,7 +392,7 @@ export default function TikTokPage() {
               </div>
 
               {/* With Privly */}
-              <div className="bg-gray-900 border border-green-500/20 rounded-xl p-8">
+              <div className="border border-green-500/20 rounded-xl p-8" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <h3 className="text-xl font-semibold text-green-400 mb-6 flex items-center gap-2">
                   <CheckCircle className="w-5 h-5" />
                   With Privly
@@ -406,7 +406,7 @@ export default function TikTokPage() {
                     "Brands see clean reputation and protection",
                     "70% reduction in active stolen videos",
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-gray-400 text-sm">
+                    <li key={idx} className="flex items-start gap-3 text-sm" style={{ color: 'var(--ink-2)' }}>
                       <span className="text-green-400 mt-0.5 flex-shrink-0">✓</span>
                       {item}
                     </li>
@@ -424,7 +424,7 @@ export default function TikTokPage() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 TikTok Video Protection FAQ
               </h2>
-              <p className="text-gray-400">
+              <p  style={{ color: 'var(--ink-2)' }}>
                 Common questions about protecting your TikTok videos
               </p>
             </div>
@@ -433,10 +433,10 @@ export default function TikTokPage() {
               {faqItems.map((item, idx) => (
                 <div
                   key={idx}
-                  className="bg-gray-900 border border-gray-800 rounded-xl p-6"
+                  className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}
                 >
                   <h3 className="text-lg font-semibold mb-3">{item.q}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                     {item.a}
                   </p>
                 </div>
@@ -446,13 +446,13 @@ export default function TikTokPage() {
         </section>
 
         {/* Related Articles */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">
                 TikTok Creator Guides
               </h2>
-              <p className="text-gray-400">
+              <p  style={{ color: 'var(--ink-2)' }}>
                 In-depth guides to protecting your TikTok videos
               </p>
             </div>
@@ -483,15 +483,15 @@ export default function TikTokPage() {
                 <Link
                   key={article.slug}
                   href={`/articles/${article.slug}`}
-                  className="group bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-cyan-600/50 transition-colors duration-300"
+                  className="group border rounded-xl p-6 hover:border-cyan-600/50 transition-colors duration-300" style={{ background: 'white', border: '1px solid var(--line)' }}
                 >
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-cyan-900/30 text-cyan-300 mb-3">
+                  <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-cyan-900/30 text-cyan-600 mb-3">
                     Guide
                   </span>
                   <h3 className="font-semibold mb-2 group-hover:text-cyan-400 transition-colors duration-300 line-clamp-2 text-sm">
                     {article.title}
                   </h3>
-                  <span className="text-sm text-gray-400">
+                  <span className="text-sm" style={{ color: 'var(--ink-2)' }}>
                     {article.readTime} read
                   </span>
                 </Link>
@@ -501,7 +501,7 @@ export default function TikTokPage() {
             <div className="text-center mt-8">
               <Link
                 href="/articles"
-                className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-medium transition-colors duration-300"
+                className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-600 font-medium transition-colors duration-300"
               >
                 View all articles
                 <ArrowRight className="w-4 h-4" />
@@ -517,14 +517,14 @@ export default function TikTokPage() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Stop Losing Partnerships to TikTok Video Piracy
               </h2>
-              <p className="text-lg text-gray-400 mb-3 max-w-2xl mx-auto">
+              <p className="text-lg mb-3 max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 Join creators who have taken back control of their content.
                 Privly pays for itself by preventing losses that far exceed the
                 monthly cost.
               </p>
-              <p className="text-2xl font-bold text-white mb-8">
-                $49<span className="text-gray-400 text-base font-normal">/month</span>
-                <span className="text-gray-400 text-sm font-normal ml-2">
+              <p className="text-2xl font-bold mb-8">
+                $49<span className="text-base font-normal" style={{ color: 'var(--ink-2)' }}>/month</span>
+                <span className="text-sm font-normal ml-2" style={{ color: 'var(--ink-2)' }}>
                   — 7-day free trial, cancel anytime
                 </span>
               </p>
@@ -538,7 +538,7 @@ export default function TikTokPage() {
                 </Link>
                 <Link
                   href="/pricing"
-                  className="text-gray-400 hover:text-white transition-colors font-medium"
+                  className="hover: transition-colors font-medium" style={{ color: 'var(--ink-2)' }}
                 >
                   View full feature list
                 </Link>
@@ -567,7 +567,7 @@ export default function TikTokPage() {
         />
       </main>
 
-      <Footer />
+      <MarketingFooter />
     </div>
   );
 }

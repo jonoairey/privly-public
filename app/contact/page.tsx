@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
-import Header from '@/components/header';
-import Footer from '@/components/footer';
+import MarketingHeader from '@/components/marketing/Header';
+import MarketingFooter from '@/components/marketing/Footer';
 import { Mail, MessageSquare } from 'lucide-react';
 
 export default function ContactPage() {
@@ -57,8 +57,8 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-950 text-white">
-      <Header />
+    <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col">
+      <MarketingHeader />
 
       <main className="flex-grow pt-24 pb-12 px-4">
         {/* Contact Section — form-first layout */}
@@ -67,17 +67,17 @@ export default function ContactPage() {
 
             {/* Left: Form (takes up 3 cols) */}
             <div className="lg:col-span-3">
-              <h1 className="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <h1 className="text-4xl md:text-5xl font-bold mb-3" style={{ color: 'var(--accent)' }}>
                 Get In Touch
               </h1>
-              <p className="text-gray-300 mb-8">
+              <p className="mb-8" style={{ color: 'var(--ink-2)' }}>
                 Our dedicated human support team is here to help. No bots, just real people.
               </p>
 
-              <div className="bg-gray-900 rounded-2xl border border-purple-500/20 p-6 md:p-8">
+              <div className="rounded-2xl border p-6 md:p-8" style={{ background: 'white', border: '1px solid var(--line)' }}>
               {isSubmitted && (
                 <div className="mb-8 p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
-                  <p className="text-green-300">
+                  <p className="text-green-600">
                     Thank you for your message! A real person on our team will get back to you within 24 hours.
                   </p>
                 </div>
@@ -85,14 +85,14 @@ export default function ContactPage() {
 
               {errorMsg && (
                 <div className="mb-8 p-4 bg-red-500/10 border border-red-500/30 rounded-lg">
-                  <p className="text-red-300">{errorMsg}</p>
+                  <p className="text-red-600">{errorMsg}</p>
                 </div>
               )}
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name */}
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium mb-2" style={{ color: 'var(--ink-2)' }}>
                     Full Name
                   </label>
                   <input
@@ -102,14 +102,14 @@ export default function ContactPage() {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
+                    className="w-full px-4 py-3 border rounded-lg placeholder-gray-500 focus:outline-none focus:border-[var(--accent)] transition-colors" style={{ background: 'white', border: '1px solid var(--line)' }}
                     placeholder="Your name"
                   />
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium mb-2" style={{ color: 'var(--ink-2)' }}>
                     Email Address
                   </label>
                   <input
@@ -119,14 +119,14 @@ export default function ContactPage() {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
+                    className="w-full px-4 py-3 border rounded-lg placeholder-gray-500 focus:outline-none focus:border-[var(--accent)] transition-colors" style={{ background: 'white', border: '1px solid var(--line)' }}
                     placeholder="you@example.com"
                   />
                 </div>
 
                 {/* Subject */}
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium mb-2" style={{ color: 'var(--ink-2)' }}>
                     Subject
                   </label>
                   <input
@@ -136,14 +136,14 @@ export default function ContactPage() {
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
+                    className="w-full px-4 py-3 border rounded-lg placeholder-gray-500 focus:outline-none focus:border-[var(--accent)] transition-colors" style={{ background: 'white', border: '1px solid var(--line)' }}
                     placeholder="How can we help?"
                   />
                 </div>
 
                 {/* Message */}
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium mb-2" style={{ color: 'var(--ink-2)' }}>
                     Message
                   </label>
                   <textarea
@@ -153,7 +153,7 @@ export default function ContactPage() {
                     onChange={handleInputChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors resize-none"
+                    className="w-full px-4 py-3 border rounded-lg placeholder-gray-500 focus:outline-none focus:border-[var(--accent)] transition-colors resize-none" style={{ background: 'white', border: '1px solid var(--line)' }}
                     placeholder="Tell us about your inquiry..."
                   />
                 </div>
@@ -162,13 +162,13 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300"
+                  className="w-full bg-[var(--accent)] hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300"
                 >
                   {isLoading ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
 
-              <p className="text-xs text-gray-400 text-center mt-6">
+              <p className="text-xs text-center mt-6" style={{ color: 'var(--ink-2)' }}>
                 We respect your privacy. Read our privacy policy to learn how we handle your data.
               </p>
             </div>
@@ -177,14 +177,14 @@ export default function ContactPage() {
             {/* Right: Info cards sidebar (takes up 2 cols) */}
             <div className="lg:col-span-2 space-y-4 lg:pt-[88px]">
               {/* Email */}
-              <div className="bg-gray-900 rounded-xl p-6 border border-purple-500/20">
+              <div className="rounded-xl p-6 border" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="flex items-center gap-4">
-                  <div className="flex-shrink-0 h-10 w-10 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center">
-                    <Mail className="h-5 w-5 text-white" />
+                  <div className="flex-shrink-0 h-10 w-10 rounded-lg bg-[var(--accent)] flex items-center justify-center">
+                    <Mail className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-semibold text-gray-400">Email us directly</h3>
-                    <a href="mailto:hello@useprivly.com" className="text-purple-300 hover:text-purple-200 transition-colors font-medium">
+                    <h3 className="text-sm font-semibold" style={{ color: 'var(--ink-2)' }}>Email us directly</h3>
+                    <a href="mailto:hello@useprivly.com" className="text-[var(--accent)] hover:text-[var(--accent)] transition-colors font-medium">
                       hello@useprivly.com
                     </a>
                   </div>
@@ -192,41 +192,41 @@ export default function ContactPage() {
               </div>
 
               {/* Response Time */}
-              <div className="bg-gray-900 rounded-xl p-6 border border-purple-500/20">
+              <div className="rounded-xl p-6 border" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="flex items-center gap-4">
-                  <div className="flex-shrink-0 h-10 w-10 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center">
-                    <MessageSquare className="h-5 w-5 text-white" />
+                  <div className="flex-shrink-0 h-10 w-10 rounded-lg bg-[var(--accent)] flex items-center justify-center">
+                    <MessageSquare className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-semibold text-gray-400">Response time</h3>
-                    <p className="text-white font-medium">Within 24 hours</p>
+                    <h3 className="text-sm font-semibold" style={{ color: 'var(--ink-2)' }}>Response time</h3>
+                    <p className="font-medium">Within 24 hours</p>
                   </div>
                 </div>
               </div>
 
               {/* Status */}
-              <div className="bg-gray-900 rounded-xl p-6 border border-green-500/20">
+              <div className="rounded-xl p-6 border border-green-500/20" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="flex items-center gap-4">
                   <div className="flex-shrink-0 h-10 w-10 rounded-lg bg-green-600 flex items-center justify-center">
                     <div className="h-3 w-3 rounded-full bg-green-300 animate-pulse" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-semibold text-gray-400">Status</h3>
-                    <p className="text-green-300 font-medium">We're online</p>
+                    <h3 className="text-sm font-semibold" style={{ color: 'var(--ink-2)' }}>Status</h3>
+                    <p className="text-green-600 font-medium">We're online</p>
                   </div>
                 </div>
               </div>
 
               {/* FAQ inline */}
-              <div className="bg-gray-900 rounded-xl p-6 border border-purple-500/20 space-y-4 mt-4">
-                <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">FAQ</h3>
+              <div className="rounded-xl p-6 border space-y-4 mt-4" style={{ background: 'white', border: '1px solid var(--line)' }}>
+                <h3 className="text-sm font-semibold uppercase tracking-wider" style={{ color: 'var(--ink-2)' }}>FAQ</h3>
                 <div>
-                  <p className="text-white font-medium text-sm mb-1">Do you offer phone support?</p>
-                  <p className="text-gray-400 text-sm">Currently we support inquiries via email, ensuring detailed and thoughtful responses.</p>
+                  <p className="font-medium text-sm mb-1">Do you offer phone support?</p>
+                  <p className="text-sm" style={{ color: 'var(--ink-2)' }}>Currently we support inquiries via email, ensuring detailed and thoughtful responses.</p>
                 </div>
                 <div>
-                  <p className="text-white font-medium text-sm mb-1">What's your response time?</p>
-                  <p className="text-gray-400 text-sm">We respond within 24 business hours. During high volume periods, up to 48 hours.</p>
+                  <p className="font-medium text-sm mb-1">What's your response time?</p>
+                  <p className="text-sm" style={{ color: 'var(--ink-2)' }}>We respond within 24 business hours. During high volume periods, up to 48 hours.</p>
                 </div>
               </div>
             </div>
@@ -235,7 +235,7 @@ export default function ContactPage() {
         </div>
       </main>
 
-      <Footer />
+      <MarketingFooter />
     </div>
   );
 }

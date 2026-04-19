@@ -1,5 +1,5 @@
-import Header from '@/components/header';
-import Footer from '@/components/footer';
+import MarketingHeader from '@/components/marketing/Header';
+import MarketingFooter from '@/components/marketing/Footer';
 import { generateMetadata as genMeta } from '@/lib/seo';
 import { PLAN, COPYRIGHT_ADDON, APP_URL } from '@/lib/constants';
 import { generateProductSchema, generateFAQSchema } from '@/lib/seo';
@@ -32,13 +32,13 @@ const TRIAL_FEATURES = [
 
 function FeatureCheck({ value }: { value: boolean | string }) {
   if (value === false) {
-    return <XCircle className="w-4 h-4 text-gray-600 flex-shrink-0" />;
+    return <XCircle className="w-4 h-4 text-[var(--mute)] flex-shrink-0" />;
   }
   if (value === true) {
     return <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />;
   }
   return (
-    <span className="text-xs text-yellow-400 font-medium">{value}</span>
+    <span className="text-xs text-yellow-600 font-medium">{value}</span>
   );
 }
 
@@ -66,7 +66,7 @@ export default function PricingPage() {
     },
     {
       q: 'Can I cancel anytime?',
-      a: "Yes. No contracts, no fine print. Cancel anytime. We offer a 30-day money-back guarantee — if you're not satisfied, full refund, no questions asked.",
+      a: "Yes. No contracts, no fine print. Cancel anytime — just hit the button and you're done. No retention calls, no hoops.",
     },
   ];
 
@@ -82,7 +82,7 @@ export default function PricingPage() {
   );
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden">
+    <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
@@ -91,17 +91,17 @@ export default function PricingPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingFaqSchema) }}
       />
-      <Header />
+      <MarketingHeader />
 
       <main className="pt-28 pb-0">
         {/* Hero */}
         <section className="relative w-full pb-12 px-4 sm:px-6 lg:px-8">
-          <div className="absolute inset-0 bg-gradient-to-b from-purple-950/20 via-black to-black" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--accent)]/5 via-transparent to-transparent" />
           <div className="relative max-w-4xl mx-auto text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
               Try free. Subscribe when ready.
             </h1>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
               Start with a 7-day trial to explore the platform, or subscribe straight away for full protection at {PLAN.price}/month.
             </p>
           </div>
@@ -112,32 +112,32 @@ export default function PricingPage() {
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
 
             {/* Free Trial Card */}
-            <div className="relative rounded-xl p-8 border border-gray-700/50 bg-gray-900/50 flex flex-col">
+            <div className="relative rounded-xl p-8 border border-[var(--line)] flex flex-col" style={{ background: 'var(--bg-2)' }}>
               <div className="absolute -top-3 left-6">
-                <div className="bg-gray-700 px-4 py-1 rounded-full text-xs font-semibold text-white">
+                <div className="bg-[var(--bg-2)] px-4 py-1 rounded-full text-xs font-semibold">
                   FREE TRIAL
                 </div>
               </div>
 
               <div className="flex items-center gap-3 mb-4 mt-2">
-                <div className="w-10 h-10 rounded-lg bg-gray-700/50 flex items-center justify-center">
-                  <Shield className="w-5 h-5 text-gray-300" />
+                <div className="w-10 h-10 rounded-lg bg-[var(--bg-2)] flex items-center justify-center">
+                  <Shield className="w-5 h-5" style={{ color: 'var(--ink-2)' }} />
                 </div>
                 <h2 className="text-2xl font-bold">Try Privly</h2>
               </div>
 
               <div className="flex items-baseline gap-2 mb-1">
-                <span className="text-4xl font-bold text-white">$0</span>
-                <span className="text-gray-400">/7 days</span>
+                <span className="text-4xl font-bold">$0</span>
+                <span  style={{ color: 'var(--ink-2)' }}>/7 days</span>
               </div>
-              <p className="text-sm text-gray-400 mb-6">No credit card required</p>
+              <p className="text-sm mb-6" style={{ color: 'var(--ink-2)' }}>No credit card required</p>
 
               <div className="space-y-3 mb-8 flex-1">
-                <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-2">What&apos;s included</p>
+                <p className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: 'var(--mute)' }}>What&apos;s included</p>
                 {TRIAL_FEATURES.map((f, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <FeatureCheck value={f.trial} />
-                    <span className={`text-sm ${f.trial ? 'text-gray-300' : 'text-gray-600'}`}>
+                    <span className={`text-sm ${f.trial ? 'text-[var(--ink-2)]' : 'text-[var(--mute)]'}`}>
                       {f.name}
                     </span>
                   </div>
@@ -146,50 +146,50 @@ export default function PricingPage() {
 
               <a
                 href={`${APP_URL}/auth/signup?plan=trial`}
-                className="w-full block text-center px-8 py-4 border border-gray-600 rounded-lg font-semibold text-white hover:bg-gray-800 transition-colors"
+                className="w-full block text-center px-8 py-4 border border-[var(--line)] rounded-lg font-semibold hover: transition-colors" style={{ background: 'white', border: '1px solid var(--line)' }}
               >
                 Start Free Trial <ArrowRight className="inline-block w-4 h-4 ml-2" />
               </a>
             </div>
 
             {/* Pro Plan Card */}
-            <div className="relative rounded-xl p-8 border border-purple-500/30 bg-gradient-to-b from-purple-950/20 to-gray-900/50 flex flex-col">
+            <div className="relative rounded-xl p-8 border border-[var(--accent)]/30 flex flex-col">
               <div className="absolute -top-3 left-6">
-                <div className="bg-gradient-to-r from-purple-600 to-pink-600 px-4 py-1 rounded-full text-xs font-semibold text-white">
+                <div className="bg-[var(--accent)] px-4 py-1 rounded-full text-xs font-semibold text-white">
                   RECOMMENDED
                 </div>
               </div>
 
               <div className="flex items-center gap-3 mb-4 mt-2">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center">
-                  <Zap className="w-5 h-5 text-white" />
+                <div className="w-10 h-10 rounded-lg bg-[var(--accent)] flex items-center justify-center">
+                  <Zap className="w-5 h-5" />
                 </div>
                 <h2 className="text-2xl font-bold">{PLAN.name}</h2>
               </div>
 
               <div className="flex items-baseline gap-2 mb-1">
-                <span className="text-4xl font-bold text-white">{PLAN.price}</span>
-                <span className="text-gray-400">/month</span>
+                <span className="text-4xl font-bold">{PLAN.price}</span>
+                <span  style={{ color: 'var(--ink-2)' }}>/month</span>
               </div>
-              <p className="text-sm text-gray-400 mb-6">30-day money-back guarantee</p>
+              <p className="text-sm mb-6" style={{ color: 'var(--ink-2)' }}>Cancel anytime, no questions asked</p>
 
               <div className="space-y-3 mb-8 flex-1">
-                <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-2">Everything — no limits</p>
+                <p className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: 'var(--mute)' }}>Everything — no limits</p>
                 {TRIAL_FEATURES.map((f, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
-                    <span className="text-sm text-gray-200">{f.name}</span>
+                    <span className="text-sm text-[var(--ink)]">{f.name}</span>
                   </div>
                 ))}
               </div>
 
               <a
                 href={`${APP_URL}/auth/signup?plan=pro`}
-                className="w-full block text-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                className="w-full block text-center px-8 py-4 bg-[var(--accent)] rounded-lg font-semibold hover:opacity-90 transition-opacity"
               >
                 Get Full Protection <ArrowRight className="inline-block w-4 h-4 ml-2" />
               </a>
-              <p className="text-center text-xs text-gray-500 mt-3">You&apos;ll create your account, then complete payment</p>
+              <p className="text-center text-xs mt-3" style={{ color: 'var(--mute)' }}>You&apos;ll create your account, then complete payment</p>
             </div>
           </div>
         </section>
@@ -197,43 +197,43 @@ export default function PricingPage() {
         {/* Copyright Add-On */}
         <section className="relative w-full py-8 px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
-            <div className="rounded-xl p-7 border border-gray-800 bg-gray-900/50 flex flex-col sm:flex-row sm:items-center gap-6">
+            <div className="rounded-xl p-7 border border-[var(--line)] flex flex-col sm:flex-row sm:items-center gap-6" style={{ background: 'var(--bg-2)' }}>
               <div className="flex items-center gap-4 flex-1">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center flex-shrink-0">
-                  <Copyright className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 rounded-lg bg-[var(--accent)] flex items-center justify-center flex-shrink-0">
+                  <Copyright className="w-6 h-6" />
                 </div>
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-semibold text-purple-300 bg-purple-500/10 border border-purple-500/30 px-2 py-0.5 rounded">ADD-ON</span>
+                    <span className="text-[10px] font-semibold text-[var(--accent)] bg-purple-500/10 border border-[var(--accent)]/30 px-2 py-0.5 rounded">ADD-ON</span>
                     <h3 className="text-lg font-bold">Copyright Registration</h3>
                   </div>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                     We prepare all US Copyright Office documents — application forms, cover letter, and filing instructions. Strengthens DMCA enforcement and enables statutory damages.
                   </p>
                 </div>
               </div>
               <div className="text-right flex-shrink-0">
                 <div className="flex items-baseline gap-1">
-                  <span className="text-3xl font-bold text-white">{COPYRIGHT_ADDON.price}</span>
-                  <span className="text-sm text-gray-400">one-time</span>
+                  <span className="text-3xl font-bold">{COPYRIGHT_ADDON.price}</span>
+                  <span className="text-sm" style={{ color: 'var(--ink-2)' }}>one-time</span>
                 </div>
-                <p className="text-xs text-gray-500">Available with Pro subscription</p>
+                <p className="text-xs" style={{ color: 'var(--mute)' }}>Available with Pro subscription</p>
               </div>
             </div>
           </div>
         </section>
 
         {/* Competitor Comparison */}
-        <section className="relative w-full py-16 px-4 sm:px-6 lg:px-8 bg-gray-950/50">
+        <section className="relative w-full py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10">
-              Why <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Privly</span> is Different
+              Why <span  style={{ color: 'var(--accent)' }}>Privly</span> is Different
             </h2>
 
             <div className="grid md:grid-cols-3 gap-5">
-              <div className="rounded-xl p-6 border border-gray-800 bg-gray-900/50">
-                <h3 className="text-lg font-bold mb-5 text-gray-400">Typical Service</h3>
-                <ul className="space-y-3 text-sm text-gray-400">
+              <div className="rounded-xl p-6 border border-[var(--line)]" style={{ background: 'var(--bg-2)' }}>
+                <h3 className="text-lg font-bold mb-5" style={{ color: 'var(--ink-2)' }}>Typical Service</h3>
+                <ul className="space-y-3 text-sm" style={{ color: 'var(--ink-2)' }}>
                   <li>$109-$324/mo</li>
                   <li>Scan + Remove only</li>
                   <li>Leaks keep coming back</li>
@@ -242,24 +242,24 @@ export default function PricingPage() {
                 </ul>
               </div>
 
-              <div className="rounded-xl p-6 border border-purple-500/30 bg-purple-950/10 relative">
+              <div className="rounded-xl p-6 border border-[var(--accent)]/30 relative">
                 <div className="absolute -top-2.5 left-5">
-                  <span className="text-[10px] font-bold text-purple-300 bg-purple-600/30 border border-purple-500/40 px-3 py-1 rounded-full uppercase tracking-wider">Privly</span>
+                  <span className="text-[10px] font-bold text-[var(--accent)] bg-[var(--accent)]/20 border border-[var(--accent)]/40 px-3 py-1 rounded-full uppercase tracking-wider">Privly</span>
                 </div>
-                <h3 className="text-lg font-bold mb-5 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mt-2">Full Protection</h3>
+                <h3 className="text-lg font-bold mb-5 mt-2" style={{ color: 'var(--accent)' }}>Full Protection</h3>
                 <ul className="space-y-3 text-sm">
                   {['$49/mo — everything included', 'Scan + Remove + Source Tracing', 'Telegram, Discord & Reddit monitoring', 'Leaks decrease permanently', 'Copyright Registration add-on', 'Dedicated human support'].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-200 font-medium">{item}</span>
+                      <span className="text-[var(--ink)] font-medium">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="rounded-xl p-6 border border-gray-800 bg-gray-900/50">
-                <h3 className="text-lg font-bold mb-5 text-gray-400">DIY Approach</h3>
-                <ul className="space-y-3 text-sm text-gray-400">
+              <div className="rounded-xl p-6 border border-[var(--line)]" style={{ background: 'var(--bg-2)' }}>
+                <h3 className="text-lg font-bold mb-5" style={{ color: 'var(--ink-2)' }}>DIY Approach</h3>
+                <ul className="space-y-3 text-sm" style={{ color: 'var(--ink-2)' }}>
                   <li>Free (your time isn&apos;t)</li>
                   <li>Manual Google searches</li>
                   <li>Hours of your time weekly</li>
@@ -275,21 +275,21 @@ export default function PricingPage() {
         <section className="relative w-full py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-xl mx-auto">
             <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10">
-              Calculate Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">ROI</span>
+              Calculate Your <span  style={{ color: 'var(--accent)' }}>ROI</span>
             </h2>
             <RoiCalculator />
           </div>
         </section>
 
         {/* FAQ */}
-        <section className="relative w-full py-16 px-4 sm:px-6 lg:px-8 bg-gray-950/50">
+        <section className="relative w-full py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10">Common Questions</h2>
             <div className="space-y-4">
               {faqItems.map((item, i) => (
-                <div key={i} className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
-                  <h3 className="text-lg font-semibold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">{item.q}</h3>
-                  <p className="text-sm text-gray-300 leading-relaxed">{item.a}</p>
+                <div key={i} className="rounded-xl border border-[var(--line)] p-6" style={{ background: 'var(--bg-2)' }}>
+                  <h3 className="text-lg font-semibold mb-2" style={{ color: 'var(--accent)' }}>{item.q}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>{item.a}</p>
                 </div>
               ))}
             </div>
@@ -298,34 +298,34 @@ export default function PricingPage() {
 
         {/* Final CTA — both options */}
         <section className="relative w-full py-20 px-4 sm:px-6 lg:px-8">
-          <div className="absolute inset-0 bg-gradient-to-t from-purple-950/20 via-black to-black" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--accent)]/5 via-transparent to-transparent" />
           <div className="relative max-w-3xl mx-auto text-center">
             <h2 className="text-4xl sm:text-5xl font-bold mb-5">
               Start protecting your content today.
             </h2>
-            <p className="text-lg text-gray-300 mb-8">
+            <p className="text-lg mb-8" style={{ color: 'var(--ink-2)' }}>
               Try free for 7 days, or subscribe for instant full protection.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href={`${APP_URL}/auth/signup?plan=trial`}
-                className="inline-flex items-center px-8 py-4 border border-gray-600 rounded-lg font-semibold text-white hover:bg-gray-800 transition-colors"
+                className="inline-flex items-center px-8 py-4 border border-[var(--line)] rounded-lg font-semibold hover: transition-colors" style={{ background: 'white', border: '1px solid var(--line)' }}
               >
                 Start Free Trial
               </a>
               <a
                 href={`${APP_URL}/auth/signup?plan=pro`}
-                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                className="inline-flex items-center px-8 py-4 bg-[var(--accent)] rounded-lg font-semibold hover:opacity-90 transition-opacity"
               >
                 Get Full Protection — {PLAN.price}/mo <ArrowRight className="w-5 h-5 ml-2" />
               </a>
             </div>
-            <p className="text-gray-500 text-sm mt-4">No credit card required for trial. 30-day money-back guarantee on subscriptions.</p>
+            <p className="text-sm mt-4" style={{ color: 'var(--mute)' }}>No credit card required for trial. Cancel anytime.</p>
           </div>
         </section>
       </main>
 
-      <Footer />
+      <MarketingFooter />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { generateMetadata as genMeta } from '@/lib/seo';
-import Header from '@/components/header';
-import Footer from '@/components/footer';
+import MarketingHeader from '@/components/marketing/Header';
+import MarketingFooter from '@/components/marketing/Footer';
 
 export const metadata: Metadata = genMeta({
   title: 'Privacy Policy',
@@ -14,15 +14,15 @@ export default function PrivacyPage() {
   const lastUpdated = 'February 2024';
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-950 text-white">
-      <Header />
+    <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col">
+      <MarketingHeader />
 
       <main className="flex-grow">
         {/* Header */}
-        <section className="py-12 px-4 border-b border-gray-800">
+        <section className="py-12 px-4 border-b border-[var(--line)]">
           <div className="max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-2">Privacy Policy</h1>
-            <p className="text-gray-400">
+            <p  style={{ color: 'var(--ink-2)' }}>
               Last updated: {lastUpdated}
             </p>
           </div>
@@ -34,7 +34,7 @@ export default function PrivacyPage() {
             {/* Introduction */}
             <div>
               <h2 className="text-2xl font-bold mb-4">Introduction</h2>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                 At Privly, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose,
                 and safeguard your information when you use our service, including our website, mobile applications,
                 and related services (collectively, the "Service").
@@ -44,27 +44,27 @@ export default function PrivacyPage() {
             {/* What We Collect */}
             <div>
               <h2 className="text-2xl font-bold mb-4">What Information Do We Collect?</h2>
-              <div className="space-y-4 text-gray-300">
+              <div className="space-y-4" style={{ color: 'var(--ink-2)' }}>
                 <div>
-                  <h3 className="font-semibold text-purple-300 mb-2">Account Information</h3>
+                  <h3 className="font-semibold text-[var(--accent)] mb-2">Account Information</h3>
                   <p>When you create a Privly account, we collect your name, email address, password, and profile information.</p>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-purple-300 mb-2">Content Information</h3>
+                  <h3 className="font-semibold text-[var(--accent)] mb-2">Content Information</h3>
                   <p>
                     To provide our leak detection services, we collect information about your content, including platform usernames,
                     links to your content, and metadata about your earnings or subscriber count.
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-purple-300 mb-2">Payment Information</h3>
+                  <h3 className="font-semibold text-[var(--accent)] mb-2">Payment Information</h3>
                   <p>
                     Payment details are processed by Stripe. We do not directly store your credit card information. We only store
                     transaction history and billing information necessary to manage your subscription.
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-purple-300 mb-2">Usage Data</h3>
+                  <h3 className="font-semibold text-[var(--accent)] mb-2">Usage Data</h3>
                   <p>
                     We collect information about how you use the Service, including log data, IP addresses, device information,
                     and pages visited.
@@ -76,35 +76,35 @@ export default function PrivacyPage() {
             {/* How We Use Information */}
             <div>
               <h2 className="text-2xl font-bold mb-4">How Do We Use Your Information?</h2>
-              <div className="space-y-2 text-gray-300">
+              <div className="space-y-2" style={{ color: 'var(--ink-2)' }}>
                 <p>We use the information we collect for:</p>
                 <ul className="space-y-2 ml-4">
                   <li className="flex gap-3">
-                    <span className="text-purple-400">→</span>
+                    <span style={{ color: 'var(--accent)' }}>→</span>
                     <span>Providing and maintaining the Service</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-purple-400">→</span>
+                    <span style={{ color: 'var(--accent)' }}>→</span>
                     <span>Detecting and monitoring leaks of your content</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-purple-400">→</span>
+                    <span style={{ color: 'var(--accent)' }}>→</span>
                     <span>Generating and submitting DMCA takedowns</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-purple-400">→</span>
+                    <span style={{ color: 'var(--accent)' }}>→</span>
                     <span>Processing payments and managing subscriptions</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-purple-400">→</span>
+                    <span style={{ color: 'var(--accent)' }}>→</span>
                     <span>Sending service updates and support communications</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-purple-400">→</span>
+                    <span style={{ color: 'var(--accent)' }}>→</span>
                     <span>Improving and optimizing the Service</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-purple-400">→</span>
+                    <span style={{ color: 'var(--accent)' }}>→</span>
                     <span>Complying with legal obligations</span>
                   </li>
                 </ul>
@@ -114,7 +114,7 @@ export default function PrivacyPage() {
             {/* Data Security */}
             <div>
               <h2 className="text-2xl font-bold mb-4">Data Security</h2>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                 We use administrative, technical, and physical security measures to protect your information against unauthorized
                 access, alteration, disclosure, or destruction. Your data is encrypted both in transit (using TLS/SSL) and at rest
                 using AES-256 encryption. However, no method of transmission over the internet or electronic storage is 100% secure,
@@ -125,7 +125,7 @@ export default function PrivacyPage() {
             {/* Data Retention */}
             <div>
               <h2 className="text-2xl font-bold mb-4">Data Retention</h2>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                 We retain your personal information for as long as necessary to provide the Service and fulfill the purposes outlined
                 in this Privacy Policy. You can request deletion of your account and associated data at any time. Some information may
                 be retained for legal compliance or fraud prevention.
@@ -135,28 +135,28 @@ export default function PrivacyPage() {
             {/* Your Rights */}
             <div>
               <h2 className="text-2xl font-bold mb-4">Your Privacy Rights</h2>
-              <p className="text-gray-300 mb-4 leading-relaxed">
+              <p className="mb-4 leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                 Depending on your location, you may have certain rights regarding your personal information:
               </p>
-              <div className="space-y-3 text-gray-300">
+              <div className="space-y-3" style={{ color: 'var(--ink-2)' }}>
                 <p className="flex gap-3">
-                  <span className="text-purple-400">→</span>
+                  <span style={{ color: 'var(--accent)' }}>→</span>
                   <span><strong>Right of Access:</strong> You can request a copy of your personal information</span>
                 </p>
                 <p className="flex gap-3">
-                  <span className="text-purple-400">→</span>
+                  <span style={{ color: 'var(--accent)' }}>→</span>
                   <span><strong>Right to Correction:</strong> You can update or correct inaccurate information</span>
                 </p>
                 <p className="flex gap-3">
-                  <span className="text-purple-400">→</span>
+                  <span style={{ color: 'var(--accent)' }}>→</span>
                   <span><strong>Right to Deletion:</strong> You can request deletion of your data</span>
                 </p>
                 <p className="flex gap-3">
-                  <span className="text-purple-400">→</span>
+                  <span style={{ color: 'var(--accent)' }}>→</span>
                   <span><strong>Right to Portability:</strong> You can request your data in a portable format</span>
                 </p>
                 <p className="flex gap-3">
-                  <span className="text-purple-400">→</span>
+                  <span style={{ color: 'var(--accent)' }}>→</span>
                   <span><strong>Right to Opt-Out:</strong> You can opt-out of marketing communications</span>
                 </p>
               </div>
@@ -165,7 +165,7 @@ export default function PrivacyPage() {
             {/* Cookies */}
             <div>
               <h2 className="text-2xl font-bold mb-4">Cookies and Tracking</h2>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                 We use cookies and similar technologies to enhance your experience with the Service. These include session cookies
                 (which expire when you close your browser) and persistent cookies (which remain on your device). You can control
                 cookie settings through your browser preferences.
@@ -175,20 +175,20 @@ export default function PrivacyPage() {
             {/* Third-Party Sharing */}
             <div>
               <h2 className="text-2xl font-bold mb-4">Third-Party Sharing</h2>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                 We do not sell your personal information. We only share information with third parties in the following circumstances:
               </p>
-              <ul className="space-y-2 ml-4 text-gray-300 mt-4">
+              <ul className="space-y-2 ml-4 mt-4" style={{ color: 'var(--ink-2)' }}>
                 <li className="flex gap-3">
-                  <span className="text-purple-400">→</span>
+                  <span style={{ color: 'var(--accent)' }}>→</span>
                   <span>Service providers who assist us in operating the Service (hosting, analytics, payment processing)</span>
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-purple-400">→</span>
+                  <span style={{ color: 'var(--accent)' }}>→</span>
                   <span>When required by law or to protect our rights</span>
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-purple-400">→</span>
+                  <span style={{ color: 'var(--accent)' }}>→</span>
                   <span>In the event of a merger, acquisition, or sale of assets</span>
                 </li>
               </ul>
@@ -197,7 +197,7 @@ export default function PrivacyPage() {
             {/* GDPR */}
             <div>
               <h2 className="text-2xl font-bold mb-4">GDPR Compliance</h2>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                 If you are located in the European Union, you have rights under the General Data Protection Regulation (GDPR).
                 We process your data only when we have a legal basis to do so, such as your consent or our legitimate business interests.
                 You have the right to lodge a complaint with your local data protection authority.
@@ -207,14 +207,14 @@ export default function PrivacyPage() {
             {/* Contact */}
             <div>
               <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                 If you have questions about this Privacy Policy or our privacy practices, please contact us at:
               </p>
-              <div className="mt-4 bg-gray-900 rounded-lg p-6 border border-purple-500/20">
-                <p className="text-gray-300">
+              <div className="mt-4 rounded-lg p-6 border" style={{ background: 'white', border: '1px solid var(--line)' }}>
+                <p  style={{ color: 'var(--ink-2)' }}>
                   <strong>Email:</strong> hello@useprivly.com
                 </p>
-                <p className="text-gray-300 mt-2">
+                <p className="mt-2" style={{ color: 'var(--ink-2)' }}>
                   We will respond to privacy requests within 30 days.
                 </p>
               </div>
@@ -223,7 +223,7 @@ export default function PrivacyPage() {
         </section>
       </main>
 
-      <Footer />
+      <MarketingFooter />
     </div>
   );
 }

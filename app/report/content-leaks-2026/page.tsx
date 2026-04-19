@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Header from '@/components/header';
-import Footer from '@/components/footer';
+import MarketingHeader from '@/components/marketing/Header';
+import MarketingFooter from '@/components/marketing/Footer';
 import {
   TrendingDown,
   Users,
@@ -161,8 +161,8 @@ const protectionStrategies = [
 
 export default function ContentLeaksReport2026() {
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100 flex flex-col">
-      <Header />
+    <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col">
+      <MarketingHeader />
 
       <main className="flex-1">
         {/* Hero */}
@@ -173,24 +173,24 @@ export default function ContentLeaksReport2026() {
           </div>
 
           <div className="max-w-5xl mx-auto text-center relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20 text-red-300 text-sm font-medium mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20 text-red-600 text-sm font-medium mb-8">
               <BarChart3 className="w-4 h-4" />
               2026 Industry Report
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               The State of Content{' '}
-              <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
+              <span className="from-red-400 to-orange-400" style={{ color: 'var(--accent)' }}>
                 Leaks in 2026
               </span>
             </h1>
 
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-4 leading-relaxed">
+            <p className="text-xl max-w-3xl mx-auto mb-4 leading-relaxed" style={{ color: 'var(--ink-2)' }}>
               Comprehensive data on creator piracy, revenue losses, and the effectiveness
               of protection strategies.
             </p>
 
-            <p className="text-sm text-gray-400 max-w-2xl mx-auto">
+            <p className="text-sm max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
               Data compiled from industry reports, creator surveys, and Privly platform
               data from 2024-2026.
             </p>
@@ -198,27 +198,27 @@ export default function ContentLeaksReport2026() {
         </section>
 
         {/* Key Statistics */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">Key Statistics</h2>
-              <p className="text-lg text-gray-400">The scale of the content leak crisis</p>
+              <p className="text-lg" style={{ color: 'var(--ink-2)' }}>The scale of the content leak crisis</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {keyStats.map((stat, idx) => (
                 <div
                   key={idx}
-                  className="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-red-500/50 transition-colors"
+                  className="border rounded-xl p-6 hover:border-red-500/50 transition-colors" style={{ background: 'white', border: '1px solid var(--line)' }}
                 >
                   <div className="w-12 h-12 rounded-lg bg-red-500/10 flex items-center justify-center mb-4 text-red-400">
                     {stat.icon}
                   </div>
-                  <p className="text-3xl font-bold bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent mb-2">
+                  <p className="text-3xl font-bold from-red-400 to-orange-400 mb-2" style={{ color: 'var(--accent)' }}>
                     {stat.value}
                   </p>
-                  <p className="font-semibold text-white mb-2">{stat.label}</p>
-                  <p className="text-sm text-gray-400">{stat.description}</p>
+                  <p className="font-semibold mb-2">{stat.label}</p>
+                  <p className="text-sm" style={{ color: 'var(--ink-2)' }}>{stat.description}</p>
                 </div>
               ))}
             </div>
@@ -233,16 +233,16 @@ export default function ContentLeaksReport2026() {
             </h2>
 
             <div className="space-y-8">
-              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+              <div className="border rounded-2xl p-8" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <h3 className="text-2xl font-bold mb-4">$2.1 Billion in Annual Losses</h3>
-                <p className="text-gray-400 text-lg leading-relaxed mb-6">
+                <p className="text-lg leading-relaxed mb-6" style={{ color: 'var(--ink-2)' }}>
                   Adult content creators are losing an estimated $2.1 billion annually to
                   piracy. This figure is based on an average monthly loss of $4,500 per
                   creator experiencing active leaks, multiplied across the estimated
                   450,000+ active creators globally.
                 </p>
-                <div className="bg-gray-800 border border-gray-700 rounded-lg p-4">
-                  <p className="text-sm text-gray-300">
+                <div className="border rounded-lg p-4" style={{ background: 'white', border: '1px solid var(--line)' }}>
+                  <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                     <strong>Calculation:</strong> 450,000 creators × $4,500/month average
                     loss × 12 months = ~$2.43B (conservative estimate accounting for
                     partial losses)
@@ -250,18 +250,18 @@ export default function ContentLeaksReport2026() {
                 </div>
               </div>
 
-              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+              <div className="border rounded-2xl p-8" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <h3 className="text-2xl font-bold mb-4">47% of Creators Affected</h3>
-                <p className="text-gray-400 text-lg leading-relaxed">
+                <p className="text-lg leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                   Nearly half of all adult content creators have experienced at least one
                   significant leak of their content. Of these, 73% experience repeated
                   leaks over time, indicating persistent challenges with leak suppression.
                 </p>
               </div>
 
-              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+              <div className="border rounded-2xl p-8" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <h3 className="text-2xl font-bold mb-4">20-40% Subscriber Drop</h3>
-                <p className="text-gray-400 text-lg leading-relaxed">
+                <p className="text-lg leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                   Creators with widely leaked content see an average 20-40% reduction in
                   new subscriptions. When exclusive content is freely available on leak
                   sites, the economic incentive to subscribe evaporates. This compounds
@@ -273,13 +273,13 @@ export default function ContentLeaksReport2026() {
         </section>
 
         {/* Where Leaks Happen */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl sm:text-4xl font-bold mb-12">
               Where Leaks Happen
             </h2>
 
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 mb-8">
+            <div className="border rounded-2xl p-8 mb-8" style={{ background: 'white', border: '1px solid var(--line)' }}>
               <h3 className="text-xl font-semibold mb-6">
                 Distribution of Leaked Content by Platform (2026)
               </h3>
@@ -289,11 +289,11 @@ export default function ContentLeaksReport2026() {
                     <div className="flex items-center justify-between mb-2">
                       <div>
                         <p className="font-semibold">{item.platform}</p>
-                        <p className="text-sm text-gray-400">{item.description}</p>
+                        <p className="text-sm" style={{ color: 'var(--ink-2)' }}>{item.description}</p>
                       </div>
                       <p className="text-2xl font-bold text-red-400">{item.percentage}</p>
                     </div>
-                    <div className="w-full bg-gray-800 rounded-full h-2">
+                    <div className="w-full rounded-full h-2" style={{ background: 'white', border: '1px solid var(--line)' }}>
                       <div
                         className="bg-gradient-to-r from-red-600 to-orange-600 h-2 rounded-full"
                         style={{
@@ -307,26 +307,26 @@ export default function ContentLeaksReport2026() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <h4 className="font-semibold mb-3">The Speed of Spread</h4>
-                <p className="text-gray-400 text-sm mb-4">
+                <p className="text-sm mb-4" style={{ color: 'var(--ink-2)' }}>
                   A single leaked video spreads to an average of 47 different platforms
                   within 24 hours. Telegram channels and dedicated leak sites move fastest,
                   spreading content to mirror sites within minutes.
                 </p>
                 <div className="text-3xl font-bold text-red-400">24 hours</div>
-                <p className="text-xs text-gray-400">to reach dozens of mirror sites</p>
+                <p className="text-xs" style={{ color: 'var(--ink-2)' }}>to reach dozens of mirror sites</p>
               </div>
 
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <h4 className="font-semibold mb-3">The Discovery Problem</h4>
-                <p className="text-gray-400 text-sm mb-4">
+                <p className="text-sm mb-4" style={{ color: 'var(--ink-2)' }}>
                   Without automated monitoring, the average creator takes 45 days to
                   discover a leak. By that time, the content has been viewed hundreds of
                   thousands of times and spread to dozens of sites.
                 </p>
                 <div className="text-3xl font-bold text-orange-400">45 days</div>
-                <p className="text-xs text-gray-400">
+                <p className="text-xs" style={{ color: 'var(--ink-2)' }}>
                   average discovery time without automation
                 </p>
               </div>
@@ -342,27 +342,27 @@ export default function ContentLeaksReport2026() {
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+              <div className="border rounded-2xl p-8" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <h3 className="text-xl font-semibold mb-6">For Individual Creators</h3>
                 <div className="space-y-6">
                   <div>
                     <p className="text-3xl font-bold text-red-400">$4,500/month</p>
-                    <p className="text-gray-400 text-sm">Average loss during active leaks</p>
+                    <p className="text-sm" style={{ color: 'var(--ink-2)' }}>Average loss during active leaks</p>
                   </div>
                   <div>
                     <p className="text-3xl font-bold text-orange-400">$54,000/year</p>
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                       Annual revenue loss for single creator
                     </p>
                   </div>
                   <div>
-                    <p className="text-3xl font-bold text-yellow-400">$270,000/5yr</p>
-                    <p className="text-gray-400 text-sm">Five-year cumulative loss</p>
+                    <p className="text-3xl font-bold text-yellow-600">$270,000/5yr</p>
+                    <p className="text-sm" style={{ color: 'var(--ink-2)' }}>Five-year cumulative loss</p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+              <div className="border rounded-2xl p-8" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <h3 className="text-xl font-semibold mb-6">Factors Influencing Loss</h3>
                 <ul className="space-y-3">
                   {[
@@ -373,7 +373,7 @@ export default function ContentLeaksReport2026() {
                     'Number of leak sites hosting content',
                     'Availability in search results',
                   ].map((factor, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-gray-400 text-sm">
+                    <li key={idx} className="flex items-start gap-3 text-sm" style={{ color: 'var(--ink-2)' }}>
                       <span className="text-red-400 mt-1 flex-shrink-0">→</span>
                       {factor}
                     </li>
@@ -385,7 +385,7 @@ export default function ContentLeaksReport2026() {
         </section>
 
         {/* What Works */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl sm:text-4xl font-bold mb-12">
               What Works: Protection Strategies
@@ -395,11 +395,11 @@ export default function ContentLeaksReport2026() {
               {protectionStrategies.map((strategy, idx) => (
                 <div
                   key={idx}
-                  className="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-green-500/50 transition-colors"
+                  className="border rounded-xl p-6 hover:border-green-500/50 transition-colors" style={{ background: 'white', border: '1px solid var(--line)' }}
                 >
                   <h3 className="font-semibold mb-2">{strategy.title}</h3>
-                  <p className="text-gray-400 text-sm mb-4">{strategy.description}</p>
-                  <div className="pt-4 border-t border-gray-800">
+                  <p className="text-sm mb-4" style={{ color: 'var(--ink-2)' }}>{strategy.description}</p>
+                  <div className="pt-4 border-t border-[var(--line)]">
                     <p className="text-sm text-green-400 font-semibold">
                       Impact: {strategy.impact}
                     </p>
@@ -409,7 +409,7 @@ export default function ContentLeaksReport2026() {
             </div>
 
             <div className="mt-8 p-6 rounded-xl bg-green-500/10 border border-green-500/20">
-              <p className="text-sm text-green-300">
+              <p className="text-sm text-green-600">
                 <strong>Key Finding:</strong> Creators who implement automated monitoring
                 and DMCA filing see 70% reduction in active leaked content and recover 40-60%
                 of lost revenue within 90 days of implementation.
@@ -425,36 +425,36 @@ export default function ContentLeaksReport2026() {
               The Rise of AI Deepfakes
             </h2>
 
-            <div className="bg-gray-900 border border-red-500/20 rounded-2xl p-8 mb-8">
-              <p className="text-lg text-gray-400 leading-relaxed mb-6">
+            <div className="border border-red-500/20 rounded-2xl p-8 mb-8" style={{ background: 'white', border: '1px solid var(--line)' }}>
+              <p className="text-lg leading-relaxed mb-6" style={{ color: 'var(--ink-2)' }}>
                 A new and alarming trend emerged in 2025-2026: synthetic deepfake content
                 created using AI trained on stolen creator videos and photos. These
                 deepfakes are often more profitable for leakers than the original content.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
+                <div className="rounded-lg p-4 border" style={{ background: 'white', border: '1px solid var(--line)' }}>
                   <p className="text-2xl font-bold text-red-400 mb-1">15%</p>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                     Of leaked content now includes AI-generated deepfakes
                   </p>
                 </div>
-                <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
+                <div className="rounded-lg p-4 border" style={{ background: 'white', border: '1px solid var(--line)' }}>
                   <p className="text-2xl font-bold text-orange-400 mb-1">2x</p>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                     Higher download/view rates for deepfake content
                   </p>
                 </div>
-                <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
-                  <p className="text-2xl font-bold text-yellow-400 mb-1">$850M+</p>
-                  <p className="text-sm text-gray-400">
+                <div className="rounded-lg p-4 border" style={{ background: 'white', border: '1px solid var(--line)' }}>
+                  <p className="text-2xl font-bold text-yellow-600 mb-1">$850M+</p>
+                  <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                     Estimated revenue generated from deepfake content in 2026
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+            <div className="border rounded-2xl p-8" style={{ background: 'white', border: '1px solid var(--line)' }}>
               <h3 className="text-xl font-semibold mb-4">Why Deepfakes Are Dangerous</h3>
               <ul className="space-y-3">
                 {[
@@ -465,7 +465,7 @@ export default function ContentLeaksReport2026() {
                   'Reputational damage occurs even when deepfakes are labeled as synthetic',
                   'Legal frameworks lag behind AI capabilities',
                 ].map((point, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-gray-400 text-sm">
+                  <li key={idx} className="flex items-start gap-3 text-sm" style={{ color: 'var(--ink-2)' }}>
                     <span className="text-red-400 mt-1 flex-shrink-0">⚠️</span>
                     {point}
                   </li>
@@ -476,7 +476,7 @@ export default function ContentLeaksReport2026() {
         </section>
 
         {/* Recommendations */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">
               Recommendations for Creators
@@ -515,14 +515,14 @@ export default function ContentLeaksReport2026() {
                     'Document all leaks, removal efforts, and impact for potential legal action.',
                 },
               ].map((item, idx) => (
-                <div key={idx} className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+                <div key={idx} className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                   <h3 className="text-lg font-semibold mb-2 flex items-center gap-2">
-                    <span className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center text-xs font-bold text-blue-400">
+                    <span className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center text-xs font-bold text-blue-600">
                       {idx + 1}
                     </span>
                     {item.title}
                   </h3>
-                  <p className="text-gray-400">{item.description}</p>
+                  <p  style={{ color: 'var(--ink-2)' }}>{item.description}</p>
                 </div>
               ))}
             </div>
@@ -536,12 +536,12 @@ export default function ContentLeaksReport2026() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Protect Your Content With Privly
               </h2>
-              <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
+              <p className="text-lg mb-8 max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 Automated leak detection across 500+ platforms, multi-target DMCA filing,
                 forensic watermarking, and deepfake detection — all in one platform.
               </p>
-              <p className="text-xl font-bold text-white mb-8">
-                $49<span className="text-gray-400 text-base font-normal">/month</span>
+              <p className="text-xl font-bold mb-8">
+                $49<span className="text-base font-normal" style={{ color: 'var(--ink-2)' }}>/month</span>
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
@@ -553,12 +553,12 @@ export default function ContentLeaksReport2026() {
                 </Link>
                 <Link
                   href="/pricing"
-                  className="text-gray-400 hover:text-white transition-colors font-medium"
+                  className="hover: transition-colors font-medium" style={{ color: 'var(--ink-2)' }}
                 >
                   View all features
                 </Link>
               </div>
-              <p className="text-sm text-gray-400 mt-6">
+              <p className="text-sm mt-6" style={{ color: 'var(--ink-2)' }}>
                 7-day free trial. No credit card required. Cancel anytime.
               </p>
             </div>
@@ -568,9 +568,9 @@ export default function ContentLeaksReport2026() {
         {/* Data Methodology */}
         <section className="py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+            <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
               <h3 className="font-semibold mb-3">About This Report</h3>
-              <p className="text-sm text-gray-400 leading-relaxed">
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                 The State of Content Leaks in 2026 compiles data from industry research,
                 creator surveys, Privly platform analytics, and public data sources. This
                 report represents conservative estimates of the actual scale of the problem.
@@ -581,7 +581,7 @@ export default function ContentLeaksReport2026() {
         </section>
       </main>
 
-      <Footer />
+      <MarketingFooter />
     </div>
   );
 }

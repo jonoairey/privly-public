@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import MarketingHeader from '@/components/marketing/Header';
+import MarketingFooter from '@/components/marketing/Footer';
 import {
   Shield,
   FileText,
@@ -152,8 +152,8 @@ const dmcaSteps = [
 
 export default function SimpcityRemovalPage() {
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100 flex flex-col">
-      <Header />
+    <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col">
+      <MarketingHeader />
 
       <main className="flex-1">
         {/* Hero */}
@@ -164,19 +164,19 @@ export default function SimpcityRemovalPage() {
           </div>
 
           <div className="max-w-5xl mx-auto text-center relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-300 text-sm font-medium mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pink-500/10 border border-pink-500/20 text-[var(--hot)] text-sm font-medium mb-8">
               <Shield className="w-4 h-4" />
               Simpcity Leak Removal
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Remove Your Content from{" "}
-              <span className="bg-gradient-to-r from-pink-400 to-rose-400 bg-clip-text text-transparent">
+              <span className="from-pink-400 to-rose-400" style={{ color: 'var(--accent)' }}>
                 Simpcity Forum
               </span>
             </h1>
 
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+            <p className="text-xl max-w-3xl mx-auto mb-10 leading-relaxed" style={{ color: 'var(--ink-2)' }}>
               Complete guide to DMCA takedowns on forum-based leak distribution.
               Automated removal achieves 80%+ success rates within 48-72 hours.
             </p>
@@ -191,26 +191,26 @@ export default function SimpcityRemovalPage() {
               </Link>
               <Link
                 href="/pricing"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/5 border border-white/10 text-white font-medium text-lg hover:bg-white/10 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/5 border border-white/10 font-medium text-lg hover:bg-white/10 transition-all duration-300"
               >
                 View Pricing
               </Link>
             </div>
 
-            <p className="text-sm text-gray-400 mt-4">
+            <p className="text-sm mt-4" style={{ color: 'var(--ink-2)' }}>
               7-day free trial. No credit card required. Cancel anytime.
             </p>
           </div>
         </section>
 
         {/* The Problem */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-gray-800/50">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-[var(--line)]/50">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Simpcity: Thread-Based Leak Distribution
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 Forum platforms distribute leaks across thousands of threads.
                 Systematic removal requires understanding thread structure and DMCA
                 procedures specific to forums.
@@ -218,32 +218,32 @@ export default function SimpcityRemovalPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="w-12 h-12 rounded-lg bg-pink-500/10 flex items-center justify-center mb-4">
-                  <AlertTriangle className="w-6 h-6 text-pink-400" />
+                  <AlertTriangle className="w-6 h-6 text-[var(--hot)]" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Distributed Content</h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                   Your content is scattered across dozens of discussion threads in
                   multiple forum sections, making discovery time-consuming.
                 </p>
               </div>
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="w-12 h-12 rounded-lg bg-rose-500/10 flex items-center justify-center mb-4">
                   <Clock className="w-6 h-6 text-rose-400" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Persistent Discussion</h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                   Threads continue accumulating posts and comments long after
                   initial upload, increasing content visibility.
                 </p>
               </div>
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center mb-4">
-                  <Zap className="w-6 h-6 text-purple-400" />
+                  <Zap className="w-6 h-6 text-[var(--accent)]" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Heavy Indexing</h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                   Forum threads are heavily indexed by Google, making your leaked
                   content highly discoverable through search.
                 </p>
@@ -253,13 +253,13 @@ export default function SimpcityRemovalPage() {
         </section>
 
         {/* DMCA Process Steps */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 6-Step Simpcity DMCA Removal Process
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 From forum discovery to confirmed removal
               </p>
             </div>
@@ -272,7 +272,7 @@ export default function SimpcityRemovalPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                    <p className="text-gray-400 leading-relaxed">
+                    <p className="leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                       {step.description}
                     </p>
                   </div>
@@ -289,7 +289,7 @@ export default function SimpcityRemovalPage() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Complete Simpcity Removal Services
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 Everything needed to find and remove your content from Simpcity
                 threads
               </p>
@@ -301,13 +301,13 @@ export default function SimpcityRemovalPage() {
                 return (
                   <div
                     key={feature.title}
-                    className="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-pink-600/50 transition-colors duration-300"
+                    className="border rounded-xl p-6 hover:border-pink-600/50 transition-colors duration-300" style={{ background: 'white', border: '1px solid var(--line)' }}
                   >
                     <div className="w-10 h-10 rounded-lg bg-pink-500/10 flex items-center justify-center mb-4">
-                      <Icon className="w-5 h-5 text-pink-400" />
+                      <Icon className="w-5 h-5 text-[var(--hot)]" />
                     </div>
                     <h3 className="text-base font-semibold mb-2">{feature.title}</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
+                    <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                       {feature.description}
                     </p>
                   </div>
@@ -318,7 +318,7 @@ export default function SimpcityRemovalPage() {
         </section>
 
         {/* Forum vs File Hosting */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -327,7 +327,7 @@ export default function SimpcityRemovalPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-gray-900 border border-orange-500/20 rounded-xl p-8">
+              <div className="border border-orange-500/20 rounded-xl p-8" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <h3 className="text-xl font-semibold text-orange-400 mb-6 flex items-center gap-2">
                   <AlertTriangle className="w-5 h-5" />
                   Forum-Based (Simpcity)
@@ -340,7 +340,7 @@ export default function SimpcityRemovalPage() {
                     "Content persists in discussions",
                     "Requires comprehensive documentation",
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-gray-400 text-sm">
+                    <li key={idx} className="flex items-start gap-3 text-sm" style={{ color: 'var(--ink-2)' }}>
                       <span className="text-orange-400 mt-0.5 flex-shrink-0">•</span>
                       {item}
                     </li>
@@ -348,7 +348,7 @@ export default function SimpcityRemovalPage() {
                 </ul>
               </div>
 
-              <div className="bg-gray-900 border border-green-500/20 rounded-xl p-8">
+              <div className="border border-green-500/20 rounded-xl p-8" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <h3 className="text-xl font-semibold text-green-400 mb-6 flex items-center gap-2">
                   <CheckCircle className="w-5 h-5" />
                   File Hosting (Bunkr/CyberDrop)
@@ -361,7 +361,7 @@ export default function SimpcityRemovalPage() {
                     "Files removed completely",
                     "Documentation more straightforward",
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-gray-400 text-sm">
+                    <li key={idx} className="flex items-start gap-3 text-sm" style={{ color: 'var(--ink-2)' }}>
                       <span className="text-green-400 mt-0.5 flex-shrink-0">•</span>
                       {item}
                     </li>
@@ -379,7 +379,7 @@ export default function SimpcityRemovalPage() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Simpcity Removal FAQ
               </h2>
-              <p className="text-gray-400">
+              <p  style={{ color: 'var(--ink-2)' }}>
                 Common questions about forum content removal
               </p>
             </div>
@@ -388,10 +388,10 @@ export default function SimpcityRemovalPage() {
               {faqItems.map((item, idx) => (
                 <div
                   key={idx}
-                  className="bg-gray-900 border border-gray-800 rounded-xl p-6"
+                  className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}
                 >
                   <h3 className="text-lg font-semibold mb-3">{item.q}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{item.a}</p>
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>{item.a}</p>
                 </div>
               ))}
             </div>
@@ -399,13 +399,13 @@ export default function SimpcityRemovalPage() {
         </section>
 
         {/* Related Leak Sites */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">
                 Remove from Other Leak Sites
               </h2>
-              <p className="text-gray-400">
+              <p  style={{ color: 'var(--ink-2)' }}>
                 Complete removal guides for all major leak platforms
               </p>
             </div>
@@ -420,12 +420,12 @@ export default function SimpcityRemovalPage() {
                 <Link
                   key={site.slug}
                   href={`/${site.slug}`}
-                  className="group bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-pink-600/50 transition-colors duration-300"
+                  className="group border rounded-xl p-6 hover:border-pink-600/50 transition-colors duration-300" style={{ background: 'white', border: '1px solid var(--line)' }}
                 >
-                  <h3 className="font-semibold text-lg group-hover:text-pink-400 transition-colors duration-300 mb-2">
+                  <h3 className="font-semibold text-lg group-hover:text-[var(--hot)] transition-colors duration-300 mb-2">
                     {site.name}
                   </h3>
-                  <p className="text-sm text-gray-400 group-hover:text-gray-400 transition-colors">
+                  <p className="text-sm group-hover: transition-colors" style={{ color: 'var(--ink-2)' }}>
                     DMCA removal guide
                   </p>
                 </Link>
@@ -441,12 +441,12 @@ export default function SimpcityRemovalPage() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Automate Simpcity Thread Removal
               </h2>
-              <p className="text-lg text-gray-400 mb-3 max-w-2xl mx-auto">
+              <p className="text-lg mb-3 max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 Stop searching Simpcity manually. Let Privly discover all
                 threads containing your content and automate DMCA filing.
               </p>
-              <p className="text-2xl font-bold text-white mb-8">
-                $49<span className="text-gray-400 text-base font-normal">/month</span>
+              <p className="text-2xl font-bold mb-8">
+                $49<span className="text-base font-normal" style={{ color: 'var(--ink-2)' }}>/month</span>
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
@@ -481,7 +481,7 @@ export default function SimpcityRemovalPage() {
         />
       </main>
 
-      <Footer />
+      <MarketingFooter />
     </div>
   );
 }

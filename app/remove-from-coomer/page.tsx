@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import MarketingHeader from '@/components/marketing/Header';
+import MarketingFooter from '@/components/marketing/Footer';
 import {
   Shield,
   FileText,
@@ -152,8 +152,8 @@ const dmcaSteps = [
 
 export default function CoomerRemovalPage() {
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100 flex flex-col">
-      <Header />
+    <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col">
+      <MarketingHeader />
 
       <main className="flex-1">
         {/* Hero */}
@@ -164,19 +164,19 @@ export default function CoomerRemovalPage() {
           </div>
 
           <div className="max-w-5xl mx-auto text-center relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm font-medium mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-600 text-sm font-medium mb-8">
               <Shield className="w-4 h-4" />
               Coomer Leak Removal
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Remove Your Content from{" "}
-              <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="from-indigo-400" style={{ color: 'var(--accent)' }}>
                 Coomer
               </span>
             </h1>
 
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+            <p className="text-xl max-w-3xl mx-auto mb-10 leading-relaxed" style={{ color: 'var(--ink-2)' }}>
               Complete guide to DMCA takedowns across all Coomer domains.
               Multi-domain filing achieves 90%+ removal rates within 48-72 hours.
             </p>
@@ -191,26 +191,26 @@ export default function CoomerRemovalPage() {
               </Link>
               <Link
                 href="/pricing"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/5 border border-white/10 text-white font-medium text-lg hover:bg-white/10 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/5 border border-white/10 font-medium text-lg hover:bg-white/10 transition-all duration-300"
               >
                 View Pricing
               </Link>
             </div>
 
-            <p className="text-sm text-gray-400 mt-4">
+            <p className="text-sm mt-4" style={{ color: 'var(--ink-2)' }}>
               7-day free trial. No credit card required. Cancel anytime.
             </p>
           </div>
         </section>
 
         {/* The Problem */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-gray-800/50">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-[var(--line)]/50">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Coomer: The Multi-Domain Leak Distribution Challenge
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 Coomer's deliberate use of multiple domains creates unique removal
                 challenges. Understanding the multi-domain strategy is essential for
                 effective takedowns.
@@ -218,33 +218,33 @@ export default function CoomerRemovalPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="w-12 h-12 rounded-lg bg-indigo-500/10 flex items-center justify-center mb-4">
                   <AlertTriangle className="w-6 h-6 text-indigo-400" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Domain Multiplication</h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                   Content removed from coomer.party reappears on coomer.su and new
                   variants. Leakproof removal requires simultaneous multi-domain
                   targeting.
                 </p>
               </div>
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center mb-4">
-                  <Clock className="w-6 h-6 text-purple-400" />
+                  <Clock className="w-6 h-6 text-[var(--accent)]" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Rapid Re-uploads</h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                   Coomer automatically mirrors content across all active domains.
                   Manual handling of multiple domains is inefficient and error-prone.
                 </p>
               </div>
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="w-12 h-12 rounded-lg bg-violet-500/10 flex items-center justify-center mb-4">
                   <Zap className="w-6 h-6 text-violet-400" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Persistent Harassment</h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                   Coomer's infrastructure is designed specifically to evade
                   takedowns through redundancy and domain evasion.
                 </p>
@@ -254,13 +254,13 @@ export default function CoomerRemovalPage() {
         </section>
 
         {/* DMCA Process Steps */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 6-Step Coomer Multi-Domain DMCA Removal
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 From domain research to confirmed removal across all variants
               </p>
             </div>
@@ -273,7 +273,7 @@ export default function CoomerRemovalPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                    <p className="text-gray-400 leading-relaxed">
+                    <p className="leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                       {step.description}
                     </p>
                   </div>
@@ -290,7 +290,7 @@ export default function CoomerRemovalPage() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Multi-Domain Coomer Removal
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 Everything needed to remove your content from all Coomer variants
               </p>
             </div>
@@ -301,13 +301,13 @@ export default function CoomerRemovalPage() {
                 return (
                   <div
                     key={feature.title}
-                    className="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-indigo-600/50 transition-colors duration-300"
+                    className="border rounded-xl p-6 hover:border-indigo-600/50 transition-colors duration-300" style={{ background: 'white', border: '1px solid var(--line)' }}
                   >
                     <div className="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center mb-4">
                       <Icon className="w-5 h-5 text-indigo-400" />
                     </div>
                     <h3 className="text-base font-semibold mb-2">{feature.title}</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
+                    <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                       {feature.description}
                     </p>
                   </div>
@@ -318,19 +318,19 @@ export default function CoomerRemovalPage() {
         </section>
 
         {/* Single vs Multi-Domain */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Single-Domain vs Multi-Domain Removal
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 Why targeting all Coomer variants is necessary
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-gray-900 border border-red-500/20 rounded-xl p-8">
+              <div className="border border-red-500/20 rounded-xl p-8" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <h3 className="text-xl font-semibold text-red-400 mb-6 flex items-center gap-2">
                   <AlertTriangle className="w-5 h-5" />
                   Single-Domain Filing
@@ -343,7 +343,7 @@ export default function CoomerRemovalPage() {
                     "Time-consuming and incomplete",
                     "Endless cat-and-mouse game",
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-gray-400 text-sm">
+                    <li key={idx} className="flex items-start gap-3 text-sm" style={{ color: 'var(--ink-2)' }}>
                       <span className="text-red-400 mt-0.5 flex-shrink-0">✗</span>
                       {item}
                     </li>
@@ -351,7 +351,7 @@ export default function CoomerRemovalPage() {
                 </ul>
               </div>
 
-              <div className="bg-gray-900 border border-green-500/20 rounded-xl p-8">
+              <div className="border border-green-500/20 rounded-xl p-8" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <h3 className="text-xl font-semibold text-green-400 mb-6 flex items-center gap-2">
                   <CheckCircle className="w-5 h-5" />
                   Multi-Domain Filing
@@ -364,7 +364,7 @@ export default function CoomerRemovalPage() {
                     "Leakers can't escape to alternate domain",
                     "Automated monitoring of new domains",
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-gray-400 text-sm">
+                    <li key={idx} className="flex items-start gap-3 text-sm" style={{ color: 'var(--ink-2)' }}>
                       <span className="text-green-400 mt-0.5 flex-shrink-0">✓</span>
                       {item}
                     </li>
@@ -382,7 +382,7 @@ export default function CoomerRemovalPage() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Coomer Removal FAQ
               </h2>
-              <p className="text-gray-400">
+              <p  style={{ color: 'var(--ink-2)' }}>
                 Common questions about multi-domain Coomer removal
               </p>
             </div>
@@ -391,10 +391,10 @@ export default function CoomerRemovalPage() {
               {faqItems.map((item, idx) => (
                 <div
                   key={idx}
-                  className="bg-gray-900 border border-gray-800 rounded-xl p-6"
+                  className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}
                 >
                   <h3 className="text-lg font-semibold mb-3">{item.q}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{item.a}</p>
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>{item.a}</p>
                 </div>
               ))}
             </div>
@@ -402,13 +402,13 @@ export default function CoomerRemovalPage() {
         </section>
 
         {/* Related Leak Sites */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">
                 Remove from Other Leak Sites
               </h2>
-              <p className="text-gray-400">
+              <p  style={{ color: 'var(--ink-2)' }}>
                 Complete removal guides for all major leak platforms
               </p>
             </div>
@@ -423,12 +423,12 @@ export default function CoomerRemovalPage() {
                 <Link
                   key={site.slug}
                   href={`/${site.slug}`}
-                  className="group bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-indigo-600/50 transition-colors duration-300"
+                  className="group border rounded-xl p-6 hover:border-indigo-600/50 transition-colors duration-300" style={{ background: 'white', border: '1px solid var(--line)' }}
                 >
                   <h3 className="font-semibold text-lg group-hover:text-indigo-400 transition-colors duration-300 mb-2">
                     {site.name}
                   </h3>
-                  <p className="text-sm text-gray-400 group-hover:text-gray-400 transition-colors">
+                  <p className="text-sm group-hover: transition-colors" style={{ color: 'var(--ink-2)' }}>
                     DMCA removal guide
                   </p>
                 </Link>
@@ -444,12 +444,12 @@ export default function CoomerRemovalPage() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Automate Multi-Domain Coomer Removal
               </h2>
-              <p className="text-lg text-gray-400 mb-3 max-w-2xl mx-auto">
+              <p className="text-lg mb-3 max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 Stop manually filing DMCA notices to multiple Coomer domains.
                 Privly detects all variants and files simultaneously.
               </p>
-              <p className="text-2xl font-bold text-white mb-8">
-                $49<span className="text-gray-400 text-base font-normal">/month</span>
+              <p className="text-2xl font-bold mb-8">
+                $49<span className="text-base font-normal" style={{ color: 'var(--ink-2)' }}>/month</span>
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
@@ -484,7 +484,7 @@ export default function CoomerRemovalPage() {
         />
       </main>
 
-      <Footer />
+      <MarketingFooter />
     </div>
   );
 }

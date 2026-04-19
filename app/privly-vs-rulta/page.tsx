@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import MarketingHeader from '@/components/marketing/Header';
+import MarketingFooter from '@/components/marketing/Footer';
 import {
   Shield,
   ArrowRight,
@@ -219,8 +219,8 @@ const faqItems = [
 
 export default function PrivlyVsRultaPage() {
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100 flex flex-col">
-      <Header />
+    <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col">
+      <MarketingHeader />
 
       <main className="flex-1">
         {/* Hero */}
@@ -231,19 +231,19 @@ export default function PrivlyVsRultaPage() {
           </div>
 
           <div className="max-w-5xl mx-auto text-center relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-sm font-medium mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-[var(--accent)]/20 text-[var(--accent)] text-sm font-medium mb-8">
               <Shield className="w-4 h-4" />
               Comparison
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Privly vs{" "}
-              <span className="bg-gradient-to-r from-purple-400 to-violet-400 bg-clip-text text-transparent">
+              <span className="to-violet-400" style={{ color: 'var(--accent)' }}>
                 Rulta
               </span>
             </h1>
 
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+            <p className="text-xl max-w-3xl mx-auto mb-10 leading-relaxed" style={{ color: 'var(--ink-2)' }}>
               Both services protect creator content from piracy. Here's how they
               compare on pricing, features, and coverage so you can pick the
               right one.
@@ -259,7 +259,7 @@ export default function PrivlyVsRultaPage() {
               </Link>
               <Link
                 href="/pricing"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/5 border border-white/10 text-white font-medium text-lg hover:bg-white/10 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/5 border border-white/10 font-medium text-lg hover:bg-white/10 transition-all duration-300"
               >
                 View Pricing
               </Link>
@@ -268,7 +268,7 @@ export default function PrivlyVsRultaPage() {
         </section>
 
         {/* Quick Summary */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-gray-800/50">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-[var(--line)]/50">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -277,36 +277,36 @@ export default function PrivlyVsRultaPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 text-center">
+              <div className="border rounded-xl p-6 text-center" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="w-12 h-12 rounded-lg bg-green-500/10 flex items-center justify-center mb-4 mx-auto">
                   <DollarSign className="w-6 h-6 text-green-400" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">55% cheaper</h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                   $49/mo vs $109/mo for Rulta's cheapest plan. You'd need
                   Rulta's $324/mo Legend plan to match Privly's feature set.
                 </p>
               </div>
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 text-center">
+              <div className="border rounded-xl p-6 text-center" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center mb-4 mx-auto">
-                  <MessageCircle className="w-6 h-6 text-purple-400" />
+                  <MessageCircle className="w-6 h-6 text-[var(--accent)]" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">
                   Telegram & Discord included
                 </h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                   Privly monitors both on every plan. Rulta charges $324/mo for
                   Telegram and doesn't cover Discord at all.
                 </p>
               </div>
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 text-center">
+              <div className="border rounded-xl p-6 text-center" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4 mx-auto">
-                  <Fingerprint className="w-6 h-6 text-blue-400" />
+                  <Fingerprint className="w-6 h-6 text-blue-600" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">
                   Trace the source
                 </h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                   Privly's forensic watermarking identifies which subscriber
                   leaked your content. Rulta doesn't offer this.
                 </p>
@@ -316,27 +316,27 @@ export default function PrivlyVsRultaPage() {
         </section>
 
         {/* Feature Comparison Table */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Feature-by-Feature Comparison
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 How Privly and Rulta compare across key protection features
               </p>
             </div>
 
-            <div className="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden">
+            <div className="border rounded-xl overflow-hidden" style={{ background: 'white', border: '1px solid var(--line)' }}>
               {/* Table header */}
-              <div className="grid grid-cols-3 gap-4 p-4 border-b border-gray-800 bg-gray-900/80">
-                <div className="text-sm font-semibold text-gray-400">
+              <div className="grid grid-cols-3 gap-4 p-4 border-b /80" style={{ background: 'white', border: '1px solid var(--line)' }}>
+                <div className="text-sm font-semibold" style={{ color: 'var(--ink-2)' }}>
                   Feature
                 </div>
-                <div className="text-sm font-semibold text-purple-400 text-center">
+                <div className="text-sm font-semibold text-[var(--accent)] text-center">
                   Privly
                 </div>
-                <div className="text-sm font-semibold text-gray-400 text-center">
+                <div className="text-sm font-semibold text-center" style={{ color: 'var(--ink-2)' }}>
                   Rulta
                 </div>
               </div>
@@ -347,11 +347,11 @@ export default function PrivlyVsRultaPage() {
                   key={idx}
                   className={`grid grid-cols-3 gap-4 p-4 items-center ${
                     idx < comparisonFeatures.length - 1
-                      ? "border-b border-gray-800/50"
+                      ? "border-b border-[var(--line)]/50"
                       : ""
                   } ${row.highlight ? "bg-purple-500/5" : ""}`}
                 >
-                  <div className="text-sm font-medium text-white">
+                  <div className="text-sm font-medium">
                     {row.feature}
                   </div>
                   <div className="text-sm text-center">
@@ -361,7 +361,7 @@ export default function PrivlyVsRultaPage() {
                       ) : (
                         <X className="w-4 h-4 text-red-400 flex-shrink-0" />
                       )}
-                      <span className="text-gray-300 text-xs sm:text-sm">
+                      <span className="text-xs sm:text-sm" style={{ color: 'var(--ink-2)' }}>
                         {row.privly}
                       </span>
                     </div>
@@ -373,7 +373,7 @@ export default function PrivlyVsRultaPage() {
                       ) : (
                         <X className="w-4 h-4 text-red-400 flex-shrink-0" />
                       )}
-                      <span className="text-gray-400 text-xs sm:text-sm">
+                      <span className="text-xs sm:text-sm" style={{ color: 'var(--ink-2)' }}>
                         {row.rulta}
                       </span>
                     </div>
@@ -391,7 +391,7 @@ export default function PrivlyVsRultaPage() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Pricing Comparison
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 What you get at each price point
               </p>
             </div>
@@ -402,23 +402,23 @@ export default function PrivlyVsRultaPage() {
                   key={plan.plan}
                   className={`rounded-xl p-6 ${
                     plan.highlight
-                      ? "bg-gradient-to-b from-purple-600/10 to-violet-600/10 border-2 border-purple-500/30"
-                      : "bg-gray-900 border border-gray-800"
+                      ? "bg-gradient-to-b from-purple-600/10 to-violet-600/10 border-2 border-[var(--accent)]/30"
+                      : "bg-[var(--bg-2)] border border-[var(--line)]"
                   }`}
                 >
                   {plan.highlight && (
-                    <div className="text-xs font-bold text-purple-400 uppercase tracking-wider mb-3">
+                    <div className="text-xs font-bold text-[var(--accent)] uppercase tracking-wider mb-3">
                       Best value
                     </div>
                   )}
-                  <h3 className="text-xl font-bold text-white mb-1">
+                  <h3 className="text-xl font-bold mb-1">
                     {plan.plan}
                   </h3>
                   <div className="mb-6">
-                    <span className="text-4xl font-bold text-white">
+                    <span className="text-4xl font-bold">
                       {plan.price}
                     </span>
-                    <span className="text-gray-400">{plan.period}</span>
+                    <span  style={{ color: 'var(--ink-2)' }}>{plan.period}</span>
                   </div>
 
                   <ul className="space-y-3">
@@ -439,7 +439,7 @@ export default function PrivlyVsRultaPage() {
                           )}
                           <span
                             className={
-                              isNegative ? "text-gray-500" : "text-gray-300"
+                              isNegative ? "text-[var(--mute)]" : "text-[var(--ink-2)]"
                             }
                           >
                             {feature}
@@ -455,7 +455,7 @@ export default function PrivlyVsRultaPage() {
         </section>
 
         {/* Key Differences */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -464,16 +464,16 @@ export default function PrivlyVsRultaPage() {
             </div>
 
             <div className="space-y-6">
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center flex-shrink-0">
-                    <MessageCircle className="w-5 h-5 text-purple-400" />
+                    <MessageCircle className="w-5 h-5 text-[var(--accent)]" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold mb-2">
                       Telegram & Discord on every plan
                     </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
+                    <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                       Telegram and Discord are where most leaked content gets
                       shared first. Privly monitors both on every plan. With
                       Rulta, Telegram removal is only available on the Legend
@@ -483,16 +483,16 @@ export default function PrivlyVsRultaPage() {
                 </div>
               </div>
 
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
-                    <Fingerprint className="w-5 h-5 text-blue-400" />
+                    <Fingerprint className="w-5 h-5 text-blue-600" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold mb-2">
                       Find who leaked your content
                     </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
+                    <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                       Privly's forensic watermarking embeds invisible markers
                       into your content. If it leaks, you can trace it back to
                       the specific subscriber who shared it. Rulta focuses on
@@ -502,7 +502,7 @@ export default function PrivlyVsRultaPage() {
                 </div>
               </div>
 
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0">
                     <Lock className="w-5 h-5 text-green-400" />
@@ -511,7 +511,7 @@ export default function PrivlyVsRultaPage() {
                     <h3 className="text-lg font-semibold mb-2">
                       Content Vault for ownership proof
                     </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
+                    <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                       Upload your original content to Privly's secure vault and
                       get timestamped proof of ownership. This strengthens any
                       DMCA filing and makes counter-claims much harder. Rulta
@@ -521,7 +521,7 @@ export default function PrivlyVsRultaPage() {
                 </div>
               </div>
 
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center flex-shrink-0">
                     <Zap className="w-5 h-5 text-amber-400" />
@@ -530,7 +530,7 @@ export default function PrivlyVsRultaPage() {
                     <h3 className="text-lg font-semibold mb-2">
                       AI and deepfake detection
                     </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
+                    <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                       Privly scans for AI-generated deepfakes using your
                       likeness, not just direct copies of your content. As
                       deepfake tools become more common, this is an increasingly
@@ -550,33 +550,33 @@ export default function PrivlyVsRultaPage() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Where Rulta Does Well
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 Credit where it's due
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
-                <div className="w-10 h-10 rounded-lg bg-gray-700/50 flex items-center justify-center mb-4">
-                  <Users className="w-5 h-5 text-gray-400" />
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
+                <div className="w-10 h-10 rounded-lg bg-[var(--bg-2)] flex items-center justify-center mb-4">
+                  <Users className="w-5 h-5" style={{ color: 'var(--ink-2)' }} />
                 </div>
                 <h3 className="text-base font-semibold mb-2">
                   Established track record
                 </h3>
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                   Rulta has been around for a while and has processed millions
                   of takedowns. They're a known name in the creator protection
                   space with 20,000+ users.
                 </p>
               </div>
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
-                <div className="w-10 h-10 rounded-lg bg-gray-700/50 flex items-center justify-center mb-4">
-                  <Globe className="w-5 h-5 text-gray-400" />
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
+                <div className="w-10 h-10 rounded-lg bg-[var(--bg-2)] flex items-center justify-center mb-4">
+                  <Globe className="w-5 h-5" style={{ color: 'var(--ink-2)' }} />
                 </div>
                 <h3 className="text-base font-semibold mb-2">
                   Global scanning infrastructure
                 </h3>
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                   Rulta runs servers in 50+ countries for international
                   scanning. Their AI can detect cropped or re-encoded content,
                   not just exact matches.
@@ -587,7 +587,7 @@ export default function PrivlyVsRultaPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -599,10 +599,10 @@ export default function PrivlyVsRultaPage() {
               {faqItems.map((item, idx) => (
                 <div
                   key={idx}
-                  className="bg-gray-900 border border-gray-800 rounded-xl p-6"
+                  className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}
                 >
                   <h3 className="text-lg font-semibold mb-3">{item.q}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                     {item.a}
                   </p>
                 </div>
@@ -614,17 +614,17 @@ export default function PrivlyVsRultaPage() {
         {/* CTA */}
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-purple-600/10 via-violet-600/10 to-purple-600/10 border border-purple-500/20 rounded-2xl p-10 text-center">
+            <div className="bg-gradient-to-br from-purple-600/10 via-violet-600/10 to-purple-600/10 border border-[var(--accent)]/20 rounded-2xl p-10 text-center">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Try Privly free for 7 days
               </h2>
-              <p className="text-lg text-gray-400 mb-3 max-w-2xl mx-auto">
+              <p className="text-lg mb-3 max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 See how many leaks we find before you pay anything. No credit
                 card required.
               </p>
-              <p className="text-2xl font-bold text-white mb-8">
+              <p className="text-2xl font-bold mb-8">
                 $49
-                <span className="text-gray-400 text-base font-normal">
+                <span className="text-base font-normal" style={{ color: 'var(--ink-2)' }}>
                   /month
                 </span>
               </p>
@@ -661,7 +661,7 @@ export default function PrivlyVsRultaPage() {
         />
       </main>
 
-      <Footer />
+      <MarketingFooter />
     </div>
   );
 }

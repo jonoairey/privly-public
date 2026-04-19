@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import MarketingHeader from '@/components/marketing/Header';
+import MarketingFooter from '@/components/marketing/Footer';
 import { articles as coreArticles } from "@/lib/article-data";
 import { leakSiteArticles } from "@/lib/article-data-leak-sites";
 import { safetyArticles } from "@/lib/article-data-safety";
@@ -49,12 +49,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${post.title} | Privly`,
     description: post.excerpt,
+    alternates: {
+      canonical: `https://www.useprivly.com/articles/${resolvedParams.slug}`,
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: "article",
       publishedTime: post.date,
       authors: [post.author],
+      url: `https://www.useprivly.com/articles/${resolvedParams.slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
     },
   };
 }
@@ -65,12 +74,12 @@ export default async function ArticlePage({ params }: Props) {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-gray-950 text-gray-100 flex flex-col">
-        <Header />
+      <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col">
+        <MarketingHeader />
         <main className="flex-1 w-full py-16 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
           <div className="text-center">
             <h1 className="text-4xl font-bold mb-4">Article Not Found</h1>
-            <p className="text-gray-400 mb-8">
+            <p className="mb-8" style={{ color: 'var(--ink-2)' }}>
               The article you're looking for doesn't exist.
             </p>
             <Link
@@ -81,7 +90,7 @@ export default async function ArticlePage({ params }: Props) {
             </Link>
           </div>
         </main>
-        <Footer />
+        <MarketingFooter />
       </div>
     );
   }
@@ -98,24 +107,24 @@ export default async function ArticlePage({ params }: Props) {
 
   const getCategoryColor = (category: string) => {
     const colors: Record<string, string> = {
-      "Content Protection": "bg-purple-900/30 text-purple-300",
-      Legal: "bg-blue-900/30 text-blue-300",
-      "AI & Security": "bg-pink-900/30 text-pink-300",
-      Business: "bg-emerald-900/30 text-emerald-300",
+      "Content Protection": "bg-purple-900/30 text-[var(--accent)]",
+      Legal: "bg-blue-900/30 text-blue-600",
+      "AI & Security": "bg-pink-900/30 text-[var(--hot)]",
+      Business: "bg-emerald-900/30 text-emerald-600",
     };
-    return colors[category] || "bg-gray-800 text-gray-300";
+    return colors[category] || "bg-[var(--bg-2)] text-[var(--ink-2)]";
   };
 
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100 flex flex-col">
-      <Header />
+    <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col">
+      <MarketingHeader />
 
       <main className="flex-1 w-full py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           {/* Back Link */}
           <Link
             href="/articles"
-            className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 mb-8 transition-colors duration-300"
+            className="inline-flex items-center gap-2 text-[var(--accent)] hover:text-[var(--accent)] mb-8 transition-colors duration-300"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -142,7 +151,7 @@ export default async function ArticlePage({ params }: Props) {
             </h1>
 
             {/* Meta Information */}
-            <div className="flex flex-wrap items-center gap-6 text-gray-400 border-b border-gray-800 pb-6">
+            <div className="flex flex-wrap items-center gap-6 border-b border-[var(--line)] pb-6" style={{ color: 'var(--ink-2)' }}>
               <div className="flex items-center gap-2">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -174,7 +183,7 @@ export default async function ArticlePage({ params }: Props) {
 
           {/* Article Content */}
           <article className="prose prose-invert max-w-none mb-16">
-            <div className="space-y-6 text-gray-300 leading-relaxed">
+            <div className="space-y-6 leading-relaxed" style={{ color: 'var(--ink-2)' }}>
               {post.content.split("\n\n").map((paragraph, index) => (
                 <p key={index} className="text-lg">
                   {paragraph}
@@ -191,13 +200,13 @@ export default async function ArticlePage({ params }: Props) {
                 {post.faqs.map((faq, i) => (
                   <details
                     key={i}
-                    className="rounded-xl border border-gray-800 bg-gray-900/40 p-5 group"
+                    className="rounded-xl border /40 p-5 group" style={{ background: 'white', border: '1px solid var(--line)' }}
                   >
                     <summary className="cursor-pointer font-semibold text-lg flex justify-between items-center gap-4">
                       <span>{faq.question}</span>
-                      <span className="text-purple-400 group-open:rotate-45 transition-transform text-2xl leading-none">+</span>
+                      <span className="text-[var(--accent)] group-open:rotate-45 transition-transform text-2xl leading-none">+</span>
                     </summary>
-                    <p className="mt-4 text-gray-300 leading-relaxed">{faq.answer}</p>
+                    <p className="mt-4 leading-relaxed" style={{ color: 'var(--ink-2)' }}>{faq.answer}</p>
                   </details>
                 ))}
               </div>
@@ -205,7 +214,7 @@ export default async function ArticlePage({ params }: Props) {
           )}
 
           {/* Divider */}
-          <div className="border-t border-gray-800 my-12" />
+          <div className="border-t border-[var(--line)] my-12" />
 
           {/* Related tools / comparisons / removal guides — distributes internal link equity */}
           <RelatedServices cluster={detectCluster(post.slug, post.category)} />
@@ -220,7 +229,7 @@ export default async function ArticlePage({ params }: Props) {
                   href={`/articles/${relatedPost.slug}`}
                   className="group"
                 >
-                  <article className="bg-gray-900 border border-gray-800 rounded-lg p-6 hover:border-purple-600 transition-colors duration-300 h-full">
+                  <article className="border rounded-lg p-6 hover:border-purple-600 transition-colors duration-300 h-full" style={{ background: 'white', border: '1px solid var(--line)' }}>
                     <span
                       className={`inline-block px-3 py-1 rounded-full text-sm font-medium mb-3 ${getCategoryColor(
                         relatedPost.category
@@ -229,15 +238,15 @@ export default async function ArticlePage({ params }: Props) {
                       {relatedPost.category}
                     </span>
 
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-purple-400 transition-colors duration-300 line-clamp-2">
+                    <h3 className="text-xl font-bold mb-3 group-hover:text-[var(--accent)] transition-colors duration-300 line-clamp-2">
                       {relatedPost.title}
                     </h3>
 
-                    <p className="text-gray-400 mb-4 line-clamp-2 text-sm">
+                    <p className="mb-4 line-clamp-2 text-sm" style={{ color: 'var(--ink-2)' }}>
                       {relatedPost.excerpt}
                     </p>
 
-                    <div className="flex items-center gap-4 text-sm text-gray-400">
+                    <div className="flex items-center gap-4 text-sm" style={{ color: 'var(--ink-2)' }}>
                       <span>{new Date(relatedPost.date).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}</span>
                       <span>{relatedPost.readTime} min read</span>
                     </div>
@@ -249,7 +258,7 @@ export default async function ArticlePage({ params }: Props) {
         </div>
       </main>
 
-      <Footer />
+      <MarketingFooter />
 
       {/* Breadcrumb structured data */}
       <script

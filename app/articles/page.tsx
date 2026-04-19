@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import MarketingHeader from '@/components/marketing/Header';
+import MarketingFooter from '@/components/marketing/Footer';
 import { articles as coreArticles } from "@/lib/article-data";
 import { leakSiteArticles } from "@/lib/article-data-leak-sites";
 import { safetyArticles } from "@/lib/article-data-safety";
@@ -30,28 +30,28 @@ export default function ArticlesPage() {
 
   const getCategoryColor = (category: string) => {
     const colors: Record<string, string> = {
-      "Content Protection": "bg-purple-900/30 text-purple-300",
-      Legal: "bg-blue-900/30 text-blue-300",
-      "AI & Security": "bg-pink-900/30 text-pink-300",
-      Business: "bg-emerald-900/30 text-emerald-300",
-      "Removal Guides": "bg-red-900/30 text-red-300",
-      "Creator Safety": "bg-amber-900/30 text-amber-300",
+      "Content Protection": "bg-purple-900/30 text-[var(--accent)]",
+      Legal: "bg-blue-900/30 text-blue-600",
+      "AI & Security": "bg-pink-900/30 text-[var(--hot)]",
+      Business: "bg-emerald-900/30 text-emerald-600",
+      "Removal Guides": "bg-red-900/30 text-red-600",
+      "Creator Safety": "bg-amber-900/30 text-amber-600",
     };
-    return colors[category] || "bg-gray-800 text-gray-300";
+    return colors[category] || "bg-[var(--bg-2)] text-[var(--ink-2)]";
   };
 
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100 flex flex-col">
-      <Header />
+    <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col">
+      <MarketingHeader />
 
       <main className="flex-1 w-full py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header Section */}
           <div className="mb-16">
-            <h1 className="text-5xl sm:text-6xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <h1 className="text-5xl sm:text-6xl font-bold mb-4" style={{ color: 'var(--accent)' }}>
               Articles
             </h1>
-            <p className="text-xl text-gray-400 max-w-2xl">
+            <p className="text-xl max-w-2xl" style={{ color: 'var(--ink-2)' }}>
               Expert insights on content protection, legal strategies, and security for creators and businesses.
             </p>
           </div>
@@ -60,7 +60,7 @@ export default function ArticlesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {sortedPosts.map((post) => (
               <Link key={post.slug} href={`/articles/${post.slug}`}>
-                <article className="h-full bg-gray-900 border border-gray-800 rounded-lg p-6 hover:border-purple-600 transition-colors duration-300 cursor-pointer group">
+                <article className="h-full border rounded-lg p-6 hover:border-purple-600 transition-colors duration-300 cursor-pointer group" style={{ background: 'white', border: '1px solid var(--line)' }}>
                   {/* Category Badge */}
                   <div className="mb-4">
                     <span
@@ -73,17 +73,17 @@ export default function ArticlesPage() {
                   </div>
 
                   {/* Title */}
-                  <h2 className="text-xl font-bold mb-3 group-hover:text-purple-400 transition-colors duration-300 line-clamp-2">
+                  <h2 className="text-xl font-bold mb-3 group-hover:text-[var(--accent)] transition-colors duration-300 line-clamp-2">
                     {post.title}
                   </h2>
 
                   {/* Excerpt */}
-                  <p className="text-gray-400 mb-4 line-clamp-3 text-sm">
+                  <p className="mb-4 line-clamp-3 text-sm" style={{ color: 'var(--ink-2)' }}>
                     {post.excerpt}
                   </p>
 
                   {/* Meta Information */}
-                  <div className="flex items-center justify-between text-sm text-gray-400 border-t border-gray-800 pt-4">
+                  <div className="flex items-center justify-between text-sm border-t border-[var(--line)] pt-4" style={{ color: 'var(--ink-2)' }}>
                     <div className="flex gap-4">
                       <span>{new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}</span>
                       <span>{post.readTime} min read</span>
@@ -91,7 +91,7 @@ export default function ArticlesPage() {
                   </div>
 
                   {/* Author */}
-                  <div className="mt-4 text-sm text-gray-400">
+                  <div className="mt-4 text-sm" style={{ color: 'var(--ink-2)' }}>
                     By {post.author}
                   </div>
                 </article>
@@ -101,7 +101,7 @@ export default function ArticlesPage() {
         </div>
       </main>
 
-      <Footer />
+      <MarketingFooter />
     </div>
   );
 }

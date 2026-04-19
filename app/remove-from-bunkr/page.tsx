@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import MarketingHeader from '@/components/marketing/Header';
+import MarketingFooter from '@/components/marketing/Footer';
 import {
   Shield,
   FileText,
@@ -152,8 +152,8 @@ const dmcaSteps = [
 
 export default function BunkrRemovalPage() {
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100 flex flex-col">
-      <Header />
+    <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col">
+      <MarketingHeader />
 
       <main className="flex-1">
         {/* Hero */}
@@ -164,19 +164,19 @@ export default function BunkrRemovalPage() {
           </div>
 
           <div className="max-w-5xl mx-auto text-center relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-sm font-medium mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 text-sm font-medium mb-8">
               <Shield className="w-4 h-4" />
               Bunkr Leak Removal
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Remove Your Files from{" "}
-              <span className="bg-gradient-to-r from-amber-400 to-yellow-400 bg-clip-text text-transparent">
+              <span className="from-amber-400 to-yellow-400" style={{ color: 'var(--accent)' }}>
                 Bunkr
               </span>
             </h1>
 
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+            <p className="text-xl max-w-3xl mx-auto mb-10 leading-relaxed" style={{ color: 'var(--ink-2)' }}>
               Complete guide to DMCA takedowns with Bunny CDN targeting. Automated
               removal achieves 90%+ success rates within 24-48 hours.
             </p>
@@ -191,26 +191,26 @@ export default function BunkrRemovalPage() {
               </Link>
               <Link
                 href="/pricing"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/5 border border-white/10 text-white font-medium text-lg hover:bg-white/10 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/5 border border-white/10 font-medium text-lg hover:bg-white/10 transition-all duration-300"
               >
                 View Pricing
               </Link>
             </div>
 
-            <p className="text-sm text-gray-400 mt-4">
+            <p className="text-sm mt-4" style={{ color: 'var(--ink-2)' }}>
               7-day free trial. No credit card required. Cancel anytime.
             </p>
           </div>
         </section>
 
         {/* The Problem */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-gray-800/50">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-[var(--line)]/50">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Bunkr: Gallery-Based Leak Distribution
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 Bunkr's gallery structure makes removal complex but achievable.
                 Understanding how to target all infrastructure layers is key to
                 success.
@@ -218,32 +218,32 @@ export default function BunkrRemovalPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="w-12 h-12 rounded-lg bg-amber-500/10 flex items-center justify-center mb-4">
                   <AlertTriangle className="w-6 h-6 text-amber-400" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Multiple Galleries</h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                   Your content may be distributed across dozens of galleries,
                   each requiring separate documentation and targeting.
                 </p>
               </div>
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="w-12 h-12 rounded-lg bg-yellow-500/10 flex items-center justify-center mb-4">
-                  <Clock className="w-6 h-6 text-yellow-400" />
+                  <Clock className="w-6 h-6 text-yellow-600" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">CDN Caching</h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                   Bunny CDN caches Bunkr content globally. Filing only with Bunkr
                   leaves cached content available.
                 </p>
               </div>
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="w-12 h-12 rounded-lg bg-orange-500/10 flex items-center justify-center mb-4">
                   <Zap className="w-6 h-6 text-orange-400" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Search Indexing</h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                   Bunkr galleries rank in Google search results, making your
                   leaked content easily discoverable.
                 </p>
@@ -253,13 +253,13 @@ export default function BunkrRemovalPage() {
         </section>
 
         {/* DMCA Process Steps */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 6-Step Bunkr DMCA Removal Process
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 From discovery to confirmed removal
               </p>
             </div>
@@ -272,7 +272,7 @@ export default function BunkrRemovalPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                    <p className="text-gray-400 leading-relaxed">
+                    <p className="leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                       {step.description}
                     </p>
                   </div>
@@ -289,7 +289,7 @@ export default function BunkrRemovalPage() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Complete Bunkr Removal Services
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 Everything needed to find and remove your content from Bunkr
               </p>
             </div>
@@ -300,13 +300,13 @@ export default function BunkrRemovalPage() {
                 return (
                   <div
                     key={feature.title}
-                    className="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-amber-600/50 transition-colors duration-300"
+                    className="border rounded-xl p-6 hover:border-amber-600/50 transition-colors duration-300" style={{ background: 'white', border: '1px solid var(--line)' }}
                   >
                     <div className="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center mb-4">
                       <Icon className="w-5 h-5 text-amber-400" />
                     </div>
                     <h3 className="text-base font-semibold mb-2">{feature.title}</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
+                    <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                       {feature.description}
                     </p>
                   </div>
@@ -317,7 +317,7 @@ export default function BunkrRemovalPage() {
         </section>
 
         {/* Multi-Layer Advantage */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -326,7 +326,7 @@ export default function BunkrRemovalPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-gray-900 border border-red-500/20 rounded-xl p-8">
+              <div className="border border-red-500/20 rounded-xl p-8" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <h3 className="text-xl font-semibold text-red-400 mb-6 flex items-center gap-2">
                   <AlertTriangle className="w-5 h-5" />
                   Without CDN Targeting
@@ -339,7 +339,7 @@ export default function BunkrRemovalPage() {
                     "7-14 days typical removal",
                     "Bunkr may ignore notices",
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-gray-400 text-sm">
+                    <li key={idx} className="flex items-start gap-3 text-sm" style={{ color: 'var(--ink-2)' }}>
                       <span className="text-red-400 mt-0.5 flex-shrink-0">✗</span>
                       {item}
                     </li>
@@ -347,7 +347,7 @@ export default function BunkrRemovalPage() {
                 </ul>
               </div>
 
-              <div className="bg-gray-900 border border-green-500/20 rounded-xl p-8">
+              <div className="border border-green-500/20 rounded-xl p-8" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <h3 className="text-xl font-semibold text-green-400 mb-6 flex items-center gap-2">
                   <CheckCircle className="w-5 h-5" />
                   With CDN Targeting
@@ -360,7 +360,7 @@ export default function BunkrRemovalPage() {
                     "24-48 hours typical removal",
                     "Multiple enforcement pressure points",
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-gray-400 text-sm">
+                    <li key={idx} className="flex items-start gap-3 text-sm" style={{ color: 'var(--ink-2)' }}>
                       <span className="text-green-400 mt-0.5 flex-shrink-0">✓</span>
                       {item}
                     </li>
@@ -378,7 +378,7 @@ export default function BunkrRemovalPage() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Bunkr Removal FAQ
               </h2>
-              <p className="text-gray-400">
+              <p  style={{ color: 'var(--ink-2)' }}>
                 Common questions about Bunkr content removal
               </p>
             </div>
@@ -387,10 +387,10 @@ export default function BunkrRemovalPage() {
               {faqItems.map((item, idx) => (
                 <div
                   key={idx}
-                  className="bg-gray-900 border border-gray-800 rounded-xl p-6"
+                  className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}
                 >
                   <h3 className="text-lg font-semibold mb-3">{item.q}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{item.a}</p>
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>{item.a}</p>
                 </div>
               ))}
             </div>
@@ -398,13 +398,13 @@ export default function BunkrRemovalPage() {
         </section>
 
         {/* Related Leak Sites */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">
                 Remove from Other Leak Sites
               </h2>
-              <p className="text-gray-400">
+              <p  style={{ color: 'var(--ink-2)' }}>
                 Complete removal guides for all major leak platforms
               </p>
             </div>
@@ -419,12 +419,12 @@ export default function BunkrRemovalPage() {
                 <Link
                   key={site.slug}
                   href={`/${site.slug}`}
-                  className="group bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-amber-600/50 transition-colors duration-300"
+                  className="group border rounded-xl p-6 hover:border-amber-600/50 transition-colors duration-300" style={{ background: 'white', border: '1px solid var(--line)' }}
                 >
                   <h3 className="font-semibold text-lg group-hover:text-amber-400 transition-colors duration-300 mb-2">
                     {site.name}
                   </h3>
-                  <p className="text-sm text-gray-400 group-hover:text-gray-400 transition-colors">
+                  <p className="text-sm group-hover: transition-colors" style={{ color: 'var(--ink-2)' }}>
                     DMCA removal guide
                   </p>
                 </Link>
@@ -440,12 +440,12 @@ export default function BunkrRemovalPage() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Automate Bunkr Removal
               </h2>
-              <p className="text-lg text-gray-400 mb-3 max-w-2xl mx-auto">
+              <p className="text-lg mb-3 max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 Stop manually tracking Bunkr galleries. Let Privly scan,
                 document, file, and track removals automatically.
               </p>
-              <p className="text-2xl font-bold text-white mb-8">
-                $49<span className="text-gray-400 text-base font-normal">/month</span>
+              <p className="text-2xl font-bold mb-8">
+                $49<span className="text-base font-normal" style={{ color: 'var(--ink-2)' }}>/month</span>
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
@@ -480,7 +480,7 @@ export default function BunkrRemovalPage() {
         />
       </main>
 
-      <Footer />
+      <MarketingFooter />
     </div>
   );
 }

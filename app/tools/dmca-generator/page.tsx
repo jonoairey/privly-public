@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Header from '@/components/header';
-import Footer from '@/components/footer';
+import MarketingHeader from '@/components/marketing/Header';
+import MarketingFooter from '@/components/marketing/Footer';
 import {
   FileText,
   Copy,
@@ -186,8 +186,8 @@ END OF DMCA NOTICE`;
   };
 
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100 flex flex-col">
-      <Header />
+    <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col">
+      <MarketingHeader />
 
       <main className="flex-1">
         {/* Hero */}
@@ -198,19 +198,19 @@ END OF DMCA NOTICE`;
           </div>
 
           <div className="max-w-4xl mx-auto text-center relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-sm font-medium mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 text-sm font-medium mb-8">
               <FileText className="w-4 h-4" />
               Free Legal Tool
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Free{' '}
-              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <span  style={{ color: 'var(--accent)' }}>
                 DMCA Notice Generator
               </span>
             </h1>
 
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+            <p className="text-xl max-w-3xl mx-auto mb-10 leading-relaxed" style={{ color: 'var(--ink-2)' }}>
               Generate a legally compliant DMCA takedown notice in minutes. No lawyer
               required. Includes all required statutory elements for immediate
               enforcement.
@@ -230,13 +230,13 @@ END OF DMCA NOTICE`;
               </button>
               <Link
                 href="https://app.useprivly.com"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/5 border border-white/10 text-white font-medium text-lg hover:bg-white/10 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/5 border border-white/10 font-medium text-lg hover:bg-white/10 transition-all duration-300"
               >
                 Automate DMCA Filing
               </Link>
             </div>
 
-            <p className="text-sm text-gray-400 mt-6">
+            <p className="text-sm mt-6" style={{ color: 'var(--ink-2)' }}>
               ⚠️ This tool is for educational purposes. Consult legal counsel for complex
               disputes.
             </p>
@@ -246,10 +246,10 @@ END OF DMCA NOTICE`;
         {/* Generator Form */}
         <section
           id="generator-form"
-          className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30"
+          className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}
         >
           <div className="max-w-4xl mx-auto">
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 mb-8">
+            <div className="border rounded-2xl p-8 mb-8" style={{ background: 'white', border: '1px solid var(--line)' }}>
               <h2 className="text-2xl font-bold mb-8">DMCA Notice Information</h2>
 
               <div className="space-y-6">
@@ -264,7 +264,7 @@ END OF DMCA NOTICE`;
                     value={formData.fullName}
                     onChange={handleInputChange}
                     placeholder="John Doe"
-                    className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full px-4 py-3 rounded-lg border placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors" style={{ background: 'white', border: '1px solid var(--line)' }}
                   />
                 </div>
 
@@ -279,7 +279,7 @@ END OF DMCA NOTICE`;
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="john@example.com"
-                    className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full px-4 py-3 rounded-lg border placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors" style={{ background: 'white', border: '1px solid var(--line)' }}
                   />
                 </div>
 
@@ -294,7 +294,7 @@ END OF DMCA NOTICE`;
                     onChange={handleInputChange}
                     placeholder="E.g., 'A series of 50 exclusive video clips and photos published on OnlyFans between January 2024 and present'"
                     rows={4}
-                    className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-lg border placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors resize-none" style={{ background: 'white', border: '1px solid var(--line)' }}
                   />
                 </div>
 
@@ -309,7 +309,7 @@ END OF DMCA NOTICE`;
                     value={formData.originalContentUrl}
                     onChange={handleInputChange}
                     placeholder="https://onlyfans.com/yourprofile"
-                    className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full px-4 py-3 rounded-lg border placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors" style={{ background: 'white', border: '1px solid var(--line)' }}
                   />
                 </div>
 
@@ -324,7 +324,7 @@ END OF DMCA NOTICE`;
                     value={formData.platformName}
                     onChange={handleInputChange}
                     placeholder="E.g., 'Leak Site Name' or 'Reddit.com'"
-                    className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full px-4 py-3 rounded-lg border placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors" style={{ background: 'white', border: '1px solid var(--line)' }}
                   />
                 </div>
 
@@ -333,7 +333,7 @@ END OF DMCA NOTICE`;
                   <label className="block text-sm font-semibold mb-2">
                     URL(s) of Infringing Content *
                   </label>
-                  <p className="text-sm text-gray-400 mb-4">
+                  <p className="text-sm mb-4" style={{ color: 'var(--ink-2)' }}>
                     Add each infringing URL separately
                   </p>
                   <div className="space-y-3">
@@ -346,7 +346,7 @@ END OF DMCA NOTICE`;
                             handleInfringingUrlChange(index, e.target.value)
                           }
                           placeholder={`https://example.com/infringing-content-${index + 1}`}
-                          className="flex-1 px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                          className="flex-1 px-4 py-3 rounded-lg border placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors" style={{ background: 'white', border: '1px solid var(--line)' }}
                         />
                         {formData.infringingUrls.length > 1 && (
                           <button
@@ -361,7 +361,7 @@ END OF DMCA NOTICE`;
                   </div>
                   <button
                     onClick={addInfringingUrlField}
-                    className="mt-4 px-4 py-2 rounded-lg bg-blue-500/10 border border-blue-500/20 text-blue-400 hover:bg-blue-500/20 transition-colors text-sm font-medium"
+                    className="mt-4 px-4 py-2 rounded-lg bg-blue-500/10 border border-blue-500/20 text-blue-600 hover:bg-blue-500/20 transition-colors text-sm font-medium"
                   >
                     + Add Another URL
                   </button>
@@ -386,13 +386,13 @@ END OF DMCA NOTICE`;
 
             {/* Preview */}
             {showPreview && (
-              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+              <div className="border rounded-2xl p-8" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-2xl font-bold">Generated DMCA Notice</h2>
                   <div className="flex gap-3">
                     <button
                       onClick={copyToClipboard}
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-500/10 border border-blue-500/20 text-blue-400 hover:bg-blue-500/20 transition-colors font-medium"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-500/10 border border-blue-500/20 text-blue-600 hover:bg-blue-500/20 transition-colors font-medium"
                     >
                       <Copy className="w-4 h-4" />
                       {copied ? 'Copied!' : 'Copy'}
@@ -407,12 +407,12 @@ END OF DMCA NOTICE`;
                   </div>
                 </div>
 
-                <div className="bg-gray-800 rounded-lg p-6 max-h-96 overflow-y-auto font-mono text-sm text-gray-300 whitespace-pre-wrap break-words">
+                <div className="rounded-lg p-6 max-h-96 overflow-y-auto font-mono text-sm whitespace-pre-wrap break-words" style={{ background: 'white', border: '1px solid var(--line)', color: 'var(--ink-2)' }}>
                   {generatedNotice}
                 </div>
 
                 <div className="mt-6 p-4 rounded-lg bg-blue-500/10 border border-blue-500/20">
-                  <p className="text-sm text-blue-300 flex gap-2">
+                  <p className="text-sm text-blue-600 flex gap-2">
                     <span className="flex-shrink-0 mt-0.5">ℹ️</span>
                     <span>
                       Send this notice to the website's legal/copyright department. For
@@ -433,7 +433,7 @@ END OF DMCA NOTICE`;
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 How DMCA Notices Work
               </h2>
-              <p className="text-lg text-gray-400">
+              <p className="text-lg" style={{ color: 'var(--ink-2)' }}>
                 Understanding the legal framework for content removal
               </p>
             </div>
@@ -462,12 +462,12 @@ END OF DMCA NOTICE`;
                   description: 'Track removal and monitor for content reappearing',
                 },
               ].map((item) => (
-                <div key={item.step} className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+                <div key={item.step} className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center flex-shrink-0 text-white font-bold mb-4">
                     {item.step}
                   </div>
                   <h3 className="font-semibold mb-2">{item.title}</h3>
-                  <p className="text-sm text-gray-400">{item.description}</p>
+                  <p className="text-sm" style={{ color: 'var(--ink-2)' }}>{item.description}</p>
                 </div>
               ))}
             </div>
@@ -475,13 +475,13 @@ END OF DMCA NOTICE`;
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-4xl mx-auto">
             <div className="bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-blue-600/10 border border-blue-500/20 rounded-2xl p-10 text-center">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Tired of Filing DMCA Notices Manually?
               </h2>
-              <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
+              <p className="text-lg mb-8 max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 Privly automatically detects your leaked content across 500+ sites and
                 files DMCA takedowns to hosting providers, CDNs, registrars, and Google
                 — all simultaneously. 96% success rate. No manual work.
@@ -496,7 +496,7 @@ END OF DMCA NOTICE`;
                 </Link>
                 <Link
                   href="/pricing"
-                  className="text-gray-400 hover:text-white transition-colors font-medium"
+                  className="hover: transition-colors font-medium" style={{ color: 'var(--ink-2)' }}
                 >
                   Learn more
                 </Link>
@@ -512,7 +512,7 @@ END OF DMCA NOTICE`;
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 DMCA Generator FAQ
               </h2>
-              <p className="text-gray-400">
+              <p  style={{ color: 'var(--ink-2)' }}>
                 Common questions about DMCA notices and content removal
               </p>
             </div>
@@ -521,13 +521,13 @@ END OF DMCA NOTICE`;
               {faqItems.map((item, idx) => (
                 <div
                   key={idx}
-                  className="bg-gray-900 border border-gray-800 rounded-xl p-6"
+                  className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}
                 >
                   <h3 className="text-lg font-semibold mb-3 flex items-start gap-3">
-                    <HelpCircle className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
+                    <HelpCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                     {item.q}
                   </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed ml-8">
+                  <p className="text-sm leading-relaxed ml-8" style={{ color: 'var(--ink-2)' }}>
                     {item.a}
                   </p>
                 </div>
@@ -556,7 +556,7 @@ END OF DMCA NOTICE`;
         />
       </main>
 
-      <Footer />
+      <MarketingFooter />
     </div>
   );
 }

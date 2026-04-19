@@ -1,7 +1,20 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Inter, Caveat } from "next/font/google";
 import "./globals.css";
 import { generateMetadata as genMeta, generateOrganizationSchema } from "@/lib/seo";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-inter",
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  variable: "--font-caveat",
+});
 
 export const metadata: Metadata = genMeta({
   title: 'Privly - Content Protection for OnlyFans, Fansly & Adult Creators',
@@ -29,12 +42,14 @@ export default function RootLayout({
   const organizationSchema = generateOrganizationSchema();
 
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className={`${inter.variable} ${caveat.variable}`}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <meta name="theme-color" content="#a855f7" />
+        <meta name="theme-color" content="#7C3AED" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&display=swap"
           rel="stylesheet"
         />
         <script
@@ -42,7 +57,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
       </head>
-      <body className="antialiased bg-gray-950 text-white" style={{ fontFamily: "'Inter', system-ui, -apple-system, sans-serif" }}>
+      <body className="antialiased grain">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-PWH95MXCHG"
           strategy="afterInteractive"

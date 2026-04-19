@@ -1,302 +1,658 @@
-import Header from '@/components/header';
-import Footer from '@/components/footer';
-import { generateMetadata as genMeta } from '@/lib/seo';
-import { APP_URL, COPYRIGHT_ADDON } from '@/lib/constants';
-import {
-  Fingerprint,
-  Target,
-  Lock,
-  Zap,
-  Scale,
-  AlertCircle,
-  CheckCircle,
-  Check,
-  X,
-  ArrowRight,
-  HeadphonesIcon,
-  Radio,
-  Copyright,
-} from 'lucide-react';
+import MarketingHeader from '@/components/marketing/Header'
+import MarketingFooter from '@/components/marketing/Footer'
+import Reveal from '@/components/marketing/shared/Reveal'
+import { FEATURES_LIST, COMPARE_ROWS } from '@/components/marketing/shared/data'
+import { generateMetadata as genMeta } from '@/lib/seo'
 
 export const metadata = genMeta({
   title: 'Features - Privly',
-  description: "Discover Privly's advanced content protection features: forensic watermarking, leak source tracing, 24/7 leak scanning, and more.",
+  description:
+    "Discover Privly's advanced content protection features: forensic watermarking, leak source tracing, 24/7 leak scanning, and more.",
   path: '/features',
-});
+})
+
+const HERO_FEATURES = [
+  {
+    emoji: '🔐',
+    title: 'Invisible watermarks',
+    body: 'Every file gets a unique fingerprint for each subscriber. They can\u2019t see it. We can. So can the law. Survives compression, cropping, and format conversion.',
+  },
+  {
+    emoji: '🎯',
+    title: 'Leak source tracing',
+    body: 'When your content shows up where it shouldn\u2019t, the watermark tells us exactly which subscriber released it. Their account, their email, their timestamp.',
+  },
+  {
+    emoji: '💬',
+    title: 'A real person, yours',
+    body: 'Named protection agent. Slack, email, or WhatsApp. They know your case, your content, your boundaries. This isn\u2019t a help desk \u2014 it\u2019s someone who cares.',
+  },
+]
 
 export default function FeaturesPage() {
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden">
-      <Header />
+    <div
+      style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }}
+      className="flex flex-col overflow-hidden"
+    >
+      <MarketingHeader />
 
-      {/* Hero — compact with feature highlights */}
-      <section className="relative w-full pt-28 pb-12 px-4 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-950/20 via-black to-black" />
+      {/* ─── Hero ─── */}
+      <section style={{ padding: '160px 0 80px', position: 'relative' }}>
+        <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 28px', textAlign: 'center' }}>
+          <Reveal>
+            <span className="font-hand" style={{ fontSize: 28, color: 'var(--accent)' }}>
+              everything included, obviously
+            </span>
+          </Reveal>
 
-        <div className="relative max-w-5xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
-            The Only Protection That{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Finds Your Leakers</span>
-          </h1>
-          <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-            Forensic watermarking + proactive monitoring + automated DMCA takedowns. Protect your work. Identify leakers. Reclaim control.
-          </p>
-          <a
-            href={APP_URL}
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+          <Reveal delay={100}>
+            <h1
+              className="font-serif"
+              style={{
+                fontSize: 'clamp(48px, 7vw, 96px)',
+                lineHeight: 0.98,
+                margin: '14px 0 0',
+                fontWeight: 400,
+                letterSpacing: '-0.03em',
+              }}
+            >
+              The only protection that
+              <br />
+              <span className="italic" style={{ color: 'var(--accent)' }}>
+                finds your leakers.
+              </span>
+            </h1>
+          </Reveal>
+
+          <Reveal
+            delay={200}
+            style={{
+              marginTop: 24,
+              fontSize: 18,
+              color: 'var(--ink-2)',
+              maxWidth: 580,
+              margin: '24px auto 0',
+              lineHeight: 1.6,
+            }}
           >
-            Start Free Trial <ArrowRight className="w-4 h-4 ml-2" />
-          </a>
-          <p className="text-sm text-gray-400 mt-3">7-day free trial. No credit card required.</p>
+            Forensic watermarking + proactive monitoring + automated DMCA takedowns + a real human who
+            knows your name. One plan. No tiers. No upsells.
+          </Reveal>
         </div>
       </section>
 
-      {/* Two Hero Features — watermarking + leak tracing */}
-      <section className="relative w-full py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
-          {/* Forensic Watermarking */}
-          <div className="rounded-xl p-7 border border-gray-800 bg-gray-900/50">
-            <div className="flex items-center gap-4 mb-5">
-              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center">
-                <Fingerprint className="w-6 h-6 text-white" />
-              </div>
-              <h2 className="text-2xl font-bold">Invisible Forensic Watermarking</h2>
-            </div>
-            <p className="text-gray-300 mb-6">
-              Embed unique identifiers in every piece of content you share. Our watermarks survive compression, format conversion, and editing. Completely invisible to the human eye.
-            </p>
-            <div className="space-y-3">
-              {['Per-subscriber encoding', 'Survives all editing & compression', 'Zero quality loss, undetectable'].map((item, i) => (
-                <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-gray-800/50 border border-gray-700/50">
-                  <CheckCircle className="w-4 h-4 text-purple-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-gray-300">{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Leak Source Tracing */}
-          <div className="rounded-xl p-7 border border-gray-800 bg-gray-900/50">
-            <div className="flex items-center gap-4 mb-5">
-              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-pink-600 to-pink-800 flex items-center justify-center">
-                <Target className="w-6 h-6 text-white" />
-              </div>
-              <h2 className="text-2xl font-bold">Leak Source Tracing</h2>
-            </div>
-            <p className="text-gray-300 mb-6">
-              When your content appears where it shouldn't, instantly identify which subscriber leaked it. Get actionable intelligence to stop bad actors.
-            </p>
-            <div className="space-y-3">
-              {['Know exactly who leaked your content', 'Track patterns and repeat offenders', 'One-click access revocation'].map((item, i) => (
-                <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-gray-800/50 border border-gray-700/50">
-                  <CheckCircle className="w-4 h-4 text-pink-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-gray-300">{item}</span>
-                </div>
-              ))}
-            </div>
+      {/* ─── Three Hero Feature Cards ─── */}
+      <section style={{ padding: '0 0 100px' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 28px' }}>
+          <div
+            style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}
+            className="grid-cols-1 md:grid-cols-3"
+          >
+            {HERO_FEATURES.map((f, i) => (
+              <Reveal
+                key={i}
+                delay={i * 100}
+                className="card card-h"
+                style={{ padding: '36px 28px', border: '1px solid var(--line)' }}
+              >
+                <div style={{ fontSize: 48, marginBottom: 16 }}>{f.emoji}</div>
+                <h3
+                  className="font-serif"
+                  style={{
+                    fontSize: 26,
+                    margin: '0 0 12px',
+                    lineHeight: 1.15,
+                    fontWeight: 500,
+                    letterSpacing: '-0.015em',
+                  }}
+                >
+                  {f.title}
+                </h3>
+                <p style={{ fontSize: 15, color: 'var(--ink-2)', margin: 0, lineHeight: 1.6 }}>
+                  {f.body}
+                </p>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Full Feature Grid */}
-      <section className="relative w-full py-16 px-4 sm:px-6 lg:px-8 bg-gray-950/50">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">Complete Protection Suite</h2>
+      {/* ─── AI & Automation Spotlight ─── */}
+      <section style={{ padding: '100px 0', background: 'var(--bg-2)' }}>
+        <div style={{ maxWidth: 960, margin: '0 auto', padding: '0 28px' }}>
+          <Reveal style={{ textAlign: 'center', marginBottom: 48 }}>
+            <span className="font-hand" style={{ fontSize: 26, color: 'var(--accent)' }}>
+              the engine under the hood
+            </span>
+            <h2
+              className="font-serif"
+              style={{
+                fontSize: 'clamp(34px, 4.5vw, 52px)',
+                margin: '10px 0 0',
+                lineHeight: 1.05,
+                fontWeight: 400,
+                letterSpacing: '-0.025em',
+              }}
+            >
+              AI that never sleeps.{' '}
+              <span className="italic" style={{ color: 'var(--accent)' }}>
+                Humans that never quit.
+              </span>
+            </h2>
+            <p
+              style={{
+                fontSize: 17,
+                color: 'var(--ink-2)',
+                maxWidth: 580,
+                margin: '20px auto 0',
+                lineHeight: 1.6,
+              }}
+            >
+              Most services give you bots or people. Privly gives you both &mdash; AI handles the
+              speed, your named protection agent handles everything bots can&apos;t reach.
+            </p>
+          </Reveal>
 
-          <div className="grid md:grid-cols-2 gap-5">
-            {[
-              {
-                icon: Lock,
-                title: 'Content Vault',
-                description: 'Timestamped proof of ownership for all your content. Establish irrefutable evidence of creation date and authorship.',
-                bullets: ['AES-256 encrypted storage', 'Legal admissibility documentation'],
-              },
-              {
-                icon: Zap,
-                title: '24/7 Leak Scanning',
-                description: 'Continuous monitoring across 500+ platforms using AI-powered matching. Spot unauthorized copies instantly.',
-                bullets: ['Real-time leak detection alerts', 'AI similarity matching engine'],
-              },
-              {
-                icon: Scale,
-                title: 'DMCA Automation',
-                description: 'Automated takedown notices filed on your behalf. We handle the legal side, generating and submitting DMCA claims instantly.',
-                bullets: ['Auto-filed DMCA takedowns', 'High removal success rate'],
-              },
-              {
-                icon: AlertCircle,
-                title: 'Impersonation & AI Detection',
-                description: 'Detect fake accounts, AI-generated content, and unauthorized use of your likeness across the web.',
-                bullets: ['AI-generated content detection', 'Impersonation monitoring'],
-              },
-              {
-                icon: Radio,
-                title: 'Proactive Monitoring',
-                description: "We don't just wait for leaks. Every 30 minutes, we scan known Telegram channels, Discord servers, and Reddit communities.",
-                bullets: ['Telegram, Discord & Reddit monitoring', 'Scans every 30 minutes'],
-              },
-              {
-                icon: Copyright,
-                title: 'Copyright Registration',
-                description: `Strengthen your legal standing with a formal US Copyright Office registration. Document prep for ${COPYRIGHT_ADDON.price}.`,
-                bullets: ['Complete document preparation', 'Ready within 24 hours'],
-              },
-            ].map((feature, idx) => {
-              const Icon = feature.icon;
-              return (
-                <div key={idx} className="rounded-xl p-6 border border-gray-800 bg-gray-900/50 hover:border-purple-500/30 transition-colors">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center mb-4">
-                    <Icon className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                  <p className="text-sm text-gray-400 mb-4">{feature.description}</p>
-                  <ul className="space-y-2">
-                    {feature.bullets.map((bullet, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-gray-300">{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
+          <div
+            style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}
+            className="grid-cols-1 md:grid-cols-2"
+          >
+            {/* AI / Automation Column */}
+            <Reveal>
+              <div
+                style={{
+                  background: 'white',
+                  borderRadius: 24,
+                  border: '1px solid var(--line)',
+                  padding: '32px 28px',
+                }}
+              >
+                <div
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 8,
+                    padding: '6px 14px',
+                    background: 'rgba(124, 58, 237, 0.08)',
+                    borderRadius: 99,
+                    fontSize: 13,
+                    fontWeight: 600,
+                    color: 'var(--accent)',
+                    marginBottom: 20,
+                  }}
+                >
+                  ⚡ Automation &amp; AI
                 </div>
-              );
-            })}
-
-            {/* Human Protection Team — full width, premium feel */}
-            <div className="md:col-span-2 rounded-xl p-8 border border-purple-500/20 bg-gradient-to-r from-purple-950/20 to-pink-950/20 hover:border-purple-500/30 transition-colors">
-              <div className="grid sm:grid-cols-2 gap-8">
-                <div>
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-green-600 to-emerald-700 flex items-center justify-center mb-4">
-                    <HeadphonesIcon className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3">Dedicated Human Protection Team</h3>
-                  <p className="text-sm text-gray-300 mb-4 leading-relaxed">
-                    Automation is powerful, but it can&apos;t do everything. That&apos;s why every Privly subscriber
-                    gets a dedicated team of human agents who actively work to protect your content — not just
-                    respond when you ask for help.
-                  </p>
-                  <p className="text-sm text-gray-400 leading-relaxed">
-                    Your team manually searches leak sites, private Telegram groups, Discord servers, and forums
-                    that automated crawlers can&apos;t access. They file takedowns, follow up with platforms,
-                    escalate to legal contacts, and monitor for re-uploads. This isn&apos;t a help desk — it&apos;s
-                    a protection team working for you every day.
-                  </p>
-                </div>
-                <div className="space-y-3">
-                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">What your team does</p>
+                <div style={{ display: 'grid', gap: 16 }}>
                   {[
-                    'Manually hunt for leaks on private channels & forums',
-                    'File and follow up on every DMCA takedown',
-                    'Escalate ignored takedowns to platform legal teams',
-                    'Submit Google de-indexing removal requests',
-                    'Monitor for re-uploads after content is removed',
-                    'Investigate new leak sources specific to you',
-                    'Provide regular protection status updates',
-                    'Handle complex or multi-platform takedown situations',
+                    { emoji: '🤖', label: 'AI content matching across 500+ platforms' },
+                    { emoji: '⚡', label: 'Instant DMCA generation & filing' },
+                    { emoji: '🧬', label: 'Forensic watermarks that survive re-encoding' },
+                    { emoji: '🛡️', label: 'Deepfake & impersonation detection' },
+                    { emoji: '🔍', label: 'Scans every 30 minutes, 24/7' },
+                    { emoji: '📬', label: 'Automated Google de-indexing requests' },
                   ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-gray-300">{item}</span>
+                    <div
+                      key={i}
+                      style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 15 }}
+                    >
+                      <span style={{ fontSize: 20 }}>{item.emoji}</span>
+                      <span style={{ color: 'var(--ink-2)' }}>{item.label}</span>
                     </div>
                   ))}
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            </Reveal>
 
-      {/* Comparison Table */}
-      <section className="relative w-full py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">Privly vs The Competition</h2>
-          <p className="text-center text-gray-400 mb-10">See how we stack up against other content protection services.</p>
-
-          <div className="rounded-xl border border-gray-800 overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="border-b border-gray-800 bg-gray-900/50">
-                  <tr>
-                    <th className="px-5 py-4 text-left text-sm font-semibold text-gray-400">Feature</th>
-                    <th className="px-5 py-4 text-center">
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 font-bold">Privly</span>
-                      <span className="block text-xs text-gray-400 font-normal mt-0.5">$49/mo</span>
-                    </th>
-                    <th className="px-5 py-4 text-center text-sm font-semibold text-gray-400">
-                      <span>Others</span>
-                      <span className="block text-xs text-gray-400 font-normal mt-0.5">$109-$324/mo</span>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-800/50">
+            {/* Human Column */}
+            <Reveal delay={120}>
+              <div
+                style={{
+                  background: 'white',
+                  borderRadius: 24,
+                  border: '1px solid var(--line)',
+                  padding: '32px 28px',
+                }}
+              >
+                <div
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 8,
+                    padding: '6px 14px',
+                    background: 'rgba(236, 72, 153, 0.08)',
+                    borderRadius: 99,
+                    fontSize: 13,
+                    fontWeight: 600,
+                    color: 'var(--hot)',
+                    marginBottom: 20,
+                  }}
+                >
+                  💜 Your protection agent
+                </div>
+                <div style={{ display: 'grid', gap: 16 }}>
                   {[
-                    { feature: 'Forensic Watermarking', privly: true, others: false },
-                    { feature: 'Leak Source Tracing', privly: true, others: false },
-                    { feature: '24/7 Leak Scanning', privly: true, others: true },
-                    { feature: 'DMCA Takedowns', privly: true, others: true },
-                    { feature: 'Proactive Channel Monitoring', privly: true, others: false },
-                    { feature: 'Copyright Registration', privly: true, others: false },
-                    { feature: 'Impersonation & AI Detection', privly: true, others: false },
-                    { feature: 'Content Vault', privly: true, others: false },
-                    { feature: 'Dedicated Human Protection Team', privly: true, others: false },
-                  ].map((row, idx) => (
-                    <tr key={idx} className="hover:bg-gray-900/30 transition-colors">
-                      <td className="px-5 py-3 text-sm font-medium">{row.feature}</td>
-                      <td className="px-5 py-3 text-center">
-                        <Check className="w-5 h-5 mx-auto text-green-400" />
-                      </td>
-                      <td className="px-5 py-3 text-center">
-                        {row.others ? (
-                          <Check className="w-5 h-5 mx-auto text-gray-400" />
-                        ) : (
-                          <X className="w-5 h-5 mx-auto text-gray-700" />
-                        )}
-                      </td>
-                    </tr>
+                    { emoji: '💬', label: 'Named agent on Slack, email, or WhatsApp' },
+                    { emoji: '🕵️', label: 'Searches private groups bots can\u2019t access' },
+                    { emoji: '⚖️', label: 'Escalates ignored takedowns to platform legal' },
+                    { emoji: '👁️', label: 'Monitors for re-uploads after removal' },
+                    { emoji: '📊', label: 'Regular protection status reports' },
+                    { emoji: '🤐', label: 'Zero judgment \u2014 our team comes from the industry' },
+                  ].map((item, i) => (
+                    <div
+                      key={i}
+                      style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 15 }}
+                    >
+                      <span style={{ fontSize: 20 }}>{item.emoji}</span>
+                      <span style={{ color: 'var(--ink-2)' }}>{item.label}</span>
+                    </div>
                   ))}
-                  <tr className="bg-gray-900/30">
-                    <td className="px-5 py-3 text-sm font-bold">Starting Price</td>
-                    <td className="px-5 py-3 text-center">
-                      <span className="text-green-400 font-bold">$49/mo</span>
-                    </td>
-                    <td className="px-5 py-3 text-center">
-                      <span className="text-gray-400 font-bold">$109-$324/mo</span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+                </div>
+              </div>
+            </Reveal>
           </div>
 
-          <p className="text-center text-xs text-gray-400 mt-4">
-            * Pricing as of February 2026. Features and pricing subject to change.
-          </p>
+          <Reveal delay={240} style={{ textAlign: 'center', marginTop: 40 }}>
+            <p
+              className="font-serif italic"
+              style={{ fontSize: 24, lineHeight: 1.35, maxWidth: 600, margin: '0 auto', fontWeight: 400 }}
+            >
+              AI finds the leak in minutes. <span className="mark-purple">Your person makes sure it stays gone</span>.
+            </p>
+          </Reveal>
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="relative w-full py-20 px-4 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 bg-gradient-to-t from-purple-950/20 via-black to-black" />
+      {/* ─── Full Feature Grid ─── */}
+      <section style={{ padding: '110px 0', background: 'var(--bg-2)' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 28px' }}>
+          <Reveal style={{ textAlign: 'center', marginBottom: 56 }}>
+            <span className="font-hand" style={{ fontSize: 26, color: 'var(--accent)' }}>
+              one plan, the works
+            </span>
+            <h2
+              className="font-serif"
+              style={{
+                fontSize: 'clamp(38px, 5vw, 56px)',
+                margin: '10px 0 0',
+                lineHeight: 1.05,
+                fontWeight: 400,
+                letterSpacing: '-0.025em',
+              }}
+            >
+              Everything you get{' '}
+              <span className="italic" style={{ color: 'var(--accent)' }}>
+                for $49/mo.
+              </span>
+            </h2>
+          </Reveal>
 
-        <div className="relative max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-5">
-            Take Back Control of{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Your Content</span>
-          </h2>
-          <p className="text-lg text-gray-300 mb-8">
-            Full protection for your content. Try it free for 7 days — no credit card required.
-          </p>
-          <a
-            href={APP_URL}
-            className="inline-flex items-center px-10 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+          <div
+            style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}
+            className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
           >
-            Start Free Trial <ArrowRight className="w-5 h-5 ml-2" />
-          </a>
-          <p className="text-gray-400 text-sm mt-4">7-day free trial. No credit card required. Cancel anytime.</p>
+            {FEATURES_LIST.map((f, i) => (
+              <Reveal
+                key={i}
+                delay={(i % 3) * 80}
+                className="card card-h"
+                style={{ padding: '28px 24px', border: '1px solid var(--line)' }}
+              >
+                <div style={{ fontSize: 36, marginBottom: 12 }}>{f.emoji}</div>
+                <h3
+                  className="font-serif"
+                  style={{
+                    fontSize: 22,
+                    margin: '0 0 8px',
+                    lineHeight: 1.15,
+                    fontWeight: 500,
+                    letterSpacing: '-0.01em',
+                  }}
+                >
+                  {f.title}
+                </h3>
+                <p style={{ fontSize: 14, color: 'var(--ink-2)', margin: 0, lineHeight: 1.55 }}>
+                  {f.body}
+                </p>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
-      <Footer />
+      {/* ─── Comparison Table ─── */}
+      <section style={{ padding: '110px 0' }}>
+        <div style={{ maxWidth: 860, margin: '0 auto', padding: '0 28px' }}>
+          <Reveal style={{ textAlign: 'center', marginBottom: 48 }}>
+            <span className="font-hand" style={{ fontSize: 26, color: 'var(--accent)' }}>
+              why switch?
+            </span>
+            <h2
+              className="font-serif"
+              style={{
+                fontSize: 'clamp(38px, 5vw, 56px)',
+                margin: '10px 0 0',
+                lineHeight: 1.05,
+                fontWeight: 400,
+                letterSpacing: '-0.025em',
+              }}
+            >
+              Privly vs.{' '}
+              <span className="italic" style={{ color: 'var(--accent)' }}>
+                everyone else.
+              </span>
+            </h2>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <div
+              style={{
+                borderRadius: 24,
+                border: '1px solid var(--line)',
+                overflow: 'hidden',
+                background: 'white',
+              }}
+            >
+              {/* Table Header */}
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 100px 100px 100px',
+                  padding: '16px 24px',
+                  borderBottom: '1px solid var(--line)',
+                  background: 'var(--bg-2)',
+                  fontSize: 13,
+                  fontWeight: 600,
+                }}
+              >
+                <span style={{ color: 'var(--ink-2)' }}>Feature</span>
+                <span style={{ textAlign: 'center', color: 'var(--accent)' }}>Privly</span>
+                <span style={{ textAlign: 'center', color: 'var(--ink-2)' }}>DMCA services</span>
+                <span style={{ textAlign: 'center', color: 'var(--ink-2)' }}>DIY</span>
+              </div>
+
+              {/* Table Rows */}
+              {COMPARE_ROWS.map(([feature, privly, dmca, diy], i) => (
+                <div
+                  key={i}
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 100px 100px 100px',
+                    padding: '14px 24px',
+                    borderBottom: i < COMPARE_ROWS.length - 1 ? '1px solid var(--line)' : 'none',
+                    fontSize: 14,
+                    alignItems: 'center',
+                  }}
+                >
+                  <span>{feature}</span>
+                  <span style={{ textAlign: 'center', fontSize: 18 }}>{privly ? '💜' : '—'}</span>
+                  <span style={{ textAlign: 'center', fontSize: 18 }}>{dmca ? '⚪' : '—'}</span>
+                  <span style={{ textAlign: 'center', fontSize: 18 }}>{diy ? '⚪' : '—'}</span>
+                </div>
+              ))}
+
+              {/* Price Row */}
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 100px 100px 100px',
+                  padding: '16px 24px',
+                  borderTop: '1px solid var(--line)',
+                  background: 'var(--bg-2)',
+                  fontSize: 14,
+                  fontWeight: 600,
+                }}
+              >
+                <span>Starting price</span>
+                <span style={{ textAlign: 'center', color: 'var(--accent)' }}>$49/mo</span>
+                <span style={{ textAlign: 'center', color: 'var(--ink-2)' }}>$109+/mo</span>
+                <span style={{ textAlign: 'center', color: 'var(--ink-2)' }}>Free*</span>
+              </div>
+            </div>
+
+            <p
+              style={{
+                fontSize: 13,
+                color: 'var(--mute)',
+                textAlign: 'center',
+                marginTop: 16,
+              }}
+            >
+              * Free in money. Costs you dozens of hours, emotional energy, and usually doesn&apos;t work.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ─── The Human Difference ─── */}
+      <section style={{ padding: '100px 0', background: 'var(--bg-2)' }}>
+        <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 28px' }}>
+          <Reveal style={{ textAlign: 'center', marginBottom: 48 }}>
+            <span className="font-hand" style={{ fontSize: 26, color: 'var(--accent)' }}>
+              the part that matters most
+            </span>
+            <h2
+              className="font-serif"
+              style={{
+                fontSize: 'clamp(34px, 4.5vw, 52px)',
+                margin: '10px 0 0',
+                lineHeight: 1.05,
+                fontWeight: 400,
+                letterSpacing: '-0.025em',
+              }}
+            >
+              Bots do the scanning.{' '}
+              <span className="italic" style={{ color: 'var(--accent)' }}>
+                Your person does the rest.
+              </span>
+            </h2>
+          </Reveal>
+
+          <Reveal delay={100}>
+            <div
+              style={{
+                background: 'white',
+                borderRadius: 24,
+                border: '1px solid var(--line)',
+                padding: '40px 36px',
+              }}
+            >
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                  gap: 32,
+                }}
+                className="grid-cols-1 md:grid-cols-2"
+              >
+                <div>
+                  <p
+                    style={{
+                      fontSize: 16,
+                      color: 'var(--ink-2)',
+                      lineHeight: 1.65,
+                      margin: '0 0 16px',
+                    }}
+                  >
+                    Every Privly account gets a named protection agent on day one. They know your
+                    content, your boundaries, and your case history. When you message them, they
+                    already know what&apos;s going on.
+                  </p>
+                  <p style={{ fontSize: 16, color: 'var(--ink-2)', lineHeight: 1.65, margin: 0 }}>
+                    They manually search private Telegram groups, hunt through invite-only Discord
+                    servers, and follow up with platform legal teams when automated takedowns get
+                    ignored. Not a chatbot. Not a ticket queue. A real person who texts you updates.
+                  </p>
+                </div>
+                <div style={{ display: 'grid', gap: 10 }}>
+                  {[
+                    'Searches places bots can\u2019t go',
+                    'Files and follows up on every DMCA',
+                    'Escalates ignored takedowns to legal',
+                    'Google de-indexing requests',
+                    'Monitors for re-uploads',
+                    'Regular protection status updates',
+                  ].map((item, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 12,
+                        fontSize: 14,
+                        color: 'var(--ink-2)',
+                      }}
+                    >
+                      <span style={{ fontSize: 18 }}>💜</span>
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div
+                style={{
+                  marginTop: 32,
+                  paddingTop: 24,
+                  borderTop: '1px solid var(--line)',
+                  textAlign: 'center',
+                }}
+              >
+                <p
+                  className="font-serif italic"
+                  style={{ fontSize: 22, fontWeight: 400, margin: 0 }}
+                >
+                  &ldquo;It feels like having a{' '}
+                  <span className="mark-purple">lawyer on retainer who actually cares</span>.&rdquo;
+                </p>
+                <p style={{ fontSize: 14, color: 'var(--mute)', marginTop: 8, margin: '8px 0 0' }}>
+                  &mdash; Jess K., Fansly creator
+                </p>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ─── CTA ─── */}
+      <section style={{ padding: '120px 0', position: 'relative' }}>
+        <div
+          style={{
+            position: 'absolute',
+            top: '20%',
+            left: '8%',
+            fontSize: 42,
+            opacity: 0.5,
+          }}
+          className="float1"
+        >
+          💜
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '18%',
+            right: '10%',
+            fontSize: 38,
+            opacity: 0.5,
+          }}
+          className="float2"
+        >
+          ✨
+        </div>
+
+        <div
+          style={{
+            maxWidth: 900,
+            margin: '0 auto',
+            padding: '0 28px',
+            textAlign: 'center',
+            position: 'relative',
+          }}
+        >
+          <Reveal>
+            <span className="font-hand" style={{ fontSize: 28, color: 'var(--accent)' }}>
+              ready when you are 💜
+            </span>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <h2
+              className="font-serif"
+              style={{
+                fontSize: 'clamp(42px, 6vw, 80px)',
+                lineHeight: 0.98,
+                margin: '14px 0 0',
+                fontWeight: 400,
+                letterSpacing: '-0.03em',
+              }}
+            >
+              You make the content.
+              <br />
+              <span className="italic" style={{ color: 'var(--accent)' }}>
+                We&apos;ll protect it.
+              </span>
+            </h2>
+          </Reveal>
+
+          <Reveal
+            delay={240}
+            style={{
+              marginTop: 28,
+              fontSize: 18,
+              color: 'var(--ink-2)',
+              maxWidth: 540,
+              margin: '28px auto 0',
+            }}
+          >
+            Seven days free. No card. One plan, everything included.
+          </Reveal>
+
+          <Reveal
+            delay={320}
+            style={{
+              marginTop: 40,
+              display: 'flex',
+              gap: 12,
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+            }}
+          >
+            <a
+              href="/get-started"
+              className="btn btn-accent"
+              style={{ padding: '18px 30px', fontSize: 17 }}
+            >
+              Start my free trial <span>&rarr;</span>
+            </a>
+            <a
+              href="/pricing"
+              className="btn btn-ghost"
+              style={{ padding: '18px 30px', fontSize: 17 }}
+            >
+              See pricing
+            </a>
+          </Reveal>
+
+          <Reveal
+            delay={420}
+            style={{
+              marginTop: 32,
+              display: 'flex',
+              gap: 14,
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+            }}
+          >
+            <span className="chip">💜 hundreds of creators</span>
+            <span className="chip">⚡ takedowns actioned instantly</span>
+            <span className="chip">🌎 every platform, every country</span>
+          </Reveal>
+        </div>
+      </section>
+
+      <MarketingFooter />
     </div>
-  );
+  )
 }

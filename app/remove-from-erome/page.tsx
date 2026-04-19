@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import MarketingHeader from '@/components/marketing/Header';
+import MarketingFooter from '@/components/marketing/Footer';
 import {
   Shield,
   FileText,
@@ -153,8 +153,8 @@ const dmcaSteps = [
 
 export default function EromeRemovalPage() {
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100 flex flex-col">
-      <Header />
+    <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col">
+      <MarketingHeader />
 
       <main className="flex-1">
         {/* Hero */}
@@ -165,19 +165,19 @@ export default function EromeRemovalPage() {
           </div>
 
           <div className="max-w-5xl mx-auto text-center relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20 text-red-300 text-sm font-medium mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20 text-red-600 text-sm font-medium mb-8">
               <Shield className="w-4 h-4" />
               Erome Leak Removal
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Remove Your Content from{" "}
-              <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
+              <span className="from-red-400 to-orange-400" style={{ color: 'var(--accent)' }}>
                 Erome
               </span>
             </h1>
 
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+            <p className="text-xl max-w-3xl mx-auto mb-10 leading-relaxed" style={{ color: 'var(--ink-2)' }}>
               Complete guide to DMCA takedowns targeting Erome's hosting infrastructure.
               Automated removal achieves 85-95% success rates within 24-72 hours.
             </p>
@@ -192,26 +192,26 @@ export default function EromeRemovalPage() {
               </Link>
               <Link
                 href="/pricing"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/5 border border-white/10 text-white font-medium text-lg hover:bg-white/10 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/5 border border-white/10 font-medium text-lg hover:bg-white/10 transition-all duration-300"
               >
                 View Pricing
               </Link>
             </div>
 
-            <p className="text-sm text-gray-400 mt-4">
+            <p className="text-sm mt-4" style={{ color: 'var(--ink-2)' }}>
               7-day free trial. No credit card required. Cancel anytime.
             </p>
           </div>
         </section>
 
         {/* The Problem */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-gray-800/50">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-[var(--line)]/50">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Erome: The Leak Aggregation Problem
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 Erome has become one of the primary repositories for leaked adult
                 content. Understanding how content spreads there is the first step to
                 effective removal.
@@ -219,32 +219,32 @@ export default function EromeRemovalPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="w-12 h-12 rounded-lg bg-red-500/10 flex items-center justify-center mb-4">
                   <AlertTriangle className="w-6 h-6 text-red-400" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Rapid Spread</h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                   Content leaked to Erome spreads to dozens of mirror sites within
                   24 hours. Early detection and removal is critical.
                 </p>
               </div>
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="w-12 h-12 rounded-lg bg-orange-500/10 flex items-center justify-center mb-4">
                   <Clock className="w-6 h-6 text-orange-400" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">High Visibility</h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                   Erome content ranks well in search results, making your leaked
                   material easily discoverable through Google.
                 </p>
               </div>
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <div className="w-12 h-12 rounded-lg bg-yellow-500/10 flex items-center justify-center mb-4">
-                  <Zap className="w-6 h-6 text-yellow-400" />
+                  <Zap className="w-6 h-6 text-yellow-600" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Persistent Reuploads</h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
                   After initial removal, leakers often re-upload removed content to
                   Erome, requiring persistent enforcement.
                 </p>
@@ -254,13 +254,13 @@ export default function EromeRemovalPage() {
         </section>
 
         {/* DMCA Process Steps */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 6-Step Erome DMCA Removal Process
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 From documentation to confirmed removal
               </p>
             </div>
@@ -273,7 +273,7 @@ export default function EromeRemovalPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                    <p className="text-gray-400 leading-relaxed">
+                    <p className="leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                       {step.description}
                     </p>
                   </div>
@@ -290,7 +290,7 @@ export default function EromeRemovalPage() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Comprehensive Erome Removal
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 Everything you need to find, remove, and prevent Erome leaks
               </p>
             </div>
@@ -301,13 +301,13 @@ export default function EromeRemovalPage() {
                 return (
                   <div
                     key={feature.title}
-                    className="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-red-600/50 transition-colors duration-300"
+                    className="border rounded-xl p-6 hover:border-red-600/50 transition-colors duration-300" style={{ background: 'white', border: '1px solid var(--line)' }}
                   >
                     <div className="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center mb-4">
                       <Icon className="w-5 h-5 text-red-400" />
                     </div>
                     <h3 className="text-base font-semibold mb-2">{feature.title}</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
+                    <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                       {feature.description}
                     </p>
                   </div>
@@ -318,7 +318,7 @@ export default function EromeRemovalPage() {
         </section>
 
         {/* Why Multi-Layer Filing Works */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -328,7 +328,7 @@ export default function EromeRemovalPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Single Layer */}
-              <div className="bg-gray-900 border border-red-500/20 rounded-xl p-8">
+              <div className="border border-red-500/20 rounded-xl p-8" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <h3 className="text-xl font-semibold text-red-400 mb-6 flex items-center gap-2">
                   <AlertTriangle className="w-5 h-5" />
                   Single-Layer Filing (Erome Only)
@@ -341,7 +341,7 @@ export default function EromeRemovalPage() {
                     "7-14 days typical removal time",
                     "Limited enforcement pressure",
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-gray-400 text-sm">
+                    <li key={idx} className="flex items-start gap-3 text-sm" style={{ color: 'var(--ink-2)' }}>
                       <span className="text-red-400 mt-0.5 flex-shrink-0">✗</span>
                       {item}
                     </li>
@@ -350,7 +350,7 @@ export default function EromeRemovalPage() {
               </div>
 
               {/* Multi-Layer */}
-              <div className="bg-gray-900 border border-green-500/20 rounded-xl p-8">
+              <div className="border border-green-500/20 rounded-xl p-8" style={{ background: 'white', border: '1px solid var(--line)' }}>
                 <h3 className="text-xl font-semibold text-green-400 mb-6 flex items-center gap-2">
                   <CheckCircle className="w-5 h-5" />
                   Multi-Layer Filing (All Infrastructure)
@@ -363,7 +363,7 @@ export default function EromeRemovalPage() {
                     "24-72 hours typical removal time",
                     "Domain registrar enforcement included",
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-gray-400 text-sm">
+                    <li key={idx} className="flex items-start gap-3 text-sm" style={{ color: 'var(--ink-2)' }}>
                       <span className="text-green-400 mt-0.5 flex-shrink-0">✓</span>
                       {item}
                     </li>
@@ -381,7 +381,7 @@ export default function EromeRemovalPage() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Erome Removal FAQ
               </h2>
-              <p className="text-gray-400">
+              <p  style={{ color: 'var(--ink-2)' }}>
                 Common questions about removing content from Erome
               </p>
             </div>
@@ -390,10 +390,10 @@ export default function EromeRemovalPage() {
               {faqItems.map((item, idx) => (
                 <div
                   key={idx}
-                  className="bg-gray-900 border border-gray-800 rounded-xl p-6"
+                  className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}
                 >
                   <h3 className="text-lg font-semibold mb-3">{item.q}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{item.a}</p>
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>{item.a}</p>
                 </div>
               ))}
             </div>
@@ -401,13 +401,13 @@ export default function EromeRemovalPage() {
         </section>
 
         {/* Related Leak Sites */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">
                 Remove from Other Leak Sites
               </h2>
-              <p className="text-gray-400">
+              <p  style={{ color: 'var(--ink-2)' }}>
                 Complete removal guides for major leak platforms
               </p>
             </div>
@@ -422,12 +422,12 @@ export default function EromeRemovalPage() {
                 <Link
                   key={site.slug}
                   href={`/${site.slug}`}
-                  className="group bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-red-600/50 transition-colors duration-300"
+                  className="group border rounded-xl p-6 hover:border-red-600/50 transition-colors duration-300" style={{ background: 'white', border: '1px solid var(--line)' }}
                 >
                   <h3 className="font-semibold text-lg group-hover:text-red-400 transition-colors duration-300 mb-2">
                     {site.name}
                   </h3>
-                  <p className="text-sm text-gray-400 group-hover:text-gray-400 transition-colors">
+                  <p className="text-sm group-hover: transition-colors" style={{ color: 'var(--ink-2)' }}>
                     DMCA removal guide
                   </p>
                 </Link>
@@ -443,12 +443,12 @@ export default function EromeRemovalPage() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Automate Erome Removal
               </h2>
-              <p className="text-lg text-gray-400 mb-3 max-w-2xl mx-auto">
+              <p className="text-lg mb-3 max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 Stop managing DMCA takedowns manually. Let Privly detect,
                 file, and track Erome removals automatically.
               </p>
-              <p className="text-2xl font-bold text-white mb-8">
-                $49<span className="text-gray-400 text-base font-normal">/month</span>
+              <p className="text-2xl font-bold mb-8">
+                $49<span className="text-base font-normal" style={{ color: 'var(--ink-2)' }}>/month</span>
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
@@ -483,7 +483,7 @@ export default function EromeRemovalPage() {
         />
       </main>
 
-      <Footer />
+      <MarketingFooter />
     </div>
   );
 }

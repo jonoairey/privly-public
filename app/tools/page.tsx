@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Header from '@/components/header';
-import Footer from '@/components/footer';
+import MarketingHeader from '@/components/marketing/Header';
+import MarketingFooter from '@/components/marketing/Footer';
 import { FileText, Zap, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -54,8 +54,8 @@ const tools: Tool[] = [
 
 export default function ToolsPage() {
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100 flex flex-col">
-      <Header />
+    <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col">
+      <MarketingHeader />
 
       <main className="flex-1">
         {/* Hero */}
@@ -66,19 +66,19 @@ export default function ToolsPage() {
           </div>
 
           <div className="max-w-5xl mx-auto text-center relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-sm font-medium mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 text-sm font-medium mb-8">
               <Zap className="w-4 h-4" />
               Free Tools for Creators
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Free Content Protection{' '}
-              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <span  style={{ color: 'var(--accent)' }}>
                 Tools
               </span>
             </h1>
 
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+            <p className="text-xl max-w-3xl mx-auto mb-10 leading-relaxed" style={{ color: 'var(--ink-2)' }}>
               Powerful, free tools to help you protect your content from leaks and
               piracy. No credit card required.
             </p>
@@ -92,16 +92,16 @@ export default function ToolsPage() {
               {tools.map((tool) => (
                 <div
                   key={tool.title}
-                  className="group bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-blue-600/50 transition-all duration-300"
+                  className="group border rounded-2xl overflow-hidden hover:border-blue-600/50 transition-all duration-300" style={{ background: 'white', border: '1px solid var(--line)' }}
                 >
                   <div className="p-8 md:flex md:items-stretch">
                     <div className="flex-1">
                       <div className="flex items-start gap-4 mb-6">
-                        <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0 text-blue-400">
+                        <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0 text-blue-600">
                           {tool.icon}
                         </div>
                         <div>
-                          <h3 className="text-2xl font-bold mb-2 group-hover:text-blue-400 transition-colors">
+                          <h3 className="text-2xl font-bold mb-2 group-hover:text-blue-600 transition-colors">
                             {tool.title}
                           </h3>
                           <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-green-500/10 text-green-400">
@@ -110,17 +110,17 @@ export default function ToolsPage() {
                         </div>
                       </div>
 
-                      <p className="text-gray-400 text-lg mb-6 leading-relaxed">
+                      <p className="text-lg mb-6 leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                         {tool.description}
                       </p>
 
                       <div className="mb-8">
-                        <h4 className="text-sm font-semibold text-gray-300 mb-3">
+                        <h4 className="text-sm font-semibold mb-3" style={{ color: 'var(--ink-2)' }}>
                           Features:
                         </h4>
                         <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                           {tool.features.map((feature, idx) => (
-                            <li key={idx} className="flex items-center gap-2 text-gray-400">
+                            <li key={idx} className="flex items-center gap-2" style={{ color: 'var(--ink-2)' }}>
                               <span className="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />
                               {feature}
                             </li>
@@ -159,11 +159,11 @@ export default function ToolsPage() {
                 ].map((tool) => (
                   <div
                     key={tool.title}
-                    className="bg-gray-900 border border-gray-800 rounded-xl p-6 opacity-75"
+                    className="border rounded-xl p-6 opacity-75" style={{ background: 'white', border: '1px solid var(--line)' }}
                   >
                     <h3 className="font-semibold mb-2">{tool.title}</h3>
-                    <p className="text-gray-400 text-sm mb-4">{tool.description}</p>
-                    <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-gray-800 text-gray-400">
+                    <p className="text-sm mb-4" style={{ color: 'var(--ink-2)' }}>{tool.description}</p>
+                    <span className="inline-block px-3 py-1 rounded-full text-xs font-medium" style={{ background: 'white', border: '1px solid var(--line)', color: 'var(--ink-2)' }}>
                       Coming Soon
                     </span>
                   </div>
@@ -174,13 +174,13 @@ export default function ToolsPage() {
         </section>
 
         {/* Why These Tools */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 /30" style={{ background: 'white', border: '1px solid var(--line)' }}>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Why Creators Need These Tools
               </h2>
-              <p className="text-lg text-gray-400">
+              <p className="text-lg" style={{ color: 'var(--ink-2)' }}>
                 Protect your content independently, without expensive legal services
               </p>
             </div>
@@ -205,10 +205,10 @@ export default function ToolsPage() {
               ].map((item) => (
                 <div
                   key={item.title}
-                  className="bg-gray-900 border border-gray-800 rounded-xl p-6"
+                  className="border rounded-xl p-6" style={{ background: 'white', border: '1px solid var(--line)' }}
                 >
                   <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
-                  <p className="text-gray-400">{item.description}</p>
+                  <p  style={{ color: 'var(--ink-2)' }}>{item.description}</p>
                 </div>
               ))}
             </div>
@@ -222,7 +222,7 @@ export default function ToolsPage() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 These Tools Are Just the Start
               </h2>
-              <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
+              <p className="text-lg mb-8 max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
                 For complete protection, use Privly's automated platform. Detect leaks
                 24/7, file takedowns instantly, and monitor removals across 500+ sites.
               </p>
@@ -238,7 +238,7 @@ export default function ToolsPage() {
         </section>
       </main>
 
-      <Footer />
+      <MarketingFooter />
     </div>
   );
 }

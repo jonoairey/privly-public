@@ -1,419 +1,741 @@
-import Header from '@/components/header';
-import Footer from '@/components/footer';
-import { generateMetadata as genMeta } from '@/lib/seo';
-import { APP_URL } from '@/lib/constants';
-import {
-  Lock,
-  Fingerprint,
-  Radar,
-  Shield,
-  CheckCircle,
-  ArrowRight,
-  HeadphonesIcon,
-} from 'lucide-react';
+import MarketingHeader from '@/components/marketing/Header'
+import MarketingFooter from '@/components/marketing/Footer'
+import Reveal from '@/components/marketing/shared/Reveal'
+import { HOW_STEPS } from '@/components/marketing/shared/data'
+import { generateMetadata as genMeta } from '@/lib/seo'
 
 export const metadata = genMeta({
   title: 'How Privly Works',
-  description: 'From invisible watermark to identified leaker in 4 steps. Learn how Privly protects your content.',
+  description:
+    'From invisible watermark to identified leaker in 4 steps. Learn how Privly protects your content.',
   path: '/how-it-works',
-});
+})
 
-const steps = [
+const TEAM_TASKS = [
   {
-    number: '1',
-    title: 'Content Vault',
-    icon: Lock,
-    color: 'purple',
-    description: 'Upload your sensitive content and receive timestamped cryptographic proof of ownership. Every file is securely stored with immutable records that stand up in court.',
-    bullets: [
-      'Instant file upload & verification',
-      'Timestamped ownership proof',
-      'Military-grade encryption',
-    ],
+    emoji: '🕵️',
+    title: 'Manual leak hunting',
+    body: 'Human agents search private Telegram groups, Discord servers, and forums that automated crawlers can\u2019t reach.',
   },
   {
-    number: '2',
-    title: 'Invisible Watermarking',
-    icon: Fingerprint,
-    color: 'pink',
-    description: "Each subscriber receives a unique, imperceptible watermark embedded in your content. It's completely invisible to the human eye but digitally traceable.",
-    bullets: [
-      'Unique mark per subscriber',
-      'Imperceptible to users',
-      'Survives format conversions',
-    ],
+    emoji: '📬',
+    title: 'DMCA filing & follow-up',
+    body: 'Every takedown is filed and tracked. If a platform is slow to respond, your team escalates directly.',
   },
   {
-    number: '3',
-    title: '24/7 Leak Scanning',
-    icon: Radar,
-    color: 'blue',
-    description: 'Our AI continuously monitors 500+ platforms worldwide for any copies of your content. Real-time detection means faster intervention and damage control.',
-    bullets: [
-      '500+ platforms monitored',
-      'AI-powered detection',
-      'Real-time alerts',
-    ],
+    emoji: '🌐',
+    title: 'Google de-indexing',
+    body: 'We submit removal requests to Google so leaked content disappears from search results entirely.',
   },
   {
-    number: '4',
-    title: 'Trace, Identify & Remove',
-    icon: Shield,
-    color: 'green',
-    description: 'Automatically decode the watermark to identify the leaker, generate legally binding evidence, and file DMCA takedowns within hours.',
-    bullets: [
-      'Instant leaker identification',
-      'Automated DMCA filing',
-      'High takedown success rate',
-    ],
+    emoji: '👁️',
+    title: 'Re-upload monitoring',
+    body: 'After content is removed, your team watches for re-uploads to the same sites and new ones.',
   },
-];
+  {
+    emoji: '⚖️',
+    title: 'Platform escalation',
+    body: 'When standard takedowns are ignored, your team contacts platform legal departments directly.',
+  },
+  {
+    emoji: '📊',
+    title: 'Protection reports',
+    body: 'Regular updates on what was found, what was removed, and what your team is currently working on.',
+  },
+]
 
-const stats = [
-  { number: '500+', label: 'Platforms Scanned', desc: 'Comprehensive coverage across the web' },
-  { number: '<2h', label: 'Detection Speed', desc: 'Average leak identified in under 2 hours' },
-  { number: '24/7', label: 'Monitoring', desc: 'Round-the-clock automated protection' },
-];
+const STATS = [
+  { value: '500+', label: 'platforms scanned' },
+  { value: '<2h', label: 'avg detection time' },
+  { value: '96%', label: 'takedown success' },
+  { value: '24/7', label: 'always watching' },
+]
 
-export default function HowItWorks() {
+export default function HowItWorksPage() {
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden">
-      <Header />
+    <div
+      style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }}
+      className="flex flex-col overflow-hidden"
+    >
+      <MarketingHeader />
 
-      {/* Hero — compact with inline 4-step overview */}
-      <section className="relative w-full pt-28 pb-12 px-4 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-950/20 via-black to-black" />
+      {/* ─── Hero ─── */}
+      <section style={{ padding: '160px 0 80px', position: 'relative' }}>
+        <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 28px', textAlign: 'center' }}>
+          <Reveal>
+            <span className="font-hand" style={{ fontSize: 28, color: 'var(--accent)' }}>
+              four steps, zero stress
+            </span>
+          </Reveal>
 
-        <div className="relative max-w-5xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
-            How Privly <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Works</span>
-          </h1>
-          <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-            From invisible watermark to identified leaker in 4 steps. Full protection, fully automated.
-          </p>
-
-          {/* 4-step flow — visible above the fold */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8">
-            {steps.map((step, idx) => {
-              const Icon = step.icon;
-              return (
-                <a key={idx} href={`#step-${step.number}`} className="group">
-                  <div className="rounded-xl p-4 sm:p-5 border border-gray-800 bg-gray-900/50 hover:border-purple-500/30 transition-colors text-center">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center mx-auto mb-3">
-                      <Icon className="w-5 h-5 text-white" />
-                    </div>
-                    <div className="text-xs text-gray-400 mb-1">Step {step.number}</div>
-                    <div className="text-sm font-semibold text-white group-hover:text-purple-300 transition-colors">{step.title}</div>
-                  </div>
-                </a>
-              );
-            })}
-          </div>
-
-          {/* Stats row */}
-          <div className="flex flex-wrap justify-center gap-8 pt-6 border-t border-gray-800">
-            {stats.map((stat, i) => (
-              <div key={i} className="text-center">
-                <div className="text-2xl font-bold text-white">{stat.number}</div>
-                <div className="text-xs text-gray-400">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8">
-            <a
-              href={`${APP_URL}/auth/signup`}
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+          <Reveal delay={100}>
+            <h1
+              className="font-serif"
+              style={{
+                fontSize: 'clamp(48px, 7vw, 96px)',
+                lineHeight: 0.98,
+                margin: '14px 0 0',
+                fontWeight: 400,
+                letterSpacing: '-0.03em',
+              }}
             >
-              Start Free Trial <ArrowRight className="w-4 h-4 ml-2" />
-            </a>
-            <p className="text-sm text-gray-400 mt-3">7-day free trial. No credit card required.</p>
+              Upload. Watermark.
+              <br />
+              <span className="italic" style={{ color: 'var(--accent)' }}>
+                We handle the rest.
+              </span>
+            </h1>
+          </Reveal>
+
+          <Reveal
+            delay={200}
+            style={{
+              marginTop: 24,
+              fontSize: 18,
+              color: 'var(--ink-2)',
+              maxWidth: 560,
+              margin: '24px auto 0',
+              lineHeight: 1.6,
+            }}
+          >
+            From invisible watermark to identified leaker &mdash; fully automated, fully human-backed.
+            Here&apos;s exactly what happens when you sign up.
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ─── Four Steps ─── */}
+      <section style={{ padding: '60px 0 100px', background: 'var(--bg-2)' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 28px' }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(4, 1fr)',
+              gap: 20,
+              position: 'relative',
+            }}
+            className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+          >
+            {HOW_STEPS.map((s, i) => (
+              <Reveal
+                key={i}
+                delay={i * 100}
+                style={{
+                  padding: '36px 28px 32px',
+                  background: 'white',
+                  borderRadius: 24,
+                  border: '1px solid var(--line)',
+                  position: 'relative',
+                }}
+              >
+                <div style={{ fontSize: 48, marginBottom: 16 }}>{s.emoji}</div>
+                <div
+                  className="font-hand"
+                  style={{ fontSize: 22, color: 'var(--accent)', marginBottom: 4 }}
+                >
+                  step {s.n}
+                </div>
+                <h3
+                  className="font-serif"
+                  style={{
+                    fontSize: 26,
+                    margin: '0 0 12px',
+                    lineHeight: 1.1,
+                    fontWeight: 500,
+                    letterSpacing: '-0.015em',
+                  }}
+                >
+                  {s.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: 15,
+                    color: 'var(--ink-2)',
+                    margin: 0,
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {s.body}
+                </p>
+                <div
+                  className="font-hand"
+                  style={{ marginTop: 16, fontSize: 18, color: 'var(--mute)' }}
+                >
+                  ✨ {s.note}
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Detailed Steps */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto space-y-24">
+      {/* ─── Deep Dive: Each Step Expanded ─── */}
+      <section style={{ padding: '100px 0' }}>
+        <div style={{ maxWidth: 960, margin: '0 auto', padding: '0 28px' }}>
+          <Reveal style={{ textAlign: 'center', marginBottom: 72 }}>
+            <span className="font-hand" style={{ fontSize: 26, color: 'var(--accent)' }}>
+              let&apos;s go deeper
+            </span>
+            <h2
+              className="font-serif"
+              style={{
+                fontSize: 'clamp(38px, 5vw, 56px)',
+                margin: '10px 0 0',
+                lineHeight: 1.05,
+                fontWeight: 400,
+                letterSpacing: '-0.025em',
+              }}
+            >
+              Every step, <span className="italic" style={{ color: 'var(--accent)' }}>explained.</span>
+            </h2>
+          </Reveal>
 
-          {/* Step 1: Content Vault */}
-          <div id="step-1" className="scroll-mt-24 grid md:grid-cols-2 gap-10 items-center">
-            <div>
-              <div className="flex items-baseline gap-3 mb-4">
-                <span className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">1</span>
-                <span className="text-xs font-semibold text-purple-300 bg-purple-500/10 border border-purple-500/30 px-3 py-1 rounded-full">Step One</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4">Content Vault</h2>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                {steps[0].description}
-              </p>
-              <ul className="space-y-3">
-                {steps[0].bullets.map((bullet, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-300 text-sm">{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
-              <div className="space-y-3">
-                {[
-                  { name: 'document.pdf', size: '1.2 MB' },
-                  { name: 'design.figma', size: '3.4 MB' },
-                  { name: 'presentation.pptx', size: '5.1 MB' },
-                ].map((file, i) => (
-                  <div key={i} className="flex items-center justify-between p-3 bg-gray-800/50 rounded-lg border border-gray-700/50">
-                    <div className="flex items-center gap-3">
-                      <Lock className="w-4 h-4 text-purple-400" />
-                      <span className="text-sm">{file.name}</span>
-                    </div>
-                    <span className="text-xs text-gray-400">{file.size}</span>
+          <div style={{ display: 'grid', gap: 64 }}>
+            {/* Step 1 */}
+            <Reveal>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                  gap: 48,
+                  alignItems: 'center',
+                }}
+                className="grid-cols-1 md:grid-cols-2"
+              >
+                <div>
+                  <div className="font-hand" style={{ fontSize: 20, color: 'var(--accent)', marginBottom: 8 }}>
+                    step 01
                   </div>
-                ))}
-                <div className="pt-3 border-t border-gray-800 mt-3">
-                  <p className="text-xs text-gray-400">
-                    Verified: <span className="text-green-400 font-medium">2025-03-10 09:32:45 UTC</span>
+                  <h3
+                    className="font-serif"
+                    style={{ fontSize: 32, margin: '0 0 16px', fontWeight: 500, letterSpacing: '-0.02em' }}
+                  >
+                    Upload &amp; fingerprint
+                  </h3>
+                  <p style={{ fontSize: 16, color: 'var(--ink-2)', lineHeight: 1.65, margin: '0 0 16px' }}>
+                    Drop your content into the Privly vault. Every subscriber who downloads it gets their
+                    own invisible watermark &mdash; a unique digital fingerprint baked into the file itself.
+                    It&apos;s invisible to the eye, survives compression, cropping, and format conversion.
+                  </p>
+                  <p style={{ fontSize: 16, color: 'var(--ink-2)', lineHeight: 1.65, margin: 0 }}>
+                    Your originals are stored in an AES-256 encrypted vault with timestamped proof of
+                    ownership. We physically can&apos;t view them &mdash; and neither can your protection agent.
+                  </p>
+                </div>
+                <div
+                  style={{
+                    background: 'var(--bg-2)',
+                    borderRadius: 20,
+                    border: '1px solid var(--line)',
+                    padding: 28,
+                  }}
+                >
+                  <div style={{ fontSize: 13, color: 'var(--mute)', marginBottom: 16, textTransform: 'uppercase', letterSpacing: '.06em' }}>
+                    Content Vault
+                  </div>
+                  {['photo_set_042.zip', 'exclusive_vid_march.mp4', 'custom_request_jay.jpg'].map(
+                    (name, i) => (
+                      <div
+                        key={i}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          padding: '12px 16px',
+                          background: 'white',
+                          borderRadius: 12,
+                          border: '1px solid var(--line)',
+                          marginBottom: 8,
+                          fontSize: 14,
+                        }}
+                      >
+                        <span>🔐 {name}</span>
+                        <span style={{ fontSize: 12, color: 'var(--accent)' }}>✓ watermarked</span>
+                      </div>
+                    ),
+                  )}
+                  <div
+                    className="font-hand"
+                    style={{ marginTop: 12, textAlign: 'center', fontSize: 16, color: 'var(--mute)' }}
+                  >
+                    encrypted · zero-knowledge · yours forever
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Step 2 */}
+            <Reveal delay={100}>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                  gap: 48,
+                  alignItems: 'center',
+                }}
+                className="grid-cols-1 md:grid-cols-2"
+              >
+                <div
+                  className="order-2 md:order-1"
+                  style={{
+                    background: 'var(--bg-2)',
+                    borderRadius: 20,
+                    border: '1px solid var(--line)',
+                    padding: 28,
+                    textAlign: 'center',
+                  }}
+                >
+                  <div style={{ fontSize: 13, color: 'var(--mute)', marginBottom: 16, textTransform: 'uppercase', letterSpacing: '.06em' }}>
+                    Scanning now...
+                  </div>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 16 }}>
+                    {['Telegram', 'Discord', 'Reddit', 'Mega'].map((p) => (
+                      <div
+                        key={p}
+                        style={{
+                          padding: '10px 14px',
+                          background: 'white',
+                          borderRadius: 10,
+                          border: '1px solid var(--line)',
+                          fontSize: 13,
+                        }}
+                      >
+                        👀 {p}
+                      </div>
+                    ))}
+                  </div>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+                    {['Tube sites', 'Cyberlockers', 'Image boards', 'Forums'].map((p) => (
+                      <div
+                        key={p}
+                        style={{
+                          padding: '10px 14px',
+                          background: 'white',
+                          borderRadius: 10,
+                          border: '1px solid var(--line)',
+                          fontSize: 13,
+                        }}
+                      >
+                        👀 {p}
+                      </div>
+                    ))}
+                  </div>
+                  <div
+                    className="font-hand"
+                    style={{ marginTop: 16, fontSize: 16, color: 'var(--mute)' }}
+                  >
+                    500+ platforms, every 30 minutes
+                  </div>
+                </div>
+                <div className="order-1 md:order-2">
+                  <div className="font-hand" style={{ fontSize: 20, color: 'var(--accent)', marginBottom: 8 }}>
+                    step 02
+                  </div>
+                  <h3
+                    className="font-serif"
+                    style={{ fontSize: 32, margin: '0 0 16px', fontWeight: 500, letterSpacing: '-0.02em' }}
+                  >
+                    We scan. 24/7.
+                  </h3>
+                  <p style={{ fontSize: 16, color: 'var(--ink-2)', lineHeight: 1.65, margin: '0 0 16px' }}>
+                    The moment your content is uploaded, our bots start scanning. Telegram channels, Discord
+                    servers, Reddit, Mega, tube sites, cyberlockers, image boards, niche forums &mdash;
+                    over 500 platforms, every 30 minutes, around the clock.
+                  </p>
+                  <p style={{ fontSize: 16, color: 'var(--ink-2)', lineHeight: 1.65, margin: 0 }}>
+                    And where bots can&apos;t go &mdash; private groups, invite-only channels &mdash; your
+                    dedicated human agent picks up the slack. You do nothing. We do everything.
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
+            </Reveal>
 
-          {/* Divider */}
-          <div className="h-px bg-gray-800" />
-
-          {/* Step 2: Invisible Watermarking */}
-          <div id="step-2" className="scroll-mt-24 grid md:grid-cols-2 gap-10 items-center">
-            <div className="order-2 md:order-1 rounded-xl border border-gray-800 bg-gray-900/50 p-6">
-              <div className="space-y-5">
-                <div className="text-center">
-                  <p className="text-xs text-gray-400 mb-3">BEFORE WATERMARK</p>
-                  <div className="bg-gray-800 rounded-lg p-6 h-24 flex items-center justify-center">
-                    <p className="text-lg font-bold text-gray-400">Your Content</p>
+            {/* Step 3 */}
+            <Reveal delay={100}>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                  gap: 48,
+                  alignItems: 'center',
+                }}
+                className="grid-cols-1 md:grid-cols-2"
+              >
+                <div>
+                  <div className="font-hand" style={{ fontSize: 20, color: 'var(--accent)', marginBottom: 8 }}>
+                    step 03
                   </div>
+                  <h3
+                    className="font-serif"
+                    style={{ fontSize: 32, margin: '0 0 16px', fontWeight: 500, letterSpacing: '-0.02em' }}
+                  >
+                    Leak found &rarr; we trace it.
+                  </h3>
+                  <p style={{ fontSize: 16, color: 'var(--ink-2)', lineHeight: 1.65, margin: '0 0 16px' }}>
+                    When we find your content somewhere it shouldn&apos;t be, the watermark tells us exactly
+                    which subscriber released it. Their account, their email, and exactly when they shared it.
+                  </p>
+                  <p style={{ fontSize: 16, color: 'var(--ink-2)', lineHeight: 1.65, margin: 0 }}>
+                    No guessing. No ambiguity. You get the receipts. Ban them, refund them, blacklist them
+                    &mdash; it&apos;s your call. We give you the evidence and let you decide.
+                  </p>
                 </div>
-                <div className="text-center">
-                  <span className="inline-block text-xs text-purple-300 font-medium bg-purple-500/10 border border-purple-500/30 px-3 py-1 rounded-full">
-                    Watermark: Invisible
-                  </span>
-                </div>
-                <div className="text-center">
-                  <p className="text-xs text-gray-400 mb-3">AFTER WATERMARK</p>
-                  <div className="bg-gradient-to-br from-purple-900/20 to-gray-800 rounded-lg p-6 h-24 flex items-center justify-center relative overflow-hidden">
-                    <p className="text-lg font-bold text-gray-400">Your Content</p>
-                    <div className="absolute inset-0 opacity-5 pointer-events-none" style={{backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(168, 85, 247, 0.15) 35px, rgba(168, 85, 247, 0.15) 70px)'}} />
+                <div
+                  style={{
+                    background: 'var(--bg-2)',
+                    borderRadius: 20,
+                    border: '1px solid var(--line)',
+                    padding: 28,
+                  }}
+                >
+                  <div style={{ fontSize: 13, color: 'var(--mute)', marginBottom: 16, textTransform: 'uppercase', letterSpacing: '.06em' }}>
+                    Leak Report
                   </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="order-1 md:order-2">
-              <div className="flex items-baseline gap-3 mb-4">
-                <span className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">2</span>
-                <span className="text-xs font-semibold text-pink-300 bg-pink-500/10 border border-pink-500/30 px-3 py-1 rounded-full">Step Two</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4">Invisible Watermarking</h2>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                {steps[1].description}
-              </p>
-              <ul className="space-y-3">
-                {steps[1].bullets.map((bullet, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-300 text-sm">{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Divider */}
-          <div className="h-px bg-gray-800" />
-
-          {/* Step 3: 24/7 Leak Scanning */}
-          <div id="step-3" className="scroll-mt-24 grid md:grid-cols-2 gap-10 items-center">
-            <div>
-              <div className="flex items-baseline gap-3 mb-4">
-                <span className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">3</span>
-                <span className="text-xs font-semibold text-blue-300 bg-blue-500/10 border border-blue-500/30 px-3 py-1 rounded-full">Step Three</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4">24/7 Leak Scanning</h2>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                {steps[2].description}
-              </p>
-              <ul className="space-y-3">
-                {steps[2].bullets.map((bullet, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-300 text-sm">{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
-              <div className="flex items-center justify-center h-56 relative">
-                {/* Radar animation */}
-                <div className="absolute w-16 h-16 border border-blue-400/30 rounded-full animate-pulse" />
-                <div className="absolute w-28 h-28 border border-blue-400/20 rounded-full animate-pulse" style={{animationDelay: '0.3s'}} />
-                <div className="absolute w-44 h-44 border border-blue-400/10 rounded-full animate-pulse" style={{animationDelay: '0.6s'}} />
-                <div className="absolute w-3 h-3 bg-blue-400 rounded-full" />
-                <div className="absolute w-24 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent animate-spin" style={{animationDuration: '2s'}} />
-                <div className="absolute top-3 right-3 text-right">
-                  <p className="text-xs text-blue-300">Platforms</p>
-                  <p className="text-lg font-bold text-blue-400">500+</p>
-                </div>
-                <div className="absolute bottom-3 left-3">
-                  <p className="text-xs text-gray-400">Scanning every 30 min</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Divider */}
-          <div className="h-px bg-gray-800" />
-
-          {/* Step 4: Trace, Identify & Remove */}
-          <div id="step-4" className="scroll-mt-24 grid md:grid-cols-2 gap-10 items-center">
-            <div className="order-2 md:order-1 rounded-xl border border-gray-800 bg-gray-900/50 p-6">
-              <div className="space-y-3">
-                <div className="flex items-center justify-between p-3 bg-green-500/10 border border-green-500/20 rounded-lg">
-                  <span className="text-sm font-medium">Watermark Detected</span>
-                  <span className="text-xs bg-green-500/20 text-green-300 px-2 py-0.5 rounded">Found</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-gray-800/50 border border-gray-700/50 rounded-lg">
-                  <span className="text-sm">Leaker Identified</span>
-                  <span className="text-xs text-gray-400">User ID: 4827</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-gray-800/50 border border-gray-700/50 rounded-lg">
-                  <span className="text-sm">Platform</span>
-                  <span className="text-xs text-gray-400">pastebin.com</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-gray-800/50 border border-gray-700/50 rounded-lg">
-                  <span className="text-sm">Detection Time</span>
-                  <span className="text-xs text-gray-400">47 minutes</span>
-                </div>
-                <div className="p-3 bg-purple-500/10 border border-purple-500/20 rounded-lg mt-1">
-                  <p className="text-xs text-purple-300 font-medium mb-1">DMCA Filed</p>
-                  <p className="text-xs text-gray-400">Takedown request submitted automatically</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="order-1 md:order-2">
-              <div className="flex items-baseline gap-3 mb-4">
-                <span className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">4</span>
-                <span className="text-xs font-semibold text-green-300 bg-green-500/10 border border-green-500/30 px-3 py-1 rounded-full">Step Four</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4">Trace, Identify & Remove</h2>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                {steps[3].description}
-              </p>
-              <ul className="space-y-3">
-                {steps[3].bullets.map((bullet, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-300 text-sm">{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Divider */}
-          <div className="h-px bg-gray-800" />
-
-          {/* Step 5: Your Dedicated Protection Team */}
-          <div id="step-5" className="scroll-mt-24">
-            <div className="text-center mb-10">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <span className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">+</span>
-                <span className="text-xs font-semibold text-emerald-300 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full">Always On</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4">Your Dedicated Protection Team</h2>
-              <p className="text-gray-300 max-w-2xl mx-auto leading-relaxed">
-                Automation handles the speed. But your dedicated human agents handle
-                everything else — the places bots can&apos;t reach, the follow-ups platforms
-                ignore, and the complex situations that need a real person.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-purple-500/20 bg-gradient-to-br from-purple-950/20 to-gray-900/80 p-8 sm:p-10">
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {[
-                  {
-                    title: 'Manual Leak Hunting',
-                    desc: 'Human agents search private Telegram groups, Discord servers, and forums that automated crawlers miss.',
-                  },
-                  {
-                    title: 'DMCA Filing & Follow-up',
-                    desc: 'Every takedown is filed and tracked. If a platform is slow to respond, your team escalates directly.',
-                  },
-                  {
-                    title: 'Google De-indexing',
-                    desc: 'We submit removal requests to Google so leaked content disappears from search results entirely.',
-                  },
-                  {
-                    title: 'Re-upload Monitoring',
-                    desc: 'After content is removed, your team watches for re-uploads to the same sites and new ones.',
-                  },
-                  {
-                    title: 'Platform Escalation',
-                    desc: 'When standard takedowns are ignored, your team contacts platform legal departments directly.',
-                  },
-                  {
-                    title: 'Protection Reports',
-                    desc: 'Regular updates on what was found, what was removed, and what your team is currently working on.',
-                  },
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <CheckCircle className="w-3.5 h-3.5 text-white" />
+                  <div
+                    style={{
+                      padding: '14px 16px',
+                      background: 'rgba(236, 72, 153, 0.08)',
+                      borderRadius: 12,
+                      border: '1px solid rgba(236, 72, 153, 0.2)',
+                      marginBottom: 10,
+                      fontSize: 14,
+                    }}
+                  >
+                    <span style={{ fontWeight: 600 }}>🚨 Leak detected</span>
+                    <span style={{ color: 'var(--ink-2)', marginLeft: 8 }}>photo_set_042.zip</span>
+                  </div>
+                  {[
+                    ['Subscriber', 'user_8291 (john_d@...com)'],
+                    ['Platform', 'Telegram · @leaks_channel'],
+                    ['Shared', '14 minutes ago'],
+                    ['Watermark match', '99.8%'],
+                  ].map(([label, value], i) => (
+                    <div
+                      key={i}
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        padding: '10px 16px',
+                        background: 'white',
+                        borderRadius: 10,
+                        border: '1px solid var(--line)',
+                        marginBottom: 6,
+                        fontSize: 13,
+                      }}
+                    >
+                      <span style={{ color: 'var(--ink-2)' }}>{label}</span>
+                      <span style={{ fontWeight: 500 }}>{value}</span>
                     </div>
-                    <div>
-                      <p className="text-sm font-medium text-white mb-1">{item.title}</p>
-                      <p className="text-xs text-gray-400">{item.desc}</p>
-                    </div>
+                  ))}
+                  <div
+                    className="font-hand"
+                    style={{ marginTop: 12, textAlign: 'center', fontSize: 16, color: 'var(--hot)' }}
+                  >
+                    caught red-handed 🎯
                   </div>
-                ))}
+                </div>
               </div>
+            </Reveal>
 
-              <div className="mt-8 pt-6 border-t border-gray-800 text-center">
-                <p className="text-gray-300 text-sm">
-                  <span className="font-semibold text-white">This isn&apos;t a helpdesk.</span> Your
-                  protection team is actively working for you every day — finding leaks, filing takedowns,
-                  and making sure your content stays protected.
-                </p>
+            {/* Step 4 */}
+            <Reveal delay={100}>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                  gap: 48,
+                  alignItems: 'center',
+                }}
+                className="grid-cols-1 md:grid-cols-2"
+              >
+                <div
+                  className="order-2 md:order-1"
+                  style={{
+                    background: 'var(--bg-2)',
+                    borderRadius: 20,
+                    border: '1px solid var(--line)',
+                    padding: 28,
+                  }}
+                >
+                  <div style={{ fontSize: 13, color: 'var(--mute)', marginBottom: 16, textTransform: 'uppercase', letterSpacing: '.06em' }}>
+                    Takedown Status
+                  </div>
+                  {[
+                    { label: 'DMCA filed', status: '✅ sent', color: 'var(--accent)' },
+                    { label: 'Platform notified', status: '✅ confirmed', color: 'var(--accent)' },
+                    { label: 'Content removed', status: '✅ gone', color: 'var(--accent)' },
+                    { label: 'Google de-indexed', status: '✅ removed', color: 'var(--accent)' },
+                  ].map((item, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        padding: '12px 16px',
+                        background: 'white',
+                        borderRadius: 10,
+                        border: '1px solid var(--line)',
+                        marginBottom: 8,
+                        fontSize: 14,
+                      }}
+                    >
+                      <span>{item.label}</span>
+                      <span style={{ color: item.color, fontWeight: 500, fontSize: 13 }}>
+                        {item.status}
+                      </span>
+                    </div>
+                  ))}
+                  <div
+                    className="font-hand"
+                    style={{ marginTop: 12, textAlign: 'center', fontSize: 16, color: 'var(--accent)' }}
+                  >
+                    receipts included 💜
+                  </div>
+                </div>
+                <div className="order-1 md:order-2">
+                  <div className="font-hand" style={{ fontSize: 20, color: 'var(--accent)', marginBottom: 8 }}>
+                    step 04
+                  </div>
+                  <h3
+                    className="font-serif"
+                    style={{ fontSize: 32, margin: '0 0 16px', fontWeight: 500, letterSpacing: '-0.02em' }}
+                  >
+                    Gone in hours.
+                  </h3>
+                  <p style={{ fontSize: 16, color: 'var(--ink-2)', lineHeight: 1.65, margin: '0 0 16px' }}>
+                    Automated DMCAs go out the second a leak is found. No queues, no forms to fill, no
+                    three-week wait. Our system files the claim and a real human chases the platform until
+                    it&apos;s actually removed.
+                  </p>
+                  <p style={{ fontSize: 16, color: 'var(--ink-2)', lineHeight: 1.65, margin: 0 }}>
+                    We don&apos;t just remove the host &mdash; we make sure it disappears from Google search
+                    results too. And then we keep watching in case it gets re-uploaded.
+                  </p>
+                </div>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="relative w-full py-20 px-4 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 bg-gradient-to-t from-purple-950/20 via-black to-black" />
-
-        <div className="relative max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-5">
-            Ready to protect your content?
-          </h2>
-          <p className="text-lg text-gray-300 mb-8">
-            Full protection for your content. Try it free for 7 days — no credit card required.
-          </p>
-          <a
-            href={`${APP_URL}/auth/signup`}
-            className="inline-flex items-center px-10 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+      {/* ─── Stats Strip ─── */}
+      <section style={{ padding: '64px 0', background: 'var(--bg-2)' }}>
+        <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 28px' }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(4, 1fr)',
+              gap: 24,
+              textAlign: 'center',
+            }}
+            className="grid-cols-2 sm:grid-cols-4"
           >
-            Start Free Trial <ArrowRight className="w-5 h-5 ml-2" />
-          </a>
-          <p className="text-gray-400 text-sm mt-4">7-day free trial. No credit card required. Cancel anytime.</p>
+            {STATS.map((s, i) => (
+              <Reveal key={i} delay={i * 80}>
+                <div
+                  className="font-serif"
+                  style={{ fontSize: 40, fontWeight: 400, letterSpacing: '-0.03em', lineHeight: 1 }}
+                >
+                  {s.value}
+                </div>
+                <div style={{ fontSize: 14, color: 'var(--ink-2)', marginTop: 6 }}>{s.label}</div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
-      <Footer />
+      {/* ─── Your Protection Team ─── */}
+      <section style={{ padding: '110px 0' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 28px' }}>
+          <Reveal style={{ textAlign: 'center', marginBottom: 56 }}>
+            <span className="font-hand" style={{ fontSize: 26, color: 'var(--accent)' }}>
+              bots + humans = you win
+            </span>
+            <h2
+              className="font-serif"
+              style={{
+                fontSize: 'clamp(38px, 5vw, 56px)',
+                margin: '10px 0 0',
+                lineHeight: 1.05,
+                fontWeight: 400,
+                letterSpacing: '-0.025em',
+              }}
+            >
+              Your dedicated{' '}
+              <span className="italic" style={{ color: 'var(--accent)' }}>
+                protection team.
+              </span>
+            </h2>
+            <p
+              style={{
+                fontSize: 17,
+                color: 'var(--ink-2)',
+                maxWidth: 600,
+                margin: '20px auto 0',
+                lineHeight: 1.6,
+              }}
+            >
+              Automation handles the speed. Your named protection agent handles everything else &mdash;
+              the places bots can&apos;t reach, the follow-ups platforms ignore, and the situations
+              that need a real person who knows your case.
+            </p>
+          </Reveal>
+
+          <div
+            style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}
+            className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+          >
+            {TEAM_TASKS.map((t, i) => (
+              <Reveal
+                key={i}
+                delay={(i % 3) * 80}
+                className="card card-h"
+                style={{ padding: '28px 24px', border: '1px solid var(--line)' }}
+              >
+                <div style={{ fontSize: 36, marginBottom: 12 }}>{t.emoji}</div>
+                <h3
+                  className="font-serif"
+                  style={{
+                    fontSize: 22,
+                    margin: '0 0 8px',
+                    lineHeight: 1.15,
+                    fontWeight: 500,
+                    letterSpacing: '-0.01em',
+                  }}
+                >
+                  {t.title}
+                </h3>
+                <p style={{ fontSize: 14, color: 'var(--ink-2)', margin: 0, lineHeight: 1.55 }}>
+                  {t.body}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={300} style={{ textAlign: 'center', marginTop: 48 }}>
+            <p
+              className="font-serif italic"
+              style={{
+                fontSize: 26,
+                lineHeight: 1.35,
+                maxWidth: 680,
+                margin: '0 auto',
+                fontWeight: 400,
+              }}
+            >
+              This isn&apos;t a helpdesk. It&apos;s a{' '}
+              <span className="mark-purple">protection team working for you every day</span>.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ─── CTA ─── */}
+      <section style={{ padding: '120px 0', position: 'relative' }}>
+        <div
+          style={{
+            position: 'absolute',
+            top: '20%',
+            left: '8%',
+            fontSize: 42,
+            opacity: 0.5,
+          }}
+          className="float1"
+        >
+          💜
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '18%',
+            right: '10%',
+            fontSize: 38,
+            opacity: 0.5,
+          }}
+          className="float2"
+        >
+          ✨
+        </div>
+
+        <div
+          style={{
+            maxWidth: 900,
+            margin: '0 auto',
+            padding: '0 28px',
+            textAlign: 'center',
+            position: 'relative',
+          }}
+        >
+          <Reveal>
+            <span className="font-hand" style={{ fontSize: 28, color: 'var(--accent)' }}>
+              ready when you are 💜
+            </span>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <h2
+              className="font-serif"
+              style={{
+                fontSize: 'clamp(42px, 6vw, 80px)',
+                lineHeight: 0.98,
+                margin: '14px 0 0',
+                fontWeight: 400,
+                letterSpacing: '-0.03em',
+              }}
+            >
+              You make the content.
+              <br />
+              <span className="italic" style={{ color: 'var(--accent)' }}>
+                We&apos;ll protect it.
+              </span>
+            </h2>
+          </Reveal>
+
+          <Reveal
+            delay={240}
+            style={{
+              marginTop: 28,
+              fontSize: 18,
+              color: 'var(--ink-2)',
+              maxWidth: 540,
+              margin: '28px auto 0',
+            }}
+          >
+            Seven days free. No card. If we haven&apos;t pulled at least one leak of yours off the
+            internet by day seven, you never pay us a cent.
+          </Reveal>
+
+          <Reveal
+            delay={320}
+            style={{
+              marginTop: 40,
+              display: 'flex',
+              gap: 12,
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+            }}
+          >
+            <a
+              href="/get-started"
+              className="btn btn-accent"
+              style={{ padding: '18px 30px', fontSize: 17 }}
+            >
+              Start my free trial <span>&rarr;</span>
+            </a>
+            <a
+              href="/pricing"
+              className="btn btn-ghost"
+              style={{ padding: '18px 30px', fontSize: 17 }}
+            >
+              See pricing
+            </a>
+          </Reveal>
+        </div>
+      </section>
+
+      <MarketingFooter />
     </div>
-  );
+  )
 }
