@@ -26,7 +26,7 @@ export default function WeGetIt() {
           </p>
         </Reveal>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }} className="grid-cols-1 md:grid-cols-3">
+        <div style={{ display: 'grid', gap: 24 }} className="grid-cols-1 md:grid-cols-3">
           {EMPATHY_CARDS.map((f, i) => (
             <Reveal key={i} delay={i * 100} className="card card-h" style={{ padding: '32px 28px', border: '1px solid var(--line)' }}>
               <div style={{ fontSize: 48, marginBottom: 16 }}>{f.emoji}</div>

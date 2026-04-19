@@ -60,11 +60,11 @@ export default function Pricing() {
               {isTrial ? '7 days free 💜' : 'start today 💜'}
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }} className="grid-cols-1 md:grid-cols-2">
+            <div style={{ display: 'grid' }} className="grid-cols-1 md:grid-cols-2">
               {/* Left — Price + toggle */}
               <div
                 style={{
-                  padding: '48px 44px',
+                  padding: 'clamp(28px, 4vw, 48px) clamp(20px, 4vw, 44px)',
                   background: 'linear-gradient(180deg, var(--bg-2), var(--bg))',
                   borderRight: '1px solid var(--line)',
                 }}
@@ -73,7 +73,7 @@ export default function Pricing() {
                   The everything plan
                 </div>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: 6, marginBottom: 14 }}>
-                  <span className="font-serif" style={{ fontSize: 96, lineHeight: 1, fontWeight: 400, letterSpacing: '-0.04em' }}>
+                  <span className="font-serif" style={{ fontSize: 'clamp(56px, 12vw, 96px)', lineHeight: 1, fontWeight: 400, letterSpacing: '-0.04em' }}>
                     $49
                   </span>
                   <span style={{ fontSize: 15, color: 'var(--mute)' }}>/month</span>
@@ -144,7 +144,7 @@ export default function Pricing() {
               </div>
 
               {/* Right — Feature list */}
-              <div style={{ padding: '48px 44px' }}>
+              <div style={{ padding: 'clamp(28px, 4vw, 48px) clamp(20px, 4vw, 44px)' }}>
                 <div style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 20, fontWeight: 600 }}>
                   {isTrial ? 'What\u2019s included in the trial:' : 'Everything\u2019s in the box:'}
                 </div>

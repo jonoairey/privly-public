@@ -110,7 +110,6 @@ export default function HowItWorksPage() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
               gap: 20,
               position: 'relative',
             }}
@@ -196,7 +195,6 @@ export default function HowItWorksPage() {
               <div
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
                   gap: 48,
                   alignItems: 'center',
                 }}
@@ -269,7 +267,6 @@ export default function HowItWorksPage() {
               <div
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
                   gap: 48,
                   alignItems: 'center',
                 }}
@@ -355,7 +352,6 @@ export default function HowItWorksPage() {
               <div
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
                   gap: 48,
                   alignItems: 'center',
                 }}
@@ -442,7 +438,6 @@ export default function HowItWorksPage() {
               <div
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
                   gap: 48,
                   alignItems: 'center',
                 }}
@@ -525,7 +520,6 @@ export default function HowItWorksPage() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
               gap: 24,
               textAlign: 'center',
             }}
@@ -584,7 +578,7 @@ export default function HowItWorksPage() {
           </Reveal>
 
           <div
-            style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}
+            style={{ display: 'grid', gap: 16 }}
             className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
           >
             {TEAM_TASKS.map((t, i) => (

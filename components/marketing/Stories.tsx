@@ -6,7 +6,7 @@ export default function Stories() {
   return (
     <section style={{ padding: '110px 0' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 28px' }}>
-        <Reveal style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40, alignItems: 'end', marginBottom: 56 }}>
+        <Reveal style={{ display: 'grid', gap: 40, alignItems: 'end', marginBottom: 56 }} className="grid-cols-1 md:grid-cols-2">
           <div>
             <span className="font-hand" style={{ fontSize: 26, color: 'var(--accent)' }}>
               real creators, real revenue
@@ -30,7 +30,7 @@ export default function Stories() {
           </p>
         </Reveal>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }} className="grid-cols-1 md:grid-cols-3">
+        <div style={{ display: 'grid', gap: 20 }} className="grid-cols-1 md:grid-cols-3">
           {STORIES.map((s, i) => (
             <Reveal
               key={i}

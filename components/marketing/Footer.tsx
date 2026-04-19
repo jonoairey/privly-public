@@ -10,8 +10,7 @@ export default function MarketingFooter() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: '1.3fr repeat(4, 1fr)',
-            gap: 40,
+            gap: 'clamp(24px, 3vw, 40px)',
             paddingBottom: 48,
             borderBottom: '1px solid rgba(255,255,255,.1)',
           }}

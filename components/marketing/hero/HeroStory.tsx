@@ -5,7 +5,7 @@ import { AVATARS, POLAROID_BEFORE, POLAROID_AFTER } from '../shared/data'
 
 export default function HeroStory() {
   return (
-    <section style={{ paddingTop: 140, paddingBottom: 80, position: 'relative', overflow: 'hidden' }}>
+    <section style={{ paddingTop: 'clamp(100px, 12vw, 140px)', paddingBottom: 'clamp(40px, 6vw, 80px)', position: 'relative', overflow: 'hidden' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 28px' }}>
         <div className="grid lg:grid-cols-2 gap-14 items-center" style={{ gridTemplateColumns: undefined }}>
           {/* Left — Copy */}

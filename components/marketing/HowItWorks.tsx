@@ -25,7 +25,7 @@ export default function HowItWorks() {
         </Reveal>
 
         <div
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20, position: 'relative' }}
+          style={{ display: 'grid', gap: 20, position: 'relative' }}
           className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
         >
           {HOW_STEPS.map((s, i) => (

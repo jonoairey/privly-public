@@ -37,7 +37,7 @@ export default function Privacy() {
         </Reveal>
 
         <div
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20 }}
+          style={{ display: 'grid', gap: 20 }}
           className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
         >
           {PRIVACY_CARDS.map(([emoji, title, body], i) => (

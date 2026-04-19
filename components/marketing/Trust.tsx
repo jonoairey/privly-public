@@ -11,7 +11,7 @@ export default function Trust() {
           </span>
         </Reveal>
 
-        <Reveal delay={120} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, alignItems: 'stretch' }} className="grid-cols-1 md:grid-cols-2">
+        <Reveal delay={120} style={{ display: 'grid', gap: 20, alignItems: 'stretch' }} className="grid-cols-1 md:grid-cols-2">
           {/* DMCA Agent */}
           <div
             style={{

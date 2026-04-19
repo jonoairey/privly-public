@@ -24,10 +24,12 @@ export default function Compare() {
             background: 'white',
             borderRadius: 28,
             border: '1px solid var(--line)',
-            overflow: 'hidden',
+            overflow: 'auto',
+            WebkitOverflowScrolling: 'touch',
             boxShadow: '0 22px 50px -20px rgba(147,51,234,.2)',
           }}
         >
+          <div style={{ minWidth: 520 }}>
           {/* Header */}
           <div
             style={{
@@ -116,6 +118,7 @@ export default function Compare() {
               ))}
             </div>
           ))}
+          </div>
         </Reveal>
       </div>
     </section>

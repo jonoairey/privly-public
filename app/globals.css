@@ -290,3 +290,27 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, var(--accent-2), #EC4899);
 }
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 767px) {
+  /* Reduce section padding on mobile */
+  section {
+    padding-top: clamp(48px, 8vw, 110px) !important;
+    padding-bottom: clamp(48px, 8vw, 110px) !important;
+  }
+
+  /* Tighten card padding */
+  .card, .card-h {
+    padding: 24px 20px !important;
+  }
+
+  /* Ensure no horizontal overflow */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Polaroid container inherits display:none from hidden class */
+  .polaroid {
+    max-width: 200px;
+  }
+}

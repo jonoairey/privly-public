@@ -86,7 +86,7 @@ export default function FeaturesPage() {
       <section style={{ padding: '0 0 100px' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 28px' }}>
           <div
-            style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}
+            style={{ display: 'grid', gap: 24 }}
             className="grid-cols-1 md:grid-cols-3"
           >
             {HERO_FEATURES.map((f, i) => (
@@ -155,7 +155,7 @@ export default function FeaturesPage() {
           </Reveal>
 
           <div
-            style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}
+            style={{ display: 'grid', gap: 20 }}
             className="grid-cols-1 md:grid-cols-2"
           >
             {/* AI / Automation Column */}
@@ -289,7 +289,7 @@ export default function FeaturesPage() {
           </Reveal>
 
           <div
-            style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}
+            style={{ display: 'grid', gap: 16 }}
             className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
           >
             {FEATURES_LIST.map((f, i) => (
@@ -350,10 +350,12 @@ export default function FeaturesPage() {
               style={{
                 borderRadius: 24,
                 border: '1px solid var(--line)',
-                overflow: 'hidden',
+                overflow: 'auto',
+                WebkitOverflowScrolling: 'touch',
                 background: 'white',
               }}
             >
+              <div style={{ minWidth: 480 }}>
               {/* Table Header */}
               <div
                 style={{
@@ -409,6 +411,7 @@ export default function FeaturesPage() {
                 <span style={{ textAlign: 'center', color: 'var(--ink-2)' }}>$109+/mo</span>
                 <span style={{ textAlign: 'center', color: 'var(--ink-2)' }}>Free*</span>
               </div>
+              </div>
             </div>
 
             <p
@@ -461,7 +464,6 @@ export default function FeaturesPage() {
               <div
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
                   gap: 32,
                 }}
                 className="grid-cols-1 md:grid-cols-2"

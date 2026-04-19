@@ -76,7 +76,7 @@ export default function AIPlusHuman() {
 
         {/* Two-column layout */}
         <div
-          style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28 }}
+          style={{ display: 'grid', gap: 28 }}
           className="grid-cols-1 md:grid-cols-2"
         >
           {/* Speed Layer */}

@@ -24,7 +24,7 @@ export default function Features() {
         </Reveal>
 
         <div
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}
+          style={{ display: 'grid', gap: 16 }}
           className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
         >
           {FEATURES_LIST.map((f, i) => (
