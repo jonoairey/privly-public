@@ -6,36 +6,15 @@ export default function MarketingFooter() {
   return (
     <footer style={{ background: 'var(--ink)', color: 'var(--bg)', padding: '80px 0 32px' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 28px' }}>
+        {/* Link columns — all six FOOTER_GROUPS in a single row on lg+ */}
         <div
           style={{
             display: 'grid',
-            gap: 'clamp(24px, 3vw, 40px)',
+            gap: 'clamp(24px, 2.5vw, 32px)',
             paddingBottom: 48,
-            borderBottom: '1px solid rgba(255,255,255,.1)',
           }}
-          className="grid-cols-2 lg:grid-cols-5"
+          className="grid-cols-2 md:grid-cols-3 lg:grid-cols-6"
         >
-          {/* Brand column */}
-          <div className="col-span-2 lg:col-span-1">
-            <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20, textDecoration: 'none' }}>
-              <Image
-                src="/logo-white.svg"
-                alt="Privly"
-                width={520}
-                height={200}
-                style={{ height: 40, width: 'auto' }}
-              />
-            </Link>
-            <p style={{ fontSize: 14, color: '#D8B4FE', maxWidth: 300, lineHeight: 1.6, margin: 0 }}>
-              We&apos;re a small team that got tired of watching creators get leaked and do nothing about it.
-              So we built this. Hope it helps 💜
-            </p>
-            <div className="font-hand" style={{ marginTop: 24, fontSize: 22, color: 'var(--accent-2)' }}>
-              made with 💜 for creators
-            </div>
-          </div>
-
-          {/* Nav columns */}
           {FOOTER_GROUPS.map((group) => (
             <div key={group.heading}>
               <div
@@ -66,12 +45,43 @@ export default function MarketingFooter() {
           ))}
         </div>
 
+        {/* Brand block — centered beneath the link rows */}
+        <div
+          style={{
+            borderTop: '1px solid rgba(255,255,255,.1)',
+            paddingTop: 40,
+            paddingBottom: 32,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            textAlign: 'center',
+          }}
+        >
+          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20, textDecoration: 'none' }}>
+            <Image
+              src="/logo-white.svg"
+              alt="Privly"
+              width={520}
+              height={200}
+              style={{ height: 40, width: 'auto' }}
+            />
+          </Link>
+          <p style={{ fontSize: 14, color: '#D8B4FE', maxWidth: 560, lineHeight: 1.6, margin: 0 }}>
+            We&apos;re a small team that got tired of watching creators get leaked and do nothing about it.
+            So we built this. Hope it helps 💜
+          </p>
+          <div className="font-hand" style={{ marginTop: 20, fontSize: 22, color: 'var(--accent-2)' }}>
+            made with 💜 for creators
+          </div>
+        </div>
+
         {/* Bottom bar */}
         <div
           style={{
             display: 'flex',
             justifyContent: 'space-between',
             paddingTop: 24,
+            borderTop: '1px solid rgba(255,255,255,.1)',
             fontSize: 12,
             color: '#A892C4',
             flexWrap: 'wrap',
