@@ -32,6 +32,42 @@ export function Star({ size = 20, color = 'currentColor', className = '' }: { si
   )
 }
 
+export function Shield({
+  size = 16,
+  color = 'currentColor',
+  className = '',
+  style = {},
+}: {
+  size?: number
+  color?: string
+  className?: string
+  style?: React.CSSProperties
+}) {
+  return (
+    <svg className={className} style={style} width={size} height={size} viewBox="0 0 24 24" fill={color}>
+      <path d="M12 2 L20 5 C20 5 20 12 20 14 C20 18 16 20.5 12 22 C8 20.5 4 18 4 14 C4 12 4 5 4 5 Z" />
+    </svg>
+  )
+}
+
+export function Check({
+  size = 16,
+  color = 'currentColor',
+  className = '',
+  style = {},
+}: {
+  size?: number
+  color?: string
+  className?: string
+  style?: React.CSSProperties
+}) {
+  return (
+    <svg className={className} style={style} width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <path d="M5 12.5 L10 17 L19 7" stroke={color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
 export function Arrow({ w = 90, h = 40, color = 'currentColor', className = '' }: { w?: number; h?: number; color?: string; className?: string }) {
   return (
     <svg className={className} width={w} height={h} viewBox="0 0 90 40" fill="none">

@@ -34,10 +34,10 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center group">
             <Image
-              src="/logo-light.png"
+              src="/logo-white.svg"
               alt="Privly"
-              width={200}
-              height={100}
+              width={520}
+              height={200}
               className="h-12 w-auto"
               priority
             />

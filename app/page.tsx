@@ -13,10 +13,20 @@ import FAQ from '@/components/marketing/FAQ'
 import Trust from '@/components/marketing/Trust'
 import FinalCTA from '@/components/marketing/FinalCTA'
 import MarketingFooter from '@/components/marketing/Footer'
+import { FAQ_ITEMS } from '@/components/marketing/shared/data'
+import { generateFAQSchema } from '@/lib/seo'
 
 export default function Home() {
+  const faqSchema = generateFAQSchema(
+    FAQ_ITEMS.map((item) => ({ question: item.q, answer: item.a }))
+  )
+
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <MarketingHeader />
       <HeroStory />
       <Marquee />

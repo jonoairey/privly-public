@@ -3,6 +3,12 @@ import Link from "next/link";
 import MarketingHeader from '@/components/marketing/Header';
 import MarketingFooter from '@/components/marketing/Footer';
 import {
+  generateHowToSchema,
+  generateBreadcrumbSchema,
+  generateFAQSchema,
+  SITE_CONFIG,
+} from "@/lib/seo";
+import {
   Shield,
   FileText,
   Globe,
@@ -463,22 +469,43 @@ export default function EromeRemovalPage() {
           </div>
         </section>
 
-        {/* Schema.org FAQ */}
+        {/* Structured data — FAQ, HowTo, Breadcrumb */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              mainEntity: faqItems.map((item) => ({
-                "@type": "Question",
-                name: item.q,
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: item.a,
-                },
-              })),
-            }),
+            __html: JSON.stringify(
+              generateFAQSchema(faqItems.map((i) => ({ question: i.q, answer: i.a })))
+            ),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              generateHowToSchema({
+                name: "How to remove content from Erome",
+                description:
+                  "Step-by-step guide to removing leaked content from Erome using DMCA takedowns, CDN targeting, and Google de-indexing.",
+                totalTime: "PT30M",
+                steps: dmcaSteps.map((s) => ({
+                  name: s.title,
+                  text: s.description,
+                  url: `${SITE_CONFIG.url}/remove-from-erome`,
+                })),
+              })
+            ),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              generateBreadcrumbSchema([
+                { name: "Home", url: SITE_CONFIG.url },
+                { name: "Remove content", url: `${SITE_CONFIG.url}/remove-from-erome` },
+                { name: "Erome", url: `${SITE_CONFIG.url}/remove-from-erome` },
+              ])
+            ),
           }}
         />
       </main>

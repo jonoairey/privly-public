@@ -24,8 +24,23 @@ const footerLinks = {
   removal: [
     { label: 'Remove from Erome', href: '/remove-from-erome' },
     { label: 'Remove from Bunkr', href: '/remove-from-bunkr' },
-    { label: 'Remove from Simpcity', href: '/remove-from-simpcity' },
     { label: 'Remove from Coomer', href: '/remove-from-coomer' },
+    { label: 'Remove from Simpcity', href: '/remove-from-simpcity' },
+    { label: 'Remove from Cyberdrop', href: '/remove-from-cyberdrop' },
+    { label: 'Remove from Telegram', href: '/remove-from-telegram' },
+    { label: 'Remove from Google', href: '/remove-from-google' },
+    { label: 'Remove from MrDeepfakes', href: '/remove-from-mrdeepfakes' },
+    { label: 'Remove from ThotHub', href: '/remove-from-thothub' },
+  ],
+  compare: [
+    { label: 'Privly vs Rulta', href: '/privly-vs-rulta' },
+    { label: 'Privly vs Ceartas', href: '/privly-vs-ceartas' },
+    { label: 'Privly vs BranditScan', href: '/privly-vs-branditscan' },
+    { label: 'Privly vs CopyrightShark', href: '/privly-vs-copyrightshark' },
+    { label: 'Privly vs Takedowns.ai', href: '/privly-vs-takedowns-ai' },
+    { label: 'Privly vs OnlyGuard', href: '/privly-vs-onlyguard' },
+    { label: 'Privly vs RemoveTech', href: '/privly-vs-removetech' },
+    { label: 'Privly vs Bruqi', href: '/privly-vs-bruqi' },
   ],
   tools: [
     { label: 'All Tools', href: '/tools' },
@@ -69,10 +84,10 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-3 lg:col-span-1">
             <Link href="/" className="flex items-center group mb-4">
               <Image
-                src="/logo-light.png"
+                src="/logo-white.svg"
                 alt="Privly"
-                width={200}
-                height={100}
+                width={520}
+                height={200}
                 className="h-12 w-auto"
               />
             </Link>
@@ -134,6 +149,23 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Removal Guides</h3>
             <ul className="space-y-2.5">
               {footerLinks.removal.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Compare Column */}
+          <div>
+            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Compare</h3>
+            <ul className="space-y-2.5">
+              {footerLinks.compare.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}

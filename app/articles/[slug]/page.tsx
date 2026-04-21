@@ -11,12 +11,19 @@ import { generateBreadcrumbSchema, generateFAQSchema } from "@/lib/seo";
 import RelatedServices from "@/components/related-services";
 
 /** Map an article to a content cluster so RelatedServices biases its links. */
-function detectCluster(slug: string, category: string): "onlyfans" | "fansly" | "dmca" | "deepfake" | "leak-sites" | "default" {
+function detectCluster(slug: string, category: string): import("@/components/related-services").Cluster {
   const s = slug.toLowerCase();
   if (s.includes("deepfake")) return "deepfake";
   if (s.includes("leak-sites") || s.includes("leak-site")) return "leak-sites";
   if (s.includes("fansly")) return "fansly";
   if (s.includes("onlyfans")) return "onlyfans";
+  if (s.includes("patreon")) return "patreon";
+  if (s.includes("chaturbate")) return "chaturbate";
+  if (s.includes("manyvids")) return "manyvids";
+  if (s.includes("instagram")) return "instagram";
+  if (s.includes("tiktok")) return "tiktok";
+  if (s.includes("reddit")) return "reddit";
+  if (s.includes("watermark")) return "watermark";
   if (s.includes("dmca")) return "dmca";
   if (category === "Legal") return "dmca";
   return "default";

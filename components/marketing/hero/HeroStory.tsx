@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Reveal from '../shared/Reveal'
-import { Heart, Sparkle, Star } from '../shared/Icons'
+import { Shield, Sparkle, Star } from '../shared/Icons'
 import { AVATARS, POLAROID_BEFORE, POLAROID_AFTER } from '../shared/data'
 
 export default function HeroStory() {
@@ -11,8 +11,8 @@ export default function HeroStory() {
           {/* Left — Copy */}
           <Reveal>
             <div className="chip" style={{ marginBottom: 24 }}>
-              <span className="heartbeat" style={{ color: 'var(--hot)' }}>
-                <Heart size={14} color="currentColor" />
+              <span style={{ color: 'var(--accent)' }}>
+                <Shield size={14} color="currentColor" />
               </span>
               <span>Hundreds of creators protected · made by creators, for creators</span>
             </div>
@@ -218,9 +218,6 @@ export default function HeroStory() {
             {/* Sparkles */}
             <Sparkle size={36} color="var(--hot)" className="" style={{ position: 'absolute', top: 10, right: '30%' }} />
             <Sparkle size={24} color="var(--accent)" className="" style={{ position: 'absolute', bottom: 0, right: '40%' }} />
-            <div style={{ position: 'absolute', top: '40%', left: '48%', fontSize: 30, zIndex: 2 }} className="">
-              💜
-            </div>
           </Reveal>
         </div>
       </div>

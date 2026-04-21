@@ -8,15 +8,25 @@ import { generateBreadcrumbSchema } from '@/lib/seo'
 
 export interface BreadcrumbItem {
   name: string
-  href: string
+  url: string
 }
 
 interface BreadcrumbsProps {
   items: BreadcrumbItem[]
+  /**
+   * When true, the "Home" crumb is rendered automatically as a prefix. The
+   * `items` array should then NOT include Home. When false, `items` should
+   * already include every crumb the caller wants in the schema output.
+   * @default true
+   */
+  includeHomePrefix?: boolean
 }
 
-export function Breadcrumbs({ items }: BreadcrumbsProps) {
-  const breadcrumbSchema = generateBreadcrumbSchema(items)
+export function Breadcrumbs({ items, includeHomePrefix = true }: BreadcrumbsProps) {
+  const schemaItems = includeHomePrefix
+    ? [{ name: 'Home', url: 'https://www.useprivly.com' }, ...items]
+    : items
+  const breadcrumbSchema = generateBreadcrumbSchema(schemaItems)
 
   return (
     <>
@@ -30,30 +40,28 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
 
       {/* Visual breadcrumb navigation */}
       <nav aria-label="Breadcrumb" className="mb-8">
-        <ol className="flex items-center space-x-2 text-sm text-gray-400">
-          {/* Always include Home */}
-          <li>
-            <Link
-              href="/"
-              className="hover:text-[#0EA5E9] transition-colors"
-            >
-              Home
-            </Link>
-          </li>
+        <ol className="flex items-center space-x-2 text-sm" style={{ color: 'var(--ink-2)' }}>
+          {includeHomePrefix && (
+            <li>
+              <Link href="/" className="hover:text-[var(--accent)] transition-colors">
+                Home
+              </Link>
+            </li>
+          )}
 
           {items.map((item, index) => (
-            <li key={item.href} className="flex items-center space-x-2">
-              <ChevronRight className="h-4 w-4 text-gray-400" />
+            <li key={item.url} className="flex items-center space-x-2">
+              {(includeHomePrefix || index > 0) && (
+                <ChevronRight className="h-4 w-4" style={{ color: 'var(--mute)' }} />
+              )}
               {index === items.length - 1 ? (
-                // Last item - current page (no link)
-                <span className="font-medium text-gray-900" aria-current="page">
+                <span className="font-medium" style={{ color: 'var(--ink)' }} aria-current="page">
                   {item.name}
                 </span>
               ) : (
-                // Intermediate items (links)
                 <Link
-                  href={item.href}
-                  className="hover:text-[#0EA5E9] transition-colors"
+                  href={item.url}
+                  className="hover:text-[var(--accent)] transition-colors"
                 >
                   {item.name}
                 </Link>

@@ -1,24 +1,24 @@
 import Reveal from './shared/Reveal'
-import { Heart } from './shared/Icons'
+import { Shield } from './shared/Icons'
 
 export default function FinalCTA() {
   return (
     <section style={{ padding: '140px 0', position: 'relative', overflow: 'hidden' }}>
-      {/* Floating emojis */}
+      {/* Floating emojis — protection-themed, not hearts */}
       <div style={{ position: 'absolute', top: '20%', left: '8%', fontSize: 42, opacity: 0.5 }} className="float1">
-        💜
+        🛡️
       </div>
       <div style={{ position: 'absolute', bottom: '18%', right: '10%', fontSize: 38, opacity: 0.5 }} className="float2">
         ✨
       </div>
       <div style={{ position: 'absolute', top: '55%', right: '8%', fontSize: 34, opacity: 0.4 }} className="float1">
-        🌸
+        🔒
       </div>
 
       <div style={{ maxWidth: 960, margin: '0 auto', padding: '0 28px', textAlign: 'center', position: 'relative' }}>
         <Reveal>
           <span className="font-hand" style={{ fontSize: 28, color: 'var(--accent)' }}>
-            ready when you are 💜
+            ready when you are
           </span>
         </Reveal>
 
@@ -55,7 +55,7 @@ export default function FinalCTA() {
 
         <Reveal delay={420} style={{ marginTop: 32, display: 'flex', gap: 14, justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
           <span className="chip">
-            <Heart size={12} color="var(--hot)" /> hundreds of creators
+            <Shield size={12} color="var(--accent)" /> hundreds of creators
           </span>
           <span className="chip">⚡ takedowns actioned instantly</span>
 

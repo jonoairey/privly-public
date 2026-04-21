@@ -3,6 +3,11 @@ import Link from "next/link";
 import MarketingHeader from '@/components/marketing/Header';
 import MarketingFooter from '@/components/marketing/Footer';
 import {
+  generateBreadcrumbSchema,
+  generateProductSchema,
+  SITE_CONFIG,
+} from "@/lib/seo";
+import {
   Shield,
   Search,
   FileText,
@@ -148,8 +153,24 @@ const faqItems = [
 ];
 
 export default function RedditPage() {
+  const canonical = `${SITE_CONFIG.url}/reddit`;
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: SITE_CONFIG.url },
+    { name: "Platforms", url: SITE_CONFIG.url },
+    { name: "Reddit", url: canonical },
+  ]);
+  const productSchema = generateProductSchema({
+    name: "Privly Reddit Protection",
+    description:
+      "Subreddit leak monitoring and automated takedowns for creators. Covers r/ drops, mirror posts, and Reddit-hosted media across thousands of communities.",
+    price: "49",
+    url: canonical,
+  });
+
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <MarketingHeader />
 
       <main className="flex-1">

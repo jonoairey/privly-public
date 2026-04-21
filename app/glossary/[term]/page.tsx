@@ -4,6 +4,22 @@ import MarketingHeader from '@/components/marketing/Header';
 import MarketingFooter from '@/components/marketing/Footer';
 import { glossaryEntries } from "@/lib/glossary-data";
 import { ArrowRight, ArrowLeft, Shield } from "lucide-react";
+import RelatedServices, { type Cluster } from "@/components/related-services";
+
+/** Bias RelatedServices links based on glossary category + term slug. */
+function detectGlossaryCluster(term: string, slug: string, category: string): Cluster {
+  const s = `${slug} ${term}`.toLowerCase();
+  if (s.includes("deepfake")) return "deepfake";
+  if (s.includes("watermark")) return "watermark";
+  if (s.includes("onlyfans")) return "onlyfans";
+  if (s.includes("fansly")) return "fansly";
+  if (s.includes("dmca") || s.includes("takedown") || s.includes("safe harbor") || s.includes("copyright")) return "dmca";
+  if (s.includes("leak")) return "leak-sites";
+  if (category === "Legal" || category === "Enforcement") return "dmca";
+  if (category === "Piracy") return "leak-sites";
+  if (category === "AI & Security") return "deepfake";
+  return "default";
+}
 
 interface Props {
   params: Promise<{
@@ -145,6 +161,9 @@ export default async function GlossaryTermPage({ params }: Props) {
 
           {/* Divider */}
           <div className="border-t border-[var(--line)] my-12" />
+
+          {/* Related tools / comparisons / removal guides — distributes internal link equity */}
+          <RelatedServices cluster={detectGlossaryCluster(entry.term, entry.slug, entry.category)} />
 
           {/* Related Terms */}
           {relatedTerms.length > 0 && (

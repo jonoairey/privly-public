@@ -24,7 +24,7 @@ export const NAV_ITEMS = [
 
 export const MARQUEE_ITEMS = [
   '✨ no more sleepless nights',
-  '💜 forensic-level protection',
+  '🛡️ forensic-level protection',
   '🔍 subscriber-level forensics',
   '🚫 DMCA on autopilot',
   '⚡ takedowns actioned instantly',
@@ -213,6 +213,33 @@ export const FOOTER_GROUPS = [
       { label: 'TikTok', href: '/tiktok' },
       { label: 'Instagram', href: '/instagram' },
       { label: 'Reddit', href: '/reddit' },
+    ],
+  },
+  {
+    heading: 'Remove from',
+    links: [
+      { label: 'Erome', href: '/remove-from-erome' },
+      { label: 'Bunkr', href: '/remove-from-bunkr' },
+      { label: 'Coomer', href: '/remove-from-coomer' },
+      { label: 'Simpcity', href: '/remove-from-simpcity' },
+      { label: 'Cyberdrop', href: '/remove-from-cyberdrop' },
+      { label: 'Telegram', href: '/remove-from-telegram' },
+      { label: 'Google', href: '/remove-from-google' },
+      { label: 'MrDeepfakes', href: '/remove-from-mrdeepfakes' },
+      { label: 'ThotHub', href: '/remove-from-thothub' },
+    ],
+  },
+  {
+    heading: 'Compare',
+    links: [
+      { label: 'Privly vs Rulta', href: '/privly-vs-rulta' },
+      { label: 'Privly vs Ceartas', href: '/privly-vs-ceartas' },
+      { label: 'Privly vs BranditScan', href: '/privly-vs-branditscan' },
+      { label: 'Privly vs CopyrightShark', href: '/privly-vs-copyrightshark' },
+      { label: 'Privly vs Takedowns.ai', href: '/privly-vs-takedowns-ai' },
+      { label: 'Privly vs OnlyGuard', href: '/privly-vs-onlyguard' },
+      { label: 'Privly vs RemoveTech', href: '/privly-vs-removetech' },
+      { label: 'Privly vs Bruqi', href: '/privly-vs-bruqi' },
     ],
   },
   {

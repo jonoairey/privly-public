@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Heart } from './shared/Icons'
 import { FOOTER_GROUPS } from './shared/data'
 
 export default function MarketingFooter() {
@@ -20,10 +19,10 @@ export default function MarketingFooter() {
           <div className="col-span-2 lg:col-span-1">
             <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20, textDecoration: 'none' }}>
               <Image
-                src="/logo-light.png"
+                src="/logo-white.svg"
                 alt="Privly"
-                width={200}
-                height={100}
+                width={520}
+                height={200}
                 style={{ height: 40, width: 'auto' }}
               />
             </Link>

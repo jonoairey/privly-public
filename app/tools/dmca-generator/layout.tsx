@@ -1,9 +1,10 @@
-import { Metadata } from 'next';
+import { generateMetadata as genMeta } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Free DMCA Takedown Notice Generator | Privly',
+export const metadata = genMeta({
+  title: 'Free DMCA Takedown Notice Generator',
   description:
-    'Generate a professionally formatted DMCA takedown notice in minutes. Free DMCA template with all required legal elements. Identify copyrighted works, infringing URLs, and file automatic takedowns.',
+    'Generate a legally compliant DMCA takedown notice in minutes. Free DMCA template with all required elements — copyrighted works, infringing URLs, signature block, and perjury statement.',
+  path: '/tools/dmca-generator',
   keywords: [
     'dmca generator',
     'dmca template',
@@ -15,17 +16,7 @@ export const metadata: Metadata = {
     'dmca infringement',
     'dmca form',
   ],
-  openGraph: {
-    title: 'Free DMCA Takedown Notice Generator | Privly',
-    description:
-      'Generate a legally compliant DMCA takedown notice in minutes. Free tool with all required elements.',
-    type: 'website',
-    url: 'https://www.useprivly.com/tools/dmca-generator',
-  },
-  alternates: {
-    canonical: 'https://www.useprivly.com/tools/dmca-generator',
-  },
-};
+});
 
 export default function DmcaGeneratorLayout({
   children,

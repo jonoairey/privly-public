@@ -1,6 +1,8 @@
+import Image from 'next/image'
 import MarketingHeader from '@/components/marketing/Header'
 import MarketingFooter from '@/components/marketing/Footer'
 import Reveal from '@/components/marketing/shared/Reveal'
+import { Check } from '@/components/marketing/shared/Icons'
 import { FEATURES_LIST, COMPARE_ROWS } from '@/components/marketing/shared/data'
 import { generateMetadata as genMeta } from '@/lib/seo'
 
@@ -388,7 +390,13 @@ export default function FeaturesPage() {
                   }}
                 >
                   <span>{feature}</span>
-                  <span style={{ textAlign: 'center', fontSize: 18 }}>{privly ? '💜' : '—'}</span>
+                  <span style={{ textAlign: 'center', fontSize: 18, display: 'flex', justifyContent: 'center' }}>
+                    {privly ? (
+                      <Image src="/favicon.svg" alt="yes" width={22} height={22} style={{ display: 'block' }} unoptimized />
+                    ) : (
+                      '—'
+                    )}
+                  </span>
                   <span style={{ textAlign: 'center', fontSize: 18 }}>{dmca ? '⚪' : '—'}</span>
                   <span style={{ textAlign: 'center', fontSize: 18 }}>{diy ? '⚪' : '—'}</span>
                 </div>
@@ -506,7 +514,20 @@ export default function FeaturesPage() {
                         color: 'var(--ink-2)',
                       }}
                     >
-                      <span style={{ fontSize: 18 }}>💜</span>
+                      <span
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          width: 22,
+                          height: 22,
+                          borderRadius: 999,
+                          background: 'color-mix(in oklab, var(--accent) 18%, transparent)',
+                          flexShrink: 0,
+                        }}
+                      >
+                        <Check size={13} color="var(--accent)" />
+                      </span>
                       <span>{item}</span>
                     </div>
                   ))}
@@ -549,7 +570,7 @@ export default function FeaturesPage() {
           }}
           className="float1"
         >
-          💜
+          🛡️
         </div>
         <div
           style={{
@@ -575,7 +596,7 @@ export default function FeaturesPage() {
         >
           <Reveal>
             <span className="font-hand" style={{ fontSize: 28, color: 'var(--accent)' }}>
-              ready when you are 💜
+              ready when you are
             </span>
           </Reveal>
 
@@ -647,7 +668,7 @@ export default function FeaturesPage() {
               flexWrap: 'wrap',
             }}
           >
-            <span className="chip">💜 hundreds of creators</span>
+            <span className="chip">🛡️ hundreds of creators</span>
             <span className="chip">⚡ takedowns actioned instantly</span>
             <span className="chip">🌎 every platform, every country</span>
           </Reveal>

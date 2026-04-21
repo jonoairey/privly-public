@@ -3,6 +3,7 @@ import Link from "next/link";
 import MarketingHeader from '@/components/marketing/Header';
 import MarketingFooter from '@/components/marketing/Footer';
 import { glossaryEntries } from "@/lib/glossary-data";
+import { generateBreadcrumbSchema, generateCollectionSchema, SITE_CONFIG } from "@/lib/seo";
 import {
   Shield,
   Search,
@@ -71,8 +72,35 @@ export default function GlossaryPage() {
 
   const sortedCategories = Object.keys(groupedByCategory).sort();
 
+  const canonical = `${SITE_CONFIG.url}/glossary`;
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: SITE_CONFIG.url },
+    { name: 'Glossary', url: canonical },
+  ]);
+
+  const collectionSchema = generateCollectionSchema({
+    name: 'Privly Content Protection Glossary',
+    description:
+      'Comprehensive glossary of content protection terminology, from DMCA takedowns to deepfake detection.',
+    url: canonical,
+    items: glossaryEntries.map((entry) => ({
+      name: entry.term,
+      url: `${SITE_CONFIG.url}/glossary/${entry.slug}`,
+      description: entry.definition,
+    })),
+  });
+
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+      />
       <MarketingHeader />
 
       <main className="flex-1">

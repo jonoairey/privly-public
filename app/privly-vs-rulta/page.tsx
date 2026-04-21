@@ -3,6 +3,12 @@ import Link from "next/link";
 import MarketingHeader from '@/components/marketing/Header';
 import MarketingFooter from '@/components/marketing/Footer';
 import {
+  generateProductSchema,
+  generateFAQSchema,
+  generateBreadcrumbSchema,
+  SITE_CONFIG,
+} from "@/lib/seo";
+import {
   Shield,
   ArrowRight,
   CheckCircle,
@@ -641,22 +647,39 @@ export default function PrivlyVsRultaPage() {
           </div>
         </section>
 
-        {/* Schema.org FAQ */}
+        {/* Structured data — Product, FAQ, Breadcrumb */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              mainEntity: faqItems.map((item) => ({
-                "@type": "Question",
-                name: item.q,
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: item.a,
-                },
-              })),
-            }),
+            __html: JSON.stringify(
+              generateProductSchema({
+                name: "Privly Creator Protection",
+                description:
+                  "Content protection for creators: forensic watermarking, leak scanning across 500+ sites, automated DMCA takedowns, Telegram and Discord monitoring, and dedicated human support.",
+                price: "49",
+                url: `${SITE_CONFIG.url}/privly-vs-rulta`,
+              })
+            ),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              generateFAQSchema(faqItems.map((i) => ({ question: i.q, answer: i.a })))
+            ),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              generateBreadcrumbSchema([
+                { name: "Home", url: SITE_CONFIG.url },
+                { name: "Compare", url: `${SITE_CONFIG.url}/compare` },
+                { name: "Privly vs Rulta", url: `${SITE_CONFIG.url}/privly-vs-rulta` },
+              ])
+            ),
           }}
         />
       </main>

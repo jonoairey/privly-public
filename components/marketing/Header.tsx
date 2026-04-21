@@ -46,10 +46,10 @@ export default function MarketingHeader() {
         {/* Logo */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
           <Image
-            src="/logo-dark.png"
+            src="/logo-plum.svg"
             alt="Privly"
-            width={200}
-            height={100}
+            width={520}
+            height={200}
             className="h-12 w-auto"
             style={{ height: 48, width: 'auto' }}
             priority

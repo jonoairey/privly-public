@@ -3,6 +3,11 @@ import Link from "next/link";
 import MarketingHeader from '@/components/marketing/Header';
 import MarketingFooter from '@/components/marketing/Footer';
 import {
+  generateBreadcrumbSchema,
+  generateProductSchema,
+  SITE_CONFIG,
+} from "@/lib/seo";
+import {
   Shield,
   Search,
   FileText,
@@ -124,8 +129,24 @@ const faqItems = [
 ];
 
 export default function PatreonPage() {
+  const canonical = `${SITE_CONFIG.url}/patreon`;
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: SITE_CONFIG.url },
+    { name: "Platforms", url: SITE_CONFIG.url },
+    { name: "Patreon", url: canonical },
+  ]);
+  const productSchema = generateProductSchema({
+    name: "Privly Patreon Protection",
+    description:
+      "Content protection for Patreon creators. Automated DMCA takedowns, forensic watermarking, leak source tracing, and 24/7 scanning across 500+ sites.",
+    price: "49",
+    url: canonical,
+  });
+
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <MarketingHeader />
 
       <main className="flex-1">

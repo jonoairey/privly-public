@@ -128,7 +128,7 @@ export function generateOrganizationSchema() {
     '@type': 'Organization',
     name: SITE_CONFIG.name,
     url: SITE_CONFIG.url,
-    logo: `${SITE_CONFIG.url}/logo.png`,
+    logo: `${SITE_CONFIG.url}/logo-plum.svg`,
     description: SITE_CONFIG.description,
     foundingDate: '2024',
     address: { '@type': 'PostalAddress', addressCountry: 'AU' },
@@ -230,7 +230,7 @@ export function generateArticleSchema(article: {
     publisher: {
       '@type': 'Organization',
       name: SITE_CONFIG.name,
-      logo: { '@type': 'ImageObject', url: `${SITE_CONFIG.url}/logo.png` },
+      logo: { '@type': 'ImageObject', url: `${SITE_CONFIG.url}/logo-plum.svg` },
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': article.url },
   }
@@ -258,5 +258,51 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url: strin
       name: item.name,
       item: item.url,
     })),
+  }
+}
+
+/**
+ * CollectionPage schema with a nested ItemList of the works in the collection.
+ * Use for article / guide / glossary index pages so Google understands this is a
+ * listing page and can surface it for "site:<domain> articles" or topic queries.
+ */
+export function generateCollectionSchema({
+  name,
+  description,
+  url,
+  items,
+}: {
+  name: string
+  description: string
+  url: string
+  items: Array<{ name: string; url: string; description?: string; datePublished?: string }>
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name,
+    description,
+    url,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: SITE_CONFIG.name,
+      url: SITE_CONFIG.url,
+    },
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: items.length,
+      itemListElement: items.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: item.url,
+        item: {
+          '@type': 'Article',
+          name: item.name,
+          url: item.url,
+          ...(item.description ? { description: item.description } : {}),
+          ...(item.datePublished ? { datePublished: item.datePublished } : {}),
+        },
+      })),
+    },
   }
 }

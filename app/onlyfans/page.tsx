@@ -3,6 +3,11 @@ import Link from "next/link";
 import MarketingHeader from '@/components/marketing/Header';
 import MarketingFooter from '@/components/marketing/Footer';
 import {
+  generateBreadcrumbSchema,
+  generateProductSchema,
+  SITE_CONFIG,
+} from "@/lib/seo";
+import {
   Shield,
   Search,
   FileText,
@@ -123,8 +128,24 @@ const faqItems = [
 ];
 
 export default function OnlyFansPage() {
+  const canonical = `${SITE_CONFIG.url}/onlyfans`;
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: SITE_CONFIG.url },
+    { name: "Platforms", url: SITE_CONFIG.url },
+    { name: "OnlyFans", url: canonical },
+  ]);
+  const productSchema = generateProductSchema({
+    name: "Privly OnlyFans Protection",
+    description:
+      "Stop OnlyFans leaks. Automated DMCA takedowns, Google de-indexing, forensic watermarking, and 24/7 scanning across 500+ leak sites.",
+    price: "49",
+    url: canonical,
+  });
+
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <MarketingHeader />
 
       <main className="flex-1">

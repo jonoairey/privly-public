@@ -3,7 +3,7 @@ import { CheckCircle, X, ArrowRight, Shield, Zap, DollarSign } from "lucide-reac
 import MarketingHeader from '@/components/marketing/Header';
 import MarketingFooter from '@/components/marketing/Footer';
 import RelatedServices from "@/components/related-services";
-import { generateFAQSchema, generateBreadcrumbSchema, SITE_CONFIG } from "@/lib/seo";
+import { generateFAQSchema, generateBreadcrumbSchema, generateProductSchema, SITE_CONFIG } from "@/lib/seo";
 import { APP_URL } from "@/lib/constants";
 
 export interface ComparisonRow {
@@ -62,10 +62,21 @@ export default function ComparisonPage(props: ComparisonPageProps) {
     { name: "Compare", url: `${SITE_CONFIG.url}/compare` },
     { name: `Privly vs ${competitorName}`, url: canonical },
   ]);
+  const productSchema = generateProductSchema({
+    name: "Privly Creator Protection",
+    description:
+      "Content protection for creators: forensic watermarking, leak scanning across 500+ sites, automated DMCA takedowns, Telegram and Discord monitoring, and dedicated human support.",
+    price: "49",
+    url: canonical,
+  });
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col overflow-hidden">
       <MarketingHeader />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

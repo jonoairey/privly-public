@@ -8,7 +8,7 @@ import { onlyfansArticles } from "@/lib/article-data-onlyfans";
 import { patreonArticles } from "@/lib/article-data-patreon";
 
 const articles = [...coreArticles, ...leakSiteArticles, ...safetyArticles, ...onlyfansArticles, ...patreonArticles];
-import { generateMetadata as genMeta } from "@/lib/seo";
+import { generateMetadata as genMeta, generateBreadcrumbSchema, generateCollectionSchema, SITE_CONFIG } from "@/lib/seo";
 
 export const metadata = genMeta({
   title: "Articles",
@@ -28,6 +28,25 @@ export default function ArticlesPage() {
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 
+  const canonical = `${SITE_CONFIG.url}/articles`;
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: SITE_CONFIG.url },
+    { name: 'Articles', url: canonical },
+  ]);
+
+  const collectionSchema = generateCollectionSchema({
+    name: 'Privly Articles & Guides',
+    description: 'Content protection guides, legal advice, and security tips for creators and businesses.',
+    url: canonical,
+    items: sortedPosts.slice(0, 50).map((post) => ({
+      name: post.title,
+      url: `${SITE_CONFIG.url}/articles/${post.slug}`,
+      description: post.excerpt,
+      datePublished: post.date,
+    })),
+  });
+
   const getCategoryColor = (category: string) => {
     const colors: Record<string, string> = {
       "Content Protection": "bg-purple-900/30 text-[var(--accent)]",
@@ -42,6 +61,14 @@ export default function ArticlesPage() {
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+      />
       <MarketingHeader />
 
       <main className="flex-1 w-full py-16 px-4 sm:px-6 lg:px-8">

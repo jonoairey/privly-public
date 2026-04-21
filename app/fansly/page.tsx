@@ -3,6 +3,11 @@ import Link from "next/link";
 import MarketingHeader from '@/components/marketing/Header';
 import MarketingFooter from '@/components/marketing/Footer';
 import {
+  generateBreadcrumbSchema,
+  generateProductSchema,
+  SITE_CONFIG,
+} from "@/lib/seo";
+import {
   Shield,
   Search,
   FileText,
@@ -123,8 +128,24 @@ const faqItems = [
 ];
 
 export default function FanslyPage() {
+  const canonical = `${SITE_CONFIG.url}/fansly`;
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: SITE_CONFIG.url },
+    { name: "Platforms", url: SITE_CONFIG.url },
+    { name: "Fansly", url: canonical },
+  ]);
+  const productSchema = generateProductSchema({
+    name: "Privly Fansly Protection",
+    description:
+      "Content protection for Fansly creators. Automated DMCA takedowns, forensic watermarking, Telegram/Discord monitoring, and 24/7 leak scanning.",
+    price: "49",
+    url: canonical,
+  });
+
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <MarketingHeader />
 
       <main className="flex-1">

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 200" fill="none" role="img" aria-label="Privly">
+  <title>Privly</title>
+  <!-- Shield (scaled from favicon geometry 100x100) -->
+  <g transform="translate(20 40) scale(1.2)">
+    <path d="M50 6 L88 18 C88 18 88 48 88 58 C88 78 70 90 50 96 C30 90 12 78 12 58 C12 48 12 18 12 18 Z" fill="#3D1470"/>
+    <circle cx="50" cy="44" r="8" fill="#FFFFFF"/>
+    <path d="M46 50 L54 50 L56 68 L44 68 Z" fill="#FFFFFF"/>
+  </g>
+  <!-- Wordmark "privly" -->
+  <text x="160" y="135" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="108" font-weight="700" fill="#3D1470" letter-spacing="-4">privly</text>
+</svg>
