@@ -42,16 +42,12 @@ export default function Pricing() {
           >
             {/* Floating sticker */}
             <div
-              className="font-hand float1"
+              className="font-hand float1 pricing-sticker"
               style={{
                 position: 'absolute',
-                top: 24,
-                right: 32,
                 background: 'linear-gradient(135deg, var(--accent), var(--hot))',
                 color: 'white',
-                padding: '10px 20px',
                 borderRadius: 99,
-                fontSize: 22,
                 transform: 'rotate(6deg)',
                 zIndex: 2,
                 boxShadow: '0 12px 26px -8px rgba(236,72,153,.5)',
@@ -63,10 +59,10 @@ export default function Pricing() {
             <div style={{ display: 'grid' }} className="grid-cols-1 md:grid-cols-2">
               {/* Left — Price + toggle */}
               <div
+                className="pricing-panel-left"
                 style={{
                   padding: 'clamp(28px, 4vw, 48px) clamp(20px, 4vw, 44px)',
                   background: 'linear-gradient(180deg, var(--bg-2), var(--bg))',
-                  borderRight: '1px solid var(--line)',
                 }}
               >
                 <div style={{ fontSize: 13, color: 'var(--mute)', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '.06em' }}>

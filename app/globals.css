@@ -291,6 +291,37 @@ body {
   background: linear-gradient(180deg, var(--accent-2), #EC4899);
 }
 
+/* ===== PRICING PANEL DIVIDER (responsive) ===== */
+/* On desktop the two panels sit side-by-side — use a right border on the left panel.
+   On mobile the grid collapses to a single column — switch to a bottom border. */
+.pricing-panel-left {
+  border-bottom: 1px solid var(--line);
+}
+@media (min-width: 768px) {
+  .pricing-panel-left {
+    border-bottom: none;
+    border-right: 1px solid var(--line);
+  }
+}
+
+/* ===== PRICING STICKER (responsive) ===== */
+/* Desktop: larger, offset from the top-right corner.
+   Mobile: smaller so it doesn't collide with heading or toggle. */
+.pricing-sticker {
+  top: 16px;
+  right: 16px;
+  padding: 6px 14px;
+  font-size: 15px;
+}
+@media (min-width: 640px) {
+  .pricing-sticker {
+    top: 24px;
+    right: 32px;
+    padding: 10px 20px;
+    font-size: 22px;
+  }
+}
+
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 767px) {
   /* Reduce section padding on mobile */
@@ -312,5 +343,24 @@ body {
   /* Polaroid container inherits display:none from hidden class */
   .polaroid {
     max-width: 200px;
+  }
+
+  /* Tighten outer container padding on narrow phones */
+  .container-padded {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Thin out decorative floating brand logos so they don't crowd headlines */
+  .cta-bg-logo {
+    opacity: 0.15 !important;
+    transform: scale(0.75);
+  }
+}
+
+/* Hide the smallest / most-crowded decorative logos on phones to declutter */
+@media (max-width: 640px) {
+  .cta-bg-logo.cta-bg-logo--hide-sm {
+    display: none;
   }
 }

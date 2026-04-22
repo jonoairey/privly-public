@@ -57,7 +57,7 @@ export default function MarketingHeader() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav style={{ display: 'flex', gap: 32, fontSize: 14 }} className="hidden md:flex">
+        <nav style={{ gap: 32, fontSize: 14 }} className="hidden md:flex">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.label}
@@ -71,7 +71,7 @@ export default function MarketingHeader() {
         </nav>
 
         {/* Desktop CTA */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }} className="hidden md:flex">
+        <div style={{ alignItems: 'center', gap: 16 }} className="hidden md:flex">
           <Link
             href={`${APP_URL}/auth/login`}
             className="ul-hover"

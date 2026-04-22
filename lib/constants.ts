@@ -21,7 +21,6 @@ export const PLAN = {
     'Revenue impact tracking',
     'Monthly protection reports',
   ],
-  guarantee: '30-day money-back guarantee',
 }
 
 export const COPYRIGHT_ADDON = {

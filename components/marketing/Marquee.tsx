@@ -16,7 +16,7 @@ export default function Marquee() {
         borderBottom: '1px solid rgba(255,255,255,.08)',
       }}
     >
-      <div className="marquee-track font-serif" style={{ fontSize: 44, lineHeight: 1, fontWeight: 400 }}>
+      <div className="marquee-track font-serif" style={{ fontSize: 'clamp(28px, 5vw, 44px)', lineHeight: 1, fontWeight: 400 }}>
         {doubled.map((t, i) => (
           <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 32 }}>
             <span>{t}</span>

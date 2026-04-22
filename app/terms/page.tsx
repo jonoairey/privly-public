@@ -104,7 +104,7 @@ export default function TermsPage() {
               <ul className="space-y-2 ml-4" style={{ color: 'var(--ink-2)' }}>
                 <li className="flex gap-3">
                   <span style={{ color: 'var(--accent)' }}>→</span>
-                  <span>We offer a 30-day money-back guarantee if you are not satisfied</span>
+                  <span>All sales are final; we do not offer refunds for subscription payments</span>
                 </li>
                 <li className="flex gap-3">
                   <span style={{ color: 'var(--accent)' }}>→</span>
@@ -112,11 +112,7 @@ export default function TermsPage() {
                 </li>
                 <li className="flex gap-3">
                   <span style={{ color: 'var(--accent)' }}>→</span>
-                  <span>We offer a 30-day money-back guarantee if you're not satisfied</span>
-                </li>
-                <li className="flex gap-3">
-                  <span style={{ color: 'var(--accent)' }}>→</span>
-                  <span>Refunds will be issued to the original payment method</span>
+                  <span>You can cancel at any time from your billing settings to stop future charges</span>
                 </li>
               </ul>
             </div>

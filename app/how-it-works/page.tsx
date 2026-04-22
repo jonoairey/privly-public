@@ -1,6 +1,7 @@
 import MarketingHeader from '@/components/marketing/Header'
 import MarketingFooter from '@/components/marketing/Footer'
 import Reveal from '@/components/marketing/shared/Reveal'
+import FloatingBrandLogos from '@/components/marketing/shared/FloatingBrandLogos'
 import { HOW_STEPS } from '@/components/marketing/shared/data'
 import { generateMetadata as genMeta } from '@/lib/seo'
 
@@ -60,8 +61,11 @@ export default function HowItWorksPage() {
       <MarketingHeader />
 
       {/* ─── Hero ─── */}
-      <section style={{ padding: '160px 0 80px', position: 'relative' }}>
-        <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 28px', textAlign: 'center' }}>
+      <section style={{ padding: '160px 0 80px', position: 'relative', overflow: 'hidden' }}>
+        {/* Floating platform logos — "every platform, every country" */}
+        <FloatingBrandLogos variant="hero" />
+
+        <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 28px', textAlign: 'center', position: 'relative' }}>
           <Reveal>
             <span className="font-hand" style={{ fontSize: 28, color: 'var(--accent)' }}>
               four steps, zero stress
@@ -627,31 +631,9 @@ export default function HowItWorksPage() {
       </section>
 
       {/* ─── CTA ─── */}
-      <section style={{ padding: '120px 0', position: 'relative' }}>
-        <div
-          style={{
-            position: 'absolute',
-            top: '20%',
-            left: '8%',
-            fontSize: 42,
-            opacity: 0.5,
-          }}
-          className="float1"
-        >
-          💜
-        </div>
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '18%',
-            right: '10%',
-            fontSize: 38,
-            opacity: 0.5,
-          }}
-          className="float2"
-        >
-          ✨
-        </div>
+      <section style={{ padding: '140px 0', position: 'relative', overflow: 'hidden' }}>
+        {/* Floating platform logos — "every platform, every country" */}
+        <FloatingBrandLogos variant="cta" />
 
         <div
           style={{
