@@ -53,6 +53,14 @@ export const metadata: Metadata = {
       "Automated leak scanning and DMCA takedowns built for Chaturbate performers. Find and remove your stolen content from 500+ leak sites.",
     type: "website",
     url: "https://www.useprivly.com/chaturbate",
+    images: [{ url: "https://www.useprivly.com/og-chaturbate.png", width: 1200, height: 630, alt: "Privly — Chaturbate content protection" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Chaturbate Content Protection — Stop Leaks & Get Content Removed | Privly",
+    description:
+      "Automated leak scanning and DMCA takedowns built for Chaturbate performers. Find and remove your stolen content from 500+ leak sites.",
+    images: ["https://www.useprivly.com/og-chaturbate.png"],
   },
   alternates: {
     canonical: "https://www.useprivly.com/chaturbate",

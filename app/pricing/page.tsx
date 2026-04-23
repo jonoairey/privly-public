@@ -10,6 +10,7 @@ export const metadata = genMeta({
   title: 'OnlyFans Leak Protection Pricing — $49/mo Creator Plan',
   description: "Privly pricing: free 7-day trial, then $49/month for unlimited DMCA takedowns, leak scanning, forensic watermarking, Telegram/Discord monitoring and source tracing. No per-takedown fees.",
   path: '/pricing',
+  ogImage: 'https://www.useprivly.com/og-pricing.png',
 });
 
 const TRIAL_FEATURES = [

@@ -14,6 +14,7 @@ export const metadata = genMeta({
   title: "Articles",
   description: "Content protection guides, legal advice, and security tips for creators and businesses.",
   path: "/articles",
+  ogImage: "https://www.useprivly.com/og-blog.png",
   keywords: [
     "content protection articles",
     "DMCA guide",

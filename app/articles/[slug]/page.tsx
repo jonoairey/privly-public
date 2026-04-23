@@ -66,11 +66,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: post.date,
       authors: [post.author],
       url: `https://www.useprivly.com/articles/${resolvedParams.slug}`,
+      images: [{ url: "https://www.useprivly.com/og-blog.png", width: 1200, height: 630, alt: post.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
+      images: ["https://www.useprivly.com/og-blog.png"],
     },
   };
 }

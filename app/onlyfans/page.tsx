@@ -48,6 +48,14 @@ export const metadata: Metadata = {
       "Find and remove leaked OnlyFans content from 500+ sites. Automated DMCA takedowns, Google de-indexing, and 24/7 leak monitoring. Start free trial.",
     type: "website",
     url: "https://www.useprivly.com/onlyfans",
+    images: [{ url: "https://www.useprivly.com/og-onlyfans.png", width: 1200, height: 630, alt: "Privly — OnlyFans content protection" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Stop OnlyFans Leaks — Find & Remove Stolen Content | Privly",
+    description:
+      "Find and remove leaked OnlyFans content from 500+ sites. Automated DMCA takedowns, Google de-indexing, and 24/7 leak monitoring.",
+    images: ["https://www.useprivly.com/og-onlyfans.png"],
   },
   alternates: {
     canonical: "https://www.useprivly.com/onlyfans",

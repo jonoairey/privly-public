@@ -10,7 +10,7 @@ export default function HeroStory() {
         <div className="grid lg:grid-cols-2 gap-14 items-center" style={{ gridTemplateColumns: undefined }}>
           {/* Left — Copy */}
           <Reveal>
-            <div className="chip" style={{ marginBottom: 24 }}>
+            <div className="chip mt-6 md:mt-0" style={{ marginBottom: 24 }}>
               <span style={{ color: 'var(--accent)' }}>
                 <Shield size={14} color="currentColor" />
               </span>

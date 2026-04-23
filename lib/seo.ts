@@ -7,7 +7,7 @@ export const SITE_CONFIG = {
   title: 'Privly - Protect Your Content. Stop Leaks. Recover Revenue.',
   description: 'Content protection for OnlyFans, Fansly & adult creators. Automated leak scanning, DMCA takedowns, and AI content detection. Find stolen content and get it removed fast.',
   url: 'https://www.useprivly.com',
-  ogImage: 'https://www.useprivly.com/og-image.png',
+  ogImage: 'https://www.useprivly.com/og-home.png',
   twitterHandle: '@useprivly',
   keywords: [
     'OnlyFans leak protection',
