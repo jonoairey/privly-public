@@ -20,6 +20,7 @@ export const NAV_ITEMS = [
   { label: 'Features', href: '/features' },
   { label: 'Pricing', href: '/pricing' },
   { label: 'Resources', href: '/articles' },
+  { label: 'About', href: '/about' },
 ]
 
 export const MARQUEE_ITEMS = [
