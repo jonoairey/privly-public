@@ -291,6 +291,28 @@ export const ARTICLE_IMAGES: Record<string, ArticleImage> = {
     alt: 'Abstract padlock symbol on a digital background — account security',
     motif: 'lock',
   },
+
+  /* ============ NEW 2026-04 CONTENT-GAP ARTICLES ============ */
+  'telegram-leaks-creator-guide-remove-content-fast': {
+    src: u('photo-1611605698335-8b1569810432'),
+    alt: 'Glowing notification badges on a dark screen — messaging app surveillance',
+    motif: 'trace',
+  },
+  'dmca-takedown-service-cost-comparison-2026': {
+    src: u('photo-1554224154-26032ffc0d07'),
+    alt: 'Calculator and financial paperwork on a desk — pricing comparison',
+    motif: 'chart',
+  },
+  'privly-vs-diy-dmca-takedowns-honest-comparison': {
+    src: u('photo-1521737604893-d14cc237f11d'),
+    alt: 'Hands on a keyboard with a notebook and coffee — solo creator working',
+    motif: 'shield',
+  },
+  'onlyfans-watermarking-complete-guide-invisible-forensic-2026': {
+    src: u('photo-1558494949-ef010cbdcc31'),
+    alt: 'Abstract digital watermark pattern in purple — forensic tagging concept',
+    motif: 'watermark',
+  },
 };
 
 /**

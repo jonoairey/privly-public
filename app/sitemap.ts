@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/instagram',
     '/tiktok',
     '/reddit',
+    '/threads',
     // Removal guide landing pages
     '/remove-from-erome',
     '/remove-from-bunkr',
