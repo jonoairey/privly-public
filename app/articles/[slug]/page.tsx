@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import MarketingHeader from '@/components/marketing/Header';
 import MarketingFooter from '@/components/marketing/Footer';
 import { articles as coreArticles } from "@/lib/article-data";
@@ -7,6 +8,7 @@ import { leakSiteArticles } from "@/lib/article-data-leak-sites";
 import { safetyArticles } from "@/lib/article-data-safety";
 import { onlyfansArticles } from "@/lib/article-data-onlyfans";
 import { patreonArticles } from "@/lib/article-data-patreon";
+import { getArticleImage } from "@/lib/article-images";
 import { generateBreadcrumbSchema, generateFAQSchema } from "@/lib/seo";
 import RelatedServices from "@/components/related-services";
 
@@ -31,6 +33,34 @@ function detectCluster(slug: string, category: string): import("@/components/rel
 
 const articles = [...coreArticles, ...leakSiteArticles, ...safetyArticles, ...onlyfansArticles, ...patreonArticles];
 
+/** Category colour map — shared with /articles listing for consistency. */
+const CATEGORY_COLOR: Record<string, string> = {
+  "Content Protection": "#7C3AED",
+  Business: "#059669",
+  Legal: "#2563EB",
+  Technology: "#DB2777",
+  "AI & Security": "#EC4899",
+  "Creator Safety": "#D97706",
+  "Removal Guides": "#DC2626",
+  "Creator Business": "#059669",
+  "Platform Comparison": "#0891B2",
+};
+
+function CategoryPill({ category, onDark = false }: { category: string; onDark?: boolean }) {
+  const color = CATEGORY_COLOR[category] ?? "#3D1470";
+  return (
+    <span
+      className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider shadow-sm ${
+        onDark ? 'bg-white/95' : 'bg-white'
+      }`}
+      style={{ color, ...(onDark ? {} : { border: '1px solid var(--line)' }) }}
+    >
+      <span aria-hidden className="inline-block h-1.5 w-1.5 rounded-full" style={{ background: color }} />
+      {category}
+    </span>
+  );
+}
+
 interface Props {
   params: Promise<{
     slug: string;
@@ -53,6 +83,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  // Per-article cover image for social share previews — falls back to the generic blog OG.
+  const img = getArticleImage(post.slug);
+  const ogImage = img?.src ?? "https://www.useprivly.com/og-blog.png";
+  const ogAlt = img?.alt ?? post.title;
+
   return {
     title: `${post.title} | Privly`,
     description: post.excerpt,
@@ -66,13 +101,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: post.date,
       authors: [post.author],
       url: `https://www.useprivly.com/articles/${resolvedParams.slug}`,
-      images: [{ url: "https://www.useprivly.com/og-blog.png", width: 1200, height: 630, alt: post.title }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: ogAlt }],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-      images: ["https://www.useprivly.com/og-blog.png"],
+      images: [ogImage],
     },
   };
 }
@@ -89,7 +124,7 @@ export default async function ArticlePage({ params }: Props) {
           <div className="text-center">
             <h1 className="text-4xl font-bold mb-4">Article Not Found</h1>
             <p className="mb-8" style={{ color: 'var(--ink-2)' }}>
-              The article you're looking for doesn't exist.
+              The article you&apos;re looking for doesn&apos;t exist.
             </p>
             <Link
               href="/articles"
@@ -104,6 +139,8 @@ export default async function ArticlePage({ params }: Props) {
     );
   }
 
+  const heroImage = getArticleImage(post.slug);
+
   const currentIndex = articles.findIndex((p) => p.slug === post.slug);
   const relatedPosts = articles
     .filter((p) => p.slug !== post.slug)
@@ -112,156 +149,171 @@ export default async function ArticlePage({ params }: Props) {
         Math.abs(articles.indexOf(a) - currentIndex) -
         Math.abs(articles.indexOf(b) - currentIndex)
     )
-    .slice(0, 2);
-
-  const getCategoryColor = (category: string) => {
-    const colors: Record<string, string> = {
-      "Content Protection": "bg-purple-900/30 text-[var(--accent)]",
-      Legal: "bg-blue-900/30 text-blue-600",
-      "AI & Security": "bg-pink-900/30 text-[var(--hot)]",
-      Business: "bg-emerald-900/30 text-emerald-600",
-    };
-    return colors[category] || "bg-[var(--bg-2)] text-[var(--ink-2)]";
-  };
+    .slice(0, 3);
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col">
       <MarketingHeader />
 
-      <main className="flex-1 w-full py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          {/* Back Link */}
-          <Link
-            href="/articles"
-            className="inline-flex items-center gap-2 text-[var(--accent)] hover:text-[var(--accent)] mb-8 transition-colors duration-300"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Back to Articles
-          </Link>
-
-          {/* Article Header */}
-          <div className="mb-12">
-            {/* Category Badge */}
-            <div className="mb-4">
-              <span
-                className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${getCategoryColor(
-                  post.category
-                )}`}
-              >
-                {post.category}
-              </span>
+      <main className="flex-1 w-full">
+        {/* ============ HERO IMAGE ============
+            Full-width photo with a plum gradient overlay so the title + meta stay legible.
+            The category pill sits top-left; title + meta overlay the bottom third.
+            Eager-loaded + priority so it's the LCP element. */}
+        <section className="relative isolate mx-auto mt-6 w-full max-w-6xl overflow-hidden rounded-2xl px-0 sm:mt-8 sm:rounded-3xl" style={{ background: '#EDE5D7' }}>
+          <div className="relative aspect-[16/9] w-full sm:aspect-[21/9]">
+            <Image
+              src={heroImage.src}
+              alt={heroImage.alt}
+              fill
+              sizes="(min-width: 1280px) 1152px, 100vw"
+              className="object-cover"
+              priority
+            />
+            {/* Plum gradient overlay — heaviest at the bottom for legibility */}
+            <div
+              aria-hidden
+              className="absolute inset-0"
+              style={{
+                background:
+                  'linear-gradient(180deg, rgba(26,9,54,0.15) 0%, rgba(26,9,54,0.05) 35%, rgba(26,9,54,0.55) 72%, rgba(26,9,54,0.85) 100%)',
+              }}
+            />
+            {/* Category pill */}
+            <div className="absolute left-4 top-4 sm:left-6 sm:top-6">
+              <CategoryPill category={post.category} onDark />
             </div>
-
-            {/* Title */}
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
-              {post.title}
-            </h1>
-
-            {/* Meta Information */}
-            <div className="flex flex-wrap items-center gap-6 border-b border-[var(--line)] pb-6" style={{ color: 'var(--ink-2)' }}>
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <time dateTime={post.date}>
-                  {new Date(post.date).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </time>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C6.5 6.253 2 10.998 2 17.25s4.5 11 10 11.25m0-13c5.5.252 10 4.997 10 11.25S17.5 28.5 12 28.5" />
-                </svg>
-                <span>{post.readTime} min read</span>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-                <span>{post.author}</span>
+            {/* Title + meta pinned to the bottom */}
+            <div className="absolute inset-x-0 bottom-0 p-5 sm:p-10">
+              <div className="max-w-3xl">
+                <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.15em] text-white/80 sm:text-xs">
+                  The Privly Journal · {post.readTime} min read
+                </div>
+                <h1
+                  className="text-2xl font-medium leading-tight tracking-tight text-white sm:text-4xl md:text-5xl"
+                  style={{ fontFamily: "'Fraunces', Georgia, serif", letterSpacing: '-0.022em' }}
+                >
+                  {post.title}
+                </h1>
+                <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-white/80 sm:text-sm">
+                  <span>{post.author}</span>
+                  <span className="opacity-40">·</span>
+                  <time dateTime={post.date}>
+                    {new Date(post.date).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </time>
+                </div>
               </div>
             </div>
           </div>
+        </section>
 
-          {/* Article Content */}
-          <article className="prose prose-invert max-w-none mb-16">
-            <div className="space-y-6 leading-relaxed" style={{ color: 'var(--ink-2)' }}>
-              {post.content.split("\n\n").map((paragraph, index) => (
-                <p key={index} className="text-lg">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-          </article>
+        {/* ============ ARTICLE BODY ============ */}
+        <div className="w-full px-4 pb-16 pt-10 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl">
+            {/* Back link — moved under the hero so it doesn't compete with the cover */}
+            <Link
+              href="/articles"
+              className="mb-8 inline-flex items-center gap-2 text-[var(--accent)] transition-colors hover:opacity-80"
+            >
+              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              Back to Articles
+            </Link>
 
-          {/* FAQs */}
-          {post.faqs && post.faqs.length > 0 && (
-            <section className="mt-12 mb-12">
-              <h2 className="text-3xl font-bold mb-6">Frequently asked questions</h2>
-              <div className="space-y-4">
-                {post.faqs.map((faq, i) => (
-                  <details
-                    key={i}
-                    className="rounded-xl border /40 p-5 group" style={{ background: 'white', border: '1px solid var(--line)' }}
-                  >
-                    <summary className="cursor-pointer font-semibold text-lg flex justify-between items-center gap-4">
-                      <span>{faq.question}</span>
-                      <span className="text-[var(--accent)] group-open:rotate-45 transition-transform text-2xl leading-none">+</span>
-                    </summary>
-                    <p className="mt-4 leading-relaxed" style={{ color: 'var(--ink-2)' }}>{faq.answer}</p>
-                  </details>
+            {/* Content */}
+            <article className="prose prose-lg max-w-none">
+              <div className="space-y-6 leading-relaxed" style={{ color: 'var(--ink-2)' }}>
+                {post.content.split("\n\n").map((paragraph, index) => (
+                  <p key={index} className="text-lg">
+                    {paragraph}
+                  </p>
                 ))}
               </div>
-            </section>
-          )}
+            </article>
 
-          {/* Divider */}
-          <div className="border-t border-[var(--line)] my-12" />
-
-          {/* Related tools / comparisons / removal guides — distributes internal link equity */}
-          <RelatedServices cluster={detectCluster(post.slug, post.category)} />
-
-          {/* Related Articles */}
-          <section className="mt-16">
-            <h2 className="text-3xl font-bold mb-8">Related Articles</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {relatedPosts.map((relatedPost) => (
-                <Link
-                  key={relatedPost.slug}
-                  href={`/articles/${relatedPost.slug}`}
-                  className="group"
-                >
-                  <article className="border rounded-lg p-6 hover:border-purple-600 transition-colors duration-300 h-full" style={{ background: 'white', border: '1px solid var(--line)' }}>
-                    <span
-                      className={`inline-block px-3 py-1 rounded-full text-sm font-medium mb-3 ${getCategoryColor(
-                        relatedPost.category
-                      )}`}
+            {/* FAQs */}
+            {post.faqs && post.faqs.length > 0 && (
+              <section className="mb-12 mt-16">
+                <h2 className="mb-6 text-3xl font-bold" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>Frequently asked questions</h2>
+                <div className="space-y-4">
+                  {post.faqs.map((faq, i) => (
+                    <details
+                      key={i}
+                      className="group rounded-xl p-5"
+                      style={{ background: 'white', border: '1px solid var(--line)' }}
                     >
-                      {relatedPost.category}
-                    </span>
+                      <summary className="flex cursor-pointer items-center justify-between gap-4 text-lg font-semibold">
+                        <span>{faq.question}</span>
+                        <span className="text-2xl leading-none text-[var(--accent)] transition-transform group-open:rotate-45">+</span>
+                      </summary>
+                      <p className="mt-4 leading-relaxed" style={{ color: 'var(--ink-2)' }}>{faq.answer}</p>
+                    </details>
+                  ))}
+                </div>
+              </section>
+            )}
 
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-[var(--accent)] transition-colors duration-300 line-clamp-2">
-                      {relatedPost.title}
-                    </h3>
+            {/* Divider */}
+            <div className="my-12 border-t border-[var(--line)]" />
 
-                    <p className="mb-4 line-clamp-2 text-sm" style={{ color: 'var(--ink-2)' }}>
-                      {relatedPost.excerpt}
-                    </p>
+            {/* Tools / comparisons / removal guides — keeps internal-link equity flowing */}
+            <RelatedServices cluster={detectCluster(post.slug, post.category)} />
+          </div>
 
-                    <div className="flex items-center gap-4 text-sm" style={{ color: 'var(--ink-2)' }}>
-                      <span>{new Date(relatedPost.date).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}</span>
-                      <span>{relatedPost.readTime} min read</span>
-                    </div>
-                  </article>
-                </Link>
-              ))}
+          {/* Related Articles — widened beyond the prose column so 3 cards fit comfortably */}
+          <section className="mx-auto mt-16 max-w-6xl">
+            <h2 className="mb-8 text-3xl font-bold" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>Keep reading</h2>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {relatedPosts.map((relatedPost) => {
+                const relatedImg = getArticleImage(relatedPost.slug);
+                return (
+                  <Link
+                    key={relatedPost.slug}
+                    href={`/articles/${relatedPost.slug}`}
+                    className="group"
+                  >
+                    <article
+                      className="flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_8px_24px_-12px_rgba(61,20,112,0.12),0_2px_6px_-2px_rgba(61,20,112,0.08)] transition hover:shadow-[0_16px_36px_-12px_rgba(61,20,112,0.22)]"
+                      style={{ border: '1px solid var(--line)' }}
+                    >
+                      <div className="relative aspect-[16/9] w-full overflow-hidden" style={{ background: '#EDE5D7' }}>
+                        <Image
+                          src={relatedImg.src}
+                          alt={relatedImg.alt}
+                          fill
+                          sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
+                          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                          loading="lazy"
+                        />
+                        <div className="absolute left-3 top-3">
+                          <CategoryPill category={relatedPost.category} />
+                        </div>
+                      </div>
+                      <div className="flex flex-1 flex-col p-5">
+                        <h3
+                          className="text-lg font-medium leading-snug tracking-tight line-clamp-2 transition-colors group-hover:text-[var(--accent)]"
+                          style={{ fontFamily: "'Fraunces', Georgia, serif", color: 'var(--ink)' }}
+                        >
+                          {relatedPost.title}
+                        </h3>
+                        <p className="mt-2.5 line-clamp-2 text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>
+                          {relatedPost.excerpt}
+                        </p>
+                        <div className="mt-auto flex items-center gap-2 pt-4 text-[11px]" style={{ color: 'var(--ink-2)' }}>
+                          <span>{new Date(relatedPost.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</span>
+                          <span className="opacity-40">·</span>
+                          <span>{relatedPost.readTime} min</span>
+                        </div>
+                      </div>
+                    </article>
+                  </Link>
+                );
+              })}
             </div>
           </section>
         </div>
@@ -281,7 +333,7 @@ export default async function ArticlePage({ params }: Props) {
         }}
       />
 
-      {/* BlogPosting structured data for rich snippets */}
+      {/* BlogPosting structured data for rich snippets — now includes the per-article image */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -290,6 +342,7 @@ export default async function ArticlePage({ params }: Props) {
             "@type": "BlogPosting",
             headline: post.title,
             description: post.excerpt,
+            image: [heroImage.src],
             author: { "@type": "Person", name: post.author },
             datePublished: post.date,
             dateModified: post.date,

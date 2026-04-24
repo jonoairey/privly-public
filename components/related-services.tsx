@@ -9,6 +9,11 @@ import Link from "next/link";
  *
  * The `cluster` prop lets individual articles (esp. leak-site cluster) bias the
  * link selection toward the most relevant remove-from / comparison pages.
+ *
+ * Styling notes (April 2026): this block sits inside the plum/cream article
+ * template, so it uses white card tiles with var(--line) borders and
+ * var(--ink)/var(--ink-2) text. The legacy dark-theme palette
+ * (bg-gray-900, text-gray-100) made every card read as muddy grey.
  */
 
 export type Cluster =
@@ -74,40 +79,76 @@ export default function RelatedServices({ cluster = "default" }: { cluster?: Clu
 
   return (
     <section className="mt-16" aria-labelledby="related-services-heading">
-      <h2 id="related-services-heading" className="text-3xl font-bold mb-8">
+      <h2
+        id="related-services-heading"
+        className="mb-8 text-3xl font-bold"
+        style={{ fontFamily: "'Fraunces', Georgia, serif", color: 'var(--ink)' }}
+      >
         Tools, comparisons &amp; removal guides
       </h2>
 
       {platformPage && (
-        <div className="mb-8 rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-900/20 via-purple-900/10 to-transparent p-6">
-          <div className="text-xs uppercase tracking-wider text-purple-300 mb-2">Recommended for your platform</div>
-          <Link href={platformPage.href} className="block group">
-            <div className="text-xl font-semibold text-gray-100 group-hover:text-purple-300 transition-colors">{platformPage.title} →</div>
-            <div className="text-sm text-gray-400 mt-1">{platformPage.blurb}</div>
+        <div
+          className="mb-8 rounded-2xl p-6"
+          style={{
+            background: 'linear-gradient(135deg, rgba(124,58,237,0.08) 0%, rgba(236,72,153,0.06) 100%)',
+            border: '1px solid rgba(124,58,237,0.25)',
+          }}
+        >
+          <div
+            className="mb-2 text-[11px] font-bold uppercase tracking-[0.12em]"
+            style={{ color: 'var(--accent)' }}
+          >
+            Recommended for your platform
+          </div>
+          <Link href={platformPage.href} className="group block">
+            <div
+              className="text-xl font-semibold transition-colors group-hover:text-[var(--accent)]"
+              style={{ color: 'var(--ink)', fontFamily: "'Fraunces', Georgia, serif" }}
+            >
+              {platformPage.title} →
+            </div>
+            <div className="mt-1 text-sm" style={{ color: 'var(--ink-2)' }}>
+              {platformPage.blurb}
+            </div>
           </Link>
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         {/* Comparisons */}
         <div>
-          <h3 className="text-lg font-semibold text-purple-300 mb-4">Compare content protection services</h3>
+          <h3
+            className="mb-4 text-[11px] font-bold uppercase tracking-[0.12em]"
+            style={{ color: 'var(--accent)' }}
+          >
+            Compare content protection services
+          </h3>
           <ul className="space-y-3">
             {comparisonsToShow.map((c) => (
               <li key={c.href}>
                 <Link
                   href={c.href}
-                  className="block rounded-lg border border-gray-800 bg-gray-900/40 p-4 hover:border-purple-600 transition-colors"
+                  className="group block rounded-xl bg-white p-4 transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-12px_rgba(61,20,112,0.18)]"
+                  style={{ border: '1px solid var(--line)' }}
                 >
-                  <div className="font-semibold text-gray-100">{c.title}</div>
-                  <div className="text-sm text-gray-400 mt-1">{c.blurb}</div>
+                  <div
+                    className="font-semibold transition-colors group-hover:text-[var(--accent)]"
+                    style={{ color: 'var(--ink)' }}
+                  >
+                    {c.title}
+                  </div>
+                  <div className="mt-1 text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>
+                    {c.blurb}
+                  </div>
                 </Link>
               </li>
             ))}
             <li>
               <Link
                 href="/privly-vs-rulta"
-                className="text-sm text-purple-400 hover:text-purple-300"
+                className="inline-flex items-center gap-1 text-sm font-semibold transition-colors hover:opacity-80"
+                style={{ color: 'var(--accent)' }}
               >
                 See all comparisons →
               </Link>
@@ -117,23 +158,37 @@ export default function RelatedServices({ cluster = "default" }: { cluster?: Clu
 
         {/* Removal guides */}
         <div>
-          <h3 className="text-lg font-semibold text-pink-300 mb-4">Remove your content from leak sites</h3>
+          <h3
+            className="mb-4 text-[11px] font-bold uppercase tracking-[0.12em]"
+            style={{ color: '#DB2777' }}
+          >
+            Remove your content from leak sites
+          </h3>
           <ul className="space-y-3">
             {removalGuidesToShow.map((g) => (
               <li key={g.href}>
                 <Link
                   href={g.href}
-                  className="block rounded-lg border border-gray-800 bg-gray-900/40 p-4 hover:border-pink-600 transition-colors"
+                  className="group block rounded-xl bg-white p-4 transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-12px_rgba(219,39,119,0.18)]"
+                  style={{ border: '1px solid var(--line)' }}
                 >
-                  <div className="font-semibold text-gray-100">{g.title}</div>
-                  <div className="text-sm text-gray-400 mt-1">{g.blurb}</div>
+                  <div
+                    className="font-semibold transition-colors"
+                    style={{ color: 'var(--ink)' }}
+                  >
+                    <span className="group-hover:text-[#DB2777]">{g.title}</span>
+                  </div>
+                  <div className="mt-1 text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>
+                    {g.blurb}
+                  </div>
                 </Link>
               </li>
             ))}
             <li>
               <Link
                 href="/tools/dmca-generator"
-                className="text-sm text-pink-400 hover:text-pink-300"
+                className="inline-flex items-center gap-1 text-sm font-semibold transition-colors hover:opacity-80"
+                style={{ color: '#DB2777' }}
               >
                 Generate a DMCA notice →
               </Link>
