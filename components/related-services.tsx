@@ -52,6 +52,15 @@ const REMOVAL_GUIDES: Array<{ href: string; title: string; blurb: string; cluste
   { href: "/remove-from-simpcity", title: "Remove content from SimpCity", blurb: "SimpCity takedown strategy and escalation path.", clusters: ["leak-sites", "onlyfans", "fansly", "default"] },
   { href: "/remove-from-coomer", title: "Remove content from Coomer", blurb: "Coomer.su / coomer.party removal workflow.", clusters: ["leak-sites", "fansly", "onlyfans", "patreon", "default"] },
   { href: "/remove-from-cyberdrop", title: "Remove content from Cyberdrop", blurb: "Cyberdrop DMCA process and escalation contacts.", clusters: ["leak-sites", "onlyfans", "fansly", "default"] },
+  // Q2 2026 expansion — added based on observatory takedown-volume rankings
+  { href: "/remove-from-fapello", title: "Remove content from Fapello", blurb: "The largest creator-leak target on the web — multi-domain DMCA workflow.", clusters: ["leak-sites", "onlyfans", "fansly", "default"] },
+  { href: "/remove-from-nudostar", title: "Remove content from Nudostar", blurb: "Nudostar.tv + .com — both-domain removal process.", clusters: ["leak-sites", "onlyfans", "fansly", "default"] },
+  { href: "/remove-from-spankbang", title: "Remove content from SpankBang", blurb: "Tube-site DMCA workflow with repeat-uploader escalation.", clusters: ["leak-sites", "onlyfans", "fansly", "default"] },
+  { href: "/remove-from-wildskirts", title: "Remove content from Wildskirts", blurb: "Aggregator with multi-target filing strategy.", clusters: ["leak-sites", "onlyfans", "fansly", "default"] },
+  { href: "/remove-from-leakedzone", title: "Remove content from Leakedzone", blurb: "Forum-style aggregator with paid-tier monetisation.", clusters: ["leak-sites", "onlyfans", "fansly", "default"] },
+  { href: "/remove-from-fapodrop", title: "Remove content from Fapodrop", blurb: "Newer aggregator with rapid uploads — early intervention matters.", clusters: ["leak-sites", "onlyfans", "fansly", "default"] },
+  { href: "/remove-from-eporner", title: "Remove content from Eporner", blurb: "Tube site with active recent volume — formal DMCA process.", clusters: ["leak-sites", "onlyfans", "fansly", "default"] },
+  { href: "/remove-from-thotsbay", title: "Remove content from Thotsbay", blurb: "Mirror-inverted ecosystem (.tv is 45× bigger than .com).", clusters: ["leak-sites", "onlyfans", "fansly", "default"] },
 ];
 
 const PLATFORM_PAGES: Partial<Record<Cluster, { href: string; title: string; blurb: string }>> = {

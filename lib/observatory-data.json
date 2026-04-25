@@ -1,0 +1,112 @@
+{
+  "generated_at": "2026-04-25T05:00:00Z",
+  "source": "Google Transparency Report — per-domain pages, scraped via Chrome MCP on Jono's MacBook",
+  "method": "Navigated each domain's transparency page, waited 8s for Polymer hydration, extracted weekly time-series and request-table pagination via JS in-page",
+  "site_count": 50,
+  "summary": {
+    "ok": 45,
+    "no_data": 5,
+    "total_urls_requested_all_sites": 77071655,
+    "recent_4_weeks_all_sites": 4906829,
+    "biggest_offenders": [
+      "fapello.com (24.5M)",
+      "nudostar.tv (13.7M)",
+      "spankbang.com (7.1M)",
+      "coomer.su (6.2M)",
+      "wildskirts.com (4.7M)",
+      "leakedzone.com (3.7M)",
+      "fapodrop.com (3.4M)",
+      "eporner.com (2.1M)",
+      "thotsbay.tv (1.8M)",
+      "erome.com (1.2M)"
+    ],
+    "notes": [
+      "Inception date 'Mar 10, 2011' is when Google's transparency reporting began, NOT the domain's first appearance — reported uniformly across every domain",
+      "no_data sites (5) returned 404s on Google Transparency Report; Google has no DMCA records for these domains",
+      "series_weeks reflects how many weekly buckets of activity the site has had — older domains have ~770 weeks (since 2011), newer ones have <300",
+      "pagination_label is Google's 'Page 1 of N' for the takedown-request table, where N×10 ≈ total takedown requests submitted (each request can list multiple URLs)",
+      "recent_4_weeks is the sum of the last four weekly buckets in the time-series — proxy for current activity"
+    ]
+  },
+  "results": [
+    { "domain": "bunkr.ru", "tier": 1, "category": "Aggregator", "covered_by_remove_from": true, "status": "ok", "total_urls_requested": 24536, "recent_4_weeks": 10, "series_weeks": 164, "request_pages_label": "1 of 141", "inception_date": "Mar 10, 2011" },
+    { "domain": "bunkrr.org", "tier": 1, "category": "Aggregator", "covered_by_remove_from": true, "status": "ok", "total_urls_requested": 1, "recent_4_weeks": 1, "series_weeks": 1, "request_pages_label": "1 of 1", "inception_date": "Mar 10, 2011" },
+    { "domain": "coomer.su", "tier": 1, "category": "Aggregator", "covered_by_remove_from": true, "status": "ok", "total_urls_requested": 6229239, "recent_4_weeks": 5345, "series_weeks": 141, "request_pages_label": "1 of 2,237", "inception_date": "Mar 10, 2011" },
+    { "domain": "coomer.st", "tier": 1, "category": "Aggregator", "covered_by_remove_from": true, "status": "ok", "total_urls_requested": 974595, "recent_4_weeks": 29899, "series_weeks": 29, "request_pages_label": "1 of 600", "inception_date": "Mar 10, 2011" },
+    { "domain": "kemono.su", "tier": 1, "category": "Aggregator", "covered_by_remove_from": false, "status": "ok", "total_urls_requested": 474637, "recent_4_weeks": 2621, "series_weeks": 140, "request_pages_label": "1 of 382", "inception_date": "Mar 10, 2011" },
+    { "domain": "kemono.party", "tier": 1, "category": "Aggregator", "covered_by_remove_from": false, "status": "ok", "total_urls_requested": 350109, "recent_4_weeks": 688, "series_weeks": 273, "request_pages_label": "1 of 373", "inception_date": "Mar 10, 2011" },
+    { "domain": "cyberdrop.me", "tier": 1, "category": "File host", "covered_by_remove_from": true, "status": "ok", "total_urls_requested": 14361, "recent_4_weeks": 2, "series_weeks": 309, "request_pages_label": "1 of 170", "inception_date": "Mar 10, 2011" },
+    { "domain": "cyberdrop.to", "tier": 1, "category": "File host", "covered_by_remove_from": true, "status": "ok", "total_urls_requested": 6150, "recent_4_weeks": 44, "series_weeks": 163, "request_pages_label": "1 of 10", "inception_date": "Mar 10, 2011" },
+    { "domain": "erome.com", "tier": 1, "category": "Aggregator", "covered_by_remove_from": true, "status": "ok", "total_urls_requested": 1208177, "recent_4_weeks": 39102, "series_weeks": 442, "request_pages_label": "1 of 2,616", "inception_date": "Mar 10, 2011" },
+    { "domain": "simpcity.cr", "tier": 1, "category": "Forum", "covered_by_remove_from": true, "status": "ok", "total_urls_requested": 8722, "recent_4_weeks": 425, "series_weeks": 29, "request_pages_label": "1 of 81", "inception_date": "Mar 10, 2011" },
+    { "domain": "simpcity.su", "tier": 1, "category": "Forum", "covered_by_remove_from": true, "status": "ok", "total_urls_requested": 414463, "recent_4_weeks": 2286, "series_weeks": 180, "request_pages_label": "1 of 1,576", "inception_date": "Mar 10, 2011" },
+    { "domain": "thothub.tv", "tier": 1, "category": "Aggregator", "covered_by_remove_from": true, "status": "ok", "total_urls_requested": 16397, "recent_4_weeks": 1, "series_weeks": 369, "request_pages_label": "1 of 50", "inception_date": "Mar 10, 2011" },
+    { "domain": "thothub.lol", "tier": 1, "category": "Aggregator", "covered_by_remove_from": true, "status": "ok", "total_urls_requested": 911353, "recent_4_weeks": 10922, "series_weeks": 247, "request_pages_label": "1 of 1,739", "inception_date": "Mar 10, 2011" },
+    { "domain": "fapello.com", "tier": 1, "category": "Aggregator", "covered_by_remove_from": true, "status": "ok", "total_urls_requested": 24571887, "recent_4_weeks": 2351135, "series_weeks": 215, "request_pages_label": "1 of 3,719", "inception_date": "Mar 10, 2011" },
+    { "domain": "fapello.su", "tier": 1, "category": "Aggregator", "covered_by_remove_from": true, "status": "ok", "total_urls_requested": 1108468, "recent_4_weeks": 300, "series_weeks": 136, "request_pages_label": "1 of 614", "inception_date": "Mar 10, 2011" },
+
+    { "domain": "mrdeepfakes.com", "tier": 2, "category": "Deepfake", "covered_by_remove_from": true, "status": "ok", "total_urls_requested": 33382, "recent_4_weeks": 20, "series_weeks": 375, "request_pages_label": "1 of 274", "inception_date": "Mar 10, 2011" },
+    { "domain": "leakedzone.com", "tier": 2, "category": "Aggregator", "covered_by_remove_from": true, "status": "ok", "total_urls_requested": 3688562, "recent_4_weeks": 99306, "series_weeks": 181, "request_pages_label": "1 of 1,709", "inception_date": "Mar 10, 2011" },
+    { "domain": "nudostar.com", "tier": 2, "category": "Aggregator", "covered_by_remove_from": true, "status": "ok", "total_urls_requested": 984401, "recent_4_weeks": 34787, "series_weeks": 317, "request_pages_label": "1 of 2,764", "inception_date": "Mar 10, 2011" },
+    { "domain": "nudostar.tv", "tier": 2, "category": "Aggregator", "covered_by_remove_from": true, "status": "ok", "total_urls_requested": 13674942, "recent_4_weeks": 1969096, "series_weeks": 251, "request_pages_label": "1 of 2,757", "inception_date": "Mar 10, 2011" },
+    { "domain": "influencersgonewild.com", "tier": 2, "category": "Aggregator", "covered_by_remove_from": false, "status": "ok", "total_urls_requested": 92810, "recent_4_weeks": 895, "series_weeks": 294, "request_pages_label": "1 of 168", "inception_date": "Mar 10, 2011" },
+    { "domain": "fapodrop.com", "tier": 2, "category": "Aggregator", "covered_by_remove_from": true, "status": "ok", "total_urls_requested": 3386267, "recent_4_weeks": 74771, "series_weeks": 167, "request_pages_label": "1 of 2,482", "inception_date": "Mar 10, 2011" },
+    { "domain": "famouspages.com", "tier": 2, "category": "Aggregator", "covered_by_remove_from": false, "status": "no_data", "total_urls_requested": 0, "recent_4_weeks": 0, "series_weeks": 0, "request_pages_label": null, "inception_date": null, "note": "Google Transparency Report returned 404 — no DMCA record for this domain" },
+    { "domain": "dirtyship.com", "tier": 2, "category": "Aggregator", "covered_by_remove_from": false, "status": "ok", "total_urls_requested": 294403, "recent_4_weeks": 5746, "series_weeks": 382, "request_pages_label": "1 of 435", "inception_date": "Mar 10, 2011" },
+    { "domain": "thotsbay.com", "tier": 2, "category": "Forum", "covered_by_remove_from": true, "status": "ok", "total_urls_requested": 39979, "recent_4_weeks": 2, "series_weeks": 233, "request_pages_label": "1 of 401", "inception_date": "Mar 10, 2011" },
+    { "domain": "thotnetwork.com", "tier": 2, "category": "Aggregator", "covered_by_remove_from": false, "status": "ok", "total_urls_requested": 2, "recent_4_weeks": 2, "series_weeks": 2, "request_pages_label": "1 of 1", "inception_date": "Mar 10, 2011" },
+
+    { "domain": "spankbang.com", "tier": 3, "category": "Tube site", "covered_by_remove_from": true, "status": "ok", "total_urls_requested": 7116156, "recent_4_weeks": 11088, "series_weeks": 754, "request_pages_label": "1 of 1,144", "inception_date": "Mar 10, 2011" },
+    { "domain": "xhamster.com", "tier": 3, "category": "Tube site", "covered_by_remove_from": false, "status": "ok", "total_urls_requested": 144435, "recent_4_weeks": 2381, "series_weeks": 770, "request_pages_label": "1 of 879", "inception_date": "Mar 10, 2011" },
+    { "domain": "xvideos.com", "tier": 3, "category": "Tube site", "covered_by_remove_from": false, "status": "ok", "total_urls_requested": 506153, "recent_4_weeks": 775, "series_weeks": 766, "request_pages_label": "1 of 632", "inception_date": "Mar 10, 2011" },
+    { "domain": "pornhub.com", "tier": 3, "category": "Tube site", "covered_by_remove_from": false, "status": "ok", "total_urls_requested": 327486, "recent_4_weeks": 727, "series_weeks": 770, "request_pages_label": "1 of 860", "inception_date": "Mar 10, 2011" },
+    { "domain": "eporner.com", "tier": 3, "category": "Tube site", "covered_by_remove_from": true, "status": "ok", "total_urls_requested": 2110182, "recent_4_weeks": 210291, "series_weeks": 750, "request_pages_label": "1 of 1,811", "inception_date": "Mar 10, 2011" },
+    { "domain": "youporn.com", "tier": 3, "category": "Tube site", "covered_by_remove_from": false, "status": "ok", "total_urls_requested": 55265, "recent_4_weeks": 618, "series_weeks": 754, "request_pages_label": "1 of 218", "inception_date": "Mar 10, 2011" },
+    { "domain": "redtube.com", "tier": 3, "category": "Tube site", "covered_by_remove_from": false, "status": "ok", "total_urls_requested": 34612, "recent_4_weeks": 496, "series_weeks": 730, "request_pages_label": "1 of 181", "inception_date": "Mar 10, 2011" },
+    { "domain": "tube8.com", "tier": 3, "category": "Tube site", "covered_by_remove_from": false, "status": "ok", "total_urls_requested": 21632, "recent_4_weeks": 380, "series_weeks": 770, "request_pages_label": "1 of 94", "inception_date": "Mar 10, 2011" },
+
+    { "domain": "mega.nz", "tier": 4, "category": "File host", "covered_by_remove_from": false, "status": "ok", "total_urls_requested": 1060731, "recent_4_weeks": 6442, "series_weeks": 573, "request_pages_label": "1 of 231", "inception_date": "Mar 10, 2011" },
+    { "domain": "gofile.io", "tier": 4, "category": "File host", "covered_by_remove_from": false, "status": "ok", "total_urls_requested": 63010, "recent_4_weeks": 1039, "series_weeks": 463, "request_pages_label": "1 of 112", "inception_date": "Mar 10, 2011" },
+    { "domain": "mediafire.com", "tier": 4, "category": "File host", "covered_by_remove_from": false, "status": "ok", "total_urls_requested": 398200, "recent_4_weeks": 597, "series_weeks": 765, "request_pages_label": "1 of 309", "inception_date": "Mar 10, 2011" },
+    { "domain": "catbox.moe", "tier": 4, "category": "File host", "covered_by_remove_from": false, "status": "ok", "total_urls_requested": 1526, "recent_4_weeks": 3, "series_weeks": 438, "request_pages_label": "1 of 7", "inception_date": "Mar 10, 2011" },
+    { "domain": "pixeldrain.com", "tier": 4, "category": "File host", "covered_by_remove_from": false, "status": "ok", "total_urls_requested": 54534, "recent_4_weeks": 384, "series_weeks": 343, "request_pages_label": "1 of 142", "inception_date": "Mar 10, 2011" },
+
+    { "domain": "thotpop.com", "tier": 5, "category": "Aggregator", "covered_by_remove_from": false, "status": "no_data", "total_urls_requested": 0, "recent_4_weeks": 0, "series_weeks": 0, "request_pages_label": null, "inception_date": null, "note": "Google Transparency Report returned 404 — no DMCA record for this domain" },
+    { "domain": "ofleaked.com", "tier": 5, "category": "Aggregator", "covered_by_remove_from": false, "status": "no_data", "total_urls_requested": 0, "recent_4_weeks": 0, "series_weeks": 0, "request_pages_label": null, "inception_date": null, "note": "Google Transparency Report returned 404 — no DMCA record for this domain" },
+    { "domain": "onlyfansleaks.tv", "tier": 5, "category": "Aggregator", "covered_by_remove_from": false, "status": "ok", "total_urls_requested": 20997, "recent_4_weeks": 1, "series_weeks": 208, "request_pages_label": "1 of 152", "inception_date": "Mar 10, 2011" },
+    { "domain": "theyhavethis.com", "tier": 5, "category": "Aggregator", "covered_by_remove_from": false, "status": "no_data", "total_urls_requested": 0, "recent_4_weeks": 0, "series_weeks": 0, "request_pages_label": null, "inception_date": null, "note": "Google Transparency Report returned 404 — no DMCA record for this domain" },
+    { "domain": "wildskirts.com", "tier": 5, "category": "Aggregator", "covered_by_remove_from": true, "status": "ok", "total_urls_requested": 4666269, "recent_4_weeks": 29566, "series_weeks": 172, "request_pages_label": "1 of 1,859", "inception_date": "Mar 10, 2011" },
+
+    { "domain": "deepfakeporn.net", "tier": 6, "category": "Deepfake", "covered_by_remove_from": false, "status": "ok", "total_urls_requested": 29709, "recent_4_weeks": 4497, "series_weeks": 185, "request_pages_label": "1 of 23", "inception_date": "Mar 10, 2011" },
+    { "domain": "fakings.com", "tier": 6, "category": "Tube site", "covered_by_remove_from": false, "status": "ok", "total_urls_requested": 17, "recent_4_weeks": 1, "series_weeks": 429, "request_pages_label": "1 of 2", "inception_date": "Mar 10, 2011" },
+    { "domain": "boards.4chan.org", "tier": 6, "category": "Forum", "covered_by_remove_from": false, "status": "no_data", "total_urls_requested": 0, "recent_4_weeks": 0, "series_weeks": 0, "request_pages_label": null, "inception_date": null, "note": "Google Transparency Report returned 404 — Google indexes 4chan.org as a whole, not the boards subdomain" },
+    { "domain": "imgur.com", "tier": 6, "category": "File host", "covered_by_remove_from": false, "status": "ok", "total_urls_requested": 56828, "recent_4_weeks": 307, "series_weeks": 743, "request_pages_label": "1 of 325", "inception_date": "Mar 10, 2011" },
+
+    { "domain": "anonfiles.com", "tier": 7, "category": "File host", "covered_by_remove_from": false, "status": "ok", "total_urls_requested": 85514, "recent_4_weeks": 49, "series_weeks": 700, "request_pages_label": "1 of 142", "inception_date": "Mar 10, 2011" },
+    { "domain": "yiff.party", "tier": 7, "category": "Aggregator", "covered_by_remove_from": false, "status": "ok", "total_urls_requested": 381, "recent_4_weeks": 1, "series_weeks": 310, "request_pages_label": "1 of 18", "inception_date": "Mar 10, 2011" },
+    { "domain": "thotsbay.tv", "tier": 7, "category": "Aggregator", "covered_by_remove_from": true, "status": "ok", "total_urls_requested": 1810175, "recent_4_weeks": 9780, "series_weeks": 183, "request_pages_label": "1 of 783", "inception_date": "Mar 10, 2011" }
+  ],
+  "deep_dive_bunkr_ru": {
+    "_comment": "Sample of richer per-request data for bunkr.ru, captured during validation. Same data is available per-site by clicking through to the request table on each transparency page.",
+    "recent_request_table": [
+      { "request_id": "40958062", "date": "Jan 25, 2026", "copyright_owner": "lolabey", "reporting_organization": "DMCA Piracy Prevention Inc", "urls": 9 },
+      { "request_id": "40882496", "date": "Jan 20, 2026", "copyright_owner": "JessieAndJackson", "reporting_organization": "Rulta OU", "urls": 619 },
+      { "request_id": "40061253", "date": "Dec 24, 2025", "copyright_owner": "Jaytoy15", "reporting_organization": "DMCA Piracy Prevention Inc", "urls": 4 },
+      { "request_id": "39852231", "date": "Dec 16, 2025", "copyright_owner": "noemie.dufresne", "reporting_organization": "Rulta OU", "urls": 134 },
+      { "request_id": "39599647", "date": "Dec 11, 2025", "copyright_owner": "b&b", "reporting_organization": "DMCA Force", "urls": 1525 },
+      { "request_id": "39106570", "date": "Nov 26, 2025", "copyright_owner": "whoahannahjo", "reporting_organization": "DMCA Piracy Prevention Inc", "urls": 6 },
+      { "request_id": "38390673", "date": "Nov 15, 2025", "copyright_owner": "Moodie Maggie", "reporting_organization": "Moodie Maggie", "urls": 15 },
+      { "request_id": "38311188", "date": "Nov 12, 2025", "copyright_owner": "mimimartini", "reporting_organization": "Rulta OU", "urls": 453 },
+      { "request_id": "37564058", "date": "Oct 20, 2025", "copyright_owner": "Maximo Garcia", "reporting_organization": "Privacy Removals Limited", "urls": 1005 },
+      { "request_id": "37553669", "date": "Oct 15, 2025", "copyright_owner": "Lua", "reporting_organization": "Advogado Joao Victor de Oliveira Rego", "urls": 874 }
+    ],
+    "top_recent_reporters": [
+      { "name": "DMCA Force", "urls_requested": 1525 },
+      { "name": "Rulta OU", "urls_requested": 1206 },
+      { "name": "Privacy Removals Limited", "urls_requested": 1005 },
+      { "name": "Advogado Joao Victor de Oliveira Rego", "urls_requested": 874 },
+      { "name": "DMCA Piracy Prevention Inc", "urls_requested": 19 },
+      { "name": "Moodie Maggie", "urls_requested": 15 }
+    ]
+  }
+}

@@ -313,6 +313,11 @@ export const ARTICLE_IMAGES: Record<string, ArticleImage> = {
     alt: 'Abstract digital watermark pattern in purple — forensic tagging concept',
     motif: 'watermark',
   },
+  'leak-site-observatory-q2-2026': {
+    src: u('photo-1551288049-bebda4e38f71'),
+    alt: 'Analytics dashboard with charts and data visualisation — observatory report concept',
+    motif: 'chart',
+  },
 };
 
 /**

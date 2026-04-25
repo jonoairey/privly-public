@@ -30,6 +30,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/tiktok',
     '/reddit',
     '/threads',
+    // Q2 2026 platform expansion — emerging creator subscription platforms
+    '/fanfix',
+    '/justforfans',
+    '/fanvue',
+    '/loyalfans',
     // Removal guide landing pages
     '/remove-from-erome',
     '/remove-from-bunkr',
@@ -50,11 +55,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/remove-from-google',
     '/remove-from-thothub',
     '/remove-from-mrdeepfakes',
+    // Remove-from pages (Q2 2026 expansion based on observatory data)
+    '/remove-from-fapello',
+    '/remove-from-nudostar',
+    '/remove-from-spankbang',
+    '/remove-from-wildskirts',
+    '/remove-from-leakedzone',
+    '/remove-from-fapodrop',
+    '/remove-from-eporner',
+    '/remove-from-thotsbay',
     // Tools
     '/tools',
     '/tools/dmca-generator',
     // Report
     '/report/content-leaks-2026',
+    // Observatory (data dashboard)
+    '/observatory',
     // Glossary index
     '/glossary',
   ].map((route) => ({

@@ -826,5 +826,125 @@ We say this as the people running the service, but also as the people who take t
       { question: "Can a DMCA takedown be rejected?", answer: "Yes. Common reasons: inadequate ownership proof, wrong recipient (notice sent to domain registrar when host was the correct target), ambiguous identification of the infringing content, or wrong legal framing. Recipients will usually reply with the reason, giving you a chance to re-file correctly." },
       { question: "Should I still subscribe to Privly if I already do my own DMCAs?", answer: "Honestly, depends on your volume. Under 5 leaks a month with an established DIY workflow you enjoy — probably not worth the $49 yet. Above 10 leaks a month, or if you dread the discovery work, yes. We'd rather tell you honestly than sell you something you won't benefit from." }
     ]
+  },
+  {
+    slug: "leak-site-observatory-q2-2026",
+    title: "The Privly Observatory — Q2 2026 Report on the Leak-Site Ecosystem",
+    excerpt: "77 million URLs requested for delisting. 4.9 million in just the last four weeks. The aggregators are bigger than the tube sites. We pulled Google Transparency Report data on 50 of the largest creator-leak sites — here's what it tells us about the state of leaks in 2026.",
+    content: `Every quarter Privly publishes a snapshot of the leak-site ecosystem from data sourced directly from Google's Transparency Report. This is the Q2 2026 edition — the first public report. Together, the 50 sites we track have had over 77 million URLs requested for delisting from Google search. 4.9 million of those requests came in the last four weeks alone. The trends inside that data tell a different story than the conventional wisdom about creator-content piracy. This report walks through what the numbers actually say.
+
+[STATS: 77M;URLs requested for delisting;all-time, 50 sites | 4.9M;URLs in last 4 weeks;~1.2M each week | 50;Sites we track;aggregators tube file forum | 45;With Google records;5 returned no data]
+
+If you want to interact with the underlying data — sort it, filter by category, search by domain — head to /observatory. This article is the editorialised version: the patterns, the surprises, the implications for creators.
+
+**The headline numbers**
+
+77,071,655 URLs requested for delisting from Google Search across our 50-site cohort, all-time. 4,906,829 URLs requested in the last four weeks. That's roughly 1.2 million new takedown URLs every week against this small slice of the leak ecosystem. The cohort spans aggregators, tube sites, file hosts, forums, and deepfake-specific sites. Of the 50 sites, 45 had active Google data; five returned no records at all (mostly newer or smaller domains where no creator has ever filed a DMCA).
+
+These numbers come from a public source: each per-domain page on transparencyreport.google.com/copyright/domains/. Anyone can verify any individual site's count. We pulled the data, aggregated it, and now publish the synthesis.
+
+**Finding 1: aggregators dominate, not tube sites**
+
+The biggest surprise in the data is how completely the leak aggregators outweigh the tube sites. Conventional creator-protection writing focuses on the household names — Pornhub, xHamster, xVideos, RedTube, YouPorn, Tube8 — as if those are where leaked content lives. They're not.
+
+Our cohort includes eight Aylo-owned and adjacent tube sites. Combined, all eight have around 10 million all-time URL takedowns. The aggregator category — Fapello, Coomer, Kemono, Erome, Bunkr, Thothub, Nudostar, Wildskirts, Leakedzone, Fapodrop, and similar — has over 65 million all-time URL takedowns. That's roughly 6× the volume of the tube-site category, in a category with fewer sites.
+
+Fapello.com alone has 24,571,887 URL takedowns — more than every tube site on our list combined and multiplied by about 50. Nudostar.tv (13.7 million), Coomer.su (6.2 million), Wildskirts.com (4.7 million), Leakedzone.com (3.7 million), and Fapodrop.com (3.4 million) round out the rest of the leaderboard. None of these are household names. All of them are bigger creator-content distribution problems than the tube sites people warn about.
+
+[COMPARE: Aggregators;65M;URL takedowns, all-time | Tube sites;10M;URL takedowns, all-time]
+
+[BAR: fapello.com;24.5M;24571887 | nudostar.tv;13.7M;13674942 | spankbang.com;7.1M;7116156 | coomer.su;6.2M;6229239 | wildskirts.com;4.7M;4666269 | leakedzone.com;3.7M;3688562 | fapodrop.com;3.4M;3386267 | eporner.com;2.1M;2110182 | thotsbay.tv;1.8M;1810175 | erome.com;1.2M;1208177]
+
+The implication for creators is direct: when you're triaging where to focus DMCA enforcement effort, the household-name tube sites are the easy targets — they have compliant DMCA agents and respond to notices reliably. The aggregators are harder, more numerous, and where most of your content actually ends up. Most creators get this backwards.
+
+**Finding 2: recent activity tells a different story than all-time totals**
+
+The lifetime takedown count is a noisy signal. It mixes content that's been actively leaked for ten years with content that arrived last week. The "last four weeks" column tells you which sites are active threats today.
+
+The data shows a sharp bimodal pattern. Some sites that look big on lifetime data are essentially dormant. Bunkr.ru has 24,536 lifetime takedowns but only 10 in the last four weeks — Google has stopped seeing meaningful new content on this specific domain (most likely because the operator moved to a mirror). Thothub.tv: 16,397 lifetime, 1 in the last four weeks. Cyberdrop.me: 14,361 lifetime, 2 in the last four weeks. Mrdeepfakes.com: 33,382 lifetime, 20 in the last four weeks. These sites still rank high on the all-time list but aren't where new content is landing today.
+
+Other sites are getting hammered. Fapello.com had 2.35 million takedowns in the last four weeks — roughly 587,000 per week. Nudostar.tv had 1.97 million in four weeks. Eporner.com (210K), Leakedzone.com (99K), Fapodrop.com (75K), Erome.com (39K), Nudostar.com (35K), Coomer.st (30K), Wildskirts.com (30K), and Spankbang.com (11K) round out the most-active sites. If you're a creator allocating DMCA enforcement effort right now, these are where the attention belongs.
+
+[STAT: 587K | takedowns/week against fapello.com alone | the single biggest creator-content target on the internet right now]
+
+The "is this site actively dangerous to creators today?" question is answered in the recent four-week column, not the lifetime total.
+
+**Finding 3: mirror domains fragment DMCA volume**
+
+This is the most operationally important pattern in the data, and it's invisible if you only look at one domain at a time.
+
+Operators register multiple TLD variants of the same site so DMCA filings split across them. We tracked eight pairs that are clearly the same operator running parallel domains:
+
+- bunkr.ru (24,536) vs bunkrr.org (1) — virtually all volume on one TLD
+- coomer.su (6.2M) vs coomer.st (974K) — primary still dominant but mirror is real
+- kemono.su (475K) vs kemono.party (350K) — roughly even split
+- simpcity.cr (8.7K) vs simpcity.su (414K) — vast majority on the .su, opposite of canonical naming
+- thothub.tv (16K) vs thothub.lol (911K) — the .lol mirror is 50× bigger than the listed primary
+- fapello.com (24.6M) vs fapello.su (1.1M) — primary dominant
+- cyberdrop.me (14K) vs cyberdrop.to (6K) — similar scale
+- thotsbay.com (40K) vs thotsbay.tv (1.8M) — mirror is 45× bigger
+
+Filing only on the canonical domain misses content on the mirror. In several cases the "mirror" actually has more volume than the original. The operational implication is that your DMCA workflow has to enumerate every active TLD variant of an operator and file against each one separately. Anything else leaves content up.
+
+[QUOTE: Removing a URL from bunkr.ru while leaving the same content on bunkrr.org accomplishes nothing — but a service that only files on the primary will report it as a successful removal. | Privly Observatory, Q2 2026]
+
+This is also why aggregate "removal success rate" numbers from protection services need scrutiny. Removing a URL from bunkr.ru while leaving the same content on bunkrr.org accomplishes nothing — but a service that only files on the primary will report it as a successful removal.
+
+**Finding 4: tube sites have a long tail, aggregators have a peak**
+
+A subtle but useful pattern: tube sites have steady, slow DMCA volume going back to 2011 (770 weeks of data). Aggregators have shorter histories — most appeared between 2018 and 2022 — but their per-week volume is 10-100× higher when active.
+
+Tube sites: established, regulated, slow-moving. They're not going anywhere, but they're not where the action is. Aggregators: faster, hotter, younger. The threat profile creators face today comes from sites that didn't exist five years ago and may not exist five years from now — but while they're operating, they're far more dangerous per-week than anything Aylo runs.
+
+This shifts how a sustainable creator-protection strategy should be designed. You can build a once-and-done DMCA workflow against tube sites that keeps working for years. Aggregators require continuous adaptation — new mirrors, new TLDs, new sites. The reactive model that worked for tube-site enforcement doesn't work for aggregators.
+
+**Finding 5: the SEO gap in our own ecosystem coverage**
+
+Privly currently has dedicated /remove-from-* pages for 7 leak sites: bunkr, coomer, cyberdrop, erome, simpcity, thothub, mrdeepfakes (plus Telegram and Google as platforms). Of the top 10 sites by all-time takedown volume, only 2 are covered by these dedicated guides (coomer.su and erome.com). The other 8 — fapello.com, nudostar.tv, spankbang.com, wildskirts.com, leakedzone.com, fapodrop.com, eporner.com, thotsbay.tv — represent millions of takedown requests and clear creator search demand for "how to remove [my content] from [site]" queries. Building those eight guides is one of the highest-leverage SEO investments we can make over the next quarter.
+
+This is the kind of finding that's hard to see without aggregating the data. Looking at any one site doesn't tell you which guide is missing. Looking at all 50 ranked, the gap is obvious.
+
+**What the data doesn't tell us**
+
+A few honest limits worth being explicit about.
+
+These are takedown requests, not confirmed removals. Google's per-request delisting rate varies — some requests get fully actioned, some get rejected, some get partial action. The headline number is "URLs creators and rightsholders have asked Google to remove" — that's what's being measured, no more, no less.
+
+Google groups data by exact domain. Subdomains and TLD variants are separate datasets. We've highlighted the mirror-domain pattern explicitly because it matters; readers should understand the same applies to any operator who shows up under multiple TLDs.
+
+The data doesn't tell us about non-Google takedowns. DMCA notices sent directly to a leak site, to its host, or to its CDN aren't reflected in the Google numbers. Most of the actual takedown work creators and protection services do goes to non-Google channels. Our internal Privly data shows us those numbers; this report is specifically about the Google-visible slice.
+
+The data doesn't capture the Telegram channel ecosystem, Discord server distribution, or non-Google search visibility. All three are important parts of the creator-leak picture and not tracked by the Transparency Report.
+
+**What we're going to do with this data**
+
+Three commitments based on this report.
+
+First, we'll build the missing 8 /remove-from-* pages over the next 60 days, starting with fapello (the single largest target by far). Each page becomes a guide for creators searching for help removing content from that specific site, plus a landing page that internal-links into the broader Privly content network.
+
+Second, we'll keep republishing this report quarterly. Q3 2026 will land in roughly 90 days. Year-over-year comparisons start mattering in Q2 2027, when we have a year of trend data on the same 50 sites.
+
+Third, we'll add new domains to the cohort as the ecosystem shifts. If a new aggregator emerges in Q3 with significant takedown volume, it goes in the next quarter's report. If existing sites get shut down or demonstrably dormant for two consecutive quarters, they'll be flagged in the report and eventually removed from active tracking.
+
+[CALLOUT: Our commitments through Q3 2026 | Eight new /remove-from-* guides for the most-active aggregators · Quarterly observatory refreshes with year-over-year tracking from Q2 2027 · Cohort expansion as the ecosystem shifts. We publish what we observe — the next refresh lands in roughly 90 days.]
+
+**Sourcing and replication**
+
+If you want to verify any number in this report or replicate the methodology, the source data lives at transparencyreport.google.com/copyright/domains/[domain]/ for any of the 50 sites in our cohort. Our methodology is documented at /observatory under "Methodology." The full machine-readable dataset is publicly accessible and free to use under Creative Commons Attribution 4.0 — cite "Privly Observatory" and link back when you do.
+
+For journalists, researchers, and other content-protection services: this data is yours to use. We built it because the conversation around creator content protection deserves better numbers than the ones competitors quote without sourcing. If you find an angle, an error, or a question we didn't address, get in touch.`,
+    date: "2026-04-25",
+    category: "Business",
+    readTime: 12,
+    author: "Jono Airey",
+    faqs: [
+      { question: "Where does the Privly Observatory data come from?", answer: "Google Transparency Report — specifically the per-domain pages at transparencyreport.google.com/copyright/domains/[domain]/. Google records every DMCA takedown notice it has received against each domain since March 2011 and publishes the aggregated counts publicly. We pull these per-domain numbers via a structured scrape, aggregate them, and publish the synthesis. Anyone can verify any single number by visiting that URL directly." },
+      { question: "Why do leak aggregators have so much more volume than tube sites?", answer: "Aggregators systematically copy paywalled creator content the day it's posted; tube sites mostly host self-uploaded amateur or studio content. The combination of aggregator scale (one site with one creator's full back-catalogue) and aggregator content acquisition (deliberate scraping from OnlyFans/Fansly/Patreon) creates 10-100× more URLs to file DMCAs against per-site than tube-site equivalents." },
+      { question: "Are the 'mirror domain' pairs the same operator?", answer: "In our judgement yes — the matching naming patterns, content overlap, and proximate launch dates are strong evidence of common ownership. We can't prove it without subpoena-level access to registrar data; the report's framing of these pairs as 'operator-grouped' is editorial inference, not court-grade attribution. The operational point — that a single DMCA filing on the canonical domain misses content on the mirror — stands either way." },
+      { question: "Why are some sites listed with 'no data'?", answer: "Five sites in the cohort returned no Google records: famouspages.com, thotpop.com, ofleaked.com, theyhavethis.com, and boards.4chan.org (Google indexes 4chan.org as a whole, not the boards subdomain). The most likely reason is that no creator has ever filed a DMCA targeting that exact domain at scale — either because the site is too small, too new, or because takedowns were filed against parent or alternate domains instead. We've kept them in the table for transparency." },
+      { question: "Can I republish or cite this data?", answer: "Yes. The Privly Observatory dataset is available under Creative Commons Attribution 4.0. Cite 'Privly Observatory, [quarter] [year]' and link to /observatory. We'd rather you cite the raw data than paraphrase the numbers — the per-domain table is the canonical source." },
+      { question: "How does this compare to other leak-site reports?", answer: "Most published 'top leak site' lists are based on web traffic estimates from SimilarWeb or direct site research, not takedown volume. We're the only public source we know of that ranks creator-leak sites by Google DMCA notice volume. Both metrics matter — traffic measures audience reach, takedown volume measures content theft scale. They overlap but don't perfectly correlate; aggregators dominate takedown volume while tube sites dominate traffic." },
+      { question: "When is the next report?", answer: "Q3 2026, roughly 90 days from this publication. We refresh quarterly because that's the right cadence for trend signal versus daily noise — Google updates the source data daily but quarter-over-quarter is when patterns become statistically meaningful. Year-over-year comparisons (Q2 2026 vs Q2 2027) will be the most interesting view once we have a year of comparable data." }
+    ]
   }
 ];

@@ -67,6 +67,220 @@ interface Props {
   }>;
 }
 
+/* ============ rich block renderer ============
+   Each block is its own paragraph (separated by \n\n in the content). The token
+   prefix routes to a styled component. Returns null when the paragraph is not
+   a recognised block, so the caller falls through to markdown rendering. */
+const FRAUNCES_FONT = "'Fraunces', Georgia, serif";
+const SPLIT_PIPE = /\s*\|\s*/;
+const SPLIT_SEMI = /\s*;\s*/;
+
+function renderRichBlock(paragraph: string, index: number) {
+  const trimmed = paragraph.trim();
+
+  // [STATS: 77M;URLs all-time;across 50 sites | 4.9M;Last 4 weeks; ... ]
+  // 2-4 stats in a strip. Each stat: value;label;sublabel (sublabel optional).
+  if (trimmed.startsWith('[STATS:') && trimmed.endsWith(']')) {
+    const inner = trimmed.slice(7, -1).trim();
+    const stats = inner.split(SPLIT_PIPE).map((s) => {
+      const [value, label, sub] = s.split(SPLIT_SEMI);
+      return { value: value?.trim() ?? '', label: label?.trim() ?? '', sub: sub?.trim() };
+    });
+    return (
+      <div key={index} className={`my-4 grid gap-4 grid-cols-2 ${stats.length >= 4 ? 'lg:grid-cols-4' : stats.length === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-2'}`}>
+        {stats.map((s, i) => (
+          <div
+            key={i}
+            className="rounded-2xl bg-white p-5"
+            style={{ border: '1px solid var(--line)', boxShadow: '0 8px 24px -16px rgba(61,20,112,0.12)' }}
+          >
+            <div
+              className="text-3xl font-medium leading-none sm:text-4xl"
+              style={{ fontFamily: FRAUNCES_FONT, color: i % 2 === 0 ? 'var(--accent)' : 'var(--hot)', letterSpacing: '-0.025em' }}
+            >
+              {s.value}
+            </div>
+            <div className="mt-2 text-[13px] font-semibold leading-snug" style={{ color: 'var(--ink)' }}>
+              {s.label}
+            </div>
+            {s.sub && (
+              <div className="mt-1 text-[11px]" style={{ color: 'var(--mute)' }}>
+                {s.sub}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  // [STAT: 24.5M | Fapello.com all-time | the largest single creator-leak target]
+  if (trimmed.startsWith('[STAT:') && trimmed.endsWith(']')) {
+    const inner = trimmed.slice(6, -1).trim();
+    const [value, label, sub] = inner.split(SPLIT_PIPE);
+    return (
+      <div
+        key={index}
+        className="my-4 rounded-2xl p-7 text-center"
+        style={{
+          background: 'linear-gradient(135deg, rgba(124,58,237,0.06), rgba(236,72,153,0.04))',
+          border: '1px solid rgba(124,58,237,0.20)',
+        }}
+      >
+        <div
+          className="text-5xl font-medium leading-none sm:text-6xl"
+          style={{ fontFamily: FRAUNCES_FONT, color: 'var(--accent)', letterSpacing: '-0.025em' }}
+        >
+          {value?.trim()}
+        </div>
+        <div className="mt-3 text-base font-semibold" style={{ color: 'var(--ink)' }}>
+          {label?.trim()}
+        </div>
+        {sub && (
+          <div className="mt-1 text-sm" style={{ color: 'var(--ink-2)' }}>
+            {sub.trim()}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // [COMPARE: leftLabel;leftValue;leftSub | rightLabel;rightValue;rightSub]
+  if (trimmed.startsWith('[COMPARE:') && trimmed.endsWith(']')) {
+    const inner = trimmed.slice(9, -1).trim();
+    const sides = inner.split(SPLIT_PIPE).slice(0, 2).map((s) => {
+      const [label, value, sub] = s.split(SPLIT_SEMI);
+      return { label: label?.trim() ?? '', value: value?.trim() ?? '', sub: sub?.trim() };
+    });
+    return (
+      <div
+        key={index}
+        className="my-4 rounded-2xl p-6 sm:p-8"
+        style={{
+          background: 'linear-gradient(135deg, rgba(124,58,237,0.06), rgba(236,72,153,0.04))',
+          border: '1px solid rgba(124,58,237,0.20)',
+        }}
+      >
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {sides.map((side, i) => (
+            <div key={i}>
+              <div
+                className="mb-1 text-[11px] font-bold uppercase tracking-[0.12em]"
+                style={{ color: i === 0 ? 'var(--accent)' : 'var(--hot)' }}
+              >
+                {side.label}
+              </div>
+              <div
+                className="text-4xl font-medium leading-none sm:text-5xl"
+                style={{ fontFamily: FRAUNCES_FONT, color: i === 0 ? 'var(--accent)' : 'var(--hot)', letterSpacing: '-0.025em' }}
+              >
+                {side.value}
+              </div>
+              {side.sub && (
+                <div className="mt-2 text-sm" style={{ color: 'var(--ink-2)' }}>
+                  {side.sub}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  // [CALLOUT: title | body]
+  if (trimmed.startsWith('[CALLOUT:') && trimmed.endsWith(']')) {
+    const inner = trimmed.slice(9, -1).trim();
+    const [title, body] = inner.split(SPLIT_PIPE);
+    return (
+      <div
+        key={index}
+        className="my-4 rounded-2xl bg-white p-6 sm:p-7"
+        style={{
+          border: '1px dashed rgba(124,58,237,0.35)',
+          boxShadow: '0 8px 24px -16px rgba(61,20,112,0.10)',
+        }}
+      >
+        <div className="mb-2 text-[11px] font-bold uppercase tracking-[0.12em]" style={{ color: 'var(--accent)' }}>
+          {title?.trim()}
+        </div>
+        <div className="text-[15px] leading-[1.65]" style={{ color: 'var(--ink-2)' }}>
+          {body?.trim()}
+        </div>
+      </div>
+    );
+  }
+
+  // [QUOTE: "text" | attribution]
+  if (trimmed.startsWith('[QUOTE:') && trimmed.endsWith(']')) {
+    const inner = trimmed.slice(7, -1).trim();
+    const [text, attrib] = inner.split(SPLIT_PIPE);
+    return (
+      <blockquote
+        key={index}
+        className="my-6 pl-6"
+        style={{ borderLeft: '3px solid var(--hot)' }}
+      >
+        <p
+          className="text-xl leading-snug sm:text-2xl"
+          style={{ fontFamily: FRAUNCES_FONT, fontStyle: 'italic', color: 'var(--ink)', letterSpacing: '-0.01em' }}
+        >
+          {text?.trim().replace(/^["']|["']$/g, '')}
+        </p>
+        {attrib && (
+          <footer className="mt-3 text-sm" style={{ color: 'var(--mute)' }}>
+            — {attrib.trim()}
+          </footer>
+        )}
+      </blockquote>
+    );
+  }
+
+  // [BAR: domain;displayValue;rawValue | domain;displayValue;rawValue | ...]
+  if (trimmed.startsWith('[BAR:') && trimmed.endsWith(']')) {
+    const inner = trimmed.slice(5, -1).trim();
+    const items = inner.split(SPLIT_PIPE).map((s) => {
+      const [name, display, raw] = s.split(SPLIT_SEMI);
+      return { name: name?.trim() ?? '', display: display?.trim() ?? '', raw: parseFloat(raw ?? '0') || 0 };
+    });
+    const max = Math.max(...items.map((it) => it.raw), 1);
+    return (
+      <div
+        key={index}
+        className="my-4 rounded-2xl bg-white p-6"
+        style={{ border: '1px solid var(--line)', boxShadow: '0 8px 24px -16px rgba(61,20,112,0.10)' }}
+      >
+        <div className="space-y-2.5">
+          {items.map((it, i) => {
+            const pct = (it.raw / max) * 100;
+            return (
+              <div key={i} className="flex items-center gap-3">
+                <div className="w-32 shrink-0 truncate font-mono text-[12px]" style={{ color: 'var(--ink)' }}>
+                  {it.name}
+                </div>
+                <div className="relative h-7 flex-1 overflow-hidden rounded-md" style={{ background: 'var(--accent-3)' }}>
+                  <div
+                    className="absolute inset-y-0 left-0 rounded-md"
+                    style={{
+                      width: `${pct}%`,
+                      background: `linear-gradient(90deg, var(--accent), ${i < 3 ? 'var(--hot)' : 'var(--accent-2, var(--accent))'})`,
+                    }}
+                  />
+                </div>
+                <div className="w-16 shrink-0 text-right text-[12px] font-semibold tabular-nums" style={{ color: 'var(--ink)' }}>
+                  {it.display}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
+
+  return null;
+}
+
 export async function generateStaticParams() {
   return articles.map((post) => ({
     slug: post.slug,
@@ -225,14 +439,57 @@ export default async function ArticlePage({ params }: Props) {
               Back to Articles
             </Link>
 
-            {/* Content */}
-            <article className="prose prose-lg max-w-none">
+            {/* Content
+                Markdown-light + custom block tokens:
+                  **Heading**            → <h2> (paragraph-level)
+                  **inline bold**        → <strong>
+                  [STATS: ...]           → multi-up stat strip
+                  [STAT: value | label]  → single-stat card
+                  [COMPARE: ...]         → A-vs-B side-by-side
+                  [CALLOUT: title|body]  → highlighted info box
+                  [QUOTE: text|attrib]   → pull-quote
+                  [BAR: name;label;raw|...] → horizontal bar chart
+                Tokens render as their own paragraph blocks; everything else
+                falls through to the markdown path. Reusable for future data
+                articles. */}
+            <article className="max-w-none">
               <div className="space-y-6 leading-relaxed" style={{ color: 'var(--ink-2)' }}>
-                {post.content.split("\n\n").map((paragraph, index) => (
-                  <p key={index} className="text-lg">
-                    {paragraph}
-                  </p>
-                ))}
+                {post.content.split("\n\n").map((paragraph, index) => {
+                  const block = renderRichBlock(paragraph, index);
+                  if (block) return block;
+
+                  const trimmed = paragraph.trim();
+                  // Whole-paragraph heading: **Heading text**
+                  const headingMatch = trimmed.match(/^\*\*([^*]+(?:\*(?!\*)[^*]+)*)\*\*$/);
+                  if (headingMatch) {
+                    return (
+                      <h2
+                        key={index}
+                        className="pt-6 text-2xl font-medium leading-snug sm:text-[28px]"
+                        style={{ fontFamily: "'Fraunces', Georgia, serif", color: 'var(--ink)', letterSpacing: '-0.015em' }}
+                      >
+                        {headingMatch[1]}
+                      </h2>
+                    );
+                  }
+                  // Inline bold within a paragraph: split on **...** segments
+                  const parts = paragraph.split(/(\*\*[^*]+\*\*)/g);
+                  return (
+                    <p key={index} className="text-lg">
+                      {parts.map((part, i) => {
+                        const m = part.match(/^\*\*([^*]+)\*\*$/);
+                        if (m) {
+                          return (
+                            <strong key={i} style={{ color: 'var(--ink)' }}>
+                              {m[1]}
+                            </strong>
+                          );
+                        }
+                        return <span key={i}>{part}</span>;
+                      })}
+                    </p>
+                  );
+                })}
               </div>
             </article>
 
