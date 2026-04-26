@@ -248,18 +248,21 @@ function renderRichBlock(paragraph: string, index: number) {
     return (
       <div
         key={index}
-        className="my-4 rounded-2xl bg-white p-6"
+        className="my-4 rounded-2xl bg-white p-4 sm:p-6"
         style={{ border: '1px solid var(--line)', boxShadow: '0 8px 24px -16px rgba(61,20,112,0.10)' }}
       >
         <div className="space-y-2.5">
           {items.map((it, i) => {
             const pct = (it.raw / max) * 100;
             return (
-              <div key={i} className="flex items-center gap-3">
-                <div className="w-32 shrink-0 truncate font-mono text-[12px]" style={{ color: 'var(--ink)' }}>
+              // gap-2 on mobile, gap-3 on sm+. Domain column tightens to w-24
+              // on mobile so the value column never collides with the right
+              // edge on narrow Android viewports (Pixel 9 = 412px).
+              <div key={i} className="flex items-center gap-2 sm:gap-3 min-w-0">
+                <div className="w-24 sm:w-32 shrink-0 truncate font-mono text-[11px] sm:text-[12px]" style={{ color: 'var(--ink)' }}>
                   {it.name}
                 </div>
-                <div className="relative h-7 flex-1 overflow-hidden rounded-md" style={{ background: 'var(--accent-3)' }}>
+                <div className="relative h-7 flex-1 min-w-0 overflow-hidden rounded-md" style={{ background: 'var(--accent-3)' }}>
                   <div
                     className="absolute inset-y-0 left-0 rounded-md"
                     style={{
@@ -268,7 +271,7 @@ function renderRichBlock(paragraph: string, index: number) {
                     }}
                   />
                 </div>
-                <div className="w-16 shrink-0 text-right text-[12px] font-semibold tabular-nums" style={{ color: 'var(--ink)' }}>
+                <div className="w-12 sm:w-16 shrink-0 text-right text-[11px] sm:text-[12px] font-semibold tabular-nums" style={{ color: 'var(--ink)' }}>
                   {it.display}
                 </div>
               </div>
