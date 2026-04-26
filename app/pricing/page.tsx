@@ -4,7 +4,8 @@ import { generateMetadata as genMeta } from '@/lib/seo';
 import { PLAN, COPYRIGHT_ADDON, APP_URL } from '@/lib/constants';
 import { generateProductSchema, generateFAQSchema } from '@/lib/seo';
 import RoiCalculator from '@/components/roi-calculator';
-import { CheckCircle, XCircle, ArrowRight, Copyright, Zap, Shield } from 'lucide-react';
+import Link from 'next/link';
+import { CheckCircle, XCircle, ArrowRight, Copyright, Zap, Shield, FileCheck } from 'lucide-react';
 
 export const metadata = genMeta({
   title: 'OnlyFans Leak Protection Pricing — $49/mo Creator Plan',
@@ -69,6 +70,22 @@ export default function PricingPage() {
       q: 'Can I cancel anytime?',
       a: "Yes. No contracts, no fine print. Cancel anytime — just hit the button and you're done. No retention calls, no hoops.",
     },
+    {
+      q: "What if Privly can't help with my situation?",
+      a: "We turn down roughly 15% of sign-ups for fit reasons — jurisdictions we can't enforce in, content categories we can't defend, or specific situations where another service would serve you better. We'll tell you on the first interaction. We'd rather lose a sale than take your money and underdeliver.",
+    },
+    {
+      q: 'Do you offer refunds?',
+      a: "Subscription fees are non-refundable except where required by applicable law (including Australian Consumer Law statutory guarantees). If something genuinely went wrong, email hello@useprivly.com — we'll review your case in good faith. We've never refused a legitimate refund request.",
+    },
+    {
+      q: "Can I see what Privly does without signing up?",
+      a: "Yes. Our public Privly Observatory at /observatory shows live data from the leak ecosystem we monitor — 50+ sites, 77M+ takedowns tracked. Our free DMCA Generator at /tools/dmca-generator lets you generate a real DMCA notice without an account. Both will give you a strong sense of what we do before you commit.",
+    },
+    {
+      q: 'What payment methods do you accept?',
+      a: "All major credit and debit cards, processed via Stripe. Apple Pay and Google Pay are supported on mobile. We don't store payment details ourselves — Stripe holds them under PCI-DSS compliance.",
+    },
   ];
 
   const productSchema = generateProductSchema({
@@ -105,6 +122,26 @@ export default function PricingPage() {
             <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
               Start with a 7-day trial to explore the platform, or subscribe straight away for full protection at {PLAN.price}/month.
             </p>
+          </div>
+        </section>
+
+        {/* Credibility strip */}
+        <section className="px-4 sm:px-6 lg:px-8 pb-4">
+          <div className="max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs" style={{ color: 'var(--mute)' }}>
+            <Link href="/terms#dmca-agent" className="inline-flex items-center gap-1.5 hover:opacity-80 transition-opacity" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <FileCheck className="w-4 h-4" style={{ color: 'var(--accent)' }} />
+              <span>Registered DMCA Agent · US Copyright Office</span>
+            </Link>
+            <span aria-hidden style={{ opacity: 0.4 }}>·</span>
+            <Link href="/observatory" className="inline-flex items-center gap-1.5 hover:opacity-80 transition-opacity" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Shield className="w-4 h-4" style={{ color: 'var(--accent)' }} />
+              <span><strong style={{ color: 'var(--ink-2)' }}>77M+</strong> takedowns tracked · Privly Observatory</span>
+            </Link>
+            <span aria-hidden style={{ opacity: 0.4 }}>·</span>
+            <span className="inline-flex items-center gap-1.5">
+              <CheckCircle className="w-4 h-4" style={{ color: '#059669' }} />
+              <span>One price · all platforms</span>
+            </span>
           </div>
         </section>
 
@@ -235,10 +272,10 @@ export default function PricingPage() {
               <div className="rounded-xl p-6 border border-[var(--line)]" style={{ background: 'var(--bg-2)' }}>
                 <h3 className="text-lg font-bold mb-5" style={{ color: 'var(--ink-2)' }}>Typical Service</h3>
                 <ul className="space-y-3 text-sm" style={{ color: 'var(--ink-2)' }}>
-                  <li>$109-$324/mo</li>
+                  <li>$70-$300+/mo</li>
                   <li>Scan + Remove only</li>
                   <li>Leaks keep coming back</li>
-                  <li>Per-username pricing</li>
+                  <li>Per-username pricing common</li>
                   <li>No source tracing</li>
                 </ul>
               </div>
@@ -267,6 +304,23 @@ export default function PricingPage() {
                   <li>No enforcement tools</li>
                   <li>No support</li>
                 </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonial pull quote — same Maya K. story used on /about and /observatory */}
+        <section className="relative w-full py-12 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto rounded-2xl p-8 sm:p-12 text-center" style={{ background: 'linear-gradient(135deg, rgba(124,58,237,0.06), rgba(236,72,153,0.04))', border: '1px solid rgba(124,58,237,0.20)' }}>
+            <div aria-hidden className="text-6xl leading-none mb-2" style={{ fontFamily: "'Fraunces', Georgia, serif", color: 'var(--hot)' }}>“</div>
+            <blockquote className="text-xl sm:text-2xl leading-snug" style={{ fontFamily: "'Fraunces', Georgia, serif", fontStyle: 'italic', color: 'var(--ink)', letterSpacing: '-0.01em' }}>
+              We caught him in 11 days. Privly pulled the watermark, I ran a DMCA, he got banned from three platforms, and then his lawyer wrote to <strong style={{ fontStyle: 'italic', color: 'var(--accent)' }}>me</strong> asking to settle.
+            </blockquote>
+            <div className="mt-6 flex items-center justify-center gap-3 text-sm">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full text-white text-base font-bold" style={{ background: 'linear-gradient(135deg, var(--accent), var(--hot))', fontFamily: "'Fraunces', Georgia, serif" }}>M</div>
+              <div className="text-left">
+                <div className="font-semibold" style={{ color: 'var(--ink)' }}>Maya K.</div>
+                <div className="text-xs" style={{ color: 'var(--mute)' }}>OnlyFans creator · Privly customer since 2024</div>
               </div>
             </div>
           </div>

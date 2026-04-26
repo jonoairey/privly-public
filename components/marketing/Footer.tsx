@@ -88,7 +88,12 @@ export default function MarketingFooter() {
             gap: 12,
           }}
         >
-          <span>© {new Date().getFullYear()} Privly · Registered DMCA Agent · DSA Trusted Flagger</span>
+          <span>
+            © {new Date().getFullYear()} Privly Ventures Pty Ltd ·{' '}
+            <Link href="/terms#dmca-agent" style={{ color: '#A892C4', textDecoration: 'none' }}>
+              Registered DMCA Designated Agent (US Copyright Office)
+            </Link>
+          </span>
           <div style={{ display: 'flex', gap: 16 }}>
             <Link href="/privacy" style={{ color: '#A892C4', textDecoration: 'none' }}>Privacy</Link>
             <Link href="/terms" style={{ color: '#A892C4', textDecoration: 'none' }}>Terms</Link>

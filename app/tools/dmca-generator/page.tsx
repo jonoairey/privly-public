@@ -71,6 +71,9 @@ export default function DMCAGeneratorPage() {
   const [generatedNotice, setGeneratedNotice] = useState('');
   const [copied, setCopied] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
+  /** Optional marketing-comms opt-in. Off by default — we still send the user
+      their generated notice on Generate, that's a transactional email. */
+  const [marketingOptIn, setMarketingOptIn] = useState(false);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -163,12 +166,54 @@ END OF DMCA NOTICE`;
 
     setGeneratedNotice(notice);
     setShowPreview(true);
+
+    // GA4: track that a notice was generated. Page already has gtag loaded site-wide.
+    try {
+      const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+      w.gtag?.('event', 'dmca_notice_generated', {
+        platform: formData.platformName,
+        urls_count: formData.infringingUrls.filter((u) => u.trim()).length,
+      });
+    } catch {
+      /* no-op */
+    }
+
+    // Lead capture (fire-and-forget). Sends user a copy of their notice via Resend
+    // and notifies leads@useprivly.com so we have the contact for follow-up.
+    fetch('/api/tools/dmca-leads', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ...formData,
+        generatedNotice: notice,
+        marketingOptIn,
+      }),
+    })
+      .then(() => {
+        try {
+          const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+          w.gtag?.('event', 'dmca_lead_captured', { marketing_opt_in: marketingOptIn });
+        } catch {
+          /* no-op */
+        }
+      })
+      .catch((err) => {
+        // We don't surface the error to the user — they have the notice in front of them
+        // either way. Console log for debugging.
+        console.error('[DMCA tool] lead capture failed:', err);
+      });
   };
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(generatedNotice).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
+      try {
+        const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+        w.gtag?.('event', 'dmca_notice_copied');
+      } catch {
+        /* no-op */
+      }
     });
   };
 
@@ -183,6 +228,12 @@ END OF DMCA NOTICE`;
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
+    try {
+      const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+      w.gtag?.('event', 'dmca_notice_downloaded');
+    } catch {
+      /* no-op */
+    }
   };
 
   return (
@@ -281,6 +332,26 @@ END OF DMCA NOTICE`;
                     placeholder="john@example.com"
                     className="w-full px-4 py-3 rounded-lg border placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors" style={{ background: 'white', border: '1px solid var(--line)' }}
                   />
+                  <p className="mt-2 text-xs" style={{ color: 'var(--mute)' }}>
+                    We&apos;ll email you a copy of the generated notice for your records.
+                    Your email won&apos;t be shared, sold, or added to a marketing list — see our{' '}
+                    <a href="/privacy" className="underline" style={{ color: 'var(--accent)' }}>
+                      privacy policy
+                    </a>.
+                  </p>
+                  <label className="mt-3 flex items-start gap-2 text-xs cursor-pointer" style={{ color: 'var(--ink-2)' }}>
+                    <input
+                      type="checkbox"
+                      checked={marketingOptIn}
+                      onChange={(e) => setMarketingOptIn(e.target.checked)}
+                      className="mt-0.5 h-4 w-4 rounded"
+                      style={{ accentColor: 'var(--accent)' }}
+                    />
+                    <span>
+                      Optional: send me Privly&apos;s monthly creator-protection roundup.
+                      Real tips, never spam. Unsubscribe with one click.
+                    </span>
+                  </label>
                 </div>
 
                 {/* Description of Work */}

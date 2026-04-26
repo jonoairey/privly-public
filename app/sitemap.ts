@@ -35,6 +35,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/justforfans',
     '/fanvue',
     '/loyalfans',
+    // Q2 2026 mainstream-platform expansion (built for Trust strip + creator coverage)
+    '/facebook',
+    '/youtube',
     // Removal guide landing pages
     '/remove-from-erome',
     '/remove-from-bunkr',

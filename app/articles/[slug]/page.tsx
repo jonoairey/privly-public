@@ -11,6 +11,7 @@ import { patreonArticles } from "@/lib/article-data-patreon";
 import { getArticleImage } from "@/lib/article-images";
 import { generateBreadcrumbSchema, generateFAQSchema } from "@/lib/seo";
 import RelatedServices from "@/components/related-services";
+import StickyArticleCTA from "@/components/articles/StickyArticleCTA";
 
 /** Map an article to a content cluster so RelatedServices biases its links. */
 function detectCluster(slug: string, category: string): import("@/components/related-services").Cluster {
@@ -577,6 +578,9 @@ export default async function ArticlePage({ params }: Props) {
       </main>
 
       <MarketingFooter />
+
+      {/* Sticky mobile CTA — appears after 600px scroll, dismissible per session */}
+      <StickyArticleCTA />
 
       {/* Breadcrumb structured data */}
       <script

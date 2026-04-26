@@ -219,6 +219,8 @@ export const FOOTER_GROUPS = [
       { label: 'TikTok', href: '/tiktok' },
       { label: 'Threads', href: '/threads' },
       { label: 'Reddit', href: '/reddit' },
+      { label: 'YouTube', href: '/youtube' },
+      { label: 'Facebook', href: '/facebook' },
     ],
   },
   {

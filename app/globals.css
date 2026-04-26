@@ -364,3 +364,13 @@ body {
     display: none;
   }
 }
+
+/* Trust component — homepage platform strip.
+   Glyphs render in muted plum-grey by default and lift to full ink on hover
+   so the strip reads as a single brand-coherent surface, not a competing
+   rainbow of platform colours. */
+.trust-platform:hover {
+  color: var(--ink) !important;
+  background: var(--accent-3);
+  transform: translateY(-1px);
+}
