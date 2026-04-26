@@ -67,6 +67,13 @@ export default function StickyArticleCTA() {
         left: 0,
         right: 0,
         zIndex: 40,
+        // Honour iOS safe-area insets so the card never sits behind the
+        // device-rounded corners or under the home indicator. Without these
+        // the right edge of the inner card visually clips on phones with
+        // curved screens (iPhone 14+, most modern Androids).
+        paddingLeft: 'env(safe-area-inset-left, 0px)',
+        paddingRight: 'env(safe-area-inset-right, 0px)',
+        paddingBottom: 'env(safe-area-inset-bottom, 0px)',
         transform: visible ? 'translateY(0)' : 'translateY(110%)',
         transition: 'transform 280ms cubic-bezier(0.22, 1, 0.36, 1)',
         pointerEvents: visible ? 'auto' : 'none',
@@ -74,7 +81,10 @@ export default function StickyArticleCTA() {
     >
       <div
         style={{
-          margin: '0 12px 12px',
+          // Slightly larger side margins (16 vs 12) so the card has breathing
+          // room from the screen edge even on devices that report no
+          // safe-area inset.
+          margin: '0 16px 12px',
           background: 'white',
           border: '1px solid var(--line)',
           borderRadius: 16,

@@ -92,17 +92,57 @@ export default function ArticlesPage() {
       />
       <MarketingHeader />
 
-      <main className="flex-1 w-full py-16 px-4 sm:px-6 lg:px-8">
+      <main className="flex-1 w-full pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          {/* Header Section */}
-          <div className="mb-16">
-            <h1 className="text-5xl sm:text-6xl font-bold mb-4" style={{ color: 'var(--accent)' }}>
-              Articles
-            </h1>
-            <p className="text-xl max-w-2xl" style={{ color: 'var(--ink-2)' }}>
-              Expert insights on content protection, legal strategies, and security for creators and businesses.
-            </p>
-          </div>
+          {/* ============ Hero — branded, creator-first ============
+              Matches the /about and /observatory hero pattern: eyebrow pill,
+              Fraunces serif headline with italic accents in --accent / --hot,
+              subhead with one italic emphasis, and a Caveat hand-signature
+              line. Avoids the bland "Articles" + corporate subhead the page
+              shipped with previously. */}
+          <section className="pt-16 pb-14 sm:pt-20 sm:pb-16 text-center">
+            <div className="mx-auto max-w-[860px]">
+              <div
+                className="mb-7 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em]"
+                style={{ background: 'var(--accent-3)', color: 'var(--accent)' }}
+              >
+                <span aria-hidden style={{ fontSize: 13, lineHeight: 1 }}>✦</span>
+                Field notes &amp; guides
+              </div>
+              <h1
+                className="text-4xl font-normal leading-[1.05] tracking-tight sm:text-5xl md:text-6xl"
+                style={{
+                  fontFamily: "'Fraunces', Georgia, serif",
+                  letterSpacing: '-0.025em',
+                  color: 'var(--ink)',
+                }}
+              >
+                The protection playbook{' '}
+                <em style={{ color: 'var(--accent)', fontStyle: 'italic' }}>
+                  we wish we&apos;d had
+                </em>{' '}
+                when we started.
+              </h1>
+              <p
+                className="mx-auto mt-7 max-w-[640px] text-lg sm:text-xl leading-relaxed"
+                style={{ color: 'var(--ink-2)' }}
+              >
+                Plain-English explainers, leak-site teardowns, and the takedown tactics we actually run for our customers.{' '}
+                <em style={{ color: 'var(--hot)', fontStyle: 'italic' }}>
+                  No listicles. No fluff.
+                </em>
+              </p>
+              <div
+                className="font-hand mt-6 inline-block text-2xl"
+                style={{
+                  transform: 'rotate(-1.5deg)',
+                  color: 'var(--accent)',
+                }}
+              >
+                — {sortedPosts.length} guides, written by the team that runs your takedowns
+              </div>
+            </div>
+          </section>
 
           {/* Articles Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
