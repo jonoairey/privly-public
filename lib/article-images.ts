@@ -321,6 +321,27 @@ export const ARTICLE_IMAGES: Record<string, ArticleImage> = {
 };
 
 /**
+ * Three OnlyFans long-tail articles added April 2026 — slot in cover images
+ * before the fallback so they get distinct hero photos rather than the
+ * generic shield-pattern default.
+ */
+ARTICLE_IMAGES['best-dmca-service-onlyfans-creators-2026'] = {
+  src: u('photo-1556761175-5973dc0f32e7'),
+  alt: 'Comparison spread of services on a desk — service review',
+  motif: 'chart',
+};
+ARTICLE_IMAGES['remove-onlyfans-content-from-google-2026'] = {
+  src: u('photo-1573164713988-8665fc963095'),
+  alt: 'Search bar typed on a laptop — search-result removal',
+  motif: 'search',
+};
+ARTICLE_IMAGES['onlyfans-leak-removal-cost-2026'] = {
+  src: u('photo-1554224155-6726b3ff858f'),
+  alt: 'Calculator and notes on a desk — pricing breakdown',
+  motif: 'chart',
+};
+
+/**
  * Fallback image used when a slug isn't in the map.
  * Generic, neutral, conceptual — safe for any topic.
  */

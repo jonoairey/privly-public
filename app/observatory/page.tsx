@@ -8,7 +8,7 @@ import observatoryData from '@/lib/observatory-data.json';
 import ObservatoryTable, { type ObservatoryRow } from './observatory-table';
 
 export const metadata: Metadata = {
-  title: 'The Privly Observatory — Live data on the leak-site ecosystem',
+  title: 'The Privly Observatory · Live data on the leak-site ecosystem',
   description:
     'Live data on 50 of the largest creator-leak sites. URLs requested for delisting from Google, recent activity, mirror-domain patterns. Sourced from Google Transparency Report. Updated quarterly.',
   keywords: [
@@ -23,9 +23,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `${SITE_CONFIG.url}/observatory` },
   openGraph: {
-    title: 'The Privly Observatory — 77M URLs requested for delisting',
+    title: 'The Privly Observatory · 77M URLs requested for delisting',
     description:
-      'Live data on the largest creator-leak sites — sourced from Google Transparency Report. Updated quarterly by Privly.',
+      'Live data on the largest creator-leak sites, sourced from Google Transparency Report. Updated quarterly by Privly.',
     type: 'website',
     url: `${SITE_CONFIG.url}/observatory`,
   },
@@ -133,7 +133,7 @@ export default function ObservatoryPage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'Dataset',
-            name: 'The Privly Observatory — Leak Site DMCA Activity',
+            name: 'The Privly Observatory · Leak Site DMCA Activity',
             description:
               'Aggregated DMCA takedown request volumes across 50 of the largest creator-leak sites, sourced from Google Transparency Report. Updated quarterly by Privly.',
             url: `${SITE_CONFIG.url}/observatory`,
@@ -179,7 +179,7 @@ export default function ObservatoryPage() {
                 <strong style={{ color: 'var(--ink)' }}>
                   {formatBig(data.summary.total_urls_requested_all_sites)} URLs
                 </strong>{' '}
-                requested for delisting from Google — including{' '}
+                requested for delisting from Google, including{' '}
                 <strong style={{ color: 'var(--hot)' }}>
                   {formatBig(data.summary.recent_4_weeks_all_sites)}
                 </strong>{' '}
@@ -193,7 +193,7 @@ export default function ObservatoryPage() {
                   color: 'var(--accent)',
                 }}
               >
-                — sourced from Google&apos;s public Transparency Report.
+                Sourced from Google&apos;s public Transparency Report.
               </div>
               <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs" style={{ color: 'var(--mute)' }}>
                 <span>Last refreshed: <strong style={{ color: 'var(--ink-2)' }}>{formatGenerated(data.generated_at)}</strong></span>
@@ -218,7 +218,7 @@ export default function ObservatoryPage() {
               >
                 <Image
                   src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80&auto=format&fit=crop"
-                  alt="Abstract data dashboard with charts and analytics — leak-site monitoring concept"
+                  alt="Abstract data dashboard with charts and analytics, evoking leak-site monitoring"
                   fill
                   sizes="(min-width: 768px) 45vw, 90vw"
                   className="object-cover"
@@ -302,7 +302,7 @@ export default function ObservatoryPage() {
                   dying out, and which ones are still climbing. This page does.
                 </p>
                 <p>
-                  The data here is publicly auditable — every number traces back to Google&apos;s
+                  The data here is publicly auditable. Every number traces back to Google&apos;s
                   own Transparency Report, which records every DMCA notice Google has received
                   for each domain since 2011. You can verify any of it by visiting
                   <code className="mx-1 rounded px-1 py-0.5 text-[14px]" style={{ background: 'white', border: '1px solid var(--line)' }}>
@@ -329,7 +329,7 @@ export default function ObservatoryPage() {
                 <a href="mailto:support@useprivly.com" className="font-semibold underline-offset-2 hover:underline" style={{ color: 'var(--accent)' }}>
                   &nbsp;support@useprivly.com
                 </a>{' '}
-                — we&apos;ll fix it.
+                and we&apos;ll fix it.
               </p>
             </div>
           </div>
@@ -407,12 +407,12 @@ export default function ObservatoryPage() {
               style={{ fontFamily: FRAUNCES, color: 'var(--ink)', letterSpacing: '-0.025em' }}
             >
               Leak aggregators are{' '}
-              <em style={{ color: 'var(--hot)', fontStyle: 'italic' }}>bigger than the tube sites</em> —
+              <em style={{ color: 'var(--hot)', fontStyle: 'italic' }}>bigger than the tube sites</em>,
               by a wide margin.
             </h2>
             <div className="space-y-4 text-[16px] leading-[1.7]" style={{ color: 'var(--ink-2)' }}>
               <p>
-                Most creator-protection writing focuses on the big-name tube sites — Pornhub,
+                Most creator-protection writing focuses on the big-name tube sites: Pornhub,
                 xHamster, xVideos, Tube8. Conventional wisdom says they&apos;re where leaked content
                 ends up. The data says otherwise.
               </p>

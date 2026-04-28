@@ -121,7 +121,19 @@ export default function StickyArticleCTA() {
         </div>
 
         <a
-          href="https://app.useprivly.com/auth/signup?ref=article-sticky"
+          href="https://app.useprivly.com/auth/signup?ref=article-sticky&plan=trial"
+          onClick={() => {
+            // Fire `article_cta_click` so Jono can measure sticky-bar
+            // conversion vs the inline FreeScanTeaser. The href still works
+            // even if gtag is blocked — this is fire-and-forget.
+            try {
+              const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+              w.gtag?.('event', 'article_cta_click', {
+                cta_type: 'sticky_top',
+                article_path: typeof window !== 'undefined' ? window.location.pathname : '',
+              });
+            } catch { /* gtag not loaded */ }
+          }}
           style={{
             background: 'var(--hot)',
             color: 'white',

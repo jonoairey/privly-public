@@ -12,6 +12,7 @@ import { getArticleImage } from "@/lib/article-images";
 import { generateBreadcrumbSchema, generateFAQSchema } from "@/lib/seo";
 import RelatedServices from "@/components/related-services";
 import StickyArticleCTA from "@/components/articles/StickyArticleCTA";
+import FreeScanTeaser, { detectPlatformFromSlug } from "@/components/articles/FreeScanTeaser";
 
 /** Map an article to a content cluster so RelatedServices biases its links. */
 function detectCluster(slug: string, category: string): import("@/components/related-services").Cluster {
@@ -443,6 +444,16 @@ export default async function ArticlePage({ params }: Props) {
               Back to Articles
             </Link>
 
+            {/* Top-of-article free-scan teaser. Sits above the body so it's
+                visible above the fold on most viewports and catches readers
+                who only scroll a screen or two before bouncing — exactly the
+                pattern GA4 shows for the leak-site articles (5s engagement). */}
+            <FreeScanTeaser
+              articleSlug={post.slug}
+              defaultPlatform={detectPlatformFromSlug(post.slug)}
+              placement="top"
+            />
+
             {/* Content
                 Markdown-light + custom block tokens:
                   **Heading**            → <h2> (paragraph-level)
@@ -476,17 +487,37 @@ export default async function ArticlePage({ params }: Props) {
                       </h2>
                     );
                   }
-                  // Inline bold within a paragraph: split on **...** segments
-                  const parts = paragraph.split(/(\*\*[^*]+\*\*)/g);
+                  // Inline rich content within a paragraph. Two patterns:
+                  //   **bold**         → <strong>
+                  //   [text](/path)    → internal Next <Link>; only matches
+                  //                      relative paths (/...) so we don't
+                  //                      accidentally turn "[1] (https://...)"
+                  //                      style references into links.
+                  // Split keeps the matched groups so we can route each segment.
+                  const INLINE_PATTERN = /(\*\*[^*]+\*\*|\[[^\]]+\]\(\/[^)]+\))/g;
+                  const parts = paragraph.split(INLINE_PATTERN);
                   return (
                     <p key={index} className="text-lg">
                       {parts.map((part, i) => {
-                        const m = part.match(/^\*\*([^*]+)\*\*$/);
-                        if (m) {
+                        const bold = part.match(/^\*\*([^*]+)\*\*$/);
+                        if (bold) {
                           return (
                             <strong key={i} style={{ color: 'var(--ink)' }}>
-                              {m[1]}
+                              {bold[1]}
                             </strong>
+                          );
+                        }
+                        const link = part.match(/^\[([^\]]+)\]\((\/[^)]+)\)$/);
+                        if (link) {
+                          return (
+                            <Link
+                              key={i}
+                              href={link[2]}
+                              className="underline decoration-[var(--accent)]/40 underline-offset-4 transition-colors hover:decoration-[var(--accent)]"
+                              style={{ color: 'var(--accent)' }}
+                            >
+                              {link[1]}
+                            </Link>
                           );
                         }
                         return <span key={i}>{part}</span>;
@@ -496,6 +527,15 @@ export default async function ArticlePage({ params }: Props) {
                 })}
               </div>
             </article>
+
+            {/* End-of-article free-scan teaser. The "they finished reading
+                and are still here" close — most likely to convert. Different
+                copy (`placement="end"`) so we can A/B vs the top in GA4. */}
+            <FreeScanTeaser
+              articleSlug={post.slug}
+              defaultPlatform={detectPlatformFromSlug(post.slug)}
+              placement="end"
+            />
 
             {/* FAQs */}
             {post.faqs && post.faqs.length > 0 && (

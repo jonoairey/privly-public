@@ -4,11 +4,12 @@ import { generateMetadata as genMeta } from '@/lib/seo';
 import { PLAN, COPYRIGHT_ADDON, APP_URL } from '@/lib/constants';
 import { generateProductSchema, generateFAQSchema } from '@/lib/seo';
 import RoiCalculator from '@/components/roi-calculator';
+import PageEvent from '@/components/analytics/PageEvent';
 import Link from 'next/link';
 import { CheckCircle, XCircle, ArrowRight, Copyright, Zap, Shield, FileCheck } from 'lucide-react';
 
 export const metadata = genMeta({
-  title: 'OnlyFans Leak Protection Pricing — $49/mo Creator Plan',
+  title: 'OnlyFans Leak Protection Pricing · $49/mo Creator Plan',
   description: "Privly pricing: free 7-day trial, then $49/month for unlimited DMCA takedowns, leak scanning, forensic watermarking, Telegram/Discord monitoring and source tracing. No per-takedown fees.",
   path: '/pricing',
   ogImage: 'https://www.useprivly.com/og-pricing.png',
@@ -56,7 +57,7 @@ export default function PricingPage() {
     },
     {
       q: 'Can I skip the trial and subscribe directly?',
-      a: "Yes. Sign up, and you can go straight to the billing page to subscribe at $49/month. You'll get instant access to everything — including DMCA takedowns, monitoring, and unlimited scans.",
+      a: "Yes. Sign up, and you can go straight to the billing page to subscribe at $49/month. You'll get instant access to everything: DMCA takedowns, monitoring, and unlimited scans.",
     },
     {
       q: 'How is $49/mo possible when competitors charge $109+?',
@@ -68,23 +69,23 @@ export default function PricingPage() {
     },
     {
       q: 'Can I cancel anytime?',
-      a: "Yes. No contracts, no fine print. Cancel anytime — just hit the button and you're done. No retention calls, no hoops.",
+      a: "Yes. No contracts, no fine print. Cancel anytime, just hit the button and you're done. No retention calls, no hoops.",
     },
     {
       q: "What if Privly can't help with my situation?",
-      a: "We turn down roughly 15% of sign-ups for fit reasons — jurisdictions we can't enforce in, content categories we can't defend, or specific situations where another service would serve you better. We'll tell you on the first interaction. We'd rather lose a sale than take your money and underdeliver.",
+      a: "We turn down roughly 15% of sign-ups for fit reasons: jurisdictions we can't enforce in, content categories we can't defend, or specific situations where another service would serve you better. We'll tell you on the first interaction. We'd rather lose a sale than take your money and underdeliver.",
     },
     {
       q: 'Do you offer refunds?',
-      a: "Subscription fees are non-refundable except where required by applicable law (including Australian Consumer Law statutory guarantees). If something genuinely went wrong, email hello@useprivly.com — we'll review your case in good faith. We've never refused a legitimate refund request.",
+      a: "Subscription fees are non-refundable except where required by applicable law (including Australian Consumer Law statutory guarantees). If something genuinely went wrong, email hello@useprivly.com and we'll review your case in good faith. We've never refused a legitimate refund request.",
     },
     {
       q: "Can I see what Privly does without signing up?",
-      a: "Yes. Our public Privly Observatory at /observatory shows live data from the leak ecosystem we monitor — 50+ sites, 77M+ takedowns tracked. Our free DMCA Generator at /tools/dmca-generator lets you generate a real DMCA notice without an account. Both will give you a strong sense of what we do before you commit.",
+      a: "Yes. Our public Privly Observatory at /observatory shows live data from the leak ecosystem we monitor: 50+ sites, 77M+ takedowns tracked. Our free DMCA Generator at /tools/dmca-generator lets you generate a real DMCA notice without an account. Both will give you a strong sense of what we do before you commit.",
     },
     {
       q: 'What payment methods do you accept?',
-      a: "All major credit and debit cards, processed via Stripe. Apple Pay and Google Pay are supported on mobile. We don't store payment details ourselves — Stripe holds them under PCI-DSS compliance.",
+      a: "All major credit and debit cards, processed via Stripe. Apple Pay and Google Pay are supported on mobile. We don't store payment details ourselves. Stripe holds them under PCI-DSS compliance.",
     },
   ];
 
@@ -110,6 +111,9 @@ export default function PricingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingFaqSchema) }}
       />
       <MarketingHeader />
+      {/* GA4 conversion event — fires once per page load. Mark as a Key event
+          in GA4 Admin → Events so it shows up in the Conversions report. */}
+      <PageEvent name="pricing_view" />
 
       <main className="pt-28 pb-0">
         {/* Hero */}
@@ -212,7 +216,7 @@ export default function PricingPage() {
               <p className="text-sm mb-6" style={{ color: 'var(--ink-2)' }}>Cancel anytime, no questions asked</p>
 
               <div className="space-y-3 mb-8 flex-1">
-                <p className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: 'var(--mute)' }}>Everything — no limits</p>
+                <p className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: 'var(--mute)' }}>Everything · no limits</p>
                 {TRIAL_FEATURES.map((f, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
@@ -246,7 +250,7 @@ export default function PricingPage() {
                     <h3 className="text-lg font-bold">Copyright Registration</h3>
                   </div>
                   <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
-                    We prepare all US Copyright Office documents — application forms, cover letter, and filing instructions. Strengthens DMCA enforcement and enables statutory damages.
+                    We prepare all US Copyright Office documents: application forms, cover letter, and filing instructions. Strengthens DMCA enforcement and enables statutory damages.
                   </p>
                 </div>
               </div>
@@ -286,7 +290,7 @@ export default function PricingPage() {
                 </div>
                 <h3 className="text-lg font-bold mb-5 mt-2" style={{ color: 'var(--accent)' }}>Full Protection</h3>
                 <ul className="space-y-3 text-sm">
-                  {['$49/mo — everything included', 'Scan + Remove + Source Tracing', 'Telegram, Discord & Reddit monitoring', 'Leaks decrease permanently', 'Copyright Registration add-on', 'Dedicated human support'].map((item, i) => (
+                  {['$49/mo · everything included', 'Scan + Remove + Source Tracing', 'Telegram, Discord & Reddit monitoring', 'Leaks decrease permanently', 'Copyright Registration add-on', 'Dedicated human support'].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
                       <span className="text-[var(--ink)] font-medium">{item}</span>
@@ -372,7 +376,7 @@ export default function PricingPage() {
                 href={`${APP_URL}/auth/signup?plan=pro`}
                 className="inline-flex items-center px-8 py-4 bg-[var(--accent)] rounded-lg font-semibold hover:opacity-90 transition-opacity"
               >
-                Get Full Protection — {PLAN.price}/mo <ArrowRight className="w-5 h-5 ml-2" />
+                Get Full Protection · {PLAN.price}/mo <ArrowRight className="w-5 h-5 ml-2" />
               </a>
             </div>
             <p className="text-sm mt-4" style={{ color: 'var(--mute)' }}>No credit card required for trial. Cancel anytime.</p>

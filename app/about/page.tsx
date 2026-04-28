@@ -9,7 +9,7 @@ import { APP_URL } from '@/lib/constants';
 export const metadata: Metadata = genMeta({
   title: 'About',
   description:
-    "A letter from the founder — why Privly exists, what we believe, and who's actually on the team.",
+    "A letter from the founder. Why Privly exists, what we believe, and who's actually on the team.",
   path: '/about',
   keywords: [
     'about privly',
@@ -91,7 +91,7 @@ const PRINCIPLES: Array<{ icon: IconKind; title: string; body: string }> = [
     icon: 'lock',
     title: "Privacy isn't a feature. It's the floor.",
     body:
-      "We don't share your data with anyone, ever. Your dashboard, your content, your subscriber lists — encrypted, siloed, yours. If we ever got subpoenaed, we'd tell you first (when we're legally allowed to).",
+      "We don't share your data with anyone, ever. Your dashboard, your content, your subscriber lists: encrypted, siloed, yours. If we ever got subpoenaed, we'd tell you first (when we're legally allowed to).",
   },
   {
     icon: 'heart',
@@ -109,19 +109,19 @@ const PRINCIPLES: Array<{ icon: IconKind; title: string; body: string }> = [
     icon: 'bolt',
     title: 'Speed matters more than everything.',
     body:
-      'The first 72 hours after a leak is where 80% of the damage happens. We scan continuously — not daily, not hourly. Most leaks are caught within 2 hours of appearing. Average removal time from detection to gone: 76 hours.',
+      'The first 72 hours after a leak is where 80% of the damage happens. We scan continuously, not daily, not hourly. Most leaks are caught within 2 hours of appearing. Average removal time from detection to gone: 76 hours.',
   },
   {
     icon: 'pen',
     title: 'We write it in plain English.',
     body:
-      "Our DMCA notices read like they were written by a person, because they were. We don't pad them with boilerplate. Platforms respond to clear, specific, correctly-cited notices faster — so that's what we send.",
+      "Our DMCA notices read like they were written by a person, because they were. We don't pad them with boilerplate. Platforms respond to clear, specific, correctly-cited notices faster, so that's what we send.",
   },
   {
     icon: 'chat',
     title: 'No lock-in. No dark patterns.',
     body:
-      "One click cancels. We'll email you an export of everything you ever gave us. If we lose you, it should be because we didn't earn you — not because we made leaving hard. (We don't think you'll leave.)",
+      "One click cancels. We'll email you an export of everything you ever gave us. If we lose you, it should be because we didn't earn you, not because we made leaving hard. (We don't think you'll leave.)",
   },
 ];
 
@@ -143,9 +143,9 @@ const PROMISES: Array<{ title: string; body: string }> = [
   { title: 'A real protection agent, not a queue.', body: 'Named. Email address. Direct line. Not a shared inbox.' },
   { title: 'Forensic watermarking on everything you upload.', body: 'Invisible, per-subscriber. If it leaks, we know who.' },
   { title: 'Takedowns submitted in minutes, not days.', body: 'Average time from detection to DMCA sent: 14 minutes.' },
-  { title: 'Monthly check-ins — we come to you.', body: 'Not a support form you have to go find.' },
+  { title: 'Monthly check-ins. We come to you.', body: 'Not a support form you have to go find.' },
   { title: "We'll tell you when we can't help.", body: 'Before you pay. Not after.' },
-  { title: 'Encrypted, siloed, yours.', body: 'Your content, your subscriber lists, your takedown history — locked down and never shared with anyone, ever.' },
+  { title: 'Encrypted, siloed, yours.', body: 'Your content, your subscriber lists, your takedown history. Locked down and never shared with anyone, ever.' },
 ];
 
 /* ============ Reusable helpers ============ */
@@ -186,7 +186,7 @@ export default function AboutPage() {
                 color: 'var(--accent)',
               }}
             >
-              — Jono, founder · written on a Tuesday, probably at 1am
+              Jono, founder · written on a Tuesday, probably at 1am
             </div>
           </div>
         </section>
@@ -218,14 +218,14 @@ export default function AboutPage() {
                   Zero replies. She asked if I knew anyone who could actually help.
                 </p>
                 <p>
-                  I didn&apos;t — but I had the background to figure it out. I&apos;d spent years in{' '}
+                  I didn&apos;t. But I had the background to figure it out. I&apos;d spent years in{' '}
                   <strong style={{ color: 'var(--ink)' }}>cyber security</strong> doing threat intelligence and incident response.
                   The kind of work where your job is to hunt people who don&apos;t want to be found, and move faster than they can
                   cover their tracks. Removing leaked content is the same problem, pointed a different direction.
                 </p>
                 <p>
                   So I pulled in a lawyer friend, then an engineer who&apos;d worked on image fingerprinting, and we started Privly.
-                  Not as a business plan — as a <strong style={{ color: 'var(--ink)' }}>favour.</strong> Within a week we&apos;d
+                  Not as a business plan, but as a <strong style={{ color: 'var(--ink)' }}>favour.</strong> Within a week we&apos;d
                   pulled 280 links for her. Within a month she was earning again. Within six months, forty other creators had
                   asked us to do the same.
                 </p>
@@ -250,7 +250,7 @@ export default function AboutPage() {
               >
                 <Image
                   src={u('photo-1517430816045-df4b7de11d1d')}
-                  alt="Late-night laptop, warm lamp glow — working through the night"
+                  alt="Late-night laptop, warm lamp glow. Working through the night."
                   fill
                   sizes="(min-width: 768px) 45vw, 90vw"
                   className="object-cover"
@@ -273,7 +273,7 @@ export default function AboutPage() {
                   &ldquo;Can you actually help me? I&apos;m losing it.&rdquo;
                 </p>
                 <p className="mt-2 text-[11px] font-semibold uppercase tracking-wider" style={{ color: 'var(--mute)' }}>
-                  — creator #1 · 2:14am
+                  creator #1 · 2:14am
                 </p>
               </div>
             </div>
@@ -459,7 +459,7 @@ export default function AboutPage() {
                 >
                   <Image
                     src={u('photo-1526374965328-7f61d4dc18c5', 600)}
-                    alt="Glowing data points on a dark background — threat intelligence"
+                    alt="Glowing data points on a dark background, evoking threat intelligence work"
                     fill
                     sizes="(min-width: 768px) 300px, 50vw"
                     className="object-cover"
@@ -670,7 +670,7 @@ export default function AboutPage() {
                 color: 'var(--accent)',
               }}
             >
-              — Jono and the team
+              Jono and the team
             </div>
             <div className="mt-6 text-[13px]" style={{ color: 'var(--mute)' }}>
               Privly · 2026

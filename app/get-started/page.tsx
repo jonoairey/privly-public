@@ -2,6 +2,7 @@ import MarketingHeader from '@/components/marketing/Header';
 import MarketingFooter from '@/components/marketing/Footer';
 import { generateMetadata as genMeta } from '@/lib/seo';
 import { PLAN, APP_URL } from '@/lib/constants';
+import PageEvent from '@/components/analytics/PageEvent';
 import { ArrowRight, Shield, Zap, CheckCircle, XCircle } from 'lucide-react';
 
 export const metadata = genMeta({
@@ -35,6 +36,9 @@ export default function GetStartedPage() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--ink)' }} className="flex flex-col overflow-hidden">
       <MarketingHeader />
+      {/* GA4 conversion event — landing on /get-started is a strong intent
+          signal even if they don't click through. Mark as Key event in GA4. */}
+      <PageEvent name="sign_up_started" params={{ source: 'get_started_page' }} />
 
       <main className="pt-28 pb-0">
         {/* Hero */}
