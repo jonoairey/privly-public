@@ -12,7 +12,12 @@ import { getArticleImage } from "@/lib/article-images";
 import { generateBreadcrumbSchema, generateFAQSchema } from "@/lib/seo";
 import RelatedServices from "@/components/related-services";
 import StickyArticleCTA from "@/components/articles/StickyArticleCTA";
-import FreeScanTeaser, { detectPlatformFromSlug } from "@/components/articles/FreeScanTeaser";
+import FreeScanTeaser from "@/components/articles/FreeScanTeaser";
+// `detectPlatformFromSlug` lives in lib/ rather than the FreeScanTeaser
+// component file because this page is server-rendered and Next 16 blocks
+// server code from invoking exports of `'use client'` modules. Build error
+// fixed: "Attempted to call detectPlatformFromSlug() from the server".
+import { detectPlatformFromSlug } from "@/lib/article-platform";
 
 /** Map an article to a content cluster so RelatedServices biases its links. */
 function detectCluster(slug: string, category: string): import("@/components/related-services").Cluster {

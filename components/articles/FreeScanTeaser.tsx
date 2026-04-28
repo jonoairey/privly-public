@@ -2,6 +2,11 @@
 
 import { useState, type FormEvent } from 'react';
 import { APP_URL } from '@/lib/constants';
+import {
+  type ArticleScanPlatform,
+  PLATFORM_LABELS,
+  PLATFORMS,
+} from '@/lib/article-platform';
 
 /**
  * Inline article CTA — captures a username and routes to /auth/signup with
@@ -20,6 +25,11 @@ import { APP_URL } from '@/lib/constants';
  * If we ever want to capture leads who type a username and bounce, we can
  * add a fire-and-forget POST to /api/tools/scan-lead later. Keeping it simple
  * for ship-now velocity.
+ *
+ * `ArticleScanPlatform`, the labels map, and `detectPlatformFromSlug` live in
+ * `lib/article-platform.ts` so the server-side article page can call them at
+ * render time. Exporting them from this `'use client'` file made them
+ * client-only and Next 16 rejects server→client function calls at build.
  */
 
 declare global {
@@ -28,42 +38,9 @@ declare global {
   }
 }
 
-export type ArticleScanPlatform =
-  | 'onlyfans'
-  | 'fansly'
-  | 'patreon'
-  | 'manyvids'
-  | 'fanfix'
-  | 'justforfans'
-  | 'fanvue'
-  | 'loyalfans'
-  | 'chaturbate'
-  | 'instagram'
-  | 'tiktok'
-  | 'reddit'
-  | 'threads';
-
-const PLATFORM_LABELS: Record<ArticleScanPlatform, string> = {
-  onlyfans: 'OnlyFans',
-  fansly: 'Fansly',
-  patreon: 'Patreon',
-  manyvids: 'ManyVids',
-  fanfix: 'Fanfix',
-  justforfans: 'JustForFans',
-  fanvue: 'Fanvue',
-  loyalfans: 'Loyalfans',
-  chaturbate: 'Chaturbate',
-  instagram: 'Instagram',
-  tiktok: 'TikTok',
-  reddit: 'Reddit',
-  threads: 'Threads',
-};
-
-const PLATFORMS: ArticleScanPlatform[] = [
-  'onlyfans', 'fansly', 'patreon', 'manyvids', 'fanfix',
-  'justforfans', 'fanvue', 'loyalfans', 'chaturbate',
-  'instagram', 'tiktok', 'reddit', 'threads',
-];
+// Re-export for legacy imports — the type is server-safe because it's not
+// a runtime value.
+export type { ArticleScanPlatform } from '@/lib/article-platform';
 
 export interface FreeScanTeaserProps {
   /** Article slug (sent to GA + signup as `ref`). */
@@ -246,29 +223,8 @@ export default function FreeScanTeaser({
   );
 }
 
-/**
- * Map an article slug → default platform so the teaser doesn't have to show
- * a dropdown when context is obvious. Falls back to undefined (dropdown).
- *
- * Kept colocated with the component so adding a new article + auto-detecting
- * its platform is one file to edit, not two.
- */
-export function detectPlatformFromSlug(slug: string): ArticleScanPlatform | undefined {
-  const s = slug.toLowerCase();
-  // Order matters — check more specific terms first so e.g. "fansly-vs-onlyfans"
-  // doesn't shortcut on "onlyfans".
-  if (s.includes('fansly')) return 'fansly';
-  if (s.includes('patreon')) return 'patreon';
-  if (s.includes('manyvids')) return 'manyvids';
-  if (s.includes('fanfix')) return 'fanfix';
-  if (s.includes('justforfans') || s.includes('jff')) return 'justforfans';
-  if (s.includes('fanvue')) return 'fanvue';
-  if (s.includes('loyalfans')) return 'loyalfans';
-  if (s.includes('chaturbate')) return 'chaturbate';
-  if (s.includes('instagram')) return 'instagram';
-  if (s.includes('tiktok')) return 'tiktok';
-  if (s.includes('reddit')) return 'reddit';
-  if (s.includes('threads')) return 'threads';
-  if (s.includes('onlyfans')) return 'onlyfans';
-  return undefined;
-}
+// `detectPlatformFromSlug` is intentionally NOT re-exported here. It lives
+// in lib/article-platform.ts so server components can call it; re-exporting
+// from this `'use client'` file would tag it as client-only again and
+// re-introduce the build error we just fixed. Import it from
+// '@/lib/article-platform' directly.
