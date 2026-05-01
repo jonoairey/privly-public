@@ -8,7 +8,7 @@ export default function FAQ() {
   const [open, setOpen] = useState(0)
 
   return (
-    <section style={{ padding: '110px 0', background: 'var(--bg-2)' }}>
+    <section style={{ padding: '80px 0', background: 'var(--bg-2)' }}>
       <div style={{ maxWidth: 880, margin: '0 auto', padding: '0 28px' }}>
         <Reveal style={{ textAlign: 'center', marginBottom: 48 }}>
           <span className="font-hand" style={{ fontSize: 26, color: 'var(--accent)' }}>

@@ -62,7 +62,7 @@ export default function HowItWorksPage() {
       <MarketingHeader />
 
       {/* ─── Hero ─── */}
-      <section style={{ padding: '160px 0 80px', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ padding: '130px 0 60px', position: 'relative', overflow: 'hidden' }}>
         {/* Floating platform logos — "every platform, every country" */}
         <FloatingBrandLogos variant="hero" />
 
@@ -176,7 +176,7 @@ export default function HowItWorksPage() {
       </section>
 
       {/* ─── Four Steps ─── */}
-      <section style={{ padding: '60px 0 100px', background: 'var(--bg-2)' }}>
+      <section style={{ padding: '48px 0 72px', background: 'var(--bg-2)' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 28px' }}>
           <div
             style={{
@@ -240,7 +240,7 @@ export default function HowItWorksPage() {
       </section>
 
       {/* ─── Deep Dive: Each Step Expanded ─── */}
-      <section style={{ padding: '100px 0' }}>
+      <section style={{ padding: '72px 0' }}>
         <div style={{ maxWidth: 960, margin: '0 auto', padding: '0 28px' }}>
           <Reveal style={{ textAlign: 'center', marginBottom: 72 }}>
             <span className="font-hand" style={{ fontSize: 26, color: 'var(--accent)' }}>
@@ -636,7 +636,7 @@ export default function HowItWorksPage() {
       </section>
 
       {/* ─── Stats Strip ─── */}
-      <section style={{ padding: '64px 0', background: 'var(--bg-2)' }}>
+      <section style={{ padding: '48px 0', background: 'var(--bg-2)' }}>
         <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 28px' }}>
           <div
             style={{
@@ -662,7 +662,7 @@ export default function HowItWorksPage() {
       </section>
 
       {/* ─── Your Protection Team ─── */}
-      <section style={{ padding: '110px 0' }}>
+      <section style={{ padding: '80px 0' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 28px' }}>
           <Reveal style={{ textAlign: 'center', marginBottom: 56 }}>
             <span className="font-hand" style={{ fontSize: 26, color: 'var(--accent)' }}>

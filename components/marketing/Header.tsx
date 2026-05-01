@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { NAV_ITEMS } from './shared/data'
 import { APP_URL } from '@/lib/constants'
+import PrivlyLogo from './shared/PrivlyLogo'
 
 export default function MarketingHeader() {
   const [scrolled, setScrolled] = useState(false)
@@ -45,15 +45,7 @@ export default function MarketingHeader() {
       >
         {/* Logo */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-          <Image
-            src="/logo-plum.svg"
-            alt="Privly"
-            width={520}
-            height={200}
-            className="h-12 w-auto"
-            style={{ height: 48, width: 'auto' }}
-            priority
-          />
+          <PrivlyLogo variant="dark" height={56} />
         </Link>
 
         {/* Desktop Nav */}

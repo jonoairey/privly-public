@@ -98,9 +98,37 @@ const HERO_LOGOS: BrandLogo[] = [
   { name: 'snapchat',  bottom: '10%', right: '32%',size: 26, opacity: 0.18, anim: 'float2', delay: '1.1s', hideSm: true },
 ]
 
+/**
+ * Layout tuned for short SECTIONS (~300–400px tall) wrapping a centered card
+ * — like the homepage FreeScanTeaser section. The teaser panel is centered
+ * at max-width 760px; on wide viewports there's empty space on the left
+ * and right of the panel where these logos drift, framing the panel
+ * rather than competing with it.
+ *
+ * All logos hug the section edges (left/right ≤ 14% or top/bottom ≤ 30%)
+ * so on wide screens they sit BESIDE the panel; on narrow screens the
+ * panel covers them. Lower opacity (0.14–0.22) keeps them quiet.
+ */
+const TEASER_LOGOS: BrandLogo[] = [
+  // Far-left vertical column — beside the panel on wide viewports
+  { name: 'onlyfans',  top: '12%', left: '4%',  size: 30, opacity: 0.22, anim: 'float1', delay: '0s' },
+  { name: 'fansly',    top: '46%', left: '6%',  size: 32, opacity: 0.22, anim: 'float2', delay: '1.4s' },
+  { name: 'instagram', top: '78%', left: '3%',  size: 26, opacity: 0.18, anim: 'float2', delay: '2.2s', hideSm: true },
+
+  // Far-right vertical column — beside the panel on wide viewports
+  { name: 'reddit',    top: '14%', right: '5%', size: 30, opacity: 0.22, anim: 'float2', delay: '0.6s' },
+  { name: 'telegram',  top: '48%', right: '4%', size: 32, opacity: 0.22, anim: 'float1', delay: '2.0s' },
+  { name: 'discord',   top: '80%', right: '6%', size: 28, opacity: 0.20, anim: 'float1', delay: '0.8s', hideSm: true },
+
+  // Sparse upper/lower mid-band — breaks the strict columns so it feels organic
+  { name: 'tiktok',    top: '4%',  left: '18%', size: 22, opacity: 0.16, anim: 'float2', delay: '1.8s', hideSm: true },
+  { name: 'mega',      top: '8%',  right: '20%', size: 22, opacity: 0.14, anim: 'float1', delay: '1.2s', hideSm: true },
+]
+
 const VARIANTS = {
   cta: CTA_LOGOS,
   hero: HERO_LOGOS,
+  teaser: TEASER_LOGOS,
 } as const
 
 export default function FloatingBrandLogos({

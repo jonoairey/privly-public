@@ -5,7 +5,7 @@ export default function Privacy() {
   return (
     <section
       style={{
-        padding: '110px 0',
+        padding: '80px 0',
         background: 'var(--ink)',
         color: 'var(--bg)',
         position: 'relative',

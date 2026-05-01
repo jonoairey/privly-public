@@ -214,6 +214,7 @@ export const FOOTER_GROUPS = [
       { label: 'How it works', href: '/how-it-works' },
       { label: 'Features', href: '/features' },
       { label: 'Pricing', href: '/pricing' },
+      { label: 'For agencies', href: '/agencies' },
     ],
   },
   {

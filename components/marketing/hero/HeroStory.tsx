@@ -5,21 +5,21 @@ import { AVATARS, POLAROID_BEFORE, POLAROID_AFTER } from '../shared/data'
 
 export default function HeroStory() {
   return (
-    <section style={{ paddingTop: 'clamp(100px, 12vw, 140px)', paddingBottom: 'clamp(40px, 6vw, 80px)', position: 'relative', overflow: 'hidden' }}>
+    <section style={{ paddingTop: 'clamp(70px, 8vw, 96px)', paddingBottom: 'clamp(20px, 3vw, 40px)', position: 'relative', overflow: 'hidden' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 28px' }}>
         <div className="grid lg:grid-cols-2 gap-14 items-center" style={{ gridTemplateColumns: undefined }}>
           {/* Left — Copy */}
           <Reveal>
-            <div className="chip mt-6 md:mt-0" style={{ marginBottom: 18 }}>
+            <div className="chip mt-4 md:mt-0" style={{ marginBottom: 12 }}>
               <span style={{ color: 'var(--accent)' }}>
                 <Shield size={14} color="currentColor" />
               </span>
-              <span>Hundreds of creators protected · made by creators, for creators</span>
+              <span>77M+ takedowns tracked · 500+ leak sites · Registered DMCA Agent</span>
             </div>
 
             <span
               className="font-hand"
-              style={{ fontSize: 26, color: 'var(--accent)', display: 'block', marginBottom: 8 }}
+              style={{ fontSize: 24, color: 'var(--accent)', display: 'block', marginBottom: 4 }}
             >
               ready when you are
             </span>
@@ -27,7 +27,7 @@ export default function HeroStory() {
             <h1
               className="font-serif"
               style={{
-                fontSize: 'clamp(42px, 5.2vw, 72px)',
+                fontSize: 'clamp(38px, 4.6vw, 60px)',
                 lineHeight: 1,
                 margin: 0,
                 fontWeight: 400,
@@ -41,22 +41,22 @@ export default function HeroStory() {
               </span>
             </h1>
 
-            <p style={{ fontSize: 19, color: 'var(--ink-2)', marginTop: 28, lineHeight: 1.55, maxWidth: 520 }}>
+            <p style={{ fontSize: 17, color: 'var(--ink-2)', marginTop: 18, lineHeight: 1.5, maxWidth: 520 }}>
               Forensic watermarking meets automated enforcement.{' '}
               <b>Catch leakers. Protect your content. Get paid for what you create.</b>
             </p>
 
-            <div style={{ marginTop: 36, display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
-              <a href="/get-started" className="btn btn-accent" style={{ padding: '17px 28px', fontSize: 16 }}>
+            <div style={{ marginTop: 22, display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
+              <a href="/get-started" className="btn btn-accent" style={{ padding: '14px 24px', fontSize: 15 }}>
                 Start my 7-day trial <span>→</span>
               </a>
-              <a href="/how-it-works" className="btn btn-ghost" style={{ padding: '17px 28px', fontSize: 16 }}>
+              <a href="/how-it-works" className="btn btn-ghost" style={{ padding: '14px 24px', fontSize: 15 }}>
                 See how it works
               </a>
             </div>
 
             {/* Social proof row */}
-            <div style={{ marginTop: 18, display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
+            <div style={{ marginTop: 14, display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' }}>
               <div style={{ display: 'flex' }}>
                 {AVATARS.slice(0, 5).map((a, i) => (
                   <div
@@ -81,13 +81,13 @@ export default function HeroStory() {
           </Reveal>
 
           {/* Right — Polaroid composition */}
-          <Reveal delay={180} style={{ position: 'relative', height: 600 }} className="hidden lg:block">
+          <Reveal delay={180} style={{ position: 'relative', height: 470 }} className="hidden lg:block">
             {/* Before polaroid */}
             <div
-              style={{ position: 'absolute', left: '4%', top: 20, transform: 'rotate(-5deg)', zIndex: 1 }}
+              style={{ position: 'absolute', left: '4%', top: 10, transform: 'rotate(-5deg)', zIndex: 1 }}
               className=""
             >
-              <div className="polaroid" style={{ width: 220 }}>
+              <div className="polaroid" style={{ width: 200 }}>
                 <div style={{ position: 'relative', overflow: 'hidden', aspectRatio: '4/5', background: '#F3E8FF' }}>
                   <Image
                     src={POLAROID_BEFORE}
@@ -128,10 +128,10 @@ export default function HeroStory() {
 
             {/* After polaroid */}
             <div
-              style={{ position: 'absolute', right: '4%', top: 90, transform: 'rotate(4deg)', zIndex: 2 }}
+              style={{ position: 'absolute', right: '4%', top: 70, transform: 'rotate(4deg)', zIndex: 2 }}
               className=""
             >
-              <div className="polaroid" style={{ width: 240 }}>
+              <div className="polaroid" style={{ width: 220 }}>
                 <div style={{ position: 'relative', overflow: 'hidden', aspectRatio: '4/5', background: 'linear-gradient(135deg, var(--accent), var(--hot))' }}>
                   <Image
                     src={POLAROID_AFTER}
@@ -171,7 +171,7 @@ export default function HeroStory() {
 
             {/* Leaker-caught card */}
             <div
-              style={{ position: 'absolute', left: '12%', bottom: 40, transform: 'rotate(-2deg)', zIndex: 3 }}
+              style={{ position: 'absolute', left: '12%', bottom: 30, transform: 'rotate(-2deg)', zIndex: 3 }}
               className=""
             >
               <div
@@ -203,7 +203,7 @@ export default function HeroStory() {
 
             {/* Revenue chip — tucked beneath the After polaroid */}
             <div
-              style={{ position: 'absolute', right: '6%', top: 470, transform: 'rotate(3deg)', zIndex: 3 }}
+              style={{ position: 'absolute', right: '6%', top: 380, transform: 'rotate(3deg)', zIndex: 3 }}
               className=""
             >
               <div

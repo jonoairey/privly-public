@@ -9,7 +9,7 @@ export default function Pricing() {
   const isTrial = mode === 'trial'
 
   return (
-    <section id="pricing" style={{ padding: '110px 0' }}>
+    <section id="pricing" style={{ padding: '80px 0' }}>
       <div style={{ maxWidth: 980, margin: '0 auto', padding: '0 28px' }}>
         <Reveal style={{ textAlign: 'center', marginBottom: 48 }}>
           <span className="font-hand" style={{ fontSize: 26, color: 'var(--accent)' }}>

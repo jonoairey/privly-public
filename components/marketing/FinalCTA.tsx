@@ -3,7 +3,7 @@ import FloatingBrandLogos from './shared/FloatingBrandLogos'
 
 export default function FinalCTA() {
   return (
-    <section style={{ padding: '140px 0', position: 'relative', overflow: 'hidden' }}>
+    <section style={{ padding: '100px 0', position: 'relative', overflow: 'hidden' }}>
       {/* Floating platform logos — sit behind everything as soft background */}
       <FloatingBrandLogos variant="cta" />
 

@@ -120,11 +120,41 @@ export default function PricingPage() {
         <section className="relative w-full pb-12 px-4 sm:px-6 lg:px-8">
           <div className="absolute inset-0 bg-gradient-to-b from-[var(--accent)]/5 via-transparent to-transparent" />
           <div className="relative max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
-              Try free. Subscribe when ready.
+            <span
+              className="font-hand"
+              style={{ fontSize: 26, color: 'var(--accent)', display: 'inline-block', marginBottom: 8 }}
+            >
+              no rush, no card
+            </span>
+            <h1
+              className="font-serif"
+              style={{
+                fontSize: 'clamp(44px, 6vw, 80px)',
+                lineHeight: 0.98,
+                margin: 0,
+                fontWeight: 400,
+                letterSpacing: '-0.03em',
+              }}
+            >
+              Try free.
+              <br />
+              <span className="italic" style={{ color: 'var(--accent)' }}>
+                Subscribe when ready.
+              </span>
             </h1>
-            <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--ink-2)' }}>
-              Start with a 7-day trial to explore the platform, or subscribe straight away for full protection at {PLAN.price}/month.
+            <p
+              style={{
+                marginTop: 22,
+                fontSize: 18,
+                color: 'var(--ink-2)',
+                maxWidth: 600,
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                lineHeight: 1.6,
+              }}
+            >
+              Seven days free to explore the platform, or subscribe straight away for full
+              protection at <b>{PLAN.price}/month</b>. Same plan, every feature, no upsells.
             </p>
           </div>
         </section>
@@ -233,6 +263,45 @@ export default function PricingPage() {
               </a>
               <p className="text-center text-xs mt-3" style={{ color: 'var(--mute)' }}>You&apos;ll create your account, then complete payment</p>
             </div>
+          </div>
+        </section>
+
+        {/* Objection block — three reassurances right under the plan cards */}
+        <section className="relative w-full pt-2 pb-8 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto grid gap-4 sm:grid-cols-3">
+            {[
+              {
+                emoji: '🪞',
+                title: 'No hidden fees',
+                body: "One price covers everything: scanning, takedowns, Google de-indexing, watermarking, Telegram monitoring.",
+              },
+              {
+                emoji: '✋',
+                title: 'No contracts',
+                body: 'Cancel any time, no retention call, no hoops. Subscription fees are not refundable except where required by law.',
+              },
+              {
+                emoji: '💜',
+                title: 'No upsells',
+                body: "Same plan whether you're new or you've been with us a year. No tiers, no per-takedown fees.",
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="rounded-2xl p-5 border border-[var(--line)] flex gap-3"
+                style={{ background: 'var(--bg-2)' }}
+              >
+                <div style={{ fontSize: 22, lineHeight: 1, flexShrink: 0 }}>{item.emoji}</div>
+                <div>
+                  <div className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>
+                    {item.title}
+                  </div>
+                  <p className="text-xs mt-1 leading-relaxed" style={{ color: 'var(--ink-2)' }}>
+                    {item.body}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 

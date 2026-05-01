@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { FOOTER_GROUPS } from './shared/data'
+import PrivlyLogo from './shared/PrivlyLogo'
 
 export default function MarketingFooter() {
   return (
@@ -58,13 +58,7 @@ export default function MarketingFooter() {
           }}
         >
           <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20, textDecoration: 'none' }}>
-            <Image
-              src="/logo-white.svg"
-              alt="Privly"
-              width={520}
-              height={200}
-              style={{ height: 40, width: 'auto' }}
-            />
+            <PrivlyLogo variant="light" height={40} />
           </Link>
           <p style={{ fontSize: 14, color: '#D8B4FE', maxWidth: 560, lineHeight: 1.6, margin: 0 }}>
             We&apos;re a small team that got tired of watching creators get leaked and do nothing about it.

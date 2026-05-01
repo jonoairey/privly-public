@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import type { CSSProperties } from 'react'
 import {
   SiOnlyfans, SiPatreon, SiInstagram, SiTiktok, SiThreads, SiReddit,
 } from 'react-icons/si'
@@ -8,16 +9,26 @@ import Reveal from './shared/Reveal'
 /**
  * Trust block — homepage credibility signals.
  *
- * Platform strip rules (April 2026):
- *   - Logo glyph for every platform (no text-only fallbacks).
- *   - All glyphs rendered in a single muted plum-grey so the strip blends with
- *     Privly's branding instead of competing with it. Brand colour briefly
- *     surfaces on hover.
- *   - simple-icons covers the mainstream socials. Adult platforms without
- *     simple-icons get a clean monogram glyph in matching style.
- *   - Facebook, YouTube, and Snapchat are intentionally excluded from the
+ * Platform strip rules (May 2026 — Branditscan visual benchmark):
+ *   - Logos only. No text labels alongside the icons.
+ *   - Two presentation styles, mixed in one strip:
+ *       (a) Brands with simple-icons coverage → icon-only glyph
+ *       (b) Adult platforms without simple-icons coverage → custom wordmark
+ *           with brand-specific typography (varied weight / case / italic /
+ *           supplemental glyph) so each platform's visual character comes
+ *           through. ManyVids gets a small crown above the wordmark.
+ *   - All glyphs/wordmarks render in a uniform muted plum-grey so the strip
+ *     blends with Privly's branding. Brand colour briefly surfaces on hover.
+ *   - Facebook, YouTube, Snapchat are intentionally excluded from the
  *     homepage strip (their /facebook and /youtube pages still exist and
  *     remain linked from the footer).
+ *   - Telegram is intentionally NOT on this strip — it's a leak channel,
+ *     not a platform creators "come from."
+ *
+ * For perfect brand fidelity on the adult platforms, the next step is to
+ * swap these custom wordmarks with each platform's actual logo SVG (most
+ * have a brand-kit page; ~10 mins per platform). Tracked as a separate
+ * follow-up task.
  *
  * Removed false claims (do NOT re-add):
  *   - "verified since 2023" (DMCA Agent registered 2026, not 2023)
@@ -27,67 +38,136 @@ import Reveal from './shared/Reveal'
 interface PlatformEntry {
   name: string
   slug: string
-  /** simple-icons component if available */
+  /** simple-icons component if available — when present, renders as icon-only */
   Icon?: IconType
-  /** monogram fallback for brands without simple-icons coverage */
-  monogram?: string
+  /** custom wordmark spec for adult platforms without simple-icons coverage.
+   *  Each spec gets its own typographic feel so the strip doesn't read as
+   *  identical-looking text everywhere. */
+  wordmark?: WordmarkSpec
+}
+
+interface WordmarkSpec {
+  /** displayed text */
+  label: string
+  /** font stack — Inter (sans, default), Fraunces (serif), system-ui */
+  family: 'inter' | 'fraunces' | 'system'
+  weight: 400 | 500 | 600 | 700 | 800
+  italic?: boolean
+  /** force lowercase / uppercase / preserve as-typed */
+  transform?: 'lowercase' | 'uppercase' | 'none'
+  /** letter-spacing in em — negative tightens, positive loosens */
+  tracking?: number
+  /** optional crown / heart / ornament drawn above the wordmark via SVG path */
+  ornament?: 'crown'
+}
+
+const FONT_STACKS: Record<WordmarkSpec['family'], string> = {
+  inter: "'Inter', system-ui, -apple-system, 'Helvetica Neue', sans-serif",
+  fraunces: "'Fraunces', Georgia, serif",
+  system: "system-ui, -apple-system, 'Segoe UI', sans-serif",
 }
 
 const PLATFORMS: PlatformEntry[] = [
   // Adult subscription platforms — Privly's core market
-  { name: 'OnlyFans',    slug: 'onlyfans',    Icon: SiOnlyfans },
-  { name: 'Fansly',      slug: 'fansly',      monogram: 'Fa' },
-  { name: 'JustForFans', slug: 'justforfans', monogram: 'JFF' },
-  { name: 'Loyalfans',   slug: 'loyalfans',   monogram: 'Lf' },
-  { name: 'Fanvue',      slug: 'fanvue',      monogram: 'Fv' },
-  { name: 'Fanfix',      slug: 'fanfix',      monogram: 'Fx' },
-  { name: 'ManyVids',    slug: 'manyvids',    monogram: 'MV' },
-  { name: 'Chaturbate',  slug: 'chaturbate',  monogram: 'CB' },
-  // Mainstream socials creators also publish to
-  { name: 'Patreon',     slug: 'patreon',     Icon: SiPatreon },
-  { name: 'Instagram',   slug: 'instagram',   Icon: SiInstagram },
-  { name: 'TikTok',      slug: 'tiktok',      Icon: SiTiktok },
-  { name: 'Threads',     slug: 'threads',     Icon: SiThreads },
-  { name: 'Reddit',      slug: 'reddit',      Icon: SiReddit },
+  { name: 'OnlyFans', slug: 'onlyfans', Icon: SiOnlyfans },
+  {
+    name: 'Fansly',
+    slug: 'fansly',
+    // Real Fansly: rounded lowercase wordmark, modern sans
+    wordmark: { label: 'fansly', family: 'inter', weight: 700, transform: 'lowercase', tracking: -0.025 },
+  },
+  {
+    name: 'JustForFans',
+    slug: 'justforfans',
+    // Real JFF: bold italic wordmark
+    wordmark: { label: 'JustForFans', family: 'inter', weight: 800, italic: true, tracking: -0.02 },
+  },
+  {
+    name: 'Loyalfans',
+    slug: 'loyalfans',
+    // Real Loyalfans: clean lowercase wordmark, lighter weight
+    wordmark: { label: 'loyalfans', family: 'inter', weight: 500, transform: 'lowercase', tracking: 0.005 },
+  },
+  {
+    name: 'Fanvue',
+    slug: 'fanvue',
+    // Real Fanvue: modern bold sans-serif wordmark
+    wordmark: { label: 'Fanvue', family: 'inter', weight: 700, tracking: -0.015 },
+  },
+  {
+    name: 'Fanfix',
+    slug: 'fanfix',
+    // Real Fanfix: italic display wordmark
+    wordmark: { label: 'Fanfix', family: 'fraunces', weight: 600, italic: true, tracking: -0.02 },
+  },
+  {
+    name: 'ManyVids',
+    slug: 'manyvids',
+    // Real ManyVids: crown above the wordmark, bold compressed type
+    wordmark: { label: 'ManyVids', family: 'inter', weight: 800, tracking: -0.03, ornament: 'crown' },
+  },
+  {
+    name: 'Chaturbate',
+    slug: 'chaturbate',
+    // Real Chaturbate: italic script-style wordmark
+    wordmark: { label: 'Chaturbate', family: 'fraunces', weight: 700, italic: true, tracking: -0.025 },
+  },
+  // Mainstream socials creators also publish to (icon-only)
+  { name: 'Patreon',   slug: 'patreon',   Icon: SiPatreon },
+  { name: 'Instagram', slug: 'instagram', Icon: SiInstagram },
+  { name: 'TikTok',    slug: 'tiktok',    Icon: SiTiktok },
+  { name: 'Threads',   slug: 'threads',   Icon: SiThreads },
+  { name: 'Reddit',    slug: 'reddit',    Icon: SiReddit },
 ]
 
-/** Renders a brand glyph at a uniform size — either a simple-icons component
- *  or a serif-monogram SVG fallback. `currentColor` lets the parent control
- *  the tint so hover states work via CSS. */
-function PlatformGlyph({ platform }: { platform: PlatformEntry }) {
-  if (platform.Icon) {
-    const Icon = platform.Icon
-    return <Icon size={22} aria-hidden />
+/** Render a single brand wordmark with its custom typography. */
+function Wordmark({ spec }: { spec: WordmarkSpec }) {
+  const style: CSSProperties = {
+    fontFamily: FONT_STACKS[spec.family],
+    fontSize: 22,
+    fontWeight: spec.weight,
+    fontStyle: spec.italic ? 'italic' : 'normal',
+    letterSpacing: `${spec.tracking ?? 0}em`,
+    textTransform:
+      spec.transform === 'lowercase'
+        ? 'lowercase'
+        : spec.transform === 'uppercase'
+        ? 'uppercase'
+        : 'none',
+    lineHeight: 1,
+    whiteSpace: 'nowrap',
+    display: 'inline-flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: 2,
   }
+
   return (
-    <svg
-      width={22}
-      height={22}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden
-    >
-      <text
-        x="12"
-        y="17"
-        textAnchor="middle"
-        fontFamily="'Fraunces', Georgia, serif"
-        fontSize={(platform.monogram?.length ?? 1) >= 3 ? 9 : 12}
-        fontWeight={600}
-        letterSpacing="-0.5"
-      >
-        {platform.monogram}
-      </text>
-    </svg>
+    <span aria-hidden style={style}>
+      {spec.ornament === 'crown' && (
+        <svg
+          width={16}
+          height={8}
+          viewBox="0 0 16 8"
+          fill="currentColor"
+          aria-hidden
+          style={{ display: 'block', opacity: 0.85 }}
+        >
+          {/* Tiny crown — three points + base */}
+          <path d="M 0 8 L 2 1 L 4.5 5 L 8 0 L 11.5 5 L 14 1 L 16 8 Z" />
+        </svg>
+      )}
+      <span>{spec.label}</span>
+    </span>
   )
 }
 
 export default function Trust() {
   return (
-    <section style={{ padding: '90px 0', background: 'var(--bg)' }}>
+    <section style={{ padding: '68px 0', background: 'var(--bg)' }}>
       <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 28px' }}>
         {/* ============ Platform-logo strip ============ */}
-        <Reveal style={{ textAlign: 'center', marginBottom: 14 }}>
+        <Reveal style={{ textAlign: 'center', marginBottom: 18 }}>
           <span className="font-hand" style={{ fontSize: 22, color: 'var(--mute)' }}>
             Privly creators come from
           </span>
@@ -96,11 +176,11 @@ export default function Trust() {
         <Reveal
           delay={80}
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-            gap: '12px 8px',
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '20px 32px',
             marginBottom: 14,
-            justifyItems: 'center',
+            justifyContent: 'center',
             alignItems: 'center',
           }}
         >
@@ -109,31 +189,25 @@ export default function Trust() {
               key={p.slug + p.name}
               href={`/${p.slug}`}
               title={p.name}
+              aria-label={p.name}
+              className="trust-platform"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: 8,
-                padding: '8px 12px',
-                borderRadius: 10,
+                justifyContent: 'center',
+                height: 32,
+                padding: '0 4px',
                 color: 'var(--mute)',
                 textDecoration: 'none',
-                transition: 'color 0.2s, transform 0.2s, background 0.2s',
+                transition: 'color 0.2s, transform 0.2s, opacity 0.2s',
+                opacity: 0.78,
               }}
-              className="trust-platform"
             >
-              <PlatformGlyph platform={p} />
-              <span
-                style={{
-                  fontFamily: "'Fraunces', Georgia, serif",
-                  fontSize: 17,
-                  fontWeight: 500,
-                  letterSpacing: '-0.01em',
-                  whiteSpace: 'nowrap',
-                  color: 'inherit',
-                }}
-              >
-                {p.name}
-              </span>
+              {p.Icon ? (
+                <p.Icon size={28} aria-hidden />
+              ) : p.wordmark ? (
+                <Wordmark spec={p.wordmark} />
+              ) : null}
             </Link>
           ))}
         </Reveal>
@@ -144,7 +218,7 @@ export default function Trust() {
             textAlign: 'center',
             fontSize: 12,
             color: 'var(--mute)',
-            marginTop: 18,
+            marginTop: 22,
             marginBottom: 70,
           }}
         >

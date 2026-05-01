@@ -42,7 +42,7 @@ export default function FeaturesPage() {
       <MarketingHeader />
 
       {/* ─── Hero ─── */}
-      <section style={{ padding: '160px 0 80px', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ padding: '130px 0 60px', position: 'relative', overflow: 'hidden' }}>
         {/* Floating platform logos — "every platform, every country" */}
         <FloatingBrandLogos variant="hero" />
 
@@ -306,7 +306,7 @@ export default function FeaturesPage() {
       </section>
 
       {/* ─── AI & Automation Spotlight ─── */}
-      <section style={{ padding: '100px 0', background: 'var(--bg-2)' }}>
+      <section style={{ padding: '72px 0', background: 'var(--bg-2)' }}>
         <div style={{ maxWidth: 960, margin: '0 auto', padding: '0 28px' }}>
           <Reveal style={{ textAlign: 'center', marginBottom: 48 }}>
             <span className="font-hand" style={{ fontSize: 26, color: 'var(--accent)' }}>
@@ -452,7 +452,7 @@ export default function FeaturesPage() {
       </section>
 
       {/* ─── Full Feature Grid ─── */}
-      <section style={{ padding: '110px 0', background: 'var(--bg-2)' }}>
+      <section style={{ padding: '80px 0', background: 'var(--bg-2)' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 28px' }}>
           <Reveal style={{ textAlign: 'center', marginBottom: 56 }}>
             <span className="font-hand" style={{ fontSize: 26, color: 'var(--accent)' }}>
@@ -509,7 +509,7 @@ export default function FeaturesPage() {
       </section>
 
       {/* ─── Comparison Table ─── */}
-      <section style={{ padding: '110px 0' }}>
+      <section style={{ padding: '80px 0' }}>
         <div style={{ maxWidth: 860, margin: '0 auto', padding: '0 28px' }}>
           <Reveal style={{ textAlign: 'center', marginBottom: 48 }}>
             <span className="font-hand" style={{ fontSize: 26, color: 'var(--accent)' }}>
@@ -632,7 +632,7 @@ export default function FeaturesPage() {
       </section>
 
       {/* ─── The Human Difference ─── */}
-      <section style={{ padding: '100px 0', background: 'var(--bg-2)' }}>
+      <section style={{ padding: '72px 0', background: 'var(--bg-2)' }}>
         <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 28px' }}>
           <Reveal style={{ textAlign: 'center', marginBottom: 48 }}>
             <span className="font-hand" style={{ fontSize: 26, color: 'var(--accent)' }}>

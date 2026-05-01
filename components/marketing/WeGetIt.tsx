@@ -3,7 +3,7 @@ import { EMPATHY_CARDS } from './shared/data'
 
 export default function WeGetIt() {
   return (
-    <section style={{ padding: '110px 0', position: 'relative' }}>
+    <section style={{ padding: '80px 0', position: 'relative' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 28px' }}>
         <Reveal style={{ textAlign: 'center', marginBottom: 56 }}>
           <span className="font-hand" style={{ fontSize: 26, color: 'var(--accent)' }}>

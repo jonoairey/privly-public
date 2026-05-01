@@ -7,7 +7,7 @@ export default function Stories() {
   const rest = STORIES.filter((s) => !('featured' in s && s.featured))
 
   return (
-    <section style={{ padding: '110px 0' }}>
+    <section style={{ padding: '80px 0' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 28px' }}>
         <Reveal style={{ display: 'grid', gap: 40, alignItems: 'end', marginBottom: 56 }} className="grid-cols-1 md:grid-cols-2">
           <div>

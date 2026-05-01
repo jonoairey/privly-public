@@ -53,12 +53,19 @@ export interface FreeScanTeaserProps {
   defaultPlatform?: ArticleScanPlatform;
   /** Top of article vs end of article. Used for GA attribution + copy. */
   placement: 'top' | 'end';
+  /** Optional override for non-article placements (e.g. homepage) where we
+   *  don't want platform-specific copy even though we're passing a default
+   *  platform under the hood for the signup pre-fill. */
+  headingOverride?: string;
+  subheadingOverride?: string;
 }
 
 export default function FreeScanTeaser({
   articleSlug,
   defaultPlatform,
   placement,
+  headingOverride,
+  subheadingOverride,
 }: FreeScanTeaserProps) {
   const [username, setUsername] = useState('');
   const [platform, setPlatform] = useState<ArticleScanPlatform | ''>(defaultPlatform ?? '');
@@ -68,17 +75,20 @@ export default function FreeScanTeaser({
   const ref = `article-${articleSlug}-${placement}`;
 
   // Distinct heading per placement — top is the hook, end is the close.
+  // Overrides win over inferred copy for non-article placements (e.g. homepage).
   const heading =
-    placement === 'top'
+    headingOverride ??
+    (placement === 'top'
       ? defaultPlatform
         ? `Worried your ${PLATFORM_LABELS[defaultPlatform]} content is on these sites?`
         : 'Worried your content is on these sites?'
-      : 'Find out where your content has ended up';
+      : 'Find out where your content has ended up');
 
   const subheading =
-    placement === 'top'
+    subheadingOverride ??
+    (placement === 'top'
       ? `Type your ${platformLabel} username — we'll start scanning the moment you create your free trial. No card required.`
-      : `Privly scans 500+ leak sites, Telegram channels, and aggregators for your content. Start your free 7-day trial — we'll show you what we find.`;
+      : `Privly scans 500+ leak sites, Telegram channels, and aggregators for your content. Start your free 7-day trial — we'll show you what we find.`);
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -113,23 +123,54 @@ export default function FreeScanTeaser({
 
   return (
     <div
-      className="my-8 overflow-hidden rounded-2xl"
+      className="relative my-8 overflow-hidden rounded-2xl"
       style={{
-        background: 'linear-gradient(135deg, rgba(124,58,237,0.06), rgba(236,72,153,0.04))',
-        border: '1px solid rgba(124,58,237,0.20)',
-        boxShadow: '0 12px 32px -16px rgba(61,20,112,0.18)',
+        background: 'linear-gradient(135deg, rgba(124,58,237,0.08), rgba(236,72,153,0.05))',
+        border: '1px solid rgba(124,58,237,0.22)',
+        boxShadow: '0 18px 44px -20px rgba(61,20,112,0.28)',
       }}
     >
-      <div className="p-6 sm:p-8">
-        <div
-          className="mb-1 text-[11px] font-bold uppercase tracking-[0.14em]"
-          style={{ color: 'var(--accent)' }}
-        >
-          Free leak scan
+      {/* Soft plum glow in the top-right corner — adds depth without a busy pattern */}
+      <div
+        aria-hidden
+        style={{
+          position: 'absolute',
+          top: '-40%',
+          right: '-10%',
+          width: '60%',
+          height: '120%',
+          background:
+            'radial-gradient(ellipse at center, rgba(236,72,153,0.18), rgba(124,58,237,0.10) 40%, transparent 70%)',
+          pointerEvents: 'none',
+        }}
+      />
+
+      <div className="relative p-6 sm:p-8">
+        {/* Eyebrow with pulsing live dot */}
+        <div className="mb-1 inline-flex items-center gap-2">
+          <span
+            aria-hidden
+            style={{
+              display: 'inline-block',
+              width: 8,
+              height: 8,
+              borderRadius: '50%',
+              background: '#22c55e',
+              boxShadow: '0 0 0 3px rgba(34,197,94,0.22)',
+              animation: 'privly-fst-pulse 1.6s ease-in-out infinite',
+            }}
+          />
+          <span
+            className="text-[11px] font-bold uppercase tracking-[0.14em]"
+            style={{ color: 'var(--accent)' }}
+          >
+            Free leak scan
+          </span>
         </div>
+
         <h3
-          className="mt-2 text-2xl font-medium leading-snug sm:text-[28px]"
-          style={{ fontFamily: "'Fraunces', Georgia, serif", color: 'var(--ink)', letterSpacing: '-0.015em' }}
+          className="mt-2 text-2xl font-medium leading-snug sm:text-[30px]"
+          style={{ fontFamily: "'Fraunces', Georgia, serif", color: 'var(--ink)', letterSpacing: '-0.018em' }}
         >
           {heading}
         </h3>
@@ -218,7 +259,55 @@ export default function FreeScanTeaser({
         >
           7-day free trial · No credit card · Cancel anytime
         </p>
+
+        {/* Platform-coverage strip — shows what gets scanned, with a tiny live dot */}
+        <div
+          className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 border-t pt-4 text-[12px]"
+          style={{ borderColor: 'rgba(124,58,237,0.15)', color: 'var(--ink-2)' }}
+        >
+          <span
+            aria-hidden
+            style={{
+              display: 'inline-block',
+              width: 6,
+              height: 6,
+              borderRadius: '50%',
+              background: '#22c55e',
+              boxShadow: '0 0 0 2px rgba(34,197,94,0.18)',
+              animation: 'privly-fst-pulse 1.6s ease-in-out infinite',
+            }}
+          />
+          <span style={{ fontWeight: 600, color: 'var(--ink)' }}>Scanning live:</span>
+          <span>OnlyFans</span>
+          <span style={{ opacity: 0.4 }}>·</span>
+          <span>Fansly</span>
+          <span style={{ opacity: 0.4 }}>·</span>
+          <span>Telegram</span>
+          <span style={{ opacity: 0.4 }}>·</span>
+          <span>Reddit</span>
+          <span style={{ opacity: 0.4 }}>·</span>
+          <span>Bunkr</span>
+          <span style={{ opacity: 0.4 }}>·</span>
+          <span>Coomer</span>
+          <span style={{ opacity: 0.4 }}>·</span>
+          <span style={{ color: 'var(--mute)' }}>+ 494 more</span>
+        </div>
       </div>
+
+      {/* Local keyframes for the pulsing dots */}
+      <style jsx>{`
+        @keyframes privly-fst-pulse {
+          0%,
+          100% {
+            opacity: 1;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.55;
+            transform: scale(0.85);
+          }
+        }
+      `}</style>
     </div>
   );
 }
