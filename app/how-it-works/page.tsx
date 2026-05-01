@@ -2,6 +2,7 @@ import MarketingHeader from '@/components/marketing/Header'
 import MarketingFooter from '@/components/marketing/Footer'
 import Reveal from '@/components/marketing/shared/Reveal'
 import FloatingBrandLogos from '@/components/marketing/shared/FloatingBrandLogos'
+import FinalCTA from '@/components/marketing/FinalCTA'
 import { HOW_STEPS } from '@/components/marketing/shared/data'
 import { generateMetadata as genMeta } from '@/lib/seo'
 
@@ -65,46 +66,112 @@ export default function HowItWorksPage() {
         {/* Floating platform logos — "every platform, every country" */}
         <FloatingBrandLogos variant="hero" />
 
-        <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 28px', textAlign: 'center', position: 'relative' }}>
-          <Reveal>
-            <span className="font-hand" style={{ fontSize: 28, color: 'var(--accent)' }}>
-              four steps, zero stress
-            </span>
-          </Reveal>
-
-          <Reveal delay={100}>
-            <h1
-              className="font-serif"
-              style={{
-                fontSize: 'clamp(48px, 7vw, 96px)',
-                lineHeight: 0.98,
-                margin: '14px 0 0',
-                fontWeight: 400,
-                letterSpacing: '-0.03em',
-              }}
-            >
-              Upload. Watermark.
-              <br />
-              <span className="italic" style={{ color: 'var(--accent)' }}>
-                We handle the rest.
-              </span>
-            </h1>
-          </Reveal>
-
-          <Reveal
-            delay={200}
-            style={{
-              marginTop: 24,
-              fontSize: 18,
-              color: 'var(--ink-2)',
-              maxWidth: 560,
-              margin: '24px auto 0',
-              lineHeight: 1.6,
-            }}
+        <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 28px', position: 'relative' }}>
+          <div
+            style={{ display: 'grid', gap: 56, alignItems: 'center' }}
+            className="grid-cols-1 md:grid-cols-2"
           >
-            From invisible watermark to identified leaker &mdash; fully automated, fully human-backed.
-            Here&apos;s exactly what happens when you sign up.
-          </Reveal>
+            {/* Left column — text */}
+            <div>
+              <Reveal>
+                <span className="font-hand" style={{ fontSize: 28, color: 'var(--accent)' }}>
+                  four steps, zero stress
+                </span>
+              </Reveal>
+
+              <Reveal delay={100}>
+                <h1
+                  className="font-serif"
+                  style={{
+                    fontSize: 'clamp(48px, 6vw, 88px)',
+                    lineHeight: 0.98,
+                    margin: '14px 0 0',
+                    fontWeight: 400,
+                    letterSpacing: '-0.03em',
+                  }}
+                >
+                  You sign up.
+                  <br />
+                  <span className="italic" style={{ color: 'var(--accent)' }}>
+                    We do the rest.
+                  </span>
+                </h1>
+              </Reveal>
+
+              <Reveal
+                delay={200}
+                style={{
+                  marginTop: 24,
+                  fontSize: 18,
+                  color: 'var(--ink-2)',
+                  lineHeight: 1.6,
+                }}
+              >
+                Scanning, DMCA takedowns, Google de-indexing, follow-ups, and re-emergence
+                checks start the moment you sign up &mdash; fully automated, fully human-backed.
+                Forensic watermarking is in the box for when you want subscriber-level leaker tracing.
+              </Reveal>
+
+              <Reveal
+                delay={280}
+                style={{
+                  marginTop: 18,
+                  fontSize: 14,
+                  color: 'var(--mute)',
+                  lineHeight: 1.5,
+                }}
+              >
+                You don&apos;t need to upload anything to get protection. Just give us your handles
+                and we&apos;ll start scanning.
+              </Reveal>
+            </div>
+
+            {/* Right column — portrait with day-03 corner tag */}
+            <Reveal delay={160}>
+              <div
+                style={{
+                  position: 'relative',
+                  aspectRatio: '4 / 5',
+                  width: '100%',
+                  maxWidth: 460,
+                  margin: '0 auto',
+                  borderRadius: 18,
+                  overflow: 'hidden',
+                  boxShadow: '0 20px 60px -20px rgba(31,15,46,0.4)',
+                  backgroundImage:
+                    'url(https://images.unsplash.com/photo-1517841905240-472988babdf9?w=720&h=900&fit=crop&crop=faces)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+                aria-hidden
+              >
+                {/* corner-tag pill */}
+                <span
+                  style={{
+                    position: 'absolute',
+                    top: 18,
+                    left: 18,
+                    display: 'inline-flex',
+                    alignItems: 'baseline',
+                    gap: 8,
+                    padding: '8px 14px',
+                    background: 'rgba(255,255,255,0.94)',
+                    backdropFilter: 'blur(6px)',
+                    WebkitBackdropFilter: 'blur(6px)',
+                    borderRadius: 99,
+                    boxShadow: '0 4px 14px -4px rgba(31,15,46,0.18)',
+                  }}
+                >
+                  <span style={{ fontSize: 13, fontWeight: 700, letterSpacing: '-0.005em', color: 'var(--ink)' }}>
+                    day 03
+                  </span>
+                  <span className="font-hand" style={{ fontSize: 18, color: 'var(--accent)' }}>
+                    first leak removed
+                  </span>
+                </span>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -215,13 +282,19 @@ export default function HowItWorksPage() {
                     Upload &amp; fingerprint
                   </h3>
                   <p style={{ fontSize: 16, color: 'var(--ink-2)', lineHeight: 1.65, margin: '0 0 16px' }}>
-                    Drop your content into the Privly vault. Every subscriber who downloads it gets their
-                    own invisible watermark &mdash; a unique digital fingerprint baked into the file itself.
-                    It&apos;s invisible to the eye, survives compression, cropping, and format conversion.
+                    Optional, but powerful. Drop content into the Privly vault and every subscriber
+                    who downloads it gets their own invisible watermark &mdash; a unique digital
+                    fingerprint baked into the file itself. Invisible to the eye, survives compression,
+                    cropping, and format conversion.
                   </p>
-                  <p style={{ fontSize: 16, color: 'var(--ink-2)', lineHeight: 1.65, margin: 0 }}>
+                  <p style={{ fontSize: 16, color: 'var(--ink-2)', lineHeight: 1.65, margin: '0 0 16px' }}>
                     Your originals are stored in an AES-256 encrypted vault with timestamped proof of
                     ownership. We physically can&apos;t view them &mdash; and neither can your protection agent.
+                  </p>
+                  <p style={{ fontSize: 14, color: 'var(--mute)', lineHeight: 1.6, margin: 0 }}>
+                    Skip this step entirely if you just want scanning + takedowns. The rest of
+                    Privly works without watermarking &mdash; this is the upgrade path for catching
+                    the specific subscriber who leaked.
                   </p>
                 </div>
                 <div
@@ -235,27 +308,33 @@ export default function HowItWorksPage() {
                   <div style={{ fontSize: 13, color: 'var(--mute)', marginBottom: 16, textTransform: 'uppercase', letterSpacing: '.06em' }}>
                     Content Vault
                   </div>
-                  {['photo_set_042.zip', 'exclusive_vid_march.mp4', 'custom_request_jay.jpg'].map(
-                    (name, i) => (
-                      <div
-                        key={i}
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
-                          padding: '12px 16px',
-                          background: 'white',
-                          borderRadius: 12,
-                          border: '1px solid var(--line)',
-                          marginBottom: 8,
-                          fontSize: 14,
-                        }}
-                      >
-                        <span>🔐 {name}</span>
+                  {[
+                    { name: 'photo_set_042.zip', highlight: false, ago: '12 days ago' },
+                    { name: 'april_drop_v2.mp4', highlight: true, ago: '2 min ago' },
+                    { name: 'custom_jay_03.jpg', highlight: false, ago: '3 weeks ago' },
+                  ].map((file, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        padding: '12px 16px',
+                        background: 'white',
+                        borderRadius: 12,
+                        border: file.highlight ? '1px solid var(--accent)' : '1px solid var(--line)',
+                        marginBottom: 8,
+                        fontSize: 14,
+                        boxShadow: file.highlight ? '0 0 0 3px color-mix(in oklab, var(--accent) 12%, transparent)' : 'none',
+                      }}
+                    >
+                      <span>🔐 {file.name}</span>
+                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+                        <span style={{ fontSize: 11, color: 'var(--mute)' }}>{file.ago}</span>
                         <span style={{ fontSize: 12, color: 'var(--accent)' }}>✓ watermarked</span>
-                      </div>
-                    ),
-                  )}
+                      </span>
+                    </div>
+                  ))}
                   <div
                     className="font-hand"
                     style={{ marginTop: 12, textAlign: 'center', fontSize: 16, color: 'var(--mute)' }}
@@ -290,18 +369,45 @@ export default function HowItWorksPage() {
                     Scanning now...
                   </div>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 16 }}>
-                    {['Telegram', 'Discord', 'Reddit', 'Mega'].map((p) => (
+                    {[
+                      { label: 'Telegram', hit: false },
+                      { label: 'Discord', hit: false },
+                      { label: 'Reddit', hit: true },
+                      { label: 'Mega', hit: false },
+                    ].map((p) => (
                       <div
-                        key={p}
+                        key={p.label}
                         style={{
                           padding: '10px 14px',
-                          background: 'white',
+                          background: p.hit
+                            ? 'linear-gradient(135deg, color-mix(in oklab, var(--accent) 14%, white), color-mix(in oklab, var(--hot) 10%, white))'
+                            : 'white',
                           borderRadius: 10,
-                          border: '1px solid var(--line)',
+                          border: p.hit ? '1px solid var(--accent)' : '1px solid var(--line)',
                           fontSize: 13,
+                          fontWeight: p.hit ? 600 : 400,
+                          color: p.hit ? 'var(--accent)' : 'var(--ink)',
+                          position: 'relative',
                         }}
                       >
-                        👀 {p}
+                        {p.hit ? '🚨' : '👀'} {p.label}
+                        {p.hit && (
+                          <span
+                            style={{
+                              position: 'absolute',
+                              top: -6,
+                              right: -6,
+                              padding: '2px 6px',
+                              background: 'var(--hot)',
+                              color: 'white',
+                              fontSize: 10,
+                              fontWeight: 600,
+                              borderRadius: 99,
+                            }}
+                          >
+                            match
+                          </span>
+                        )}
                       </div>
                     ))}
                   </div>
@@ -325,7 +431,7 @@ export default function HowItWorksPage() {
                     className="font-hand"
                     style={{ marginTop: 16, fontSize: 16, color: 'var(--mute)' }}
                   >
-                    500+ platforms, every 30 minutes
+                    spotted on r/leakedstuff &mdash; 7:42am
                   </div>
                 </div>
                 <div className="order-1 md:order-2">
@@ -339,13 +445,17 @@ export default function HowItWorksPage() {
                     We scan. 24/7.
                   </h3>
                   <p style={{ fontSize: 16, color: 'var(--ink-2)', lineHeight: 1.65, margin: '0 0 16px' }}>
-                    The moment your content is uploaded, our bots start scanning. Telegram channels, Discord
-                    servers, Reddit, Mega, tube sites, cyberlockers, image boards, niche forums &mdash;
-                    over 500 platforms, every 30 minutes, around the clock.
+                    The moment you sign up, our bots start scanning. 500+ leak sites every 30 minutes.
+                    Telegram channels monitored live via the Telegram API. Discord, Reddit, Mega, tube
+                    sites, cyberlockers, image boards, niche forums &mdash; around the clock.
+                  </p>
+                  <p style={{ fontSize: 16, color: 'var(--ink-2)', lineHeight: 1.65, margin: '0 0 16px' }}>
+                    Confirmed-removed links get rechecked every 4 hours, automatically &mdash; the
+                    second something comes back, we file again.
                   </p>
                   <p style={{ fontSize: 16, color: 'var(--ink-2)', lineHeight: 1.65, margin: 0 }}>
-                    And where bots can&apos;t go &mdash; private groups, invite-only channels &mdash; your
-                    dedicated human agent picks up the slack. You do nothing. We do everything.
+                    And where bots can&apos;t go &mdash; private groups, invite-only Discord servers
+                    &mdash; your dedicated human agent picks up the slack. You do nothing. We do everything.
                   </p>
                 </div>
               </div>
@@ -372,12 +482,14 @@ export default function HowItWorksPage() {
                     Leak found &rarr; we trace it.
                   </h3>
                   <p style={{ fontSize: 16, color: 'var(--ink-2)', lineHeight: 1.65, margin: '0 0 16px' }}>
-                    When we find your content somewhere it shouldn&apos;t be, the watermark tells us exactly
-                    which subscriber released it. Their account, their email, and exactly when they shared it.
+                    We match leaks by username, face (opt-in), and content fingerprint &mdash; so we
+                    catch your stuff even when usernames are stripped or files re-encoded. The
+                    takedown goes out either way.
                   </p>
                   <p style={{ fontSize: 16, color: 'var(--ink-2)', lineHeight: 1.65, margin: 0 }}>
-                    No guessing. No ambiguity. You get the receipts. Ban them, refund them, blacklist them
-                    &mdash; it&apos;s your call. We give you the evidence and let you decide.
+                    If you watermarked the upload, we also pinpoint the exact subscriber: their account,
+                    their email, and when they shared it. No guessing, no ambiguity &mdash; ban them,
+                    refund them, blacklist them. Your call. We give you the evidence.
                   </p>
                 </div>
                 <div
@@ -402,13 +514,13 @@ export default function HowItWorksPage() {
                     }}
                   >
                     <span style={{ fontWeight: 600 }}>🚨 Leak detected</span>
-                    <span style={{ color: 'var(--ink-2)', marginLeft: 8 }}>photo_set_042.zip</span>
+                    <span style={{ color: 'var(--ink-2)', marginLeft: 8 }}>april_drop_v2.mp4</span>
                   </div>
                   {[
-                    ['Subscriber', 'user_8291 (john_d@...com)'],
-                    ['Platform', 'Telegram · @leaks_channel'],
-                    ['Shared', '14 minutes ago'],
-                    ['Watermark match', '99.8%'],
+                    ['Subscriber', 'acct_7724 · m.t@***.com'],
+                    ['Platform', 'Reddit · r/leakzfree'],
+                    ['Spotted', '18 minutes ago'],
+                    ['Watermark match', '99.6%'],
                   ].map(([label, value], i) => (
                     <div
                       key={i}
@@ -456,14 +568,19 @@ export default function HowItWorksPage() {
                     padding: 28,
                   }}
                 >
-                  <div style={{ fontSize: 13, color: 'var(--mute)', marginBottom: 16, textTransform: 'uppercase', letterSpacing: '.06em' }}>
-                    Takedown Status
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
+                    <div style={{ fontSize: 13, color: 'var(--mute)', textTransform: 'uppercase', letterSpacing: '.06em' }}>
+                      Takedown Status
+                    </div>
+                    <span style={{ fontSize: 12, color: 'var(--ink-2)', fontWeight: 500 }}>
+                      april_drop_v2.mp4 · Reddit
+                    </span>
                   </div>
                   {[
-                    { label: 'DMCA filed', status: '✅ sent', color: 'var(--accent)' },
-                    { label: 'Platform notified', status: '✅ confirmed', color: 'var(--accent)' },
-                    { label: 'Content removed', status: '✅ gone', color: 'var(--accent)' },
-                    { label: 'Google de-indexed', status: '✅ removed', color: 'var(--accent)' },
+                    { label: 'DMCA filed', status: '✅ 02:14am', color: 'var(--accent)' },
+                    { label: 'Reddit confirmed', status: '✅ 04:38am', color: 'var(--accent)' },
+                    { label: 'Google de-indexed', status: '✅ same day', color: 'var(--accent)' },
+                    { label: 'Re-upload watch', status: '🟢 active · 4h checks', color: '#16a34a' },
                   ].map((item, i) => (
                     <div
                       key={i}
@@ -489,7 +606,7 @@ export default function HowItWorksPage() {
                     className="font-hand"
                     style={{ marginTop: 12, textAlign: 'center', fontSize: 16, color: 'var(--accent)' }}
                   >
-                    receipts included 💜
+                    posted overnight, gone by breakfast 💜
                   </div>
                 </div>
                 <div className="order-1 md:order-2">
@@ -630,86 +747,7 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      {/* ─── CTA ─── */}
-      <section style={{ padding: '140px 0', position: 'relative', overflow: 'hidden' }}>
-        {/* Floating platform logos — "every platform, every country" */}
-        <FloatingBrandLogos variant="cta" />
-
-        <div
-          style={{
-            maxWidth: 900,
-            margin: '0 auto',
-            padding: '0 28px',
-            textAlign: 'center',
-            position: 'relative',
-          }}
-        >
-          <Reveal>
-            <span className="font-hand" style={{ fontSize: 28, color: 'var(--accent)' }}>
-              ready when you are 💜
-            </span>
-          </Reveal>
-
-          <Reveal delay={120}>
-            <h2
-              className="font-serif"
-              style={{
-                fontSize: 'clamp(42px, 6vw, 80px)',
-                lineHeight: 0.98,
-                margin: '14px 0 0',
-                fontWeight: 400,
-                letterSpacing: '-0.03em',
-              }}
-            >
-              You make the content.
-              <br />
-              <span className="italic" style={{ color: 'var(--accent)' }}>
-                We&apos;ll protect it.
-              </span>
-            </h2>
-          </Reveal>
-
-          <Reveal
-            delay={240}
-            style={{
-              marginTop: 28,
-              fontSize: 18,
-              color: 'var(--ink-2)',
-              maxWidth: 540,
-              margin: '28px auto 0',
-            }}
-          >
-            Seven days free. No card. If we haven&apos;t pulled at least one leak of yours off the
-            internet by day seven, you never pay us a cent.
-          </Reveal>
-
-          <Reveal
-            delay={320}
-            style={{
-              marginTop: 40,
-              display: 'flex',
-              gap: 12,
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-            }}
-          >
-            <a
-              href="/get-started"
-              className="btn btn-accent"
-              style={{ padding: '18px 30px', fontSize: 17 }}
-            >
-              Start my free trial <span>&rarr;</span>
-            </a>
-            <a
-              href="/pricing"
-              className="btn btn-ghost"
-              style={{ padding: '18px 30px', fontSize: 17 }}
-            >
-              See pricing
-            </a>
-          </Reveal>
-        </div>
-      </section>
+      <FinalCTA />
 
       <MarketingFooter />
     </div>

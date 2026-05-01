@@ -4,6 +4,7 @@ import MarketingFooter from '@/components/marketing/Footer'
 import Reveal from '@/components/marketing/shared/Reveal'
 import { Check } from '@/components/marketing/shared/Icons'
 import FloatingBrandLogos from '@/components/marketing/shared/FloatingBrandLogos'
+import FinalCTA from '@/components/marketing/FinalCTA'
 import { FEATURES_LIST, COMPARE_ROWS } from '@/components/marketing/shared/data'
 import { generateMetadata as genMeta } from '@/lib/seo'
 
@@ -45,46 +46,226 @@ export default function FeaturesPage() {
         {/* Floating platform logos — "every platform, every country" */}
         <FloatingBrandLogos variant="hero" />
 
-        <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 28px', textAlign: 'center', position: 'relative' }}>
-          <Reveal>
-            <span className="font-hand" style={{ fontSize: 28, color: 'var(--accent)' }}>
-              everything included, obviously
-            </span>
-          </Reveal>
+        <div style={{ maxWidth: 1240, margin: '0 auto', padding: '0 28px', position: 'relative' }}>
+          <div
+            style={{ display: 'grid', gap: 56, alignItems: 'center' }}
+            className="grid-cols-1 md:grid-cols-2"
+          >
+            {/* Left column — copy */}
+            <div>
+              <Reveal>
+                <span className="font-hand" style={{ fontSize: 28, color: 'var(--accent)' }}>
+                  everything included, obviously
+                </span>
+              </Reveal>
 
-          <Reveal delay={100}>
-            <h1
-              className="font-serif"
+              <Reveal delay={100}>
+                <h1
+                  className="font-serif"
+                  style={{
+                    fontSize: 'clamp(44px, 5.4vw, 78px)',
+                    lineHeight: 0.98,
+                    margin: '14px 0 0',
+                    fontWeight: 400,
+                    letterSpacing: '-0.03em',
+                  }}
+                >
+                  The only protection that
+                  <br />
+                  <span className="italic" style={{ color: 'var(--accent)' }}>
+                    finds your leakers.
+                  </span>
+                </h1>
+              </Reveal>
+
+              <Reveal
+                delay={200}
+                style={{
+                  marginTop: 24,
+                  fontSize: 17,
+                  color: 'var(--ink-2)',
+                  lineHeight: 1.6,
+                }}
+              >
+                Forensic watermarking + proactive monitoring + automated DMCA takedowns + a real human who
+                knows your name. One plan. No tiers. No upsells.
+              </Reveal>
+
+              {/* Forensic watermarks pull-out — sits beside the visual */}
+              <Reveal
+                delay={280}
+                style={{
+                  marginTop: 32,
+                  paddingTop: 24,
+                  borderTop: '1px solid var(--line)',
+                }}
+              >
+                <span
+                  className="font-hand"
+                  style={{ fontSize: 20, color: 'var(--accent)' }}
+                >
+                  forensic watermarks
+                </span>
+                <h2
+                  className="font-serif"
+                  style={{
+                    fontSize: 'clamp(22px, 2.4vw, 28px)',
+                    margin: '4px 0 10px',
+                    lineHeight: 1.15,
+                    fontWeight: 500,
+                    letterSpacing: '-0.015em',
+                  }}
+                >
+                  One file.{' '}
+                  <span className="italic" style={{ color: 'var(--accent)' }}>
+                    Three subscribers.
+                  </span>
+                </h2>
+                <p
+                  style={{
+                    fontSize: 15,
+                    color: 'var(--ink-2)',
+                    margin: 0,
+                    lineHeight: 1.55,
+                  }}
+                >
+                  Every download carries an invisible fingerprint &mdash; unique to the subscriber who grabbed it.
+                  Survives screenshots, re-encoding, cropping, and format conversion. The three tiles to the right
+                  are the same file, but each one carries a different subscriber&apos;s ID.
+                </p>
+              </Reveal>
+            </div>
+
+            {/* Right column — compact watermark trio */}
+            <Reveal
+              delay={160}
               style={{
-                fontSize: 'clamp(48px, 7vw, 96px)',
-                lineHeight: 0.98,
-                margin: '14px 0 0',
-                fontWeight: 400,
-                letterSpacing: '-0.03em',
+                background: 'linear-gradient(180deg, #1F0F2E, #2D1A45)',
+                borderRadius: 22,
+                padding: 22,
+                color: 'white',
+                boxShadow: '0 22px 50px -22px rgba(31,15,46,0.35)',
               }}
             >
-              The only protection that
-              <br />
-              <span className="italic" style={{ color: 'var(--accent)' }}>
-                finds your leakers.
-              </span>
-            </h1>
-          </Reveal>
+              <div style={{ display: 'grid', gap: 12, gridTemplateColumns: '1fr 1fr 1fr' }}>
+                {[
+                  { label: 'SUBSCRIBER A', id: 'WM_8291_a4f', hue: 0 },
+                  { label: 'SUBSCRIBER B', id: 'WM_4456_e2c', hue: -3 },
+                  { label: 'SUBSCRIBER C', id: 'WM_7724_b1d', hue: 2 },
+                ].map((tile, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      position: 'relative',
+                      aspectRatio: '4 / 5',
+                      borderRadius: 12,
+                      overflow: 'hidden',
+                      background: 'rgba(255,255,255,0.04)',
+                      border: '1px solid rgba(255,255,255,0.08)',
+                    }}
+                  >
+                    <div
+                      aria-hidden
+                      style={{
+                        position: 'absolute',
+                        inset: 0,
+                        backgroundImage:
+                          'url(https://images.unsplash.com/photo-1503104834685-7205e8607eb9?w=320&h=400&fit=crop)',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        filter: `hue-rotate(${tile.hue}deg) saturate(0.95)`,
+                      }}
+                    />
+                    <div
+                      aria-hidden
+                      style={{
+                        position: 'absolute',
+                        inset: 0,
+                        background:
+                          'linear-gradient(180deg, rgba(31,15,46,0) 55%, rgba(31,15,46,0.85) 100%)',
+                      }}
+                    />
 
-          <Reveal
-            delay={200}
-            style={{
-              marginTop: 24,
-              fontSize: 18,
-              color: 'var(--ink-2)',
-              maxWidth: 580,
-              margin: '24px auto 0',
-              lineHeight: 1.6,
-            }}
-          >
-            Forensic watermarking + proactive monitoring + automated DMCA takedowns + a real human who
-            knows your name. One plan. No tiers. No upsells.
-          </Reveal>
+                    {/* badge */}
+                    <span
+                      style={{
+                        position: 'absolute',
+                        top: 8,
+                        left: 8,
+                        padding: '3px 8px',
+                        borderRadius: 99,
+                        background: 'rgba(255,255,255,0.94)',
+                        color: 'var(--ink)',
+                        fontSize: 8,
+                        fontWeight: 700,
+                        letterSpacing: '0.08em',
+                      }}
+                    >
+                      {tile.label}
+                    </span>
+
+                    {/* mono ID stamp */}
+                    <div
+                      style={{
+                        position: 'absolute',
+                        left: 8,
+                        right: 8,
+                        bottom: 8,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        gap: 6,
+                        padding: '5px 8px',
+                        background: 'rgba(15,8,24,0.78)',
+                        borderRadius: 6,
+                        fontFamily:
+                          '"JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo, monospace',
+                        fontSize: 10,
+                        color: 'rgba(255,255,255,0.94)',
+                        letterSpacing: '0.02em',
+                      }}
+                    >
+                      <span>{tile.id}</span>
+                      <span
+                        className="animate-pulse"
+                        style={{
+                          width: 6,
+                          height: 6,
+                          borderRadius: '50%',
+                          background: '#22c55e',
+                          boxShadow: '0 0 0 2px rgba(34,197,94,0.25)',
+                          flexShrink: 0,
+                        }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div
+                style={{
+                  marginTop: 16,
+                  paddingTop: 14,
+                  borderTop: '1px solid rgba(255,255,255,0.08)',
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  justifyContent: 'space-between',
+                  gap: 12,
+                  flexWrap: 'wrap',
+                }}
+              >
+                <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.78)' }}>
+                  identical to the human eye &rarr;
+                </span>
+                <span
+                  className="font-hand"
+                  style={{ fontSize: 18, color: 'color-mix(in oklab, var(--hot) 65%, white)' }}
+                >
+                  we know which one leaked 💜
+                </span>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -193,11 +374,11 @@ export default function FeaturesPage() {
                 <div style={{ display: 'grid', gap: 16 }}>
                   {[
                     { emoji: '🤖', label: 'AI content matching across 500+ platforms' },
-                    { emoji: '⚡', label: 'Instant DMCA generation & filing' },
+                    { emoji: '📡', label: 'Live Telegram channel monitoring' },
+                    { emoji: '🪞', label: 'Face-match + deepfake detection' },
+                    { emoji: '🔁', label: 'Re-emergence checks every 4 hours' },
                     { emoji: '🧬', label: 'Forensic watermarks that survive re-encoding' },
-                    { emoji: '🛡️', label: 'Deepfake & impersonation detection' },
-                    { emoji: '🔍', label: 'Scans every 30 minutes, 24/7' },
-                    { emoji: '📬', label: 'Automated Google de-indexing requests' },
+                    { emoji: '⚡', label: 'Instant DMCA generation & filing' },
                   ].map((item, i) => (
                     <div
                       key={i}
@@ -240,9 +421,9 @@ export default function FeaturesPage() {
                 <div style={{ display: 'grid', gap: 16 }}>
                   {[
                     { emoji: '💬', label: 'Named agent on Slack, email, or WhatsApp' },
-                    { emoji: '🕵️', label: 'Searches private groups bots can\u2019t access' },
+                    { emoji: '🕵️', label: 'Searches invite-only Discord + private groups bots can\u2019t access' },
                     { emoji: '⚖️', label: 'Escalates ignored takedowns to platform legal' },
-                    { emoji: '👁️', label: 'Monitors for re-uploads after removal' },
+                    { emoji: '🧐', label: 'Reviews ambiguous matches before any takedown goes out' },
                     { emoji: '📊', label: 'Regular protection status reports' },
                     { emoji: '🤐', label: 'Zero judgment \u2014 our team comes from the industry' },
                   ].map((item, i) => (
@@ -381,30 +562,40 @@ export default function FeaturesPage() {
               </div>
 
               {/* Table Rows */}
-              {COMPARE_ROWS.map(([feature, privly, dmca, diy], i) => (
-                <div
-                  key={i}
-                  style={{
-                    display: 'grid',
-                    gridTemplateColumns: '1fr 100px 100px 100px',
-                    padding: '14px 24px',
-                    borderBottom: i < COMPARE_ROWS.length - 1 ? '1px solid var(--line)' : 'none',
-                    fontSize: 14,
-                    alignItems: 'center',
-                  }}
-                >
-                  <span>{feature}</span>
-                  <span style={{ textAlign: 'center', fontSize: 18, display: 'flex', justifyContent: 'center' }}>
-                    {privly ? (
-                      <Image src="/favicon.svg" alt="yes" width={22} height={22} style={{ display: 'block' }} unoptimized />
-                    ) : (
-                      '—'
-                    )}
-                  </span>
-                  <span style={{ textAlign: 'center', fontSize: 18 }}>{dmca ? '⚪' : '—'}</span>
-                  <span style={{ textAlign: 'center', fontSize: 18 }}>{diy ? '⚪' : '—'}</span>
-                </div>
-              ))}
+              {COMPARE_ROWS.map(([feature, privly, dmca, diy], i) => {
+                const cellGlyph = (v: typeof privly) =>
+                  v === 'yes' ? '✓' : v === 'partial' ? '◐' : '✗'
+                const cellColor = (v: typeof privly) =>
+                  v === 'yes' ? 'var(--accent)' : v === 'partial' ? '#B45309' : 'var(--mute)'
+                return (
+                  <div
+                    key={i}
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: '1fr 100px 100px 100px',
+                      padding: '14px 24px',
+                      borderBottom: i < COMPARE_ROWS.length - 1 ? '1px solid var(--line)' : 'none',
+                      fontSize: 14,
+                      alignItems: 'center',
+                    }}
+                  >
+                    <span>{feature}</span>
+                    <span style={{ textAlign: 'center', fontSize: 18, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 8 }}>
+                      {privly === 'yes' ? (
+                        <Image src="/favicon.svg" alt="yes" width={22} height={22} style={{ display: 'block' }} unoptimized />
+                      ) : (
+                        <span style={{ color: cellColor(privly), fontSize: 18, fontWeight: 700 }}>{cellGlyph(privly)}</span>
+                      )}
+                    </span>
+                    <span style={{ textAlign: 'center', fontSize: 18, color: cellColor(dmca), fontWeight: dmca === 'no' ? 400 : 700 }}>
+                      {cellGlyph(dmca)}
+                    </span>
+                    <span style={{ textAlign: 'center', fontSize: 18, color: cellColor(diy), fontWeight: diy === 'no' ? 400 : 700 }}>
+                      {cellGlyph(diy)}
+                    </span>
+                  </div>
+                )
+              })}
 
               {/* Price Row */}
               <div
@@ -543,119 +734,51 @@ export default function FeaturesPage() {
                   marginTop: 32,
                   paddingTop: 24,
                   borderTop: '1px solid var(--line)',
-                  textAlign: 'center',
                 }}
               >
-                <p
-                  className="font-serif italic"
-                  style={{ fontSize: 22, fontWeight: 400, margin: 0 }}
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: '100px 1fr',
+                    gap: 20,
+                    alignItems: 'center',
+                  }}
                 >
-                  &ldquo;It feels like having a{' '}
-                  <span className="mark-purple">lawyer on retainer who actually cares</span>.&rdquo;
-                </p>
-                <p style={{ fontSize: 14, color: 'var(--mute)', marginTop: 8, margin: '8px 0 0' }}>
-                  &mdash; Jess K., Fansly creator
-                </p>
+                  <div
+                    style={{
+                      width: 100,
+                      height: 100,
+                      borderRadius: '50%',
+                      backgroundImage:
+                        'url(https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300&h=300&fit=crop&crop=faces)',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      border: '3px solid white',
+                      boxShadow: '0 8px 24px -8px rgba(31,15,46,0.2)',
+                      flexShrink: 0,
+                    }}
+                    aria-hidden
+                  />
+                  <div>
+                    <p
+                      className="font-serif italic"
+                      style={{ fontSize: 22, fontWeight: 400, margin: 0, lineHeight: 1.35 }}
+                    >
+                      &ldquo;It feels like having a{' '}
+                      <span className="mark-purple">lawyer on retainer who actually cares</span>.&rdquo;
+                    </p>
+                    <p style={{ fontSize: 14, color: 'var(--mute)', margin: '10px 0 0' }}>
+                      Jess K. &middot; Fansly creator &middot; 200k subs
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ─── CTA ─── */}
-      <section style={{ padding: '140px 0', position: 'relative', overflow: 'hidden' }}>
-        {/* Floating platform logos — "every platform, every country" */}
-        <FloatingBrandLogos variant="cta" />
-
-        <div
-          style={{
-            maxWidth: 900,
-            margin: '0 auto',
-            padding: '0 28px',
-            textAlign: 'center',
-            position: 'relative',
-          }}
-        >
-          <Reveal>
-            <span className="font-hand" style={{ fontSize: 28, color: 'var(--accent)' }}>
-              ready when you are
-            </span>
-          </Reveal>
-
-          <Reveal delay={120}>
-            <h2
-              className="font-serif"
-              style={{
-                fontSize: 'clamp(42px, 6vw, 80px)',
-                lineHeight: 0.98,
-                margin: '14px 0 0',
-                fontWeight: 400,
-                letterSpacing: '-0.03em',
-              }}
-            >
-              You make the content.
-              <br />
-              <span className="italic" style={{ color: 'var(--accent)' }}>
-                We&apos;ll protect it.
-              </span>
-            </h2>
-          </Reveal>
-
-          <Reveal
-            delay={240}
-            style={{
-              marginTop: 28,
-              fontSize: 18,
-              color: 'var(--ink-2)',
-              maxWidth: 540,
-              margin: '28px auto 0',
-            }}
-          >
-            Seven days free. No card. One plan, everything included.
-          </Reveal>
-
-          <Reveal
-            delay={320}
-            style={{
-              marginTop: 40,
-              display: 'flex',
-              gap: 12,
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-            }}
-          >
-            <a
-              href="/get-started"
-              className="btn btn-accent"
-              style={{ padding: '18px 30px', fontSize: 17 }}
-            >
-              Start my free trial <span>&rarr;</span>
-            </a>
-            <a
-              href="/pricing"
-              className="btn btn-ghost"
-              style={{ padding: '18px 30px', fontSize: 17 }}
-            >
-              See pricing
-            </a>
-          </Reveal>
-
-          <Reveal
-            delay={420}
-            style={{
-              marginTop: 32,
-              display: 'flex',
-              gap: 14,
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-            }}
-          >
-            <span className="chip">🛡️ hundreds of creators</span>
-            <span className="chip">⚡ takedowns actioned instantly</span>
-            <span className="chip">🌎 every platform, every country</span>
-          </Reveal>
-        </div>
-      </section>
+      <FinalCTA />
 
       <MarketingFooter />
     </div>

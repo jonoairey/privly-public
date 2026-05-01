@@ -54,23 +54,23 @@ export const EMPATHY_CARDS = [
 export const HOW_STEPS = [
   {
     n: '01',
-    emoji: '🧬',
-    title: 'Upload & fingerprint',
-    body: 'Drop your content in. Every subscriber who downloads gets their own invisible watermark. Takes 30 seconds.',
-    note: 'fully automatic',
+    emoji: '🚀',
+    title: 'Sign up — we’re on it',
+    body: 'Tell us your handles. Scanning, takedowns, and follow-ups start immediately. Want subscriber-level leaker tracing? Upload content and we add invisible watermarks too.',
+    note: '30 seconds, no card',
   },
   {
     n: '02',
     emoji: '👀',
     title: 'We scan. 24/7.',
-    body: "500+ leak sites, Telegram channels, Discord, Mega, Reddit, forums. Every 30 minutes. You do nothing.",
+    body: "500+ leak sites scanned every 30 minutes. Telegram channels monitored live. Discord, Mega, Reddit, forums. You do nothing.",
     note: 'while you sleep',
   },
   {
     n: '03',
     emoji: '🔎',
     title: 'Leak found → we trace it.',
-    body: "The watermark tells us exactly which subscriber released it. You get their account, email, and when they shared it.",
+    body: "We match by username, face, and content fingerprint. If you watermarked, we also pinpoint the exact subscriber who released it. Either way, the takedown goes out.",
     note: 'caught red-handed',
   },
   {
@@ -87,6 +87,8 @@ export const STORIES = [
     name: 'Maya R.',
     role: 'OnlyFans · top 0.5%',
     avatar: AVATARS[0],
+    photo: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=640&h=800&fit=crop&crop=faces',
+    featured: true,
     spice: '🌶️🌶️🌶️',
     quote:
       "I was losing maybe $4k a month to Telegram resellers. Three weeks on Privly, that was zero. They caught a paying subscriber selling my bundle to a group of 14k people. Banned. Refunded. Revenue up 22% this quarter just from plugged leaks.",
@@ -116,12 +118,13 @@ export const STORIES = [
 ]
 
 export const FEATURES_LIST = [
-  { emoji: '🔍', title: 'Always watching', body: "Our bots (and real humans) scan 500+ leak sites every 30 minutes. Even the ones you've never heard of." },
+  { emoji: '🔍', title: 'Always watching', body: "We scan 500+ leak sites and live-monitor Telegram channels around the clock. Even the ones you've never heard of." },
   { emoji: '🔐', title: 'Invisible watermarks', body: "Every file gets a unique fingerprint for each subscriber. They can't see it. We can. So can the law." },
   { emoji: '⚡', title: 'Instant takedowns', body: "Automated DMCAs go out the second we find something. No queues, no delays — actioned immediately." },
   { emoji: '🎯', title: 'Find the leaker', body: "Decode the watermark → know exactly which subscriber account shared it. Refund. Ban. Blacklist." },
   { emoji: '🛡️', title: 'Private vault', body: "AES-256 encrypted storage with timestamped proof of ownership. We never view. We never share. Yours forever." },
-  { emoji: '🤖', title: 'Deepfake detection', body: "AI-generated impersonations get caught before they spread. Protect your face, not just your files." },
+  { emoji: '🪞', title: 'Face-match detection', body: "Opt in once and we'll catch your content even when the username is stripped or the file's been re-encoded. Includes deepfake flagging." },
+  { emoji: '🔁', title: 'Re-emergence checks', body: "Every confirmed-removed link is rechecked every 4 hours. The second something comes back, we file again. Automatically." },
   { emoji: '📬', title: 'Google de-indexing', body: "We don't just remove the host — we make sure it disappears from search results too." },
   { emoji: '💬', title: 'A real person, yours', body: "Named protection agent. Slack, email, or WhatsApp. They know your case, your content, your boundaries." },
   { emoji: '🤐', title: 'Zero judgment, ever', body: "Our team comes from this industry. No lectures, no weird questions, no raised eyebrows. Just protection." },
@@ -129,16 +132,24 @@ export const FEATURES_LIST = [
   { emoji: '💜', title: 'Creator-first, always', body: "Built and staffed by people who come from the industry. No judgment, no lectures, just protection." },
 ]
 
-export const COMPARE_ROWS: [string, boolean, boolean, boolean][] = [
-  ['AI-powered leak detection', true, false, false],
-  ['Real human protection agent', true, false, false],
-  ['Invisible watermarks → leaker ID', true, false, false],
-  ['Telegram, Discord, Mega coverage', true, true, false],
-  ['Takedowns actioned instantly', true, false, false],
-  ['Deepfake & impersonation detection', true, false, false],
-  ['Unlimited content + takedowns', true, false, true],
-  ['No annual contract', true, false, false],
-  ['Registered DMCA + EU Flagger', true, true, false],
+export type CompareCell = 'yes' | 'partial' | 'no'
+export const COMPARE_ROWS: [string, CompareCell, CompareCell, CompareCell][] = [
+  ['AI-powered leak detection', 'yes', 'partial', 'no'],
+  ['Real human protection agent', 'yes', 'no', 'partial'],
+  ['Invisible watermarks → leaker ID', 'yes', 'no', 'no'],
+  ['Live Telegram channel monitoring', 'yes', 'partial', 'no'],
+  ['Face-match + deepfake detection', 'yes', 'no', 'no'],
+  ['Re-emergence checks every 4h', 'yes', 'no', 'no'],
+  ['Takedowns actioned instantly', 'yes', 'partial', 'no'],
+  ['Unlimited content + takedowns', 'yes', 'no', 'partial'],
+  ['No annual contract', 'yes', 'partial', 'no'],
+  ['Registered DMCA Agent (US Copyright Office)', 'yes', 'partial', 'no'],
+]
+export const COMPARE_PRICE: [string, string, string, string] = [
+  'Starting price',
+  '$49/mo flat',
+  '$0–$30/mo',
+  '$80–$300/mo',
 ]
 
 export const PRIVACY_CARDS = [
@@ -159,12 +170,14 @@ export const TRIAL_FEATURES = [
 export const PRICING_FEATURES = [
   ['Unlimited content + watermarks', '💜'],
   ['500+ platforms scanned 24/7', '🔍'],
+  ['Live Telegram channel monitoring', '📡'],
+  ['Face-match + deepfake detection', '🪞'],
+  ['Re-emergence checks every 4 hours', '🔁'],
   ['Unlimited DMCA takedowns', '📬'],
   ['Your own named protection agent', '💬'],
   ['Slack / WhatsApp / email support', '📱'],
   ['Google de-indexing included', '🌐'],
   ['Legal escalation when needed', '⚖️'],
-  ['Deepfake & impersonation detection', '🤖'],
 ]
 
 export const FAQ_ITEMS = [

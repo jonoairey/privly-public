@@ -10,12 +10,19 @@ export default function HeroStory() {
         <div className="grid lg:grid-cols-2 gap-14 items-center" style={{ gridTemplateColumns: undefined }}>
           {/* Left — Copy */}
           <Reveal>
-            <div className="chip mt-6 md:mt-0" style={{ marginBottom: 24 }}>
+            <div className="chip mt-6 md:mt-0" style={{ marginBottom: 18 }}>
               <span style={{ color: 'var(--accent)' }}>
                 <Shield size={14} color="currentColor" />
               </span>
               <span>Hundreds of creators protected · made by creators, for creators</span>
             </div>
+
+            <span
+              className="font-hand"
+              style={{ fontSize: 26, color: 'var(--accent)', display: 'block', marginBottom: 8 }}
+            >
+              ready when you are
+            </span>
 
             <h1
               className="font-serif"
@@ -27,10 +34,10 @@ export default function HeroStory() {
                 letterSpacing: '-0.025em',
               }}
             >
-              We don&apos;t just remove your leaks.
+              You make the content.
               <br />
               <span className="italic" style={{ color: 'var(--accent)' }}>
-                We find who&apos;s leaking.
+                We&apos;ll protect it.
               </span>
             </h1>
 

@@ -3,6 +3,9 @@ import { Star } from './shared/Icons'
 import { STORIES } from './shared/data'
 
 export default function Stories() {
+  const featured = STORIES.find((s) => 'featured' in s && s.featured)
+  const rest = STORIES.filter((s) => !('featured' in s && s.featured))
+
   return (
     <section style={{ padding: '110px 0' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 28px' }}>
@@ -30,8 +33,78 @@ export default function Stories() {
           </p>
         </Reveal>
 
-        <div style={{ display: 'grid', gap: 20 }} className="grid-cols-1 md:grid-cols-3">
-          {STORIES.map((s, i) => (
+        {featured && (
+          <Reveal
+            className="card"
+            style={{
+              display: 'grid',
+              overflow: 'hidden',
+              marginBottom: 28,
+              border: '1px solid var(--line)',
+              borderRadius: 28,
+              background: 'white',
+              boxShadow: '0 22px 50px -22px rgba(124,58,237,0.18)',
+            }}
+          >
+            <div
+              className="grid-cols-1 md:grid-cols-[320px_1fr]"
+              style={{ display: 'grid' }}
+            >
+              <div
+                aria-hidden
+                style={{
+                  backgroundImage: `url(${(featured as { photo?: string }).photo ?? featured.avatar})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  minHeight: 280,
+                }}
+              />
+              <div style={{ padding: '40px 44px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <span
+                  style={{
+                    alignSelf: 'flex-start',
+                    padding: '6px 14px',
+                    borderRadius: 99,
+                    background: 'linear-gradient(135deg, var(--accent), var(--hot))',
+                    color: 'white',
+                    fontSize: 13,
+                    fontWeight: 600,
+                    letterSpacing: '-0.005em',
+                    marginBottom: 18,
+                  }}
+                >
+                  {featured.metric}
+                </span>
+                <div
+                  className="font-serif italic"
+                  aria-hidden
+                  style={{ fontSize: 56, lineHeight: 0.5, color: 'var(--accent)', marginBottom: 8 }}
+                >
+                  &rdquo;
+                </div>
+                <p
+                  className="font-serif"
+                  style={{ fontSize: 22, lineHeight: 1.4, margin: 0, fontWeight: 400, letterSpacing: '-0.01em' }}
+                >
+                  {featured.quote}
+                </p>
+                <div
+                  style={{
+                    marginTop: 24,
+                    fontSize: 13,
+                    color: 'var(--mute)',
+                    textAlign: 'right',
+                  }}
+                >
+                  {featured.name} &middot; {featured.role} &middot; {featured.ago}
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        )}
+
+        <div style={{ display: 'grid', gap: 20 }} className="grid-cols-1 md:grid-cols-2">
+          {rest.map((s, i) => (
             <Reveal
               key={i}
               delay={i * 100}
