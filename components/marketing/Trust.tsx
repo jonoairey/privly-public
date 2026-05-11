@@ -142,8 +142,16 @@ function Wordmark({ spec }: { spec: WordmarkSpec }) {
     gap: 2,
   }
 
+  // Outer span is NOT aria-hidden — `spec.label` is the platform name and
+  // forms the only visible/discoverable text inside the Link. Marking it
+  // aria-hidden (as it was pre-2026-05-11) caused Google to discount the
+  // anchor text on all wordmark platforms (Fansly, JustForFans, Loyalfans,
+  // Fanvue, Fanfix, ManyVids, Chaturbate), which combined with the icon-only
+  // platforms having no text at all triggered a ranking drop on the
+  // platform-specific landing pages 3-7 days after the May 2 redesign.
+  // The decorative crown ornament keeps aria-hidden — it's a graphic.
   return (
-    <span aria-hidden style={style}>
+    <span style={style}>
       {spec.ornament === 'crown' && (
         <svg
           width={16}
@@ -204,7 +212,16 @@ export default function Trust() {
               }}
             >
               {p.Icon ? (
-                <p.Icon size={28} aria-hidden />
+                <>
+                  <p.Icon size={28} aria-hidden />
+                  {/* Visually hidden but discoverable to Google + screen
+                      readers — restores the platform name as anchor text on
+                      the icon-only entries (OnlyFans, Patreon, Instagram,
+                      TikTok, Threads, Reddit). Pre-2026-05-11 these links
+                      had only aria-label which Google weights well below
+                      visible/sr-only text. */}
+                  <span className="sr-only">{p.name}</span>
+                </>
               ) : p.wordmark ? (
                 <Wordmark spec={p.wordmark} />
               ) : null}

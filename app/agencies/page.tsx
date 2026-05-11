@@ -18,7 +18,7 @@ const INCLUDED = [
   'Forensic watermarking + subscriber-level leaker tracing',
   'Face-match + deepfake detection (opt-in per creator)',
   'Unlimited DMCA takedowns + Google de-indexing',
-  '4-hour re-emergence checks on every confirmed-removed link',
+  'Automated re-emergence checks on every confirmed-removed link',
   'Slack / WhatsApp / email channel with your protection agent',
   'Consolidated monthly reporting per creator',
   'Single invoice — one billing relationship, no per-creator card management',

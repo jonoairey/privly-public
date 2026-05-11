@@ -50,7 +50,7 @@ export default function Page() {
         { feature: "AI face / image detection", privly: "Included (opt-in)", competitor: "Core feature", privlyHas: true, competitorHas: true },
         { feature: "Deepfake flagging", privly: "Built into face match", competitor: "Limited", privlyHas: true, competitorHas: "partial" },
         { feature: "Live Telegram channel monitoring", privly: "Real-time via Telegram API", competitor: "Limited", privlyHas: true, competitorHas: "partial" },
-        { feature: "Re-emergence checks", privly: "Every 4 hours, automatic", competitor: "Not standard", privlyHas: true, competitorHas: false },
+        { feature: "Re-emergence checks", privly: "Automated, ongoing", competitor: "Not standard", privlyHas: true, competitorHas: false },
         { feature: "DMCA takedowns", privly: "Unlimited, one-click", competitor: "Varies", privlyHas: true, competitorHas: "partial" },
         { feature: "Forensic watermarking", privly: "Included", competitor: "Not standard", privlyHas: true, competitorHas: false },
         { feature: "Leak source tracing", privly: "Subscriber-level", competitor: "No", privlyHas: true, competitorHas: false },
@@ -67,7 +67,7 @@ export default function Page() {
         { q: "Do I keep my scan history if I switch?", a: "Your leak history belongs to you. Privly re-indexes all known platforms on your first scan and picks up the trail from there." },
         { q: "Does Privly help with deepfakes?", a: "Yes. Deepfake and AI-generated impersonation detection is included. We file takedowns on the offending host and, where applicable, Google de-index requests to kill search visibility." },
       ]}
-      verdict="BranditScan is a solid detection tool. Privly now matches it on face match and Telegram coverage, then adds the full takedown stack — automated DMCAs, forensic watermarking, subscriber-level tracing, 4-hour re-emergence checks — at a flat $49/mo. If you're paying for BranditScan plus a separate DMCA service, Privly almost always wins on total cost."
+      verdict="BranditScan is a solid detection tool. Privly now matches it on face match and Telegram coverage, then adds the full takedown stack — automated DMCAs, forensic watermarking, subscriber-level tracing, ongoing re-emergence checks — at a flat $49/mo. If you're paying for BranditScan plus a separate DMCA service, Privly almost always wins on total cost."
       metaDescription="Privly vs BranditScan: AI leak detection, DMCA takedowns, watermarking and pricing compared."
     />
   );

@@ -376,7 +376,7 @@ export default function FeaturesPage() {
                     { emoji: '🤖', label: 'AI content matching across 500+ platforms' },
                     { emoji: '📡', label: 'Live Telegram channel monitoring' },
                     { emoji: '🪞', label: 'Face-match + deepfake detection' },
-                    { emoji: '🔁', label: 'Re-emergence checks every 4 hours' },
+                    { emoji: '🔁', label: 'Automated re-emergence checks' },
                     { emoji: '🧬', label: 'Forensic watermarks that survive re-encoding' },
                     { emoji: '⚡', label: 'Instant DMCA generation & filing' },
                   ].map((item, i) => (

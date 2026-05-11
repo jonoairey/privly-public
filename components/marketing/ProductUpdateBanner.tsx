@@ -24,7 +24,7 @@ const ITEMS: { emoji: string; text: string }[] = [
   { emoji: '📡', text: 'Telegram channel monitoring is live' },
   { emoji: '🪞', text: 'Deepfake & impersonation detection now live' },
   { emoji: '©', text: 'Registered DMCA Designated Agent · US Copyright Office' },
-  { emoji: '🔁', text: '4-hour re-emergence checks on every removed link' },
+  { emoji: '🔁', text: 'Re-emergence checks on every removed link' },
 ]
 
 export default function ProductUpdateBanner() {
