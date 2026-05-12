@@ -1,10 +1,14 @@
 import { Metadata } from "next";
 import ComparisonPage from "@/components/comparison-page";
 
+// SERP-title rewrite (2026-05-12): page is climbing impressions (11 → 89)
+// but converting 0% to clicks. New title leads with the two strongest
+// differentiators — flat $49 pricing and unlimited takedowns — so the
+// searcher has something to click for instead of "Compared".
 export const metadata: Metadata = {
-  title: "Privly vs OnlyGuard | OnlyFans Leak Protection Compared",
+  title: "Privly vs OnlyGuard: 2026 Comparison ($49 Flat + Unlimited DMCAs)",
   description:
-    "Privly vs OnlyGuard compared. DMCA takedowns, leak scanning, forensic watermarking, Telegram monitoring, and pricing for OnlyFans and Fansly creators.",
+    "Privly vs OnlyGuard in 2026: pricing, unlimited DMCAs, Telegram/Discord coverage. Privly = $49/mo flat, self-serve; OnlyGuard tiers up its best features. Pick the right fit.",
   keywords: [
     "privly vs onlyguard",
     "onlyguard alternative",
@@ -15,8 +19,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://www.useprivly.com/privly-vs-onlyguard" },
   openGraph: {
-    title: "Privly vs OnlyGuard | Content Protection Compared",
-    description: "Compare Privly and OnlyGuard on pricing, DMCA speed, and monitoring coverage.",
+    title: "Privly vs OnlyGuard: $49 Flat + Unlimited DMCAs (2026)",
+    description: "Privly = $49/mo flat with unlimited takedowns and full Telegram/Discord coverage. OnlyGuard tiers up its best features. Side-by-side comparison.",
     url: "https://www.useprivly.com/privly-vs-onlyguard",
     type: "website",
   },

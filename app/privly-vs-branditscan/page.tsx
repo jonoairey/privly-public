@@ -1,10 +1,13 @@
 import { Metadata } from "next";
 import ComparisonPage from "@/components/comparison-page";
 
+// SERP-title rewrite (2026-05-12): leads with the strategic message — Privly
+// matches BranditScan's face-match + Telegram coverage AND adds the full
+// takedown stack. The old "Compared" framing left that on the table.
 export const metadata: Metadata = {
-  title: "Privly vs BranditScan | OnlyFans Content Protection Compared",
+  title: "Privly vs BranditScan: 2026 (Face Match + Takedowns at $49 Flat)",
   description:
-    "Privly vs BranditScan head-to-head: compare pricing, face-match scanning, DMCA takedowns, Telegram monitoring, and forensic watermarking for OnlyFans creators.",
+    "Privly vs BranditScan in 2026: matches face match + Telegram coverage, then adds unlimited DMCA takedowns, forensic watermarking, and re-emergence checks — at $49/mo flat.",
   keywords: [
     "privly vs branditscan",
     "branditscan alternative",
@@ -15,8 +18,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://www.useprivly.com/privly-vs-branditscan" },
   openGraph: {
-    title: "Privly vs BranditScan | Content Protection Compared",
-    description: "Compare Privly and BranditScan on price, coverage, AI detection and DMCA speed.",
+    title: "Privly vs BranditScan: Face Match + Full Takedown Stack (2026)",
+    description: "Privly matches BranditScan's face match and Telegram coverage, then adds unlimited DMCAs, watermarking, and re-emergence checks — all at $49/mo flat.",
     url: "https://www.useprivly.com/privly-vs-branditscan",
     type: "website",
   },

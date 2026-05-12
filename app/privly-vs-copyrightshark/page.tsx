@@ -1,10 +1,13 @@
 import { Metadata } from "next";
 import ComparisonPage from "@/components/comparison-page";
 
+// SERP-title rewrite (2026-05-12): leads with the structural differentiator
+// — flat unlimited pricing vs CopyrightShark's volume-based tiers, plus
+// modern watermark-based source tracing the legacy service doesn't offer.
 export const metadata: Metadata = {
-  title: "Privly vs CopyrightShark | DMCA Service Comparison",
+  title: "Privly vs CopyrightShark: 2026 ($49 Flat, Unlimited + Source Tracing)",
   description:
-    "Privly vs CopyrightShark compared. See how pricing, DMCA speed, monitoring, and forensic watermarking differ for OnlyFans and Fansly creators.",
+    "Privly vs CopyrightShark in 2026: pricing, DMCA volume, watermarking. Privly = $49/mo flat with unlimited filings + subscriber-level source tracing; CopyrightShark tiers by volume.",
   keywords: [
     "privly vs copyrightshark",
     "copyrightshark alternative",
@@ -15,8 +18,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://www.useprivly.com/privly-vs-copyrightshark" },
   openGraph: {
-    title: "Privly vs CopyrightShark | DMCA Service Compared",
-    description: "Side-by-side comparison of Privly and CopyrightShark for creator content protection.",
+    title: "Privly vs CopyrightShark: $49 Flat + Unlimited DMCAs (2026)",
+    description: "Privly = $49/mo flat with unlimited DMCA filings and subscriber-level leak tracing. CopyrightShark is volume-tiered legacy DMCA.",
     url: "https://www.useprivly.com/privly-vs-copyrightshark",
     type: "website",
   },

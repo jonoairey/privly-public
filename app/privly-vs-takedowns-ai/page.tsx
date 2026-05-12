@@ -1,10 +1,13 @@
 import { Metadata } from "next";
 import ComparisonPage from "@/components/comparison-page";
 
+// SERP-title rewrite (2026-05-12): leads with the structural differentiator
+// — Privly bundles detection + filing + watermarking, Takedowns.AI is
+// filing-only. That's the actual decision the searcher needs to make.
 export const metadata: Metadata = {
-  title: "Privly vs Takedowns.AI | Automated DMCA Compared",
+  title: "Privly vs Takedowns.AI: 2026 ($49 Flat, Detection + Filing in One)",
   description:
-    "Privly vs Takedowns.AI side-by-side. Pricing, DMCA automation, forensic watermarking, Telegram monitoring, and leak source tracing compared.",
+    "Privly vs Takedowns.AI in 2026: Privly bundles AI detection + unlimited DMCA filing + forensic watermarking at $49/mo flat. Takedowns.AI is filing-only with usage-based billing.",
   keywords: [
     "privly vs takedowns ai",
     "takedowns ai alternative",
@@ -15,8 +18,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://www.useprivly.com/privly-vs-takedowns-ai" },
   openGraph: {
-    title: "Privly vs Takedowns.AI | Automated DMCA Compared",
-    description: "Side-by-side comparison of Privly and Takedowns.AI for creator content protection.",
+    title: "Privly vs Takedowns.AI: $49 Flat, Detection + Filing (2026)",
+    description: "Privly bundles detection, watermarking and unlimited DMCA filing at $49/mo flat. Takedowns.AI charges per use and is filing-only.",
     url: "https://www.useprivly.com/privly-vs-takedowns-ai",
     type: "website",
   },

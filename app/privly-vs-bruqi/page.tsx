@@ -1,10 +1,13 @@
 import { Metadata } from "next";
 import ComparisonPage from "@/components/comparison-page";
 
+// SERP-title rewrite (2026-05-12): generic "Compared" framing doesn't promise
+// the searcher a verdict. New title leads with the two strongest
+// differentiators vs Bruqi — flat $49 pricing and unlimited DMCAs.
 export const metadata: Metadata = {
-  title: "Privly vs Bruqi | OnlyFans Content Protection Compared",
+  title: "Privly vs Bruqi: 2026 Comparison ($49 Flat, Unlimited DMCAs)",
   description:
-    "Privly vs Bruqi side-by-side. Compare DMCA takedown pricing, scanning coverage, forensic watermarking and Telegram monitoring for OnlyFans creators.",
+    "Privly vs Bruqi in 2026: pricing, DMCA volume, forensic watermarking, Telegram coverage. Privly = $49/mo flat with everything included; Bruqi tiers by plan.",
   keywords: [
     "privly vs bruqi",
     "bruqi alternative",
@@ -15,8 +18,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://www.useprivly.com/privly-vs-bruqi" },
   openGraph: {
-    title: "Privly vs Bruqi | Content Protection Compared",
-    description: "See how Privly stacks up against Bruqi for OnlyFans leak protection and DMCA takedowns.",
+    title: "Privly vs Bruqi: $49 Flat + Unlimited DMCAs (2026)",
+    description: "Privly = $49/mo flat, unlimited takedowns, forensic watermarking included. Bruqi tiers features by plan. Side-by-side comparison.",
     url: "https://www.useprivly.com/privly-vs-bruqi",
     type: "website",
   },

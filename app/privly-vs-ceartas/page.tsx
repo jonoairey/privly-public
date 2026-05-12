@@ -1,10 +1,16 @@
 import { Metadata } from "next";
 import ComparisonPage from "@/components/comparison-page";
 
+// SERP-title rewrite (2026-05-12): page is climbing impressions (22 → 103)
+// but converting 0% to clicks. The generic "OnlyFans Leak Protection
+// Compared" framing doesn't promise the searcher anything actionable — they
+// typed "privly vs ceartas" wanting a verdict + price. New title leads with
+// the price differentiator ($49 flat vs Ceartas's agency-tier pricing) so
+// users have a reason to click rather than scrolling past.
 export const metadata: Metadata = {
-  title: "Privly vs Ceartas | OnlyFans Leak Protection Compared",
+  title: "Privly vs Ceartas: Honest 2026 Comparison ($49 vs Enterprise)",
   description:
-    "Privly vs Ceartas compared for 2026. Pricing, DMCA scope, AI detection, and monitoring for OnlyFans and Fansly creators — side by side.",
+    "Privly vs Ceartas in 2026: pricing, DMCA scope, AI detection. Privly = $49/mo flat, self-serve; Ceartas = agency-priced with sales calls. Pick the right fit.",
   keywords: [
     "privly vs ceartas",
     "ceartas alternative",
@@ -15,8 +21,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://www.useprivly.com/privly-vs-ceartas" },
   openGraph: {
-    title: "Privly vs Ceartas | OnlyFans Leak Protection Compared",
-    description: "Compare Privly and Ceartas on price, scanning, and DMCA coverage for creators.",
+    title: "Privly vs Ceartas: $49 Flat vs Enterprise Pricing (2026)",
+    description: "Privly is $49/mo flat with unlimited takedowns. Ceartas is agency-tier with sales calls. Side-by-side on price, DMCA scope, and AI detection.",
     url: "https://www.useprivly.com/privly-vs-ceartas",
     type: "website",
   },

@@ -24,10 +24,14 @@ import {
   Zap,
 } from "lucide-react";
 
+// SERP-title rewrite (2026-05-12): Rulta's pricing tiers (Pro $109 → Legend
+// $324) are public and verifiable, so the title can name them directly.
+// "55% cheaper" frame matches what the page hero already says, putting
+// brand-consistent copy in the search result.
 export const metadata: Metadata = {
-  title: "Privly vs Rulta | Content Protection Comparison | Privly",
+  title: "Privly vs Rulta: 2026 Comparison ($49 vs $109+ Tiered Plans)",
   description:
-    "Compare Privly and Rulta side by side. See how features, pricing, and protection coverage stack up for OnlyFans, Fansly, and adult content creators.",
+    "Privly vs Rulta in 2026: $49/mo flat with Telegram + Discord + watermarking included, vs Rulta's $109-$324 tiered plans where Telegram is Legend-only. Side-by-side feature breakdown.",
   keywords: [
     "privly vs rulta",
     "rulta alternative",
@@ -39,9 +43,9 @@ export const metadata: Metadata = {
     "rulta pricing",
   ],
   openGraph: {
-    title: "Privly vs Rulta | Content Protection Compared",
+    title: "Privly vs Rulta: $49 Flat vs $109+ Tiered (2026)",
     description:
-      "Side-by-side comparison of Privly and Rulta for content creators. Compare pricing, features, and protection coverage.",
+      "Privly = $49/mo flat with everything included. Rulta = $109-$324 tiered, Telegram only on the $324 plan. See the full feature-by-feature comparison.",
     type: "website",
     url: "https://www.useprivly.com/privly-vs-rulta",
   },

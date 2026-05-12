@@ -1,10 +1,13 @@
 import { Metadata } from "next";
 import ComparisonPage from "@/components/comparison-page";
 
+// SERP-title rewrite (2026-05-12): leads with what's specifically built for
+// adult creators — Telegram/Discord coverage on every plan — which is the
+// gap vs general-purpose Removetech.
 export const metadata: Metadata = {
-  title: "Privly vs Removetech | Content Protection Comparison",
+  title: "Privly vs Removetech: 2026 ($49 Flat + Telegram/Discord Included)",
   description:
-    "Privly vs Removetech compared. DMCA takedowns, leak scanning, AI detection, forensic watermarking, and Telegram monitoring for creators — side by side.",
+    "Privly vs Removetech in 2026: pricing, DMCA volume, messaging-app coverage. Privly = $49/mo flat with Telegram and Discord monitoring on every plan; Removetech treats them as add-ons.",
   keywords: [
     "privly vs removetech",
     "removetech alternative",
@@ -15,8 +18,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://www.useprivly.com/privly-vs-removetech" },
   openGraph: {
-    title: "Privly vs Removetech | Content Protection Compared",
-    description: "Side-by-side comparison of Privly and Removetech for DMCA takedowns and leak protection.",
+    title: "Privly vs Removetech: $49 Flat + Messaging-App Coverage (2026)",
+    description: "Privly = $49/mo flat with Telegram/Discord on every plan + subscriber-level leak tracing. Removetech is a general DMCA service without these defaults.",
     url: "https://www.useprivly.com/privly-vs-removetech",
     type: "website",
   },
