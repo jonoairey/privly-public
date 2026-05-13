@@ -340,6 +340,28 @@ ARTICLE_IMAGES['onlyfans-leak-removal-cost-2026'] = {
   alt: 'Calculator and notes on a desk — pricing breakdown',
   motif: 'chart',
 };
+// ─── Protection-intent articles (2026-05-13) ─────────────────────────
+// Three new articles targeting protection-intent queries Privly was
+// invisible for (pos 20-50). See article-data.ts comments for the
+// strategy + GSC data behind each pick. Motifs:
+//   - prevention playbook → shield (active defence framing)
+//   - Fansly protection guide → lock (account/content control)
+//   - launch checklist → trace (setup-from-zero framing)
+ARTICLE_IMAGES['how-to-stop-onlyfans-leaks-prevention-playbook-2026'] = {
+  src: u('photo-1495020689067-958852a7765e'),
+  alt: 'Strategy notes spread across a desk — prevention planning',
+  motif: 'shield',
+};
+ARTICLE_IMAGES['fansly-content-protection-2026-guide'] = {
+  src: u('photo-1556761175-5973dc0f32e7'),
+  alt: 'Hands typing on a laptop in a softly lit workspace — creator content protection',
+  motif: 'lock',
+};
+ARTICLE_IMAGES['onlyfans-launch-checklist-protect-account-from-day-one'] = {
+  src: u('photo-1484480974693-6ca0a78fb36b'),
+  alt: 'Checklist on a clipboard next to a coffee mug — launch-day planning',
+  motif: 'trace',
+};
 
 /**
  * Fallback image used when a slug isn't in the map.
