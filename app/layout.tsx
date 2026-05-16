@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Inter, Caveat } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { generateMetadata as genMeta, generateOrganizationSchema } from "@/lib/seo";
 
@@ -78,6 +80,15 @@ export default function RootLayout({
             (function(){var d=document;var s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
           `}
         </Script>
+        {/* Vercel Analytics — real-time pageview + bot-filtered traffic data
+            visible in the Vercel dashboard. Complements GA4 (which has
+            consent / sampling lag). Cookieless, no banner required. */}
+        <Analytics />
+        {/* Vercel Speed Insights — Core Web Vitals + geo + device data.
+            Surfaces which countries are actually performing well and where
+            (the Singapore-traffic question from 2026-05-15 needed exactly
+            this kind of breakdown). */}
+        <SpeedInsights />
       </body>
     </html>
   );
